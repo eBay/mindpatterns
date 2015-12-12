@@ -1,2 +1,1 @@
-# a11y-examples
-HTML Accessibility Pattern Examples
+# Examples - eBay Accessibility Patterns for the Web

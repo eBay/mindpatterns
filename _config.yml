@@ -1,0 +1,19 @@
+# Site settings
+title: Examples - eBay Accessibility Patterns for the Web
+email: ianmcburnie@hotmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  This site contains working examples for all patterns found in the book
+  eBay Accessibility Patterns for the Web.
+baseurl: "/a11y-examples"
+url: "http://ianmcburnie.github.io"
+patterns_baseurl: "/pages/accessibility/patterns"
+patterns_url: "https://github.corp.ebay.com"
+
+# twitter_username: ianmcburnie
+# github_username:  ianmcburnie
+
+# Build settings
+markdown: kramdown
+
+sass:
+    style: :compressed

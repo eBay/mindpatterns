@@ -1,0 +1,35 @@
+.combobox > [role=combobox] {
+    display: inline;
+}
+.combobox > button:after {
+    font-family: 'vq-icon-font';
+    content: '\e606';
+}
+.combobox > span {
+    display: none;
+}
+.combobox [role=combobox][aria-expanded=true] + button:after {
+    content: '\e609';
+}
+.combobox [role=listbox] {
+    display: none;
+    background: LightYellow;
+    border: 1px solid #eee;
+    font-size: small;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    z-index: 1;
+}
+.combobox [role=combobox][aria-expanded=true] ~ [role=listbox] {
+    display: block;
+}
+.combobox li {
+    cursor: pointer;
+    padding: 0.5em;
+}
+.combobox li[id] {
+    background-color: #006699;
+    color: white;
+}

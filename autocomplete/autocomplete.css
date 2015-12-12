@@ -1,0 +1,22 @@
+.autocomplete [role=listbox] {
+    background: LightYellow;
+    border: 1px solid #eee;
+    cursor: pointer;
+    display: none;
+    font-size: small;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    z-index:1;
+}
+
+.autocomplete [role=listbox] [id] {
+    background-color: #006699;
+    color: white;
+    outline: 0;
+}
+
+.autocomplete li {
+    padding: 0.5em;
+}

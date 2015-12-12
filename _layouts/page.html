@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<div role="main">
+    <div class="container">
+        {{ content }}
+    </div>
+</div>
+<footer role="contentinfo">
+    <div class="container">
+        <!--<a href="mailto:{{ site.email }}?subject=Accessibility Patterns">{{ site.email }}</a>-->
+    </div>
+    <nav aria-label="Directory" role="navigation">
+        <div class="container">
+            {% include toc.html %}
+        </div>
+    </nav>
+</footer>

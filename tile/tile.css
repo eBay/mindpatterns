@@ -1,0 +1,25 @@
+.tile {
+    border: 1px solid #eee;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.5em 2em 1em 1em;
+    text-decoration: none;
+    width: 100%;
+}
+.tile--light:focus,
+.tile--light:hover {
+    text-decoration: none;
+}
+.tile:hover,
+.tile:focus,
+.tile--focusin {
+    border-color: #bbb;
+}
+.tile--heavy:hover a {
+    text-decoration: underline;
+}
+.tile--light:focus,
+.tile--heavy a {
+    outline: 0;
+}

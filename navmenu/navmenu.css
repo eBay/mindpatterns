@@ -1,0 +1,37 @@
+.popupnav > div[aria-hidden=false] {
+    display: block;
+}
+.popupnav > a,
+.popupnav > button {
+    font-weight: normal;
+    margin: 0;
+}
+.popupnav > button:after {
+    content: ' \e601';
+    font-family: 'vq-icon-font';
+}
+.popupnav > div {
+    background-color: LightYellow;
+    border: 1px solid #aaa;
+    box-shadow: 2px 4px 5px #aaa;
+    font-size: small;
+    vertical-align:top;
+}
+.popupnav > div ul,
+.popupnav > div ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.popupnav > div a,
+.popupnav > div span {
+    box-sizing: border-box;
+    display:inline-block;
+    padding: 0.5em;
+    text-decoration: none;
+    width: 100%;
+}
+.popupnav > div a:focus,
+.popupnav > div a:hover {
+    text-decoration: underline;
+}

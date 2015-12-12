@@ -1,0 +1,3 @@
+.formvalidation input[aria-invalid=true] {
+    border: 1px solid #cc3300;
+}

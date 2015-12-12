@@ -1,0 +1,33 @@
+.skipto {
+    position: relative;
+}
+/* hide link offscreen */
+.skipto a {
+    font-size: 12px;
+    position: absolute;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0.2em 0.3em;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+.skipto a:focus {
+    background-color: LightYellow;
+    color: #006699;
+    clip: auto;
+    height: auto;
+    text-decoration: underline;
+    top: -1.75em;
+    width:auto;
+    z-index: 1;
+}
+/* hide outline when element is clicked */
+.skiptotarget:focus {
+    outline-width: 0;
+}
+/* show outline after skipto has been used */
+.skiptotarget--active:focus {
+    outline-width: thin;
+}

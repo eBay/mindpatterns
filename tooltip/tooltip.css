@@ -1,0 +1,16 @@
+.tooltip-js [role=tooltip] {
+    background-color: LightYellow;
+    border: 1px solid #ccc;
+    display: none;
+    font-size: small;
+    position: fixed;
+    padding: 0.5em;
+    text-align: center;
+    white-space: nowrap;
+}
+.tooltip-js .tooltip-delim {
+    display: none;
+}
+.tooltip-js [role=tooltip]:first-letter {
+    text-transform: uppercase;
+}

@@ -1,0 +1,33 @@
+---
+layout: page
+title: Input Meter
+permalink: /inputmeter/
+---
+
+<link rel="stylesheet" href="passwordstrength.css">
+
+<div class="row">
+    <div class="col-xs-12 col-md-7">
+        <h1>{{ page.title }}</h1>
+        <div>
+            <form>
+                <span class="passwordstrength">
+                    <label for="password1">Password</label>
+                    <input autofocus id="password1" type="password" name="p1" />
+                </span>
+            </form>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+        <h2>Readme</h2>
+        <p>Start typing a new password to display a strength meter (actual meter level is generated randomly).</p>
+        <p>Please <a href={{ "/messaging/inputmeter.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+    </div>
+</div>
+
+<script src="jquery.passwordstrength.js"></script>
+<script>
+    $(function() {
+        $('.passwordstrength').passwordstrength();
+    });
+</script>

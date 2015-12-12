@@ -1,0 +1,66 @@
+.carousel {
+    box-sizing: border-box;
+    border: 1px solid #eee;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.carousel > div > button {
+    background-color: transparent;
+    border: 0;
+    position: absolute;
+    padding: 0;
+    top: 45%;
+}
+.carousel > div > button[aria-disabled=true] {
+    color: #ccc;
+    cursor: default;
+}
+.carousel > div > button:after {
+    font-family: 'vq-icon-font';
+    font-size: 20px;
+}
+.carousel > div > button:first-child:after {
+    content: '\e607';
+}
+.carousel > div > button:last-child:after {
+    content: '\e608';
+}
+.carousel ul {
+    box-sizing: border-box;
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    white-space: nowrap;
+    vertical-align: top;
+}
+.carousel li {
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0 2px;
+    padding: 0;
+    white-space: normal;
+    vertical-align: top;
+}
+.carousel li[aria-hidden=true] {
+    display: none;
+}
+.carousel li.block {
+    display: inline-block;
+}
+.carousel li {
+    width: calc(100% - 4px);
+}
+.carousel.carousel-2 li {
+    width: calc(50% - 4px);
+}
+.carousel.carousel-3 li {
+    width: calc(33.3% - 4px);
+}
+.carousel.carousel-4 li {
+    width: calc(25% - 4px);
+}
+.carousel.carousel-5 li {
+    width: calc(20% - 4px);
+}

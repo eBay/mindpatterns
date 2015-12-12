@@ -1,0 +1,34 @@
+.listbox--js select {
+    display: none;
+
+}
+.listbox--multi-select [role=listbox] {
+    background-color: LightYellow;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    font-size: small;
+    margin: 0 0.5em;
+    padding: 0 0 0 0;
+    height: 75px;
+    width: 100px;
+    overflow-y: scroll;
+    vertical-align: top;
+}
+.listbox--multi-select [role=option] {
+    box-sizing: border-box;
+    padding: 5px 15px 5px 10px;
+}
+.listbox--multi-select [role=option]:focus {
+    outline: 0;
+    background-color: #006699;
+    color: white;
+}
+.listbox--multi-select [role=option]:after {
+    font-family: 'vq-icon-font';
+    float: right;
+}
+.listbox--multi-select [role=option][aria-selected=true]:after {
+    content: '\2713';
+}

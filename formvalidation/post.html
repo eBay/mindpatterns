@@ -1,0 +1,78 @@
+---
+layout: page
+---
+
+<link rel="stylesheet" href="formvalidation.css">
+<style>
+    input {
+        display: block;
+        margin: 0.25em 0;
+    }
+    #pagenotice {
+        border: 2px solid #cc3300;
+        color: #cc3300;
+        margin: 1em 0;
+        padding: 0 1em;
+    }
+    #pagenotice h2 {
+        margin-top: 1em;
+    }
+    #pagenotice a {
+        color: #cc3300;
+        text-decoration: underline;
+    }
+    .elementnotice {
+        color: #cc3300;
+        font-size: small;
+        margin-top: 0;
+    }
+    input[type=text][aria-invalid=true] {
+        border: 1px solid #cc3300;
+    }
+</style>
+
+<div id="pagenotice" tabindex="-1">
+    <h2>Error! The form could not be submitted due to invalid entries.</h2>
+    <p>Please correct the following fields:</p>
+    <ol>
+        <li><a href="#age_container">Age</a> - please enter a valid age (for example, 35)</li>
+        <li><a href="#shoesize_container">Shoe-size</a> - please enter a valid shoe size (for example, 8.5)</li>
+    </ol>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-md-7">
+        <h1>{{ page.title }}</h1>
+        <div>
+            <form action="post.html" class="formvalidation">
+                <fieldset>
+                    <legend>Your Details</legend>
+                    <div id="age_container" tabindex="-1">
+                        <label for="age">Age</label>
+                        <input aria-describedby="age_error" aria-invalid="true" id="age" type="text" name="age" />
+                        <p class="elementnotice" id="age_error">Please enter a valid age (for example, 35)</p>
+                    </div>
+                    <div id="shoesize_container" tabindex="-1">
+                        <label for="shoesize">Shoe-Size</label>
+                        <input aria-describedby="shoesize_error" aria-invalid="true" id="shoesize" type="text" name="shoesize" />
+                        <p class="elementnotice" id="shoesize_error">Please enter a valid shoe size (for example, 8.5)</p>
+                    </div>
+                </fieldset>
+                <input type="submit" />
+            </form>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+        <h2>Readme</h2>
+        <p>Submit the form to display a region notice and element notices.</p>
+        <p>With JavaScript disabled the page will reload and display a page notice and element notices.</p>
+        <p>Please <a href={{ "/messaging/formvalidation.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+    </div>
+</div>
+
+<script src="jquery.formvalidation.js"></script>
+<script>
+    $(function() {
+        $('.formvalidation').formvalidation();
+    });
+</script>

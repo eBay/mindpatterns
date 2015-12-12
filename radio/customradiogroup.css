@@ -1,0 +1,25 @@
+/* using custom element, ARIA and JavaScript */
+
+.customradiogroup [role=radiogroup] input[type=radio] {
+    display: none;
+}
+.customradiogroup [role=radiogroup] span[role=radio] {
+    background-color: white;
+    border-radius: 1em;
+    display: inline-block;
+    height: 1em;
+    overflow: hidden;
+    width: 1em;
+}
+
+.customradiogroup [role=radiogroup] span[role=radio]:before {
+    color: #B9B8B8;
+    display: inline-block;
+    font-family: 'vq-icon-font';
+    content: '\e62b';
+}
+
+.customradiogroup [role=radiogroup] span[role=radio][aria-checked=true]:before {
+    color: #0654ba;
+    content: '\e62d';
+}

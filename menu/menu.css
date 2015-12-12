@@ -1,0 +1,70 @@
+.popupmenu > div,
+.popupmenu [role=menuitem][aria-haspopup=true] > div {
+    display: none;
+}
+.popupmenu [role=menu] {
+    background-color: LightYellow;
+    border: 1px solid #aaa;
+    box-shadow: 1px 2px 2.5px #ccc;
+    cursor: pointer;
+    font-size: small;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    z-index: 1;
+}
+.popupmenu [aria-haspopup=true][aria-expanded=true] + div,
+.popupmenu [aria-haspopup=true][aria-expanded=true] > [role=menu] {
+    display: block;
+}
+.popupmenu button:after {
+    content: ' \e61c';
+    font-family: 'vq-icon-font';
+}
+.popupmenu [role=menu] hr {
+    border: 0;
+    background-color: #ccc;
+    height: 1px;
+    margin: 0.1em 0;
+}
+.popupmenu [role=menu] hr {
+    margin: 0;
+}
+.popupmenu [role=menu] [role^=menuitem],
+.popupmenu [role=menu] a {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0.5em 1em 0.25em 1em;
+    width: 100%;
+}
+.popupmenu [role^=menuitem]::first-letter {
+    /* the following rule causes an odd bug in VoiceOver */
+    /* text-decoration: underline; */
+}
+.popupmenu [role^=menuitem]:focus {
+    background-color: #006699;
+    color: white;
+    outline: 0 none;
+}
+.popupmenu [role^=menuitem][aria-checked=true]::before {
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+.popupmenu [role=menuitemcheckbox][aria-checked=true]::after {
+    content: '\2713';
+    float: right;
+}
+.popupmenu [role=menuitemradio][aria-checked=true]::before {
+    content: '\00a0\2022';
+}
+.popupmenu [role=menuitem][aria-haspopup=true]::after {
+    content: '\e601';
+    float: right;
+    font-family: 'vq-icon-font';
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+}

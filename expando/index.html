@@ -1,0 +1,41 @@
+---
+layout: page
+title: Expando
+permalink: /expando/
+---
+
+<link rel="stylesheet" href="expando.css">
+<style>
+    .expando > div > div {
+        background-color: LightYellow;
+        border: 1px solid #eee;
+        margin-top: 1em;
+        padding: 0.25em 1em;
+    }
+</style>
+
+<div class="row">
+    <div class="col-xs-12 col-md-7">
+        <h1>{{ page.title }}</h1>
+        <div>
+            <h3>Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC</h3>
+            <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+            <div class="expando">
+                <h4>1914 translation by H. Rackham</h4>
+                <p>"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+        <h2>Readme</h2>
+        <p>Use TAB key to reach expando button, then use ENTER or SPACEBAR to expand/collapse content.</p>
+        <p>Please <a href={{ "/disclosure/expando.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+    </div>
+</div>
+
+<script src="jquery.expando.js"></script>
+<script>
+    $(function() {
+        $('.expando').expando();
+    });
+</script>

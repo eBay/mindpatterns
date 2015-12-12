@@ -1,0 +1,63 @@
+---
+layout: page
+title: Focus Trap
+permalink: /focustrap/
+---
+
+<style>
+    input {
+        width: 75px;
+    }
+</style>
+
+<div class="row">
+    <div id="test" class="col-xs-12 col-md-7">
+        <h1>{{ page.title }}</h1>
+        <div id="keyboard_trap">
+            <button type="button">Activate trap</button>
+            <input aria-label="This is a dummy text input"/>
+            <input aria-label="This is a dummy text input"/>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+        <h2>Readme</h2>
+        <p>Click button to toggle trap on/off.</p>
+        <!--<p>Focus Trap extends Keyboard Trap to also trap mouse focus. It does not (and should not) prevent focus from leaving browser's viewport.</p>-->
+        <p>Please <a href={{ "/structure/dialog.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+    </div>
+</div>
+
+<script>
+    $(function() {
+        var $keyboardTrap = $('#keyboard_trap'),
+            $focusTrap = $('#focus_trap'),
+            $keyboardTrapButton = $('#keyboard_trap button'),
+            $focusTrapButton = $('#focus_trap button');
+
+        $keyboardTrapButton.on('click', function() {
+            var isActive = $('#keyboard_trap').hasClass('keyboard-trap--active');
+            isActive === true ? $.untrapKeyboard() : $.trapKeyboard('#keyboard_trap');
+        });
+
+        $focusTrapButton.on('click', function() {
+            var isActive = $('#focus_trap').hasClass('focus-trap--active');
+            isActive === true ? $.untrapFocus() : $.trapFocus('#focus_trap');
+        });
+
+        $keyboardTrap.on('on.keyboardTrap', function() {
+            $keyboardTrapButton.text('Deactivate trap');
+        });
+
+        $keyboardTrap.on('off.keyboardTrap', function() {
+            $keyboardTrapButton.text('Activate trap');
+        });
+
+        $focusTrap.on('on.focusTrap', function() {
+            $focusTrapButton.text('Deactivate trap');
+        });
+
+        $focusTrap.on('off.focusTrap', function() {
+            $focusTrapButton.text('Activate trap');
+        });
+    });
+</script>

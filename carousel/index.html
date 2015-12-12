@@ -1,0 +1,142 @@
+---
+layout: page
+title: Carousel
+permalink: /carousel/
+---
+
+<link rel="stylesheet" href="carousel.css">
+
+<style>
+    .carousel {
+        margin: 1em 0;
+        padding: 1em 0;
+        width: 100%;
+    }
+    .carousel li  {
+        padding: 1em 4em;
+    }
+    .carousel h3 {
+        margin: 0;
+    }
+    .carousel--filmstrip li {
+        padding: 0.5em;
+        text-align: center;
+    }
+    .carousel img {
+        border: 1px solid #aaa;
+        float: left;
+        margin-right: 1em;
+    }
+    .carousel--filmstrip img {
+        float: none;
+        margin-bottom: 0.2em;
+        margin-right: 0;
+        width: 70px;
+        height: 110px;
+    }
+    .carousel > div > button:first-child {
+        left: 0;
+    }
+    .carousel > div > button:last-child {
+        right: 0;
+    }
+    .carousel--filmstrip > div > button:first-child {
+        left: -0.25em;
+    }
+    .carousel--filmstrip > div > button:last-child {
+        right: -0.25em;
+    }
+</style>
+
+<div class="row">
+    <div class="col-xs-12 col-md-7">
+        <h1>{{ page.title }}</h1>
+        <div class="carousel" data-carousel="1">
+            <ul>
+                <li>
+                    <img src="../images/horace.jpg" alt="" />
+                    <h3><a href="http://www.ebay.com">Horace &amp; the Spiders</a></h3>
+                    <p>Spectrum 48K</p>
+                    <p>eBay Now - $9.99 - Free Shipping</p>
+                </li><li>
+                    <img src="../images/doubledragon.jpg" alt="" />
+                    <h3><a href="http://www.ebay.com">Double Dragon</a></h3>
+                    <p>Spectrum 48K</p>
+                    <p>eBay Now - $9.99 - Free Shipping</p>
+                </li><li>
+                    <img src="../images/dizzy.jpg" alt="" />
+                    <h3><a href="http://www.ebay.com">Treasure Island Dizzy</a></h3>
+                    <p>Spectrum 48K</p>
+                    <p>eBay Now - $9.99 - Free Shipping</p>
+                </li><li>
+                    <img src="../images/spyhunter.jpg" alt="" />
+                    <h3><a href="http://www.ebay.com">Spy Hunter</a></h3>
+                    <p>Spectrum 48K</p>
+                    <p>eBay Now - $9.99 - Free Shipping</p>
+                </li><li>
+                    <img src="../images/chequeredflag.jpg" alt="" />
+                    <h3><a href="http://www.ebay.com">Chequered Flag</a></h3>
+                    <p>Spectrum 48K</p>
+                    <p>eBay Now - $9.99 - Free Shipping</p>
+                </li><li>
+                    <img src="../images/skooldaze.jpg" alt="" />
+                    <h3><a href="http://www.ebay.com">Skool Daze</a></h3>
+                    <p>Spectrum 48K</p>
+                    <p>eBay Now - $9.99 - Free Shipping</p>
+                </li><li>
+                    <img src="../images/lunarjetman.jpg" alt="" />
+                    <h3><a href="http://www.ebay.com">Lunar Jetman</a></h3>
+                    <p>Spectrum 48K</p>
+                    <p>eBay Now - $9.99 - Free Shipping</p>
+                </li><li>
+                    <img src="../images/yiearkungfu.jpg" alt="" />
+                    <h3><a href="http://www.ebay.com">Yie Ar Kung Fu</a></h3>
+                    <p>Spectrum 48K</p>
+                    <p>eBay Now - $9.99 - Free Shipping</p>
+                </li>
+            </ul>
+        </div>
+        <h2>Filmstrip Variant</h2>
+        <div class="carousel carousel--filmstrip carousel-4" data-carousel="4">
+            <ul>
+                <li>
+                    <img src="../images/horace.jpg" alt="" />
+                    <h3><a href="http://www.ebay.com">Horace &amp; the Spiders</a></h3>
+                </li><li>
+                    <img src="../images/doubledragon.jpg" alt="" />
+                    <h3><a href="http://www.ebay.com">Double<br />Dragon</a></h3>
+                </li><li>
+                    <img src="../images/dizzy.jpg" alt="" />
+                    <h3><a href="http://www.ebay.com">Treasure Island Dizzy</a></h3>
+                </li><li>
+                    <img src="../images/spyhunter.jpg" alt="" />
+                    <h3><a href="http://www.ebay.com">Spy<br />Hunter</a></h3>
+                </li><li>
+                    <img src="../images/chequeredflag.jpg" alt="" />
+                    <h3><a href="http://www.ebay.com">Chequered<br />Flag</a></h3>
+                </li><li>
+                    <img src="../images/skooldaze.jpg" alt="" />
+                    <h3><a href="http://www.ebay.com">Skool<br />Daze</a></h3>
+                </li><li>
+                    <img src="../images/lunarjetman.jpg" alt="" />
+                    <h3><a href="http://www.ebay.com">Lunar<br />Jetman</a></h3>
+                </li><li>
+                    <img src="../images/yiearkungfu.jpg" alt="" />
+                    <h3><a href="http://www.ebay.com">Yie Ar<br/>Kung Fu</a></h3>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+        <h2>Readme</h2>
+        <p>Use left/right paginate buttons to update the carousel viewport. Use TAB keys to navigate elements inside of carousel viewport.</p>
+        <p>Please <a href={{ "/disclosure/carousel.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+    </div>
+</div>
+
+<script src="jquery.carousel.js"></script>
+<script>
+    $(function() {
+        $('.carousel').carousel();
+    });
+</script>

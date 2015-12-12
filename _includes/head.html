@@ -1,0 +1,19 @@
+<head>
+    <script>
+        var htmlEl = document.getElementsByTagName('html')[0];
+        htmlEl.className += (htmlEl.className == '') ? 'js' : ' js';
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{{ site.description }}">
+
+    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <!--[if lt IE 9]>
+    <script src="{{ "/static/html5shiv.js" | prepend: site.baseurl }}"></script>
+    <![endif]-->
+    <script src="{{ "/static/lasso.js" | prepend: site.baseurl }}"></script>
+</head>

@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "localhost": "bundler exec jekyll serve --force_polling --config _config.yml,_config.localhost.yml",
+    "start": "npm run build && npm run localhost",
+    "build": "npm run lasso",
+    "lasso": "lasso ./browser.json --inject-into lasso.html --config lasso-config.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ianmcburnie/a11y-examples"
+  },
+  "devDependencies": {
+    "jquery": "^2.1.4",
+    "lasso-cli": "^1.1.16",
+    "@ebay/makeup": "~0.0.0"
+  }
+}

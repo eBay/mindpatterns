@@ -1,0 +1,39 @@
+---
+layout: page
+title: Input Validation
+permalink: /inputvalidation/
+---
+
+<link rel="stylesheet" href="inputvalidation.css">
+<style>
+    input {
+        display: block;
+        margin: 0.25em 0;
+    }
+</style>
+
+<div class="row">
+    <div class="col-xs-12 col-md-7">
+        <h1>{{ page.title }}</h1>
+        <div>
+            <div class="inputvalidation inputvalidation__number inputvalidation__onblur">
+                <span>
+                    <label for="shoesize">Shoe-Size</label>
+                    <input autofocus id="shoesize" type="text" name="shoesize" />
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+        <h2>Readme</h2>
+        <p>Enter any non-numerical character and then TAB out of field to receive an element notice.</p>
+        <p>Please <a href={{ "/messaging/inputvalidation.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+    </div>
+</div>
+
+<script src="jquery.inputvalidation.js"></script>
+<script>
+    $(function() {
+        $('.inputvalidation').inputvalidation();
+    });
+</script>

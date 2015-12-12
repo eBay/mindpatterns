@@ -1,0 +1,55 @@
+---
+layout: page
+title: Popup Nav
+permalink: /navmenu/
+---
+
+<link rel="stylesheet" href="../flyout/flyout.css">
+<link rel="stylesheet" href="navmenu.css">
+
+<div class="row">
+    <div class="col-xs-12 col-md-7">
+        <h1>{{ page.title }}</h1>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <h3>On Button</h3>
+                <div class="flyout popupnav popupnav--button">
+                    <button>My Actions</button>
+                    <div>
+                        <ul>
+                            <li><a href="http://www.ebay.com">Visit Seller</a></li>
+                            <li><a href="http://www.ebay.com">Contact Seller</a></li>
+                            <li><a href="http://www.ebay.com">View Similar Items</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <h3>On Link</h3>
+                <div class="flyout popupnav popupnav--link">
+                    <a href="http://www.ebay.com">My eBay</a>
+                    <div>
+                        <ul>
+                            <li><a href="http://www.ebay.com">Buying</a></li>
+                            <li><a href="http://www.ebay.com">Selling</a></li>
+                            <li><a href="http://www.ebay.com">Collections</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+        <h2>Readme</h2>
+        <p>Use SPACEBAR or ENTER key to open popup. Use TAB key to navigate hyperlinks.</p>
+        <p>Please <a href={{ "/navigation/navmenu.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+    </div>
+</div>
+
+
+<script>
+    $(function() {
+        $('.popupnav--button').buttonFlyout({focusManagement:true});
+        $('.popupnav--link').linkFlyout({focusManagement:true});
+    });
+</script>

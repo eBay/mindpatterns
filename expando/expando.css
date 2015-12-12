@@ -1,0 +1,8 @@
+.expando-js > button[aria-expanded=false] + * > * {
+    display: none;
+}
+
+.expando-js > button:after {
+    content: ' \e601';
+    font-family: 'vq-icon-font';
+}

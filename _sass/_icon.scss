@@ -1,0 +1,312 @@
+/*!
+Skin v2.1.9
+Copyright 2015 eBay! Inc. All rights reserved.
+Licensed under the BSD License.
+https://github.com/eBay/skin/blob/master/LICENSE.txt"
+*/
+[class*=" icon-"]:before,
+[class^="icon-"]:before {
+  display: inline-block;
+  font-family: "vq-icon-font";
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-transform: none;
+  speak: none;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-alert:before {
+  color: #f18e00;
+  content: "\e600";
+}
+
+.icon-arrow-down:before {
+  color: #676767;
+  content: "\e601";
+}
+
+.icon-arrow-up:before {
+  color: #676767;
+  content: "\e602";
+}
+
+.icon-buying-null:before {
+  color: #aaaaaa;
+  content: "\e603";
+}
+
+.icon-cart:before {
+  color: #676767;
+  content: "\e604";
+}
+
+.icon-cart-null:before {
+  color: #aaaaaa;
+  content: "\e605";
+}
+
+.icon-chevron-up:before {
+  color: #676767;
+  content: "\e609";
+}
+
+.icon-chevron-down:before {
+  color: #676767;
+  content: "\e606";
+}
+
+.icon-chevron-up-disabled:before {
+  color: #c7c7cc;
+  content: "\e609";
+}
+
+.icon-chevron-down-disabled:before {
+  color: #c7c7cc;
+  content: "\e606";
+}
+
+.icon-chevron-left:before {
+  color: #676767;
+  content: "\e607";
+}
+
+.icon-chevron-right:before {
+  color: #676767;
+  content: "\e608";
+}
+
+.icon-chevron-left-disabled:before {
+  color: #c7c7cc;
+  content: "\e607";
+}
+
+.icon-chevron-right-disabled:before {
+  color: #c7c7cc;
+  content: "\e608";
+}
+
+.icon-close:before {
+  color: #676767;
+  content: "\e60a";
+}
+
+.icon-error-null:before {
+  color: #aaaaaa;
+  content: "\e60b";
+}
+
+.icon-feedback-negative:before {
+  content: "\e60c";
+}
+
+.icon-feedback-neutral:before {
+  color: #5ba71b;
+  content: "\e60d";
+}
+
+.icon-feedback-null:before {
+  color: #aaaaaa;
+  content: "\e60e";
+}
+
+.icon-feedback-positive:before {
+  color: #5ba71b;
+  content: "\e60f";
+}
+
+.icon-follow:before {
+  color: #1252b6;
+  content: "\e610";
+}
+
+.icon-forsale-null:before {
+  color: #aaaaaa;
+  content: "\e611";
+}
+
+.icon-gear:before {
+  color: #676767;
+  content: "\e612";
+}
+
+.icon-images-null:before {
+  color: #aaaaaa;
+  content: "\e613";
+}
+
+.icon-info:before {
+  color: #0654ba;
+  content: "\e614";
+}
+
+.icon-menu:before {
+  color: #676767;
+  content: "\e615";
+}
+
+.icon-notifications:before {
+  color: #676767;
+  content: "\e616";
+}
+
+.icon-notifications-null:before {
+  color: #aaaaaa;
+  content: "\e617";
+}
+
+.icon-profile:before {
+  color: #676767;
+  content: "\e618";
+}
+
+.icon-search:before {
+  color: #676767;
+  content: "\e619";
+}
+
+.icon-search-null:before {
+  color: #aaaaaa;
+  content: "\e61a";
+}
+
+.icon-sell:before {
+  content: "\e61b";
+}
+
+.icon-sort:before {
+  color: #676767;
+  content: "\e61c";
+}
+
+.icon-star:before {
+  content: "\e61d";
+}
+
+.icon-success:before {
+  content: "\e61e";
+}
+
+.icon-success-circle:before {
+  color: #0654ba;
+  content: "\e61f";
+}
+
+.icon-view-expanded-list:before {
+  color: #676767;
+  content: "\e620";
+}
+
+.icon-view-gallery:before {
+  color: #676767;
+  content: "\e621";
+}
+
+.icon-view-list:before {
+  color: #676767;
+  content: "\e622";
+}
+
+.icon-error:before {
+  color: #dd1e31;
+  content: "\e623";
+}
+
+.icon-watching-null:before {
+  color: #aaaaaa;
+  content: "\e624";
+}
+
+.icon-check:before {
+  color: #0654ba;
+  content: "\e625";
+}
+
+.icon-arrow:before {
+  content: "\e626";
+}
+
+.icon-mail:before {
+  content: "\e627";
+}
+
+.icon-minus:before {
+  content: "\e62f";
+}
+
+.icon-checkbox-active:before {
+  content: "\e62a";
+}
+
+.icon-radio-btn-inactive:before {
+  content: "\e62b";
+}
+
+.icon-checkbox-inactive:before {
+  content: "\e62c";
+}
+
+.icon-radio-btn-active:before {
+  content: "\e62d";
+}
+
+.icon-clock:before {
+  content: "\e628";
+}
+
+.icon-header-chevron-left:before {
+  content: "\e629";
+}
+
+.icon-header-chevron-right:before {
+  content: "\e62e";
+}
+
+.spinner {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("//secureir.ebaystatic.com/pictures/skin/gif/spinner.svg") no-repeat center center;
+  background-size: cover;
+  -webkit-animation: spin 600ms linear infinite;
+          animation: spin 600ms linear infinite;
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.spinner--large {
+  width: 60px;
+  height: 60px;
+}
+
+/* Fallback for Andriod Browsers */
+
+.spinner-gif .spinner {
+  display: inline-block;
+  background: url("//secureir.ebaystatic.com/pictures/skin/gif/spinner.gif") no-repeat center center;
+}
+
+.spinner-gif .spinner--large {
+  background: url("//secureir.ebaystatic.com/pictures/skin/gif/spinner@2x.gif") no-repeat center center;
+}

@@ -1,0 +1,92 @@
+---
+layout: page
+title: Popup Menu
+permalink: /menu/
+---
+
+<link rel="stylesheet" href="menu.css">
+
+<div class="row">
+    <div class="col-xs-12 col-md-7">
+        <h1>{{ page.title }}</h1>
+        <div class="row">
+
+            <div class="col-xs-12 col-md-6">
+                <h3>Ungrouped Items</h3>
+                <div class="popupmenu">
+                    <button>Customise View</button>
+                    <div>
+                        <div role="menu">
+                            <div role="menuitem">Grid</div>
+                            <div role="menuitem">List</div>
+                            <!--
+                            <div role="menuitem" aria-haspopup="true">More Options
+                                <div>
+                                    <div role="menu">
+                                        <div role="menuitem">Text</div>
+                                        <div role="menuitem">Filmstrip</div>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-6">
+                <h3>Grouped Items</h3>
+                <div class="popupmenu">
+                    <button>Customise Results</button>
+                    <div>
+                        <div role="menu">
+                            <div role="presentation">
+                                <div role="menuitem">Grid View</div>
+                                <div role="menuitem">List View</div>
+                            </div>
+                            <hr />
+                            <div role="presentation">
+                                <div role="menuitemradio" aria-checked="true">Name Sort</div>
+                                <div role="menuitemradio" aria-checked="false">Date Sort</div>
+                                <div role="menuitemradio" aria-checked="false">Price Sort</div>
+                            </div>
+                            <hr />
+                            <div role="presentation">
+                                <div role="menuitemcheckbox" aria-checked="true">Buy it Now</div>
+                                <div role="menuitemcheckbox" aria-checked="true">Auction</div>
+                            </div>
+                            <!--
+                            <hr />
+                            <div role="presentation">
+                                <div role="menuitem" aria-haspopup="true">More Options
+                                    <div>
+                                        <div role="menu">
+                                            <div role="presentation">
+                                                <div role="menuitem">Show More Results</div>
+                                                <div role="menuitem">Show Less Results</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+        <h2>Readme</h2>
+        <p>Use ENTER or SPACE key to open popup. ARROW keys navigate menu. ENTER or SPACEBAR activates buttons, radios or checkboxes.</p>
+        <p>A menu contains commands (button, radio, or checkbox) that execute JavaScript. If you require non-JavaScript fallbacks, consider using native form controls.</p>
+        <p>Please <a href={{ "/input/dropdownmenu.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+    </div>
+</div>
+
+<script src="jquery.menu.js"></script>
+<script>
+    $(function() {
+        $('.popupmenu').menu();
+    });
+</script>

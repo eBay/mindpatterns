@@ -1,0 +1,60 @@
+---
+layout: page
+title: Bubble Help
+permalink: /bubblehelp/
+---
+
+<link rel="stylesheet" href="bubblehelp.css">
+<style>
+    .bubblehelp-content img {
+        border: 1px solid #ccc;
+        margin-right: 10px;
+        float: left;
+    }
+    #overflowhidden > div {
+        border: 1px solid #ccc;
+        overflow: hidden;
+        position: relative;
+        height: 150px;
+        width: 150px;
+        outline: 1px solid #eee;
+    }
+    #overflowhidden > div > p {
+        position: absolute;
+        top: 25%;
+        left: 25%;
+    }
+</style>
+
+<div class="row">
+    <div class="col-xs-12 col-md-7">
+        <h1>{{ page.title }}</h1>
+        <div>
+            <p>One morning, when Gregor Samsa <span class="bubblehelp"><a href="#bubblehelp1"><sup>[1]</sup></a></span> woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.</p>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+        <h2>Readme</h2>
+        <p>Use TAB key to reach bubble-help icon, then use ENTER or SPACEBAR to toggle flyout.</p>
+        <p>Please <a href={{ "/disclosure/bubblehelp.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+    </div>
+</div>
+<section aria-labelledby="ref_heading" id="references" role="region">
+    <h2 id="ref_heading">References</h2>
+    <ol>
+        <li>
+            <div id="bubblehelp1">
+                <p><img src="../images/gregorsamsa.jpg" alt="Illustration of Gregor Samsa" /></p>
+                <p>Gregor Samsa appears to be based upon <a href="http://en.wikipedia.org/wiki/Franz_Kafka">Kafka</a> himself. As when Kafka suffered from insomnia, he feared he was repulsive and a burden to his family, during which time his sister was his caretaker.</p>
+            </div>
+        </li>
+    </ol>
+</section>
+
+<script src="jquery.bubblehelp.js"></script>
+<script>
+    $(function() {
+        $('.bubblehelp').bubbleHelp();
+        $('#references').remove();
+    });
+</script>

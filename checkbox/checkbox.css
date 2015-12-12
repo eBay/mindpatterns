@@ -1,0 +1,76 @@
+/* using custom element */
+
+.customcheckbox input[type=checkbox] {
+    display: none;
+}
+.customcheckbox input[type=checkbox] + [role=checkbox] {
+    background-color: white;
+    border: 1px solid #B9B8B8;
+    border-radius: .25em;
+    color: #0654ba;
+    display: inline-block;
+    height: 1em;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle;
+    width: 1em;
+    text-align: center;
+}
+.customcheckbox input[type=checkbox]:checked + [role=checkbox]:after {
+    content: '\e625';
+    display: inline-block;
+    font-size: 6px;
+    font-family: 'vq-icon-font';
+    position: absolute;
+    left: 0.66em;
+    top: 0.66em;
+}
+
+/*
+using native checkbox element plus generated image content
+hides default browser visual focus indicator (therefore not recommended)
+*/
+
+.checkbox {
+    position: relative;
+}
+.checkbox input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+    /* filter: alpha(opacity=0); */
+    z-index: 99;
+}
+.checkbox input[type=checkbox] + * {
+    margin-left: 20px;
+}
+.checkbox input[type=checkbox] + *:after {
+    background-color: white;
+    border: 1px solid #B9B8B8;
+    border-radius: .25em;
+    content: '';
+    display: inline-block;
+    height: 16px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 16px;
+}
+html.ie8 .checkbox input[type=checkbox] + *:after{
+    border: 0;
+    background-color: transparent;
+}
+.checkbox input[type=checkbox]:checked + *:after {
+    color: #0654ba;
+    content: '\e625';
+    font-family: 'vq-icon-font';
+    font-size: 10px;
+    padding: 2.5px 2px;
+    text-align: center;
+}
+.checkbox input[type=checkbox]:focus + *:after {
+    border: 1px solid #326ab2;
+    outline: 1px dotted #666;
+}
+html.ie8 .checkbox input[type=checkbox]:focus + *:after {
+    border: 0;
+}

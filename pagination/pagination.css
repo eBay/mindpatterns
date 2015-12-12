@@ -1,0 +1,28 @@
+.pagination ol {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.pagination > a:focus {
+    text-decoration: none;
+}
+.pagination span,
+.pagination a {
+    display: inline-block;
+    padding: 0.5em 1em;
+}
+.pagination li {
+    display: inline;
+}
+.pagination a[aria-disabled="true"] {
+    cursor: default;
+}
+.pagination li span,
+.pagination li a[aria-disabled="true"] {
+    border: 1px solid #c9dde9;
+    border-radius: 3px;
+    color: #000;
+    opacity: 0.5;
+    text-decoration: none;
+}

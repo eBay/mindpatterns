@@ -1,0 +1,65 @@
+---
+layout: page
+title: Accordion
+permalink: /accordion/
+---
+
+<link rel="stylesheet" href="accordion.css">
+
+<style>
+    .accordion img {
+        float: right;
+        margin: 1em 0 1em 1em;
+    }
+</style>
+
+<div class="row">
+    <div class="col-xs-12 col-md-7">
+        <h1>{{ page.title }}</h1>
+        <div>
+            <div class="accordion">
+                <div>
+                    <h3>Nintendo Entertainment System</h3>
+                    <div>
+                        <img alt="Nintendo" src="../images/nes.jpg" />
+                        <p>The <a href="http://en.wikipedia.org/wiki/Nintendo_Entertainment_System">Nintendo Entertainment System</a> (also abbreviated as NES) is an 8-bit home video game console that was developed and manufactured by Nintendo. It was initially released in Japan as the Family Computer (Japanese: ファミリーコンピュータ Hepburn: Famirī Konpyūta?) (also known by the portmanteau abbreviation Famicom (ファミコン Famikon?) and abbreviated as FC) on July 15, 1983, and was later released in North America during 1985, in Europe during 1986, and Australia in 1987. In South Korea, it was known as the Hyundai Comboy (현대 컴보이) and was distributed by SK Hynix which then was known as Hyundai Electronics. It was succeeded by the Super Famicom/Super Nintendo Entertainment System.</p>
+                    </div>
+                </div>
+                <div>
+                    <h3>Sega Master System</h3>
+                    <div>
+                        <img alt="Sega Master System" src="../images/sms.jpg" />
+                        <p>The <a href="http://en.wikipedia.org/wiki/Master_System">Master System</a> (Japanese: マスターシステム Hepburn: Masutā Shisutemu?), often called the Sega Master System or SMS, is a third-generation home video game console that was manufactured by Sega. It was originally released in 1985 as the Sega Mark III in Japan. After being redesigned prior to its North American launch, the console was renamed Master System and released in 1986 in North America, 1987 in Europe, and 1989 in Brazil. The redesigned Master System was also released in Japan in 1987. Both the Mark III and the original Master System models could play with both cartridges and the credit card-sized "Sega Cards", which retailed at lower prices than cartridges but had lower storage capacity; the Master System II and later models did not have the card slot. The Master System also featured accessories such as a light gun and 3D glasses which were designed to work with a range of specially coded games.</p>
+                        </div>
+                </div>
+                <div>
+                    <h3>Commodore 64</h3>
+                    <div>
+                        <img alt="Commodore 64" src="../images/c64.jpg" />
+                        <p>The <a href="http://en.wikipedia.org/wiki/Commodore_64">Commodore 64</a>, also known as the C64, C-64, C= 64,[n 1] or occasionally CBM 64 or VIC-64,[5] is an 8-bit home computer introduced in January 1982 by Commodore International. It is listed in the Guinness Book of World Records as the highest-selling single computer model of all time,[6] with independent estimates placing the number sold between 10 and 17 million units.[7]. Volume production started in early 1982, with machines being released on to the market in August at a price of US $595 (roughly equivalent to $1,500 in 2015).[8][9] Preceded by the Commodore VIC-20 and Commodore PET, the C64 takes its name from its 64 kilobytes (65,536 bytes) of RAM, and has technologically superior sound and graphical specifications when compared to some earlier systems such as the Apple II and Atari 800, with multi-color sprites and a more advanced sound processor.</p>
+                    </div>
+                </div>
+                <div>
+                    <h3>ZX Spectrum</h3>
+                    <div>
+                        <img alt="Spectrum" src="../images/zx48.jpg" />
+                        <p>The <a href="http://en.wikipedia.org/wiki/ZX_Spectrum">ZX Spectrum</a> (pronounced /ˈzɛdˌɛks/ "Zed-Ex"[2][3]) is an 8-bit personal home computer released in the United Kingdom in 1982 by Sinclair Research Ltd. Referred to during development as the ZX81 Colour and ZX82,[4][5] the machine was launched as the ZX Spectrum by Sinclair to highlight the machine's colour display, compared with the black and white of its predecessor, the ZX81.[6] The Spectrum was ultimately released as eight different models, ranging from the entry level model with 16 KB RAM released in 1982 to the ZX Spectrum +3 with 128 KB RAM and built in floppy disk drive in 1987; together they sold in excess of 5 million units worldwide (not counting numerous clones).[7]</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+        <h2>Readme</h2>
+        <p>Use TAB key to enter/exit accordion, ARROW keys to change tabs, and ENTER or SPACEBAR to expand/collapse tabs.</p>
+        <p>Please <a href={{ "/disclosure/accordion.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+    </div>
+</div>
+
+<script src="jquery.accordion.js"></script>
+<script>
+    $(function() {
+        $('.accordion').accordion();
+    });
+</script>

@@ -1,0 +1,161 @@
+@font-face {
+  font-family: "vq-icon-font";
+  font-style: normal;
+  font-weight: normal;
+  src: url('fonts/vq-icon-font.eot');
+  src: url('fonts/vq-icon-font.eot?#iefix') format('embedded-opentype'), url('fonts/vq-icon-font.woff') format('woff'), url('fonts/vq-icon-font.ttf') format('truetype'), url('fonts/vq-icon-font.svg#vq-icon-font') format('svg');
+}
+body {
+    background-color: white;
+    color: #333;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    margin: 0;
+}
+h1,
+h2 {
+
+}
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    margin-top: 2em;
+}
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    margin-top: 2em;
+}
+h3 {
+    font-size: 1em;
+
+}
+
+a {
+    color: #006699;
+}
+a:focus {
+    text-decoration: underline;
+}
+
+legend {
+    font-weight: bold;
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    margin: 1em 0;
+    padding: 2em;
+}
+
+button,
+input[type=submit],
+input[type=reset],
+input[type=button],
+[role=button],
+select {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    cursor: pointer;
+    padding: 0.3em 0.8em;
+    text-decoration: none;
+}
+a[role=button] {
+    color: currentColor;
+    font-size: 12px;
+}
+a[role=button]:hover {
+    text-decoration: none;
+}
+
+body > header[role=banner] {
+    background: #eee;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+}
+
+body > header[role=banner] a {
+    color: currentColor;
+    display: inline-block;
+    text-decoration: none;
+}
+
+body > header[role=banner] img {
+    border: 0;
+    vertical-align: middle;
+}
+
+div[role=main] {
+    padding-bottom: 5em;
+}
+div[role=main] {
+    border-bottom: 1px solid #eee;
+}
+
+footer[role=contentinfo] {
+    font-size: 14px;
+    padding-top: 1em;
+}
+a {
+    text-decoration: none;
+}
+p a,
+a:hover {
+    text-decoration: underline;
+}
+.col-md-offset-1 > #toc {
+    column-count: 3;
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+}
+.col-md-offset-1 > #toc li {
+    display: inline-block;
+    margin: 0 5px 10px 5px;
+    width: 100%;
+}
+
+#toc {
+    font-size: 14px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.container > #toc {
+    margin-top: 1em;
+}
+
+.container >  #toc li {
+    display: inline;
+}
+
+.container > #toc li:after {
+    content: ' - ';
+}
+
+.container >  #toc li:last-child:after {
+    content: '';
+}
+
+.accessAid,
+.clipped {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+}
+
+.unclipped {
+    clip: auto;
+    height: auto;
+    width: auto;
+}
+
+.suppress-focus-indicator {
+    outline: 0 none;
+}

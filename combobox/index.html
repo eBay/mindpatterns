@@ -1,0 +1,53 @@
+---
+layout: page
+title: Combobox
+permalink: /combobox/
+---
+
+<link rel="stylesheet" href="combobox.css">
+<style>
+    label {
+        display: block;
+        margin: 0.25em 0;
+    }
+</style>
+
+<div class="row">
+    <div class="col-xs-12 col-md-7">
+        <h1 class="post-title">{{ page.title }}</h1>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <h3>Opens On Down Key Only</h3>
+                <form>
+                    <div class="combobox">
+                        <label for="combobox-example-0">What is your favourite animal?</label>
+                        <input autofocus id="combobox-example-0" name="animal0" type="text" placeholder="Aardvark, Antelope, etc." size="30">
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-xs-12 col-md-6">
+                <h3>Opens On Focus or Down Key</h3>
+                <form>
+                    <div class="combobox">
+                        <label for="combobox-example-1">What is your favourite animal?</label>
+                        <input id="combobox-example-1" name="animal1" type="text" placeholder="Aardvark, Antelope, etc." size="30">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+        <h2>Readme</h2>
+        <p>Input your own text or use UP and DOWN ARROW keys then ENTER to select a predefined choice from dropdown list.</p>
+        <p>Please <a href={{ "/input/combobox.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+    </div>
+</div>
+
+<script src="jquery.combobox.js"></script>
+<script>
+    $(function() {
+        $('.combobox').first().combobox();
+        $('.combobox').last().combobox({"showOnFocus":true});
+    });
+</script>

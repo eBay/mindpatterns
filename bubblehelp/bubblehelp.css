@@ -1,0 +1,34 @@
+.bubblehelp > a {
+    background: 0;
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+}
+.bubblehelp > a:after {
+    color: #006699;
+    content: '\e614';
+    font-family: 'vq-icon-font';
+    font-size: 1.2em;
+}
+.bubblehelp a[aria-expanded=true]:after {
+    content: '\e60a';
+}
+.bubblehelp > a sup {
+    display: none;
+}
+.bubblehelp-js a:focus {
+    text-decoration: none;
+}
+.bubblehelp-js .bubblehelp-content {
+    background: LightYellow;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 1px #ccc;
+    display: none;
+    font-size: small;
+    margin: 0 0.25em;
+    max-width: 250px;
+    padding: 0 1em;
+    position: fixed;
+    text-align:justify;
+    z-index: 1;
+}

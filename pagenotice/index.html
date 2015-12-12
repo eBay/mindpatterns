@@ -1,0 +1,65 @@
+---
+layout: page
+title: Page Notice
+permalink: /pagenotice/
+---
+
+<style>
+    .page-notice {
+
+        border: 1px solid #ccc;
+        border-top: 3px solid currentColor;
+        padding: 1em;
+    }
+    .page-notice h2 {
+        margin-top: 0;
+    }
+    .page-notice h2:before {
+        background: url('../images/skin_sprite3.png') no-repeat -140px -100px;
+        content: '';
+        width: 30px;
+        height: 25px;
+        display: inline-block;
+        margin-right: 0.25em;
+        vertical-align: top;
+    }
+    .page-notice p {
+        margin-left: 2.25em;
+    }
+    .page-notice--error {
+        color: rgb(223, 37, 57);
+    }
+    .page-notice--info {
+        color: purple;
+    }
+    .page-notice--success {
+        color: green;
+    }
+    .page-notice--warning {
+        color: orange;
+    }
+</style>
+
+<div class="row">
+    <div class="col-xs-12 col-md-7">
+        <h1>{{ page.title }}</h1>
+        <div>
+            <section aria-label="Error Message" class="page-notice page-notice--error" role="region">
+                <h2>We had trouble connecting to PayPal.</h2>
+                <p>Please make your payment later.</p>
+            </section>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+        <h2>Readme</h2>
+        <p>The notice must receive programmatic keyboard focus only if the task or operation was unsuccessful.</p>
+        <p>Please <a href={{ "/messaging/pagenotice.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+    </div>
+</div>
+
+<script src="jquery.pagenotice.js"></script>
+<script>
+    $(function() {
+        $('.page-notice').pagenotice();
+    });
+</script>

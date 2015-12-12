@@ -1,0 +1,90 @@
+---
+layout: page
+title: Checkbox
+permalink: /checkbox/
+---
+
+<link rel="stylesheet" href="checkbox.css">
+<style>
+    input[type=submit] {
+        float: right;
+    }
+</style>
+
+<div class="row">
+    <div class="col-xs-12 col-md-7">
+        <h1>{{ page.title }}</h1>
+        <form>
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <fieldset>
+                        <legend>Native HTML</legend>
+                        <div>
+                            <input id="checkbox1_freeshipping1" type="checkbox" name="freeshipping1" />
+                            <label for="checkbox1_freeshipping1">Free Shipping</label>
+                        </div>
+                        <div>
+                            <input id="checkbox2_endssoon1" type="checkbox" name="endssoon1" />
+                            <label for="checkbox2_endssoon1">Ends soon</label>
+                        </div>
+                        <div>
+                            <input id="checkbox3_zerobids1" type="checkbox" name="zerobids1" />
+                            <label for="checkbox3_zerobids1">Zero bids</label>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <fieldset>
+                        <legend>Pure CSS</legend>
+                        <div class="checkbox">
+                            <input id="checkbox1_freeshipping2" type="checkbox" name="freeshipping2" />
+                            <label for="checkbox1_freeshipping2">Free Shipping</label>
+                        </div>
+                        <div class="checkbox">
+                            <input id="checkbox2_endssoon2" type="checkbox" name="endssoon2" />
+                            <label for="checkbox2_endssoon2">Ends soon</label>
+                        </div>
+                        <div class="checkbox">
+                            <input id="checkbox3_zerobids2" type="checkbox" name="zerobids2" />
+                            <label for="checkbox3_zerobids2">Zero bids</label>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <fieldset>
+                        <legend>Custom HTML</legend>
+                        <div class="customcheckbox">
+                            <input id="checkbox1_freeshipping3" type="checkbox" name="freeshipping3" />
+                            <label for="checkbox1_freeshipping3">Free Shipping</label>
+                        </div>
+                        <div class="customcheckbox">
+                            <input id="checkbox2_endssoon3" type="checkbox" name="endssoon3" />
+                            <label for="checkbox2_endssoon3">Ends soon</label>
+                        </div>
+                        <div class="customcheckbox">
+                            <input id="checkbox3_zerobids3" type="checkbox" name="zerobids3" />
+                            <label for="checkbox3_zerobids3">Zero bids</label>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <input type="submit" />
+        </form>
+    </div>
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+        <h2>Readme</h2>
+        <p>Use TAB key to navigate checkboxes, SPACEBAR to toggle selection, ENTER key submits form.</p>
+        <!-- <p>Always use <a href="http://www.w3.org/TR/html-markup/input.checkbox.html">native HTML checkboxes</a> if possible!</p> -->
+        <p>NOTE: IE8 and below will gracefully degrade to native, vanilla checkboxes.</p>
+        <p>Please <a href={{ "/input/checkbox.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these custom checkboxes were created.</p>
+    </div>
+</div>
+
+<script src="jquery.checkbox.js"></script>
+<script>
+    $(function() {
+        $('.customcheckbox').customcheckbox();
+    });
+</script>

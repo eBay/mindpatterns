@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="68px" height="30px" viewBox="0 0 68 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.1 (12002) - http://www.bohemiancoding.com/sketch -->
+    <title>spinner</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path id="path-1" d="M0.839590567,0.643554688 L20.9579837,0.643554688 L20.2338001,15.6863759 L0.839590567,20.7619478 L0.839590567,0.643554688 Z"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="spinner" sketch:type="MSArtboardGroup">
+            <ellipse id="Oval-1" stroke="#D8D5D3" stroke-width="4" sketch:type="MSShapeGroup" cx="15.0925444" cy="14.9074556" rx="12.4734037" ry="12.4734037"></ellipse>
+            <g id="Oval-2" sketch:type="MSLayerGroup" transform="translate(14.252954, -5.854492)">
+                <mask id="mask-2" sketch:name="Mask" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                <ellipse stroke="#2D8BE9" stroke-width="4" sketch:type="MSShapeGroup" mask="url(#mask-2)" cx="0.839590567" cy="20.7619478" rx="12.4734037" ry="12.4734037"></ellipse>
+            </g>
+            <ellipse id="Oval-21" fill="#0554BA" sketch:type="MSShapeGroup" cx="40.6677353" cy="15.488207" rx="4.66773528" ry="4.488207"></ellipse>
+            <path d="M51,15.8666862 L54.7393162,19.5 L62.0869565,12.3606512 L60.6866081,11 L54.8803508,16.6416611 L52.5202924,14.3485058 L51,15.8666862 Z" id="Path-28" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

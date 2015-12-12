@@ -1,0 +1,85 @@
+.navtabs > ul:first-child,
+.tabs > ul:first-child {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.navtabs > div:last-child,
+.tabs > div:last-child  {
+    border: 1px solid #aaa;
+    box-sizing: border-box;
+    padding: 1em;
+}
+.tabs > div:last-child {
+    height: 375px;
+    overflow-y: auto;
+}
+.navtabs > ul:first-child > li,
+.tabs > ul:first-child > li,
+.tabs > div:first-child > div {
+    background-color: LightYellow;
+    border: 1px solid #aaa;
+    border-bottom: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    padding: 5px 1em;
+}
+.navtabs > ul:first-child > li a,
+.tabs > ul:first-child > li a {
+    color: black;
+    font-weight: normal;
+    text-decoration: none;
+}
+.navtabs__selected {
+    text-decoration: underline;
+}
+
+/* vertical tabs modifier */
+
+/*
+.tabs--vertical {
+    overflow: auto;
+    padding: 0.75em;
+}
+.tabs--vertical > ul:first-child > li {
+    border-right: 0;
+    display: block;
+    margin: 0.25em 0;
+    padding: 0.25em 1em;
+}
+.tabs--vertical > ul:first-child {
+    display: table-cell;
+}
+.tabs--vertical > div:last-child {
+    display: table-cell;
+    padding: 1em;
+}
+*/
+
+/* js enhanced tabs modifier */
+
+.tabs--js > div:last-child {
+    height: auto;
+}
+.tabs--js [role=tab]:focus {
+    background: #006699;
+    outline: 0;
+}
+.tabs--js [role=tab]:focus,
+.tabs--js [role=tab]:focus a {
+    color: white;
+}
+.tabs--js [role=tabpanel] h3:first-child,
+.tabs--js [role=tabpanel] h4:first-child {
+    display: none;
+}
+.tabs--js [role=tabpanel][aria-hidden=false] {
+    display: block;
+}
+.tabs--js [role=tabpanel][aria-hidden=true] {
+    display: none;
+}
+.tabs--js [role=tab][aria-selected=true][tabindex="0"] {
+    text-decoration: underline;
+}

@@ -1,0 +1,29 @@
+.flyout {
+    position: relative;
+}
+.flyout > div {
+    display: none;
+    position: fixed;
+    z-index: 1;
+}
+.flyout > div[aria-hidden=false] {
+    display: block;
+}
+.flyout > a + button {
+    position: absolute;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0.2em 0.3em;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+.flyout > a + button:focus {
+    clip: auto;
+    height: auto;
+    left: 0;
+    width:auto;
+    bottom: -2.5em;
+    z-index: 1;
+}
