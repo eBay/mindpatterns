@@ -1,1 +1,1 @@
-# Examples - eBay Accessibility Patterns for the Web
+# eBay MIND Patterns - Accessibility Patterns for the Web
