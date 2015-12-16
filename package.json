@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "localhost": "bundler exec jekyll serve --force_polling --config _config.yml,_config.localhost.yml",
+    "localhost": "bundler exec jekyll serve --config _config.yml,_config.localhost.yml",
     "start": "npm run build && npm run localhost",
     "build": "npm run lasso",
     "lasso": "lasso ./browser.json --inject-into lasso.html --config lasso-config.json"
