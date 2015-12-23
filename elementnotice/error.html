@@ -1,0 +1,49 @@
+---
+layout: page
+title: Element Notice
+permalink: /elementnotice/error/
+---
+
+<style>
+
+    .page-notice {
+        margin-top: 2em;
+        border: 1px solid #ccc;
+        border-top: 3px solid currentColor;
+        padding: 1em;
+    }
+    .page-notice h2 {
+        margin-top: 0;
+    }
+    .page-notice h2:before {
+        background: url('../images/skin_sprite3.png') no-repeat -140px -100px;
+        content: '';
+        width: 30px;
+        height: 25px;
+        display: inline-block;
+        margin-right: 0.25em;
+        vertical-align: top;
+    }
+    .page-notice p {
+        margin-left: 2.25em;
+    }
+    .page-notice--error {
+        color: rgb(223, 37, 57);
+    }
+</style>
+
+<section role="region" aria-labelledby="like_error" class="page-notice page-notice--error" id="pagenotice">
+    <h2 id="like_error">Error! Your like was not successful.</h2>
+    <p>Please try again.</p>
+</section>
+
+<script src="../../pagenotice/jquery.pagenotice.js"></script>
+
+<script>
+    $(function() {
+
+        $('.page-notice').pagenotice();
+
+
+    });
+</script>

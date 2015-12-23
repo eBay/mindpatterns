@@ -14,7 +14,7 @@ permalink: /elementnotice/
     <div class="col-xs-12 col-md-7">
         <h1>{{ page.title }}</h1>
         <div>
-            <form action="dummypost.html" id="likeform">
+            <form action="/elementnotice/error/" id="likeform">
                 <input name="like" type="hidden" value="iphone12345" />
                 <span class="elementnotice">
                     <input id="likebtn" type="submit" value="Like" />
@@ -25,6 +25,7 @@ permalink: /elementnotice/
     <div class="col-xs-12 col-md-4 col-md-offset-1">
         <h2>Readme</h2>
         <p>Click the Like button to receive a hard-coded error in an element notice. Subsequent clicks will be successful and notice will be removed.</p>
+        <p>Disable JavaScript in your browser and click button to see server-side fallback.</p>
         <p>Please <a href={{ "/messaging/elementnotice.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
     </div>
 </div>
