@@ -25,6 +25,8 @@
 
             $this.nextId('autocomplete');
 
+            $this.attr('role', 'application');
+
             $listbox
                 .prop('id', $this.prop('id') + '-listbox')
                 .attr('role','listbox');
