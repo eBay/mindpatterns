@@ -26,6 +26,8 @@
 
             $this.nextId('combobox');
 
+            $this.attr('role', 'application');
+
             $listbox
                 .prop('id', $this.prop('id') + '-listbox')
                 .css('width', $input.css('width'))
