@@ -94,7 +94,7 @@
                 $input.focus();
             });
 
-            $input.on('change.activeDescendant', function(e, item) {
+            $input.on('activeDescendantChange', function(e, item) {
                 $input.val($(item).text());
             });
 

@@ -109,7 +109,7 @@
                     });
 
                     // update activedescendant plugin with new data
-                    $input.trigger('init.activeDescendant', [$listbox.find('li')]);
+                    $input.trigger('updateActiveDescendantCollection', [$listbox.find('li')]);
 
                     setTimeout(function() {
                         $statusEl.text($listbox.find('li').size() + (($listbox.find('li').size() === 1) ? ' suggestion found' : ' suggestions found') + '. Use up and down arrow keys to navigate suggestions.');
@@ -120,7 +120,7 @@
                 }
             });
 
-            $input.on('change.activeDescendant', function(e, item) {
+            $input.on('activeDescendantChange', function(e, item) {
                 $input.val($(item).text());
             });
 
@@ -131,7 +131,7 @@
             });
 
             $this.on('dismiss', function onAutocompleteDismiss(e) {
-                $input.trigger('init.activeDescendant', []);
+                $input.trigger('updateActiveDescendantCollection', []);
                 $listbox.hide().empty();
                 $input.attr('aria-expanded', 'false');
                 $statusEl.text('');

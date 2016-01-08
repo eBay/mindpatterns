@@ -12,6 +12,6 @@
   "devDependencies": {
     "jquery": "^2.1.4",
     "lasso-cli": "^1.1.16",
-    "@ebay/makeup": "~0.0.0"
+    "@ebay/makeup": "~0.1.0"
   }
 }
