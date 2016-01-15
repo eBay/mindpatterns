@@ -84,7 +84,7 @@
             $radiogroup.find('[role=radio]').rovingTabindex($radiogroup.prop('id'), {activeIndex: activeRadioIdx});
 
             // update radiogroup state on check event or rovingTabindex change
-            $radiogroup.on('check change.rovingTabindex', function onCheckAndRove(e, radiogroupitem) {
+            $radiogroup.on('check rovingTabindexChange', function onCheckAndRove(e, radiogroupitem) {
                 var $radiogroupitem = $(radiogroupitem).closest('.customradiogroupitem'),
                     $activeInput = $radiogroup.find('input:checked'),
                     $activeItem = $activeInput.closest('.customradiogroupitem');

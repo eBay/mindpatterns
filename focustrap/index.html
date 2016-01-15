@@ -44,19 +44,19 @@ permalink: /focustrap/
             isActive === true ? $.untrapFocus() : $.trapFocus('#focus_trap');
         });
 
-        $keyboardTrap.on('on.keyboardTrap', function() {
+        $keyboardTrap.on('keyboardTrap', function() {
             $keyboardTrapButton.text('Deactivate trap');
         });
 
-        $keyboardTrap.on('off.keyboardTrap', function() {
+        $keyboardTrap.on('keyboardUntrap', function() {
             $keyboardTrapButton.text('Activate trap');
         });
 
-        $focusTrap.on('on.focusTrap', function() {
+        $focusTrap.on('focusTrap', function() {
             $focusTrapButton.text('Deactivate trap');
         });
 
-        $focusTrap.on('off.focusTrap', function() {
+        $focusTrap.on('focusUntrap', function() {
             $focusTrapButton.text('Activate trap');
         });
     });

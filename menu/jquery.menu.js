@@ -55,7 +55,7 @@
             // all submenus start in collapsed state
             $subMenus.attr('aria-expanded', 'false');
 
-            $allmenuitems.on('change.rovingTabindex', function onRovingTabindex(event, item) {
+            $allmenuitems.on('rovingTabindexChange', function onRovingTabindex(event, item) {
                 $(item).focus();
             });
 
@@ -85,7 +85,7 @@
                 $(this).attr('aria-checked', 'true');
             });
 
-            $this.on('show.buttonFlyout hide.buttonFlyout', function onShowOrHide() {
+            $this.on('buttonFlyoutOpen buttonFlyoutClose', function onShowOrHide() {
                 $allmenuitems.attr('tabindex', '-1');
             });
 

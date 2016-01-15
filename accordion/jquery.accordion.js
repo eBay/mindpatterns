@@ -55,7 +55,7 @@
                 $accordionWidget.trigger('select', $(this));
             });
 
-            $accordionWidget.on('setfocus change.rovingTabindex', function(e, focusTab) {
+            $accordionWidget.on('setfocus rovingTabindexChange', function(e, focusTab) {
                 window.setTimeout( function onTimeout(e){
                     $(focusTab).focus();
                 }, 0);

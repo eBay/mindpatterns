@@ -40,7 +40,7 @@
             // Add focusexit plugin
             $tooltipWidget.focusExit();
 
-            $tooltipWidget.on('focusexit', function onFocusExit(e, data) {
+            $tooltipWidget.on('focusExit', function onFocusExit(e, data) {
                 $tooltipWidget.trigger('dismiss');
             });
 

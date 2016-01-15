@@ -74,7 +74,7 @@
             // Create a roving tab index on tabs
             $tabs.rovingTabindex($tabsWidget.prop('id'));
 
-            $tabsWidget.on('select change.rovingTabindex', function(e, selectedTab) {
+            $tabsWidget.on('select rovingTabindexChange', function(e, selectedTab) {
                 var $selectedTab = $(selectedTab),
                     $activeTab = $tablist.find('[aria-selected=true]'),
                     $activePanel = $panelcontainer.find('[aria-labelledby={0}]'.replace('{0}', $activeTab.attr('id'))),

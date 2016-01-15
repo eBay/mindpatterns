@@ -100,7 +100,7 @@
             $customOptions.rovingTabindex($this.prop('id'), {wrap:false});
 
             // listen for rovingtabindex events (triggered by keyboard)
-            $customListbox.on('change.rovingTabindex', function(e, item) {
+            $customListbox.on('rovingTabindexChange', function(e, item) {
                 $(item).focus();
             });
 
