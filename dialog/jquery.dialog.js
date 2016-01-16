@@ -81,7 +81,7 @@
                 $body.addClass('has-dialog');
 
                 // dialog must be closed on esc key
-                $(document).commonKeys().on('escape.commonKeyDown', onDocumentEscKey);
+                $(document).commonKeys().on('escapeKeyDown', onDocumentEscKey);
 
                 $closeButton.on('click', onCloseButtonClick);
             });
@@ -90,7 +90,7 @@
             $dialog.on('close.dialog', function onDialogClose() {
                 window.clearTimeout(openTimeout);
                 $closeButton.off('click', onCloseButtonClick);
-                $(document).off('escape.commonKeyDown', onDocumentEscKey);
+                $(document).off('escapeKeyDown', onDocumentEscKey);
                 $.untrapKeyboard();
                 $.untrapScreenreader();
                 $body.removeClass('has-dialog');

@@ -30,7 +30,7 @@
 
             $customListbox.commonKeys();
 
-            $customListbox.on('enter.commonKeyDown', function onListboxEnterKey(e) {
+            $customListbox.on('enterKeyDown', function onListboxEnterKey(e) {
                 $form.submit();
             })
 
@@ -105,7 +105,7 @@
             });
 
             // listen for click events (triggered by mouse/pointer)
-            $customOptions.on('click space.commonKeyDown', function(e) {
+            $customOptions.on('click spaceKeyDown', function(e) {
                 $customOptions.attr('tabindex', '-1');
                 $(e.currentTarget).attr('tabindex', '0');
                 $customListbox.find('#'+activeId).removeAttr('id');

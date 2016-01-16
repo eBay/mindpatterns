@@ -51,7 +51,7 @@
             // roving tab index also calls keyhandlers plugin
             $headings.rovingTabindex($accordionWidget.prop('id'));
 
-            $headings.on('space.commonKeyDown enter.commonKeyDown', function(e) {
+            $headings.on('spaceKeyDown enterKeyDown', function(e) {
                 $accordionWidget.trigger('select', $(this));
             });
 

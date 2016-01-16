@@ -62,7 +62,7 @@
                 $input.focus();
             });
 
-            $input.on('escape.commonKeyDown', function (e) {
+            $input.on('escapeKeyDown', function (e) {
                 if ($('#'+activeDescendantId).size() !== 0) {
                     $this.trigger('dismiss');
                 }
@@ -73,14 +73,14 @@
 
             // ENTER key with active descendant should make selection & dismiss
             // listbox. It should not submit form.
-            $input.on('enter.commonKeyDown', function(e) {
+            $input.on('enterKeyDown', function(e) {
                 if ($('#'+activeDescendantId).size() !== 0) {
                     e.preventDefault();
                     $this.trigger('dismiss');
                 }
             });
 
-            $input.on('uparrow.commonKeyDown', function(e) {
+            $input.on('upArrowKeyDown', function(e) {
                 // prevent caret from moving to start
                 e.preventDefault();
             });

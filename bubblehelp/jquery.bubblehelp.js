@@ -45,7 +45,7 @@
                 $bubblehelpWidget.trigger('toggle');
             });
 
-            $button.on('space.commonKeyDown', function (e) {
+            $button.on('spaceKeyDown', function (e) {
                 e.preventDefault();
                 $bubblehelpWidget.trigger('toggle');
             });
@@ -86,7 +86,7 @@
                 }
             });
 
-            $bubblehelpWidget.on('escape.commonKeyDown', function (e) {
+            $bubblehelpWidget.on('escapeKeyDown', function (e) {
                 $bubblehelpWidget.trigger('hide');
             });
 

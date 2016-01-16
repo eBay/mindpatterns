@@ -57,18 +57,18 @@
             $input.commonKeys();
             $input.activeDescendant($listbox.find('> li'));
 
-            $input.on('downarrow.commonKeyDown', function(e) {
+            $input.on('downArrowKeyDown', function(e) {
                 $this.trigger('show');
             });
 
-            $input.on('uparrow.commonKeyDown', function(e) {
+            $input.on('upArrowKeyDown', function(e) {
                 // prevent caret from moving to start
                 e.preventDefault();
             });
 
             // ENTER key with active descendant should make selection & dismiss
             // listbox. It should not submit form.
-            $input.on('enter.commonKeyDown', function (e) {
+            $input.on('enterKeyDown', function (e) {
                 // check for an active descendant and ENTER key
                 if ($input.attr('aria-expanded') == 'true') {
                     e.preventDefault();
@@ -104,7 +104,7 @@
                 }, 100);
             });
 
-            $input.on('escape.commonKeyDown', function (e) {
+            $input.on('escapeKeyDown', function (e) {
                 if($input.attr('aria-expanded') == 'true') {
                     $this.trigger('dismiss');
                 }

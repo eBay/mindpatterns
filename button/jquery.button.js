@@ -20,7 +20,7 @@
                 .attr('role', 'button')
                 .attr('tabindex', '0');
 
-            $this.on('space.commonKeyDown enter.commonKeyDown', function(e) {
+            $this.on('spaceKeyDown enterKeyDown', function(e) {
                 e.preventDefault();
                 isKeydown = true;
                 $this.trigger('_click');

@@ -63,11 +63,11 @@
                 $this.trigger('activate', e.target);
             });
 
-            $allmenuitems.not('a').on('space.commonKeyDown enter.commonKeyDown', function(e) {
+            $allmenuitems.not('a').on('spaceKeyDown enterKeyDown', function(e) {
                 $this.trigger('activate', e.target);
             });
 
-            $checkboxes.on('space.commonKeyDown enter.commonKeyDown', function(e) {
+            $checkboxes.on('spaceKeyDown enterKeyDown', function(e) {
                 $(this).attr('aria-checked', $(this).attr('aria-checked') == 'true' ? 'false' : 'true');
             });
 
@@ -75,7 +75,7 @@
                 $(this).attr('aria-checked', $(this).attr('aria-checked') == 'true' ? 'false' : 'true');
             });
 
-            $radios.on('space.commonKeyDown enter.commonKeyDown', function(e) {
+            $radios.on('spaceKeyDown enterKeyDown', function(e) {
                 $radios.attr('aria-checked', 'false')
                 $(this).attr('aria-checked', 'true');
             });

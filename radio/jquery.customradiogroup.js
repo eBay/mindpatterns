@@ -69,12 +69,12 @@
             });
 
             // enter key submits form
-            $radiogroupitems.on('enter.commonkeydown', function onEnterKeyDown(e) {
+            $radiogroupitems.on('enterKeyDown', function onEnterKeyDown(e) {
                 $form.submit();
             });
 
             // spacebar triggers 'check' event
-            $radiogroupitems.on('space.commonkeydown', function onSpaceKeyDown(e) {
+            $radiogroupitems.on('spaceKeyDown', function onSpaceKeyDown(e) {
                 $radiogroup.trigger('check', this);
             });
 

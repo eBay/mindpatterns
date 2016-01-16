@@ -46,7 +46,7 @@
             $checkbox.commonKeys();
 
             // make sure ENTER key submits form
-            $checkbox.on('enter.commonKeyDown', function onEnterKey(e) {
+            $checkbox.on('enterKeyDown', function onEnterKey(e) {
                 $form.submit();
             });
 
@@ -61,7 +61,7 @@
             })
 
             // trigger custom check event on SPACEBAR
-            $checkbox.on('space.commonKeyDown', function onSpacebar(e) {
+            $checkbox.on('spaceKeyDown', function onSpacebar(e) {
                 $checkbox.trigger('check');
             });
 
