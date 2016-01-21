@@ -37,7 +37,7 @@
             $this.buttonFlyout({focusManagement:true});
 
             // listen for specific key presses on all menu items
-            $allmenuitems.commonKeys();
+            $allmenuitems.commonKeyDown();
 
             // listen for roving tabindex update on all menu items
             $allmenuitems.rovingTabindex($this.prop('id'), {axis: 'y'});

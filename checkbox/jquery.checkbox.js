@@ -43,7 +43,7 @@
             $input.after($customInput);
 
             // plugins
-            $checkbox.commonKeys();
+            $checkbox.commonKeyDown();
 
             // make sure ENTER key submits form
             $checkbox.on('enterKeyDown', function onEnterKey(e) {

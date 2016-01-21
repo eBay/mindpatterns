@@ -29,8 +29,8 @@
             $content.addClass('bubblehelp-content');
 
             // plugins
-            $bubblehelpWidget.commonKeys();
-            $button.commonKeys();
+            $bubblehelpWidget.commonKeyDown();
+            $button.commonKeyDown();
 
             // place the content inline after the button
             // this creates a logical reading/tabindex order

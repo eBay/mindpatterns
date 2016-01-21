@@ -14,7 +14,7 @@
             var $this = $(this),
                 isKeydown = false;
 
-            $this.commonKeys();
+            $this.commonKeyDown();
 
             $this
                 .attr('role', 'button')

@@ -28,7 +28,7 @@
 
             $customListbox = $(this).find('[role=listbox]');
 
-            $customListbox.commonKeys();
+            $customListbox.commonKeyDown();
 
             $customListbox.on('enterKeyDown', function onListboxEnterKey(e) {
                 $form.submit();
@@ -91,7 +91,7 @@
 
             $customOptions = $customListbox.find('[role=option]');
 
-            $customOptions.commonKeys();
+            $customOptions.commonKeyDown();
 
             // set aria-selected on the active descendant
             $customListbox.find('#'+activeId).attr('aria-selected', 'true');

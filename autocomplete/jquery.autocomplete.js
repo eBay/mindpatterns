@@ -32,7 +32,7 @@
                 .attr('role','listbox');
 
             // use commonKeys plugin on input
-            $input.commonKeys();
+            $input.commonKeyDown();
 
             // use activedescendant plugin on input
             $input.activeDescendant();

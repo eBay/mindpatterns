@@ -78,7 +78,7 @@
                 $radiogroup.trigger('check', this);
             });
 
-            $radiogroup.find('[role=radio]').commonKeys();
+            $radiogroup.find('[role=radio]').commonKeyDown();
 
             // create a roving tab index on custom radios
             $radiogroup.find('[role=radio]').rovingTabindex($radiogroup.prop('id'), {activeIndex: activeRadioIdx});

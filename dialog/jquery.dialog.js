@@ -81,7 +81,7 @@
                 $body.addClass('has-dialog');
 
                 // dialog must be closed on esc key
-                $(document).commonKeys().on('escapeKeyDown', onDocumentEscKey);
+                $(document).commonKeyDown().on('escapeKeyDown', onDocumentEscKey);
 
                 $closeButton.on('click', onCloseButtonClick);
             });

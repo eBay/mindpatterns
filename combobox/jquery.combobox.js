@@ -54,7 +54,7 @@
                 .attr('aria-label', 'Expand suggestions');
 
             // plugins
-            $input.commonKeys();
+            $input.commonKeyDown();
             $input.activeDescendant($listbox.find('> li'));
 
             $input.on('downArrowKeyDown', function(e) {
