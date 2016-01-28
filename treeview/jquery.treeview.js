@@ -2,7 +2,6 @@
 * @function jquery.treeview.js
 * @author Ian McBurnie <imcburnie@ebay.com>
 * @requires jquery-next-id
-* @requires jquery-common-keys
 * @requires jquery-active-descendant
 */
 (function ( $ ) {
@@ -28,10 +27,10 @@
             $rootNode.attr('tabindex', '0');
             $treeContainers.attr('role', 'presentation');
 
-            $treeItems.activedescendant($treeItems);
+            $treeItems.activeDescendant($treeItems);
 
-            $treeItems.on('change.activeDescendant', function(e, id) {
-                console.log(id);
+            $treeItems.on('activeDescendantChange', function(e, newActiveDescendant) {
+                console.log(newActiveDescendant);
             });
 
             // call plugin to prevent page scroll

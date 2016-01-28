@@ -11,7 +11,8 @@
     z-index:1;
 }
 
-.autocomplete [role=listbox] [id] {
+.autocomplete [role=listbox] .activedescendant,
+.autocomplete [role=listbox] li[id*=activedescendant]{
     background-color: #006699;
     color: white;
     outline: 0;

@@ -120,8 +120,8 @@
                 }
             });
 
-            $input.on('activeDescendantChange', function(e, item) {
-                $input.val($(item).text());
+            $input.on('activeDescendantChange', function(e, newActiveDescendant) {
+                $input.val($(newActiveDescendant).text());
             });
 
             $input.on('blur', function onInputBlur(e) {
