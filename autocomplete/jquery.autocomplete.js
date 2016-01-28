@@ -6,6 +6,7 @@
 * @requires jquery-active-descendant
 * @requires jquery.splendid.textchange.js
 * @requires Array.prototype.filter
+* @todo this plugin should extend jquery.combobox.js 
 */
 (function ( $ ) {
 

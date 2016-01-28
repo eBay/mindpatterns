@@ -96,7 +96,12 @@
             });
 
             $input.on('activeDescendantChange', function(e, newActiveDescendant) {
-                $input.val($(newActiveDescendant).text());
+                // hack/workaround for Safari is an autocomplete type behaviour
+                //$input.val($(newActiveDescendant).text());
+            });
+
+            $input.on('enterKeyDown', function(e) {
+                $input.val($listbox.find('.activedescendant').text());
             });
 
             $input.on('blur', function onInputBlur(e) {
