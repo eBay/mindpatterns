@@ -4,7 +4,7 @@
 */
 (function ( $ ) {
 
-    $.fn.elementnotice = function elementNotice() {
+    $.fn.inlinenotice = function inlinenotice() {
 
         return this.each(function onEach() {
 
@@ -12,7 +12,7 @@
                 $interactiveElement = $this.children().first(),
                 $liveRegion = $('<span aria-live="polite" />');
 
-            $liveRegion.nextId('elementnotice');
+            $liveRegion.nextId('inline-notice');
             $interactiveElement.attr('aria-describedby', $liveRegion.attr('id'));
             $this.append($liveRegion);
         });
