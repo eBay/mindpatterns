@@ -1,12 +1,31 @@
 ---
 layout: page
-title: Element Notice
+title: Inline Notice
 permalink: /elementnotice/
 ---
 
 <style>
-    #likeform .elementnotice [aria-live] {
+    #likeform .inline-notice [aria-live] {
         color: #cc3300;
+        margin-left: 0.5em;
+    }
+    .card {
+        border: 1px solid #eee;
+        overflow: auto;
+        padding: 1em;
+        width: 100%;
+    }
+    .card img {
+        float: left;
+        margin-right: 1em;
+    }
+    .card h2 {
+        color: #333;
+        font-size: 18px;
+        margin-top: 0;
+    }
+    .card p {
+        color: #767676;
     }
 </style>
 
@@ -14,19 +33,24 @@ permalink: /elementnotice/
     <div class="col-xs-12 col-md-7">
         <h1>{{ page.title }}</h1>
         <div>
-            <form action="error.html" id="likeform">
-                <input name="like" type="hidden" value="iphone12345" />
-                <span class="elementnotice">
-                    <input id="likebtn" type="submit" value="Like" />
-                </span>
-            </form>
+            <div class="card">
+                <img src="../images/lumia635.jpg" />
+                <h2>Nokia Lumia 635</h2>
+                <p>$44.99</p>
+                <form action="error.html" id="likeform">
+                    <input name="like" type="hidden" value="iphone12345" />
+                    <span class="inline-notice">
+                        <input id="likebtn" type="submit" value="Like" />
+                    </span>
+                </form>
+            </div>
         </div>
     </div>
     <div class="col-xs-12 col-md-4 col-md-offset-1">
         <h2>Readme</h2>
-        <p>Click the Like button to receive a hard-coded error in an element notice. Subsequent clicks will be successful and notice will be removed.</p>
+        <p>Click the "like" button to receive a hard-coded error in an inline notice. Subsequent clicks will be successful and notice will be removed.</p>
         <p>Disable JavaScript in your browser and click button to see server-side fallback.</p>
-        <p>Please <a href={{ "/messaging/elementnotice.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+        <p>Please <a href={{ "/messaging/inlinenotice.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
     </div>
 </div>
 
@@ -35,9 +59,9 @@ permalink: /elementnotice/
     $(function() {
 
         // initialise element notice plugin
-        $('.elementnotice').elementnotice();
+        $('.inline-notice').elementnotice();
 
-        var $notice = $('#likeform .elementnotice [aria-live]');
+        var $notice = $('#likeform .inline-notice [aria-live]');
 
         // application page logic
         // trigger a dummy error message first time button is pressed
