@@ -6,9 +6,13 @@ permalink: /combobox/
 
 <link rel="stylesheet" href="combobox.css">
 <style>
-    label {
+    .combobox label {
         display: block;
         margin: 0.25em 0;
+    }
+    .combobox button,
+    .combobox input[type=text] {
+        margin: 0;
     }
 </style>
 
@@ -17,29 +21,31 @@ permalink: /combobox/
         <h1 class="post-title">{{ page.title }}</h1>
         <div class="row">
             <div class="col-xs-12 col-md-6">
-                <h3>Opens On Down Key Only</h3>
+                <h3>Opens On Down Key</h3>
                 <form>
-                    <div class="combobox" id="combobox-0">
-                        <label for="combobox-0-input">What is your favourite animal?</label>
-                        <input autofocus id="combobox-0-input" name="animal0" type="text" placeholder="Aardvark, Antelope, etc." size="30">
-                    </div>
+                    <span class="combobox" id="combobox-0">
+                        <label for="combobox-0-input">List your game console on eBay</label>
+                        <input autofocus id="combobox-0-input" name="console0" type="text" placeholder="Playstation 4, Xbox One, etc." size="25" />
+                    </span>
+                    <input type="submit" />
                 </form>
             </div>
 
             <div class="col-xs-12 col-md-6">
-                <h3>Opens On Focus or Down Key</h3>
+                <h3>Opens On Focus</h3>
                 <form>
-                    <div class="combobox" id="combobox-1">
-                        <label for="combobox-1-input">What is your favourite animal?</label>
-                        <input id="combobox-1-input" name="animal1" type="text" placeholder="Aardvark, Antelope, etc." size="30">
-                    </div>
+                    <span class="combobox" id="combobox-1">
+                        <label for="combobox-1-input">List your game console on eBay</label>
+                        <input id="combobox-1-input" name="console1" type="text" placeholder="Playstation 4, Xbox One, etc." size="25" />
+                    </span>
+                    <input type="submit" />
                 </form>
             </div>
         </div>
     </div>
     <div class="col-xs-12 col-md-4 col-md-offset-1">
         <h2>Readme</h2>
-        <p>Input your own text or use UP and DOWN ARROW keys then ENTER to select a predefined choice from dropdown list.</p>
+        <p>Input your own text or use UP and DOWN ARROW keys to select a predefined choice from list.</p>
         <p>Please <a href={{ "/input/combobox.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
     </div>
 </div>

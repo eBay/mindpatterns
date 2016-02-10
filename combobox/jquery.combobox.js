@@ -9,7 +9,7 @@
 */
 (function ( $ ) {
 
-    var data = ['Aardvark', 'Bear', 'Camel', 'Deer', 'Eel', 'Fox'];
+    var data = ['Playstation 3', 'Playstation 4', 'Xbox 360', 'Xbox One', 'Wii', 'Wii U'];
 
     $.fn.combobox = function combobox(options) {
 
@@ -84,15 +84,11 @@
             });
 
             $button.on('click', function(e) {
-                $input.focus();
-                if (options.showOnFocus !== true) {
-                    $this.trigger($input.attr('aria-expanded') == 'true' ? 'dismiss' : 'show');
-                }
+                $this.trigger($input.attr('aria-expanded') == 'true' ? 'dismiss' : 'show');
             });
 
             $listbox.on('click', function(e) {
                 $input.val($(e.target).text());
-                $input.focus();
             });
 
             $input.on('activeDescendantChange', function(e, newActiveDescendant) {
