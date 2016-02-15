@@ -3,7 +3,7 @@
 * @version 0.0.1
 * @author Ian McBurnie <imcburnie@ebay.com>
 * @requires jquery-button-flyout
-* @requires jquery-common-keys
+* @requires jquery-common-keydown
 * @requires jquery-roving-tabindex
 */
 (function ( $ ) {
@@ -40,7 +40,7 @@
             $allmenuitems.commonKeyDown();
 
             // listen for roving tabindex update on all menu items
-            $allmenuitems.rovingTabindex($this.prop('id'), {axis: 'y'});
+            $rootMenu.rovingTabindex($allmenuitems, {axis: 'y'});
 
             // assign id to menu
             $rootMenu.prop('id', $this.prop('id') + '-menu');
@@ -55,7 +55,7 @@
             // all submenus start in collapsed state
             $subMenus.attr('aria-expanded', 'false');
 
-            $allmenuitems.on('rovingTabindexChange', function onRovingTabindex(event, item) {
+            $rootMenu.on('rovingTabindexChange', function onRovingTabindex(event, item) {
                 $(item).focus();
             });
 

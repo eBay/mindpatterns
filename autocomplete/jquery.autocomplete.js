@@ -6,7 +6,7 @@
 * @requires jquery-active-descendant
 * @requires jquery.splendid.textchange.js
 * @requires Array.prototype.filter
-* @todo this plugin should extend jquery.combobox.js 
+* @todo this plugin should extend jquery.combobox.js
 */
 (function ( $ ) {
 
@@ -36,7 +36,7 @@
             $input.commonKeyDown();
 
             // use activedescendant plugin on input
-            $input.activeDescendant();
+            $this.activeDescendant($input);
 
             // retrieve the activeDescendantId
             // (it never changes value, it just moves around)

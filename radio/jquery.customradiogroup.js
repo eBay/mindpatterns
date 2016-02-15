@@ -81,7 +81,7 @@
             $radiogroup.find('[role=radio]').commonKeyDown();
 
             // create a roving tab index on custom radios
-            $radiogroup.find('[role=radio]').rovingTabindex($radiogroup.prop('id'), {activeIndex: activeRadioIdx});
+            $radiogroup.rovingTabindex('[role=radio]', {activeIndex: activeRadioIdx});
 
             // update radiogroup state on check event or rovingTabindex change
             $radiogroup.on('check rovingTabindexChange', function onCheckAndRove(e, radiogroupitem) {

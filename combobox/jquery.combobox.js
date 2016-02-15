@@ -53,9 +53,13 @@
                 .attr('tabindex', '-1')
                 .attr('aria-label', 'Expand suggestions');
 
+            $this.append($button);
+            $this.append($instructionsEl);
+            $this.append($listbox);
+
             // plugins
             $input.commonKeyDown();
-            $input.activeDescendant($listbox.find('> li'));
+            $this.activeDescendant($input, '[role=option]');
 
             $input.on('downArrowKeyDown', function(e) {
                 $this.trigger('show');
@@ -91,9 +95,10 @@
                 $input.val($(e.target).text());
             });
 
-            $input.on('activeDescendantChange', function(e, newActiveDescendant) {
+            $this.on('activeDescendantChange', function(e, newActiveDescendant) {
                 // hack/workaround for Safari is an autocomplete type behaviour
                 //$input.val($(newActiveDescendant).text());
+                console.log(e);
             });
 
             $input.on('enterKeyDown', function(e) {
@@ -123,10 +128,6 @@
                 clearTimeout(blurTimer);
                 $input.attr('aria-expanded', 'true');
             });
-
-            $this.append($button);
-            $this.append($instructionsEl);
-            $this.append($listbox);
         });
     };
 }( jQuery ));

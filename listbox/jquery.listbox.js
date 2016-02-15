@@ -1,6 +1,7 @@
 /**
 * @function jquery.listbox.js
-* @author Ian McBurnie (imcburnie@ebay.com)
+* @author Ian McBurnie <imcburnie@ebay.com>
+* @version 0.0.1
 */
 (function ( $ ) {
 
@@ -97,7 +98,7 @@
             $customListbox.find('#'+activeId).attr('aria-selected', 'true');
 
             // init rovingTabindex plugin on custom listbox
-            $customOptions.rovingTabindex($this.prop('id'), {wrap:false});
+            $customListbox.rovingTabindex($customOptions, {wrap:false});
 
             // listen for rovingtabindex events (triggered by keyboard)
             $customListbox.on('rovingTabindexChange', function(e, item) {
