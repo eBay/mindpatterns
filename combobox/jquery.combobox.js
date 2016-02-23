@@ -93,6 +93,7 @@
 
             $listbox.on('click', function(e) {
                 $input.val($(e.target).text());
+                $this.trigger($input.attr('aria-expanded') == 'true' ? 'dismiss' : 'show');
             });
 
             $this.on('activeDescendantChange', function(e, newActiveDescendant) {
