@@ -1,9 +1,9 @@
 /**
 * @function jquery.autocomplete.js
 * @author Ian McBurnie <imcburnie@ebay.com>
-* @requires jquery-next-id
-* @requires jquery-common-keys
-* @requires jquery-active-descendant
+* @requires @ebay/jquery-next-id
+* @requires @ebay/jquery-common-keydown
+* @requires @ebay/jquery-active-descendant
 * @requires jquery.splendid.textchange.js
 * @requires Array.prototype.filter
 * @todo this plugin should extend jquery.combobox.js
@@ -38,10 +38,6 @@
             // use activedescendant plugin on input
             $this.activeDescendant($input);
 
-            // retrieve the activeDescendantId
-            // (it never changes value, it just moves around)
-            activeDescendantId = $input.attr('aria-activedescendant');
-
             $input
                 .attr('role', 'combobox')
                 .attr('aria-expanded', 'false')
@@ -64,7 +60,7 @@
             });
 
             $input.on('escapeKeyDown', function (e) {
-                if ($('#'+activeDescendantId).size() !== 0) {
+                if ($('#'+$input.attr('aria-activedescendant')).size() !== 0) {
                     $this.trigger('dismiss');
                 }
                 else {
@@ -75,7 +71,7 @@
             // ENTER key with active descendant should make selection & dismiss
             // listbox. It should not submit form.
             $input.on('enterKeyDown', function(e) {
-                if ($('#'+activeDescendantId).size() !== 0) {
+                if ($('#'+$input.attr('aria-activedescendant')).size() !== 0) {
                     e.preventDefault();
                     $this.trigger('dismiss');
                 }
@@ -90,7 +86,7 @@
             $input.on('textchange', function(e) {
                 var keyCode = e.keyCode,
                     inputValue = this.value,
-                    $active = $listbox.find('#'+activeDescendantId),
+                    $active = $listbox.find('#'+$input.attr('aria-activedescendant')),
                     activeText = $active.text();
 
                 $listbox.find('li').remove();
@@ -121,7 +117,7 @@
                 }
             });
 
-            $input.on('activeDescendantChange', function(e, newActiveDescendant) {
+            $this.on('activeDescendantChange', function(e, newActiveDescendant) {
                 $input.val($(newActiveDescendant).text());
             });
 

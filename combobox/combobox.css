@@ -29,8 +29,7 @@
     cursor: pointer;
     padding: 0.5em;
 }
-.combobox li.activedescendant,
-.combobox li[id*=activedescendant] {
+.combobox li[role=option][aria-selected=true] {
     background-color: #006699;
     color: white;
 }

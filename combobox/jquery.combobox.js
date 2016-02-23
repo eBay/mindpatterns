@@ -1,9 +1,9 @@
 /**
 * @function jquery.combobox.js
 * @author Ian McBurnie <imcburnie@ebay.com>
-* @requires jquery-next-id
-* @requires jquery-common-keys
-* @requires jquery-active-descendant
+* @requires @ebay/jquery-next-id
+* @requires @ebay/jquery-common-keydown
+* @requires @ebay/jquery-active-descendant
 * @requires jquery.splendid.textchange.js
 *
 */
@@ -102,7 +102,7 @@
             });
 
             $input.on('enterKeyDown', function(e) {
-                $input.val($listbox.find('.activedescendant').text());
+                $input.val($listbox.find('[aria-selected=true]').text());
             });
 
             $input.on('blur', function onInputBlur(e) {

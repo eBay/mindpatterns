@@ -10,14 +10,11 @@
     position: fixed;
     z-index:1;
 }
-
-.autocomplete [role=listbox] .activedescendant,
-.autocomplete [role=listbox] li[id*=activedescendant]{
+.autocomplete li[role=option][aria-selected=true] {
     background-color: #006699;
     color: white;
     outline: 0;
 }
-
 .autocomplete li {
     padding: 0.5em;
 }
