@@ -25,11 +25,11 @@
                 closeTimeout;
 
             function onDocumentEscKey() {
-                $dialog.trigger('close.dialog');
+                $dialog.trigger('closeDialog');
             }
 
             function onCloseButtonClick() {
-                $dialog.trigger('close.dialog');
+                $dialog.trigger('closeDialog');
             }
 
             // assign a unique id to the dialog widget
@@ -47,7 +47,7 @@
             // ensure header has role banner
             $header.attr('role', 'banner');
 
-            $dialog.on('open.dialog', function onDialogClose() {
+            $dialog.on('openDialog', function onDialogClose() {
                 // clean up any untriggered closeTimeout
                 window.clearTimeout(closeTimeout);
 
@@ -84,10 +84,12 @@
                 $(document).commonKeyDown().on('escapeKeyDown', onDocumentEscKey);
 
                 $closeButton.on('click', onCloseButtonClick);
+
+                $dialog.trigger('dialogOpen');
             });
 
             // when the dialog is closed, we must undo everything we did on open
-            $dialog.on('close.dialog', function onDialogClose() {
+            $dialog.on('closeDialog', function onDialogClose() {
                 window.clearTimeout(openTimeout);
                 $closeButton.off('click', onCloseButtonClick);
                 $(document).off('escapeKeyDown', onDocumentEscKey);
@@ -97,6 +99,7 @@
                 $dialog.attr('aria-hidden', 'true');
                 closeTimeout = setTimeout(function() {
                     $dialog.css('display', 'none');
+                    $dialog.trigger('dialogClose');
                 }, opts.transitionDurationMs);
             });
         });

@@ -17,12 +17,12 @@
 
             $dialog.dialog(dialogOptions);
 
-            $dialog.on('close.dialog', function(e) {
+            $dialog.on('dialogClose', function(e) {
                 $dialogButton.focus();
             });
 
             $dialogButton.on('click', function(e) {
-                $dialog.trigger('open.dialog');
+                $dialog.trigger('openDialog');
             })
 
         });
