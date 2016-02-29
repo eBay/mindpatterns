@@ -5,7 +5,6 @@
         "_js/polyfills/json3.min.js" ,
         "_js/polyfills/respond.min.js",
         "_js/plugins/jquery.splendid.textchange.js",
-        "@ebay/makeup/core",
-        "@ebay/makeup/flyout"
+        "@ebay/makeup"
     ]
 }
