@@ -95,7 +95,7 @@
                     $activeInput.prop('checked', false);
                     // check the new native & custom radios and set focus
                     $radiogroupitem.find('input[type=radio]').prop('checked', true);
-                    $radiogroupitem.find('[role=radio]').attr('aria-checked', 'true').focus();
+                    $radiogroupitem.find('[role=radio]').attr('aria-checked', 'true');
                 }
             });
 

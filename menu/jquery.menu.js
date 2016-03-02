@@ -55,10 +55,6 @@
             // all submenus start in collapsed state
             $subMenus.attr('aria-expanded', 'false');
 
-            $rootMenu.on('rovingTabindexChange', function onRovingTabindex(event, item) {
-                $(item).focus();
-            });
-
             $allmenuitems.not('a').on('click' , function(e) {
                 $this.trigger('activate', e.target);
             });
@@ -76,7 +72,7 @@
             });
 
             $radios.on('spaceKeyDown enterKeyDown', function(e) {
-                $radios.attr('aria-checked', 'false')
+                $radios.attr('aria-checked', 'false');
                 $(this).attr('aria-checked', 'true');
             });
 

@@ -67,14 +67,10 @@
                     .attr('aria-labelledby', tabId);
             });
 
-            $tabs.on('click', function(e) {
-                $tabsWidget.trigger('select', $(this));
-            });
-
             // Create a roving tab index on tabs
             $tablist.rovingTabindex($tabs);
 
-            $tablist.on('select rovingTabindexChange', function(e, selectedTab) {
+            $tablist.on('rovingTabindexChange', function(e, selectedTab) {
                 var $selectedTab = $(selectedTab),
                     $activeTab = $tablist.find('[aria-selected=true]'),
                     $activePanel = $panelcontainer.find('[aria-labelledby={0}]'.replace('{0}', $activeTab.attr('id'))),
@@ -83,13 +79,9 @@
                 if ($selectedTab[0] !== $activeTab[0]) {
                     $activePanel.attr('aria-hidden', 'true');
                     $selectedPanel.attr('aria-hidden', 'false');
-
                     $selectedTab.attr('aria-selected', 'true');
 
-                    // update keyboard focus on next tick
-                    setTimeout(function onTimeout() {
-                        $selectedTab.focus();
-                        // deselect activeTab last to prevent focus issues
+                    setTimeout(function() {
                         $activeTab.attr('aria-selected', 'false');
                     }, 0);
                 }

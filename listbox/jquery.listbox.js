@@ -100,11 +100,6 @@
             // init rovingTabindex plugin on custom listbox
             $customListbox.rovingTabindex($customOptions, {wrap:false});
 
-            // listen for rovingtabindex events (triggered by keyboard)
-            $customListbox.on('rovingTabindexChange', function(e, item) {
-                $(item).focus();
-            });
-
             // listen for click events (triggered by mouse/pointer)
             $customOptions.on('click spaceKeyDown', function(e) {
                 $customOptions.attr('tabindex', '-1');

@@ -43,22 +43,12 @@
                 $panels.eq(idx).attr('id', panelId).attr('aria-labelledby', tabId);
             });
 
-            $headings.on('click', function(e) {
-                $accordionWidget.trigger('select', $(this));
-            });
-
             // Create a roving tab index on headings
             // roving tab index also calls keyhandlers plugin
             $accordionWidget.rovingTabindex($headings);
 
-            $headings.on('spaceKeyDown enterKeyDown', function(e) {
+            $headings.on('click spaceKeyDown enterKeyDown', function(e) {
                 $accordionWidget.trigger('select', $(this));
-            });
-
-            $accordionWidget.on('setfocus rovingTabindexChange', function(e, focusTab) {
-                window.setTimeout( function onTimeout(e){
-                    $(focusTab).focus();
-                }, 0);
             });
 
             $accordionWidget.on('select', function(e, selectedTab) {
@@ -68,8 +58,6 @@
                 $selectedTab.attr('aria-selected', !isSelected);
                 $selectedTab.attr('aria-expanded', !isSelected);
                 $selectedTab.next().attr('aria-hidden', isSelected);
-
-                $accordionWidget.trigger('setfocus', $selectedTab);
             });
 
             // call plugin to prevent page scroll
