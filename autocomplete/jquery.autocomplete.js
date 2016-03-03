@@ -36,7 +36,7 @@
             $input.commonKeyDown();
 
             // use activedescendant plugin on input
-            $this.activeDescendant($input);
+            $this.activeDescendant($input, '[role=option]');
 
             $input
                 .attr('role', 'combobox')
@@ -105,15 +105,15 @@
                         $listbox.append('<li role="option">'+item+'</li>');
                     });
 
-                    // update activedescendant plugin with new data
-                    $input.trigger('updateActiveDescendantCollection', [$listbox.find('li')]);
-
                     setTimeout(function() {
                         $statusEl.text($listbox.find('li').size() + (($listbox.find('li').size() === 1) ? ' suggestion found' : ' suggestions found') + '. Use up and down arrow keys to navigate suggestions.');
                     }, 50);
 
                     $listbox.css('left', $input.offset().left).width($input.width()).show();
                     $input.attr('aria-expanded', 'true');
+
+                    // notify observers that active descendant items have changed
+                    $input.trigger('activeDescendantItemsChange');
                 }
             });
 
@@ -128,7 +128,7 @@
             });
 
             $this.on('dismiss', function onAutocompleteDismiss(e) {
-                $input.trigger('updateActiveDescendantCollection', []);
+                $input.trigger('activeDescendantItemsChange');
                 $listbox.hide().empty();
                 $input.attr('aria-expanded', 'false');
                 $statusEl.text('');
