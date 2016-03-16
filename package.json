@@ -11,8 +11,8 @@
     "url": "https://github.com/ianmcburnie/a11y-examples"
   },
   "devDependencies": {
-    "@ebay/makeup": "~0.13.0",
     "jquery": "^2.1.4",
+    "makeup-ebay": "latest",
     "lasso-cli": "*",
     "rimraf": "^2.5.2"
   }
