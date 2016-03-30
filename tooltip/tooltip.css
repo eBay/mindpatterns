@@ -1,4 +1,4 @@
-.tooltip-js [role=tooltip] {
+.tooltip--js [role=tooltip] {
     background-color: LightYellow;
     border: 1px solid #ccc;
     display: none;
@@ -7,10 +7,11 @@
     padding: 0.5em;
     text-align: center;
     white-space: nowrap;
+    z-index: 1;
 }
-.tooltip-js .tooltip-delim {
+.tooltip--js .tooltip__delim {
     display: none;
 }
-.tooltip-js [role=tooltip]:first-letter {
+.tooltip--js [role=tooltip]:first-letter {
     text-transform: uppercase;
 }
