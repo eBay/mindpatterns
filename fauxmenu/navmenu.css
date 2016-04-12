@@ -1,4 +1,4 @@
-.popupnav > div[aria-hidden=false] {
+.popupnav > ul[aria-hidden=false] {
     display: block;
 }
 .popupnav > a,
@@ -10,28 +10,31 @@
     content: ' \e601';
     font-family: 'vq-icon-font';
 }
-.popupnav > div {
+.popupnav > ul {
     background-color: LightYellow;
     border: 1px solid #aaa;
     box-shadow: 2px 4px 5px #aaa;
+    display: none;
     font-size: small;
+    position: fixed;
     vertical-align:top;
+    z-index: 1;
 }
-.popupnav > div ul,
-.popupnav > div ol {
+.popupnav > ul,
+.popupnav > ol {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-.popupnav > div a,
-.popupnav > div span {
+.popupnav > ul a,
+.popupnav > ul span {
     box-sizing: border-box;
     display:inline-block;
     padding: 0.5em;
     text-decoration: none;
     width: 100%;
 }
-.popupnav > div a:focus,
-.popupnav > div a:hover {
+.popupnav > ul a:focus,
+.popupnav > ul a:hover {
     text-decoration: underline;
 }
