@@ -1,7 +1,4 @@
-.breadcrumbs h3 {
-    display: none;
-}
-.breadcrumbs h3:after {
+.breadcrumbs h2:after {
     content: ': ';
 }
 .breadcrumbs ol {
