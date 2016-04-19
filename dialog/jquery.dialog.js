@@ -20,6 +20,7 @@
                 $heading = $header.find('> h2'),
                 $doc = $dialog.find('> [role=document]'), // role=document is for older NVDA
                 $closeButton = $header.find('> button'),
+                $autoFocusable = $doc.find('[autofocus]'),
                 $focusable,
                 openTimeout,
                 closeTimeout;
@@ -60,7 +61,7 @@
                 }, 10);
 
                 // find all focusable elements inside dialog
-                $focusable = $dialog.focusable();
+                $focusable = ($autoFocusable.length > 0) ? $autoFocusable : $dialog.focusable();
 
                 // dialog must always focus on an interactive element
                 // if none found, set focus to doc
