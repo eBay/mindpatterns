@@ -45,7 +45,7 @@
                 .attr('aria-owns', $listbox.prop('id'));
 
             $statusEl
-                .addClass('accessAid')
+                .addClass('clipped')
                 .attr('role', 'status')
                 .attr('aria-live', 'polite')
                 .attr('aria-atomic', 'true');
