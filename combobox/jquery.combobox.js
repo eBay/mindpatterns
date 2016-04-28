@@ -4,7 +4,6 @@
 * @requires @ebay/jquery-next-id
 * @requires @ebay/jquery-common-keydown
 * @requires @ebay/jquery-active-descendant
-* @requires jquery.splendid.textchange.js
 *
 */
 (function ( $ ) {

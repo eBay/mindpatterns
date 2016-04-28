@@ -4,7 +4,6 @@
 * @requires @ebay/jquery-next-id
 * @requires @ebay/jquery-common-keydown
 * @requires @ebay/jquery-active-descendant
-* @requires jquery.splendid.textchange.js
 * @requires Array.prototype.filter
 * @todo this plugin should extend jquery.combobox.js
 */
@@ -82,8 +81,8 @@
                 e.preventDefault();
             });
 
-            // just use 'input' event if IE8 support is not needed
-            $input.on('textchange', function(e) {
+            // use 'textchange' shim if IE8/9 support is needed
+            $input.on('input', function(e) {
                 var keyCode = e.keyCode,
                     inputValue = this.value,
                     $active = $listbox.find('#'+$input.attr('aria-activedescendant')),
