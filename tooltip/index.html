@@ -13,13 +13,13 @@ permalink: /tooltip/
             <div class="col-xs-12 col-md-6">
                 <h3>On a Link</h3>
                 <div>
-                    <p><span class="tooltip"><a href="http://en.wikipedia.org/wiki/Insomnia">Add to Cart</a> <span role="tooltip"><span class="tooltip__delim">(</span>Your cart contains <a href="http://cart.payments.ebay.com/sc/view">6 items</a> <span class="tooltip__delim">)</span></span></span></p>
+                    <p><span class="tooltip"><a href="http://en.wikipedia.org/wiki/Insomnia" aria-describedby="tooltip-0">Add to Cart</a> <span role="tooltip" id="tooltip-0"><span class="tooltip__delim">(</span><span class="tooltip__cell">Your cart contains <a href="http://cart.payments.ebay.com/sc/view">6 items</a></span> <span class="tooltip__delim">)</span></span></span></p>
                 </div>
             </div>
             <div class="col-xs-12 col-md-6">
                 <h3>On a Button</h3>
                 <div>
-                    <p><span class="tooltip"><button type="button">Add to Cart</button> <span role="tooltip"><span class="tooltip__delim">(</span>Your cart contains <a href="http://cart.payments.ebay.com/sc/view">6 items</a> <span class="tooltip__delim">)</span></span></span></p>
+                    <p><span class="tooltip tooltip--padded"><button type="button" aria-describedby="tooltip-1">Add to Cart</button> <span role="tooltip" id="tooltip-1"><span class="tooltip__delim">(</span>Your cart contains <a href="http://cart.payments.ebay.com/sc/view">6 items</a> <span class="tooltip__delim">)</span></span></span></p>
                 </div>
             </div>
         </div>
@@ -27,7 +27,19 @@ permalink: /tooltip/
             <div class="col-xs-12 col-md-6">
                 <h3>On an Input</h3>
                 <div>
-                    <p><span class="tooltip tooltip--input"><label for="userid">User ID</label> <input type="text" id="userid" name="userid" /> <span role="tooltip"><span class="tooltip__delim">(</span> Use 6-12 letters and numbers, special characters, mix low and uppercase. <span class="tooltip__delim">)</span></span></span></p>
+                    <p><label for="userid">User ID</label> <span class="tooltip tooltip--input tooltip--padded"><input type="text" id="userid" name="userid" aria-describedby="tooltip-2" /> <span role="tooltip" id="tooltip-2"><span class="tooltip__delim">(</span> Use 6-12 letters and numbers, special characters, mix low and uppercase. <span class="tooltip__delim">)</span></span></span></p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <h3>On link in paragraph</h3>
+                <div>
+                    <p>This <span class="tooltip"><a href="http://www.ebay.com" aria-describedby="tooltip-3">first link</a></span> has a tooltip, this <a href="http://www.ebay.com">second link</a> does not.</p>
+                    <div id="tooltip-3" role="tooltip">
+                        <div class="tooltip__cell">
+                            <h4>Tip</h4>
+                            <p>Your cart contains <a href="http://cart.payments.ebay.com/sc/view">6 items</a></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -39,7 +51,6 @@ permalink: /tooltip/
     </div>
 </div>
 
-<script src="jquery.tooltip.js"></script>
 <script>
     $(function() {
         $('.tooltip').tooltip();

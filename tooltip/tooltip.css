@@ -1,17 +1,27 @@
 .tooltip--js [role=tooltip] {
     background-color: LightYellow;
-    border: 1px solid #ccc;
+    border: 1px solid #eee;
     display: none;
     font-size: small;
     position: fixed;
-    padding: 0.5em;
-    text-align: center;
     white-space: nowrap;
     z-index: 1;
+}
+.tooltip--js [role=tooltip][aria-hidden=false] {
+    display: block;
 }
 .tooltip--js .tooltip__delim {
     display: none;
 }
 .tooltip--js [role=tooltip]:first-letter {
     text-transform: uppercase;
+}
+
+.tooltip--padded [role=tooltip] {
+    padding: 0.5em;
+}
+
+.tooltip__cell {
+    display: block;
+    margin: 0.5em;
 }
