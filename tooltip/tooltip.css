@@ -3,7 +3,7 @@
     border: 1px solid #eee;
     display: none;
     font-size: small;
-    position: fixed;
+    position: absolute;
     white-space: nowrap;
     z-index: 1;
 }
