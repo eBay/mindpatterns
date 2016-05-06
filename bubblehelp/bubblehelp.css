@@ -1,34 +1,44 @@
-.bubblehelp > a {
-    background: 0;
-    border: 0;
-    cursor: pointer;
-    padding: 0;
+.bubblehelp {
+    position: relative;
 }
-.bubblehelp > a:after {
-    color: #006699;
-    content: '\e614';
-    font-family: 'vq-icon-font';
-    font-size: 1.2em;
-}
-.bubblehelp a[aria-expanded=true]:after {
-    content: '\e60a';
-}
-.bubblehelp > a sup {
-    display: none;
-}
-.bubblehelp-js a:focus {
-    text-decoration: none;
-}
-.bubblehelp-js .bubblehelp-content {
+.bubblehelp > div,
+.bubblehelp > span {
     background: LightYellow;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 1px #ccc;
     display: none;
     font-size: small;
     margin: 0 0.25em;
-    max-width: 250px;
+    min-width: 250px;
     padding: 0 1em;
-    position: fixed;
-    text-align:justify;
+    position: absolute;
+    text-align: justify;
     z-index: 1;
+}
+.bubblehelp > div[aria-hidden=false],
+.bubblehelp > span[aria-hidden=false] {
+    display: block;
+}
+.bubblehelp--js > a[role=button],
+.bubblehelp > button {
+    background: 0;
+    border: 0;
+    padding: 0;
+}
+.bubblehelp--js > a[role=button]:after,
+.bubblehelp > button:after {
+    color: #006699;
+    content: '\e614';
+    font-family: 'vq-icon-font';
+    font-size: 1.2em;
+}
+.bubblehelp--js > a[role=button][aria-expanded=true]:after,
+.bubblehelp--js > button[aria-expanded=true]:after {
+    content: '\e60a';
+}
+.bubblehelp--js > a[role=button] sup {
+    display: none;
+}
+.bubblehelp--js > a[role=button]:focus {
+    text-decoration: none;
 }
