@@ -3,7 +3,7 @@
 }
 .flyout > div {
     display: none;
-    position: fixed;
+    position: absolute;
     z-index: 1;
 }
 .flyout > div[aria-hidden=false] {

@@ -28,7 +28,7 @@ permalink: /flyout/
         <h1>{{ page.title }}</h1>
         <div class="row">
             <div class="col-xs-12 col-md-6">
-                <h3>On Button</h3>
+                <h3>Click Activated</h3>
                 <div class="flyout flyout--button">
                     <button>Toggle Flyout</button>
                     <div>
@@ -42,7 +42,7 @@ permalink: /flyout/
                 </div>
             </div>
             <div class="col-xs-12 col-md-6">
-                <h3>On Link</h3>
+                <h3>Hover Activated</h3>
                 <div class="flyout flyout--link">
                     <a href="http://www.ebay.com">My Ebay</a>
                     <div>
@@ -57,6 +57,7 @@ permalink: /flyout/
             </div>
         </div>
         <div class="row">
+            <!--
             <div class="col-xs-12 col-md-6">
                 <h3>On Button (sticky)</h3>
                 <div class="flyout flyout--sticky">
@@ -71,12 +72,13 @@ permalink: /flyout/
                     </div>
                 </div>
             </div>
+            -->
         </div>
     </div>
     <div class="col-xs-12 col-md-4 col-md-offset-1">
         <h2>Readme</h2>
-        <p>Use ENTER or SPACEBAR to open flyout overlay, then use TAB key to move to the first interactive element or widget inside the overlay.</p>
-        <p>Flyout is an absract pattern. Concrete implementations include Tooltip, Bubble Help and Nav Menu.</p>
+        <p>Flyout forms part of composite patterns such as tooltip, bubble help, menu and faux menu.</p>
+        <p>For a flyout activated on both hover <em>and</em> focus, see tooltip pattern.</p>
         <p>Please <a href={{ "/disclosure/flyout.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
     </div>
 </div>
@@ -85,6 +87,6 @@ permalink: /flyout/
     $(function() {
         $('.flyout--button').buttonFlyout();
         $('.flyout--link').linkFlyout();
-        $('.flyout--sticky').buttonFlyout({sticky:true});
+        //$('.flyout--sticky').buttonFlyout({sticky:true});
     });
 </script>
