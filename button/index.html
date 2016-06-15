@@ -6,37 +6,33 @@ permalink: /button/
 
 <link rel="stylesheet" href="button.css">
 
+<h1>{{ page.title }}</h1>
+
+<h2 class="clipped">Readme</h2>
+<p>TAB key enters/exits button. SPACEBAR or ENTER activates button.</p>
+<p>Move screen reader virtual cursor to ambigious button to hear full label text.</p>
+<p>Please <a href={{ "/input/button.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+<h2>Examples</h2>
+
 <div class="row">
-    <div class="col-xs-12 col-md-7">
-        <h1>{{ page.title }}</h1>
-        <div class="row">
-            <div class="col-xs-12 col-md-6">
-                <h3>Native HTML</h3>
-                <button type="button">Buy iPhone 6</button>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <h3>Ambiguous Label</h3>
-                <button>Place Bid<span class="clipped"> - iPhone 6</span></button>
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-md-6">
-                <h3>Hijaxed Link</h3>
-                <a class="button" href="http://www.ebay.com/buy/iphone6">Buy iPhone 6</a>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <h3>ARIA Button (not recommended)</h3>
-                <span class="button">Buy iPhone 6</span>
-            </div>
-
-        </div>
+    <div class="col-xs-12 col-md-6">
+        <h3>Native HTML</h3>
+        <button type="button">Buy iPhone 6</button>
     </div>
-    <div class="col-xs-12 col-md-4 col-md-offset-1">
-        <h2>Readme</h2>
-        <p>TAB key enters/exits button. SPACEBAR or ENTER activates button.</p>
-        <p>Move screen reader virtual cursor to ambigious button to hear full label text.</p>
-        <p>Please <a href={{ "/input/button.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+    <div class="col-xs-12 col-md-6">
+        <h3>Ambiguous Label</h3>
+        <button>Place Bid<span class="clipped"> - iPhone 6</span></button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <h3>Hijaxed Link</h3>
+        <a class="button" href="http://www.ebay.com/buy/iphone6">Buy iPhone 6</a>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        <h3>ARIA Button (not recommended)</h3>
+        <span class="button">Buy iPhone 6</span>
     </div>
 </div>
 
@@ -44,7 +40,7 @@ permalink: /button/
 <script>
     $(function() {
         $('.button').button()
-        $('button').on('click', onButtonClick);
+        $('[role=main] button').on('click', onButtonClick);
         $('[role=button]').on('clicked', onButtonClick);
     });
 

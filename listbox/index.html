@@ -15,56 +15,53 @@ permalink: /listbox/
     }
 </style>
 
+
+<h1>{{ page.title }}</h1>
+
+<h2 class="clipped">Readme</h2>
+<p>Use ARROW keys to navigate listbox options; SPACE key to select/deselect; ENTER key to submit.</p>
+<p>Please <a href={{ "/input/listbox.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+<h2>Examples</h2>
 <div class="row">
-    <div class="col-xs-12 col-md-7">
-        <h1>{{ page.title }}</h1>
-
-        <div class="row">
-
-            <div class="col-xs-12 col-md-6">
-                <h3>Single Select</h3>
-                <div>
-                    <p>Todo.</p>
-                    <p>(hint: use a SELECT tag!)</p>
-                    <form>
-                        <!--
-                        <span>
-                            <label for="car">Choose a car</label>
-                            <select id="car" name="car">
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="opel">Opel</option>
-                                <option value="audi">Audi</option>
-                            </select>
-                        </span>
-                        -->
-                    </form>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <h3>Multi Select</h3>
-                <form>
-                    <span class="listbox">
-                        <label for="cars">Car</label>
-                        <select id="cars" name="cars[]" multiple>
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="opel">Opel</option>
-                            <option value="audi">Audi</option>
-                        </select>
-                    </span>
-                    <input type="submit" />
-                </form>
-            </div>
-
+    <div class="col-xs-12 col-md-6">
+        <h3>Single Select</h3>
+        <div>
+            <p>Todo.</p>
+            <p>(hint: use a SELECT tag!)</p>
+            <form>
+                <!--
+                <span>
+                    <label for="car">Choose a car</label>
+                    <select id="car" name="car">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="opel">Opel</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </span>
+                -->
+            </form>
         </div>
     </div>
-    <div class="col-xs-12 col-md-4 col-md-offset-1">
-        <h2>Readme</h2>
-        <p>Use ARROW keys to navigate listbox options; SPACE key to select/deselect; ENTER key to submit.</p>
-        <p>Please <a href={{ "/input/listbox.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+    <div class="col-xs-12 col-md-6">
+        <h3>Multi Select</h3>
+        <form>
+            <span class="listbox">
+                <label for="cars">Car</label>
+                <select id="cars" name="cars[]" multiple>
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
+            </span>
+            <input type="submit" />
+        </form>
     </div>
 </div>
+
+
 
 <script src="jquery.listbox.js"></script>
 <script>

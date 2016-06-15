@@ -23,64 +23,61 @@ permalink: /flyout/
     }
 </style>
 
+<h1>{{ page.title }}</h1>
+
+<h2 class="clipped">Readme</h2>
+<p>Flyout forms part of composite patterns such as tooltip, bubble help, menu and faux menu.</p>
+<p>For a flyout activated on both hover <em>and</em> focus, see <a href="../tooltip/index.html">tooltip</a>.</p>
+<p>Please <a href={{ "/disclosure/flyout.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+<h2>Examples</h2>
+
 <div class="row">
-    <div class="col-xs-12 col-md-7">
-        <h1>{{ page.title }}</h1>
-        <div class="row">
-            <div class="col-xs-12 col-md-6">
-                <h3>Click Activated</h3>
-                <div class="flyout flyout--button">
-                    <button>Toggle Flyout</button>
-                    <div>
-                        <h3>Any kind of HTML control can go inside of a flyout...</h3>
-                        <p>A link: <a href="http://www.ebay.com">www.ebay.com</a></p>
-                        <p>A button: <button>Click Me</button></p>
-                        <p>An input: <input type="text" aria-label="Dummy textbox"></p>
-                        <p>A checkbox: <input type="checkbox" aria-label="Dummy checkbox"></p>
-                        <p><strong>...but avoid ARIA widgets such as tabs and carousels!</strong></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <h3>Hover Activated</h3>
-                <div class="flyout flyout--link">
-                    <a href="http://www.ebay.com">My Ebay</a>
-                    <div>
-                        <h3>Any kind of HTML control can go inside of a flyout...</h3>
-                        <p>A link: <a href="http://www.ebay.com">www.ebay.com</a></p>
-                        <p>A button: <button>Click Me</button></p>
-                        <p>An input: <input type="text" aria-label="Dummy textbox"></p>
-                        <p>A checkbox: <input type="checkbox" aria-label="Dummy checkbox"></p>
-                        <p><strong>...but avoid ARIA widgets such as tabs and carousels!</strong></p>
-                    </div>
-                </div>
+    <div class="col-xs-12 col-md-6">
+        <h3>Click Activated</h3>
+        <div class="flyout flyout--button">
+            <button>Toggle Flyout</button>
+            <div>
+                <h3>Any kind of HTML control can go inside of a flyout...</h3>
+                <p>A link: <a href="http://www.ebay.com">www.ebay.com</a></p>
+                <p>A button: <button>Click Me</button></p>
+                <p>An input: <input type="text" aria-label="Dummy textbox"></p>
+                <p>A checkbox: <input type="checkbox" aria-label="Dummy checkbox"></p>
+                <p><strong>...but avoid ARIA widgets such as tabs and carousels!</strong></p>
             </div>
         </div>
-        <div class="row">
-            <!--
-            <div class="col-xs-12 col-md-6">
-                <h3>On Button (sticky)</h3>
-                <div class="flyout flyout--sticky">
-                    <button>Toggle Flyout</button>
-                    <div>
-                        <h3>Any kind of HTML control can go inside of a flyout...</h3>
-                        <p>A link: <a href="http://www.ebay.com">www.ebay.com</a></p>
-                        <p>A button: <button>Click Me</button></p>
-                        <p>An input: <input type="text" aria-label="Dummy textbox"></p>
-                        <p>A checkbox: <input type="checkbox" aria-label="Dummy checkbox"></p>
-                        <p><strong>...but avoid ARIA widgets such as tabs and carousels!</strong></p>
-                    </div>
-                </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        <h3>Hover Activated</h3>
+        <div class="flyout flyout--link">
+            <a href="http://www.ebay.com">My Ebay</a>
+            <div>
+                <h3>Any kind of HTML control can go inside of a flyout...</h3>
+                <p>A link: <a href="http://www.ebay.com">www.ebay.com</a></p>
+                <p>A button: <button>Click Me</button></p>
+                <p>An input: <input type="text" aria-label="Dummy textbox"></p>
+                <p>A checkbox: <input type="checkbox" aria-label="Dummy checkbox"></p>
+                <p><strong>...but avoid ARIA widgets such as tabs and carousels!</strong></p>
             </div>
-            -->
         </div>
     </div>
-    <div class="col-xs-12 col-md-4 col-md-offset-1">
-        <h2>Readme</h2>
-        <p>Flyout forms part of composite patterns such as tooltip, bubble help, menu and faux menu.</p>
-        <p>For a flyout activated on both hover <em>and</em> focus, see tooltip pattern.</p>
-        <p>Please <a href={{ "/disclosure/flyout.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+    <!--
+    <div class="col-xs-12 col-md-6">
+        <h3>On Button (sticky)</h3>
+        <div class="flyout flyout--sticky">
+            <button>Toggle Flyout</button>
+            <div>
+                <h3>Any kind of HTML control can go inside of a flyout...</h3>
+                <p>A link: <a href="http://www.ebay.com">www.ebay.com</a></p>
+                <p>A button: <button>Click Me</button></p>
+                <p>An input: <input type="text" aria-label="Dummy textbox"></p>
+                <p>A checkbox: <input type="checkbox" aria-label="Dummy checkbox"></p>
+                <p><strong>...but avoid ARIA widgets such as tabs and carousels!</strong></p>
+            </div>
+        </div>
     </div>
+    -->
 </div>
 
 <script>

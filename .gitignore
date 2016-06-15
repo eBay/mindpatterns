@@ -3,3 +3,4 @@ _site/
 .cache
 node_modules
 build
+/static/browser.js.*

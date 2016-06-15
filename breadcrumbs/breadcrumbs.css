@@ -1,4 +1,4 @@
-.breadcrumbs h2:after {
+.breadcrumbs h3:after {
     content: ': ';
 }
 .breadcrumbs ol {

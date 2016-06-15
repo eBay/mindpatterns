@@ -29,116 +29,114 @@ permalink: /table/
     }
 </style>
 
+
+<h1>{{ page.title }}</h1>
+
+<h2 class="clipped">Readme</h2>
+<p>Navigate table rows and columns with screen reader table commands. In VoiceOver press VO+C or VO+R to announce column header or row header respectively.</p>
+<p>Please <a href={{ "/structure/table.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+<h2>Examples</h2>
+
 <div class="row">
-    <div class="col-xs-12 col-md-7">
-        <h1>{{ page.title }}</h1>
-        <h2 class="clipped">Examples</h2>
-        <div class="row">
-            <div class="col-xs-12">
-                <h3>Example 1: Column Headers</h3>
-                <table class="cols">
-                    <caption>Promotional Offers</caption>
-                    <thead>
-                        <tr>
-                            <th>Offer</th>
-                            <th>Start</th>
-                            <th>End</th>
-                            <th>Used</th>
-                            <th>Unused</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td scope="row"><a href="http:/www.ebay.com">List 50 of your items for FREE</a></td>
-                            <td>May 1, 2016 12:00am PDT</td>
-                            <td>Jun 1, 2016 12:00am PDT</td>
-                            <td>1</td>
-                            <td>49</td>
-                        </tr>
-                        <tr>
-                            <td scope="row"><a href="http:/www.ebay.com">Free insertions for first 6 yearly vehicle listings</a></td>
-                            <td>Jan 1, 2016 12:00am PST</td>
-                            <td>Jan 1, 2017 12:00am PST</td>
-                            <td>0</td>
-                            <td>6</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <h3>Example 2: Row Headers</h3>
-                <table class="rows">
-                    <caption>Promotional Offers</caption>
-                    <tr>
-                        <th>Offer</th>
-                        <td scope="col"><a href="http:/www.ebay.com">List 50 of your items for FREE</a></td>
-                        <td scope="col"><a href="http:/www.ebay.com">Free insertions for first 6 yearly vehicle listings</a></td>
-                    </tr>
-                    <tr>
-                        <th>Start</th>
-                        <td>May 1, 2016 12:00am PDT</td>
-                        <td>Jan 1, 2016 12:00am PST</td>
-                    </tr>
-                    <tr>
-                        <th>End</th>
-                        <td>Jun 1, 2016 12:00am PDT</td>
-                        <td>Jan 1, 2017 12:00am PST</td>
-                    </tr>
-                    <tr>
-                        <th>Used</th>
-                        <td>1</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <th>Unused</th>
-                        <td>49</td>
-                        <td>6</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <h3>Example 3: Sortable Columns</h3>
-                <p>Coming soon</p>
-                <!--
-                <table class="cols sort">
-                    <caption>Promotional Offers</caption>
-                    <thead>
-                        <tr>
-                            <th aria-sort="none"><button type="button">Offer</button></th>
-                            <th aria-sort="none"><button type="button">Start</button></th>
-                            <th aria-sort="none"><button type="button">End</button></th>
-                            <th aria-sort="none"><button type="button">Used</button></th>
-                            <th aria-sort="none"><button type="button">Unused</button></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><a href="http:/www.ebay.com">List 50 of your items for FREE</a></td>
-                            <td>May 1, 2016 12:00am PDT</td>
-                            <td>Jun 1, 2016 12:00am PDT</td>
-                            <td>1</td>
-                            <td>49</td>
-                        </tr>
-                        <tr>
-                            <td><a href="http:/www.ebay.com">Free insertions for first 6 yearly vehicle listings</a></td>
-                            <td>Jan 1, 2016 12:00am PST</td>
-                            <td>Jan 1, 2017 12:00am PST</td>
-                            <td>0</td>
-                            <td>6</td>
-                        </tr>
-                    </tbody>
-                </table>
-                -->
-            </div>
-        </div>
+    <div class="col-xs-12">
+        <h3>Example 1: Column Headers</h3>
+        <table class="cols">
+            <caption>Promotional Offers</caption>
+            <thead>
+                <tr>
+                    <th>Offer</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Used</th>
+                    <th>Unused</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row"><a href="http://www.ebay.com">List 50 of your items for FREE</a></td>
+                    <td>May 1, 2016 12:00am PDT</td>
+                    <td>Jun 1, 2016 12:00am PDT</td>
+                    <td>1</td>
+                    <td>49</td>
+                </tr>
+                <tr>
+                    <td scope="row"><a href="http://www.ebay.com">Free insertions for first 6 yearly vehicle listings</a></td>
+                    <td>Jan 1, 2016 12:00am PST</td>
+                    <td>Jan 1, 2017 12:00am PST</td>
+                    <td>0</td>
+                    <td>6</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <div class="col-xs-12 col-md-4 col-md-offset-1">
-        <h2>Readme</h2>
-        <p>Navigate table rows and columns with screen reader table commands. In VoiceOver press VO+C or VO+R to announce column header or row header respectively.</p>
-        <p>Please <a href={{ "/structure/table.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Example 2: Row Headers</h3>
+        <table class="rows">
+            <caption>Promotional Offers</caption>
+            <tr>
+                <th>Offer</th>
+                <td scope="col"><a href="http://www.ebay.com">List 50 of your items for FREE</a></td>
+                <td scope="col"><a href="http://www.ebay.com">Free insertions for first 6 yearly vehicle listings</a></td>
+            </tr>
+            <tr>
+                <th>Start</th>
+                <td>May 1, 2016 12:00am PDT</td>
+                <td>Jan 1, 2016 12:00am PST</td>
+            </tr>
+            <tr>
+                <th>End</th>
+                <td>Jun 1, 2016 12:00am PDT</td>
+                <td>Jan 1, 2017 12:00am PST</td>
+            </tr>
+            <tr>
+                <th>Used</th>
+                <td>1</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <th>Unused</th>
+                <td>49</td>
+                <td>6</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Example 3: Sortable Columns</h3>
+        <p>Coming soon</p>
+        <!--
+        <table class="cols sort">
+            <caption>Promotional Offers</caption>
+            <thead>
+                <tr>
+                    <th aria-sort="none"><button type="button">Offer</button></th>
+                    <th aria-sort="none"><button type="button">Start</button></th>
+                    <th aria-sort="none"><button type="button">End</button></th>
+                    <th aria-sort="none"><button type="button">Used</button></th>
+                    <th aria-sort="none"><button type="button">Unused</button></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="http://www.ebay.com">List 50 of your items for FREE</a></td>
+                    <td>May 1, 2016 12:00am PDT</td>
+                    <td>Jun 1, 2016 12:00am PDT</td>
+                    <td>1</td>
+                    <td>49</td>
+                </tr>
+                <tr>
+                    <td><a href="http://www.ebay.com">Free insertions for first 6 yearly vehicle listings</a></td>
+                    <td>Jan 1, 2016 12:00am PST</td>
+                    <td>Jan 1, 2017 12:00am PST</td>
+                    <td>0</td>
+                    <td>6</td>
+                </tr>
+            </tbody>
+        </table>
+        -->
     </div>
 </div>

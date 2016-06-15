@@ -57,7 +57,7 @@
 
             setTimeout(function() {
                 alertInterval = setInterval(function() {
-                    $offscreenTimer.text('Less than ' + $onscreenTime.text() + ' left!').show();
+                    $offscreenTimer.text('Time left: ' + $onscreenTime.text()).show();
 
                     setTimeout(function() {
                         $offscreenTimer.hide();

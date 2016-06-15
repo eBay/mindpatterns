@@ -1,19 +1,27 @@
 ---
-layout: default
+layout: master
 ---
 
-<div role="main">
-    <div class="container">
-        {{ content }}
-    </div>
-</div>
-<footer role="contentinfo">
-    <div class="container">
-        <!--<a href="mailto:{{ site.email }}?subject=Accessibility Patterns">{{ site.email }}</a>-->
-    </div>
-    <nav aria-label="Directory" role="navigation">
-        <div class="container">
-            {% include toc.html %}
-        </div>
+<a href="#main" id="skipto" class="clipped">Skip to main content</a>
+
+<header role="banner">
+    <nav role="navigation" aria-labelledby="patterns_heading">
+        <h2 class="clipped" id="patterns_heading">Directory</h2>
+        <a href="{{ site.baseurl | prepend: site.url}}" id="logo">
+            <span role="img" aria-label="ebay"></span>
+            <span>MIND Patterns</span>
+        </a>
+        <ul>
+        {% assign sorted_pages = site.pages | sort:"title" %}
+        {% for page in sorted_pages %}
+          {% if page.title and page.development != true %}
+          <li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+        </ul>
     </nav>
-</footer>
+</header>
+
+<div id="main" role="main" tabindex="-1">
+    {{ content }}
+</div>

@@ -13,84 +13,81 @@ permalink: /radio/
     }
 </style>
 
-<div class="row">
-    <div class="col-xs-12 col-md-7">
-        <h1>{{ page.title }}</h1>
-        <form>
-            <div class="row">
-                <div class="col-xs-12 col-md-6">
+<h1>{{ page.title }}</h1>
 
+<h2 class="clipped">Readme</h2>
+<p>Use ARROW keys to change radio option, ENTER key submits form.</p>
+<p>Always use <a href="http://www.w3.org/TR/html-markup/input.radio.html">native HTML radio buttons</a> if possible! They are 100% accessible by default.</p>
+<p>Please <a href={{ "/input/radio.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+<h2>Examples</h2>
+<form>
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+
+                <div>
+                    <fieldset>
+                        <legend>Native HTML</legend>
                         <div>
-                            <fieldset>
-                                <legend>Native HTML</legend>
-                                <div>
-                                    <input id="listingformat1_all" type="radio" name="listingformat1" value="all" />
-                                    <label for="listingformat1_all">All Listings</label>
-                                </div>
-                                <div>
-                                    <input id="listingformat1_auction" type="radio" name="listingformat1" value="auction" />
-                                    <label for="listingformat1_auction">Auction</label>
-                                </div>
-                                <div>
-                                    <input id="listingformat1_bin" type="radio" name="listingformat1" value="bin" />
-                                    <label for="listingformat1_bin">Buy it Now</label>
-                                </div>
-                            </fieldset>
+                            <input id="listingformat1_all" type="radio" name="listingformat1" value="all" />
+                            <label for="listingformat1_all">All Listings</label>
                         </div>
+                        <div>
+                            <input id="listingformat1_auction" type="radio" name="listingformat1" value="auction" />
+                            <label for="listingformat1_auction">Auction</label>
+                        </div>
+                        <div>
+                            <input id="listingformat1_bin" type="radio" name="listingformat1" value="bin" />
+                            <label for="listingformat1_bin">Buy it Now</label>
+                        </div>
+                    </fieldset>
+                </div>
 
-                </div>
-                <div class="col-xs-12 col-md-6">
-                    <div class="radiogroup">
-                        <fieldset>
-                            <legend>Pure CSS</legend>
-                            <div>
-                                <input id="listingformat2_all" type="radio" name="listingformat2" value="all" />
-                                <label for="listingformat2_all">All Listings</label>
-                            </div>
-                            <div>
-                                <input id="listingformat2_auction" type="radio" name="listingformat2" value="auction" />
-                                <label for="listingformat2_auction">Auction</label>
-                            </div>
-                            <div>
-                                <input id="listingformat2_bin" type="radio" name="listingformat2" value="bin" />
-                                <label for="listingformat2_bin">Buy it Now</label>
-                            </div>
-                        </fieldset>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="radiogroup">
+                <fieldset>
+                    <legend>Pure CSS (custom focus indicator)</legend>
+                    <div>
+                        <input id="listingformat2_all" type="radio" name="listingformat2" value="all" />
+                        <label for="listingformat2_all">All Listings</label>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-md-6">
-                    <div class="customradiogroup">
-                        <fieldset>
-                            <legend>Custom HTML</legend>
-                            <div>
-                                <input id="listingformat3_all" type="radio" name="listingformat3" value="all" />
-                                <label for="listingformat3_all">All Listings</label>
-                            </div>
-                            <div>
-                                <input id="listingformat3_auction" type="radio" name="listingformat3" value="auction" />
-                                <label for="listingformat3_auction">Auction</label>
-                            </div>
-                            <div>
-                                <input id="listingformat3_bin" type="radio" name="listingformat3" value="bin" />
-                                <label for="listingformat3_bin">Buy it Now</label>
-                            </div>
-                        </fieldset>
+                    <div>
+                        <input id="listingformat2_auction" type="radio" name="listingformat2" value="auction" />
+                        <label for="listingformat2_auction">Auction</label>
                     </div>
-                </div>
+                    <div>
+                        <input id="listingformat2_bin" type="radio" name="listingformat2" value="bin" />
+                        <label for="listingformat2_bin">Buy it Now</label>
+                    </div>
+                </fieldset>
             </div>
-            <input type="submit" />
-        </form>
+        </div>
     </div>
-    <div class="col-xs-12 col-md-4 col-md-offset-1">
-        <h2>Readme</h2>
-        <p>Use ARROW keys to change radio option, ENTER key submits form.</p>
-        <!-- <p>Always use <a href="http://www.w3.org/TR/html-markup/input.radio.html">native HTML radio buttons</a> if possible!</p> -->
-        <p>NOTE: IE8 and below will gracefully degrade to native, vanilla radio buttons.</p>
-        <p>Please <a href={{ "/input/radio.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these custom checkboxes were created.</p>
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="customradiogroup">
+                <fieldset>
+                    <legend>ARIA</legend>
+                    <div>
+                        <input id="listingformat3_all" type="radio" name="listingformat3" value="all" />
+                        <label for="listingformat3_all">All Listings</label>
+                    </div>
+                    <div>
+                        <input id="listingformat3_auction" type="radio" name="listingformat3" value="auction" />
+                        <label for="listingformat3_auction">Auction</label>
+                    </div>
+                    <div>
+                        <input id="listingformat3_bin" type="radio" name="listingformat3" value="bin" />
+                        <label for="listingformat3_bin">Buy it Now</label>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
     </div>
-</div>
+    <input type="submit" />
+</form>
+
 
 <script src="jquery.customradiogroup.js"></script>
 <script>

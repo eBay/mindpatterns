@@ -18,20 +18,16 @@ permalink: /timer/
     }
 </style>
 
-<div class="row">
-    <div class="col-xs-12 col-md-7">
-        <h1>{{ page.title }}</h1>
-        <div>
-            <div class="timer">
-                <p><span>Time Left: </span><span><span>1</span>m <span>0</span>s</span></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-12 col-md-4 col-md-offset-1">
-        <h2>Readme</h2>
-        <p>An alert is triggered every 15 seconds until time reaches 0.</p>
-        <p>Please <a href={{ "/messaging/time.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
-    </div>
+<h1>{{ page.title }}</h1>
+
+<h2 class="clipped">Readme</h2>
+<p>An alert is triggered every 15 seconds until time reaches 0.</p>
+<p>Please <a href={{ "/messaging/time.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+<h2>Examples</h2>
+
+<div class="timer">
+    <p><span>Time Left: </span><span><span>1</span>m <span>0</span>s</span></p>
 </div>
 
 <script src="jquery.timer.js"></script>

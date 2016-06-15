@@ -1,53 +1,42 @@
 @font-face {
-  font-family: "vq-icon-font";
-  font-style: normal;
-  font-weight: normal;
-  src: url('fonts/vq-icon-font.eot');
-  src: url('fonts/vq-icon-font.eot?#iefix') format('embedded-opentype'), url('fonts/vq-icon-font.woff') format('woff'), url('fonts/vq-icon-font.ttf') format('truetype'), url('fonts/vq-icon-font.svg#vq-icon-font') format('svg');
-}
-body {
-    background-color: white;
-    color: #333;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    margin: 0;
-}
-h1,
-h2 {
-
+    font-family: "vq-icon-font";
+    font-style: normal;
+    font-weight: normal;
+    src: url('fonts/vq-icon-font.eot');
+    src: url('fonts/vq-icon-font.eot?#iefix') format('embedded-opentype'), url('fonts/vq-icon-font.woff') format('woff'), url('fonts/vq-icon-font.ttf') format('truetype'), url('fonts/vq-icon-font.svg#vq-icon-font') format('svg');
 }
 h1 {
-    font-size: 1.5em;
-    margin-bottom: 1em;
-    margin-top: 2em;
+    font-weight: 100;
+    font-size: 56px;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
 }
 h2 {
-    font-size: 1.5em;
-    margin-bottom: 1em;
-    margin-top: 2em;
+    border-bottom: 1px solid #eee;
+    font-weight: 200;
+    font-size: 36px;
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+    padding-bottom: 0.5rem;
 }
 h3 {
-    font-size: 1em;
-
+    font-weight: 400;
+    font-size: 20px;
 }
-
 a {
     color: #006699;
+    &:focus {
+        text-decoration: underline;
+    }
 }
-a:focus {
-    text-decoration: underline;
-}
-
 legend {
     font-weight: bold;
 }
-
 fieldset {
     border: 1px solid #ddd;
     margin: 1em 0;
     padding: 2em;
 }
-
 button,
 input[type=submit],
 input[type=reset],
@@ -64,98 +53,107 @@ select {
 a[role=button] {
     color: currentColor;
     font-size: 12px;
+    &:hover {
+        text-decoration: none;
+    }
 }
-a[role=button]:hover {
-    text-decoration: none;
-}
-
-body > header[role=banner] {
-    background: #eee;
-    border-bottom: 1px solid #ddd;
-    font-size: 13px;
-}
-
-body > header[role=banner] a {
-    color: currentColor;
-    display: inline-block;
-    text-decoration: none;
-}
-
-body > header[role=banner] img {
-    border: 0;
-    vertical-align: middle;
-}
-
-div[role=main] {
-    padding-bottom: 5em;
-}
-div[role=main] {
-    border-bottom: 1px solid #eee;
-}
-
-footer[role=contentinfo] {
+body {
+    color: #333;
+    font-family: "Helvetica Neue", Helvetica, Arial, Roboto, sans-serif;
     font-size: 14px;
-    padding-top: 1em;
-}
-a {
-    text-decoration: none;
-}
-p a,
-a:hover {
-    text-decoration: underline;
-}
-.col-md-offset-1 > #toc {
-    column-count: 3;
-    -moz-column-count: 3;
-    -webkit-column-count: 3;
-}
-.col-md-offset-1 > #toc li {
-    display: inline-block;
-    margin: 0 5px 10px 5px;
-    width: 100%;
-}
-
-#toc {
-    font-size: 14px;
-    list-style-type: none;
     margin: 0;
-    padding: 0;
+}
+body > header {
+    background-color: #fafafa;
+    border-bottom: 1px solid #ddd;
+    padding: 2rem 1rem 1rem 1rem;
+    overflow: auto;
+    ul {
+        column-count: 3;
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        list-style-type: none;
+        margin: 1rem 0 0.5rem;
+        padding: 0;
+    }
+    li {
+        line-height: 2;
+    }
+    a {
+        color: #555;
+        font-weight: 300;
+        font-size: 16px;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+}
+[role=main] {
+    padding: 1rem;
+    &:focus {
+        outline: 0 none;
+    }
+}
+#logo {
+    display: block;
+    span:first-child {
+        background: url('http://ir.ebaystatic.com/rs/v/fxxj3ttftm5ltcqnto1o4baovyl.png?e') 0 117px;
+        background-size: 190px;
+        display: inline-block;
+        height: 37px;
+        overflow: hidden;
+        position: relative;
+        top: 1px;
+        width: 89px;
+        vertical-align: bottom;
+    }
+    span:last-child {
+        color: #333;
+        display: inline-block;
+        font-weight: 200;
+        font-size: 1.75em;
+    }
 }
 
-.container > #toc {
-    margin-top: 1em;
+#skipto {
+    left: 0;
+    position: absolute;
+    top: 0;
+
+    &:focus {
+        background-color: LightYellow;
+        clip: auto;
+        height: auto;
+        padding: 0.25rem 1rem;
+        width: 100%;
+        z-index: 1;
+    }
 }
 
-.container >  #toc li {
-    display: inline;
-}
+// large screen breakpoint
 
-.container > #toc li:after {
-    content: ' - ';
-}
-
-.container >  #toc li:last-child:after {
-    content: '';
-}
-
-.accessAid,
-.clipped {
-    position: absolute !important;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
-    padding: 0 !important;
-    border: 0 !important;
-    height: 1px !important;
-    width: 1px !important;
-    overflow: hidden;
-}
-
-.unclipped {
-    clip: auto;
-    height: auto;
-    width: auto;
-}
-
-.suppress-focus-indicator {
-    outline: 0 none;
+@media (min-width: 800px) {
+    h1 {
+        margin-top: 5rem;
+    }
+    body > header {
+        border-bottom: 0;
+        border-right: 1px solid #eee;
+        display: block;
+        ul {
+            column-count: 2;
+            -moz-column-count:2;
+            -webkit-column-count: 2;
+        }
+    }
+    .row:first-of-type h3 {
+        margin-top: 0;
+    }
+    [role=main] {
+        padding: 0 0.75rem 2rem;
+    }
+    #skipto:focus {
+        width: 310px;
+    }
 }

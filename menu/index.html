@@ -6,77 +6,75 @@ permalink: /menu/
 
 <link rel="stylesheet" href="menu.css">
 
+
+<h1>{{ page.title }}</h1>
+
+<h2 class="clipped">Readme</h2>
+<p>Use ENTER or SPACE key to open menu, then ARROW keys to navigate menu items.</p>
+<p>A menu contains commands (menuitem, menuitemradio, or menuitemcheckbox) that execute JavaScript. If you require non-JavaScript fallbacks, consider using native form controls.</p>
+<p>Please <a href={{ "/input/menu.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+<h2>Examples</h2>
+
 <div class="row">
-    <div class="col-xs-12 col-md-7">
-        <h1>{{ page.title }}</h1>
-        <div class="row">
-
-            <div class="col-xs-12 col-md-6">
-                <h3>Ungrouped Items</h3>
-                <div class="menu">
-                    <button>Customise View</button>
-                    <div role="menu">
-                        <div role="menuitem">Grid</div>
-                        <div role="menuitem">List</div>
-                        <!--
-                        <div role="menuitem" aria-haspopup="true">More Options
-                            <div>
-                                <div role="menu">
-                                    <div role="menuitem">Text</div>
-                                    <div role="menuitem">Filmstrip</div>
-                                </div>
-                            </div>
+    <div class="col-xs-12 col-md-6">
+        <h3>Ungrouped Items</h3>
+        <div class="menu">
+            <button>Customise View</button>
+            <div role="menu">
+                <div role="menuitem">Grid</div>
+                <div role="menuitem">List</div>
+                <!--
+                <div role="menuitem" aria-haspopup="true">More Options
+                    <div>
+                        <div role="menu">
+                            <div role="menuitem">Text</div>
+                            <div role="menuitem">Filmstrip</div>
                         </div>
-                        -->
                     </div>
                 </div>
-            </div>
-
-            <div class="col-xs-12 col-md-6">
-                <h3>Grouped Items</h3>
-                <div class="menu">
-                    <button>Customise Results</button>
-                    <div role="menu">
-                        <div role="presentation">
-                            <div role="menuitem">Grid View</div>
-                            <div role="menuitem">List View</div>
-                        </div>
-                        <hr />
-                        <div role="presentation">
-                            <div role="menuitemradio" aria-checked="true">Name Sort</div>
-                            <div role="menuitemradio" aria-checked="false">Date Sort</div>
-                            <div role="menuitemradio" aria-checked="false">Price Sort</div>
-                        </div>
-                        <hr />
-                        <div role="presentation">
-                            <div role="menuitemcheckbox" aria-checked="true">Buy it Now</div>
-                            <div role="menuitemcheckbox" aria-checked="true">Auction</div>
-                        </div>
-                        <!--
-                        <hr />
-                        <div role="presentation">
-                            <div role="menuitem" aria-haspopup="true">More Options
-                                <div>
-                                    <div role="menu">
-                                        <div role="presentation">
-                                            <div role="menuitem">Show More Results</div>
-                                            <div role="menuitem">Show Less Results</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        -->
-                    </div>
-                </div>
+                -->
             </div>
         </div>
     </div>
-    <div class="col-xs-12 col-md-4 col-md-offset-1">
-        <h2>Readme</h2>
-        <p>Use ENTER or SPACE key to open menu, then ARROW keys to navigate menu items.</p>
-        <p>A menu contains commands (button, radio, or checkbox) that execute JavaScript. If you require non-JavaScript fallbacks, consider using native form controls.</p>
-        <p>Please <a href={{ "/input/menu.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+    <div class="col-xs-12 col-md-6">
+        <h3>Grouped Items</h3>
+        <div class="menu">
+            <button>Customise Results</button>
+            <div role="menu">
+                <div role="presentation">
+                    <div role="menuitem">Grid View</div>
+                    <div role="menuitem">List View</div>
+                </div>
+                <hr />
+                <div role="presentation">
+                    <div role="menuitemradio" aria-checked="true">Name Sort</div>
+                    <div role="menuitemradio" aria-checked="false">Date Sort</div>
+                    <div role="menuitemradio" aria-checked="false">Price Sort</div>
+                </div>
+                <hr />
+                <div role="presentation">
+                    <div role="menuitemcheckbox" aria-checked="true">Buy it Now</div>
+                    <div role="menuitemcheckbox" aria-checked="true">Auction</div>
+                </div>
+                <!--
+                <hr />
+                <div role="presentation">
+                    <div role="menuitem" aria-haspopup="true">More Options
+                        <div>
+                            <div role="menu">
+                                <div role="presentation">
+                                    <div role="menuitem">Show More Results</div>
+                                    <div role="menuitem">Show Less Results</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
     </div>
 </div>
 

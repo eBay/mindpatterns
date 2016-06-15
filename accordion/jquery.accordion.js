@@ -14,7 +14,7 @@
 
             var $accordionWidget = $(this),
                 $items = $accordionWidget.find('> div'),
-                $headings = $items.find('> h3'),
+                $headings = $items.find('> h4'),
                 $panels = $items.find('> div');
 
             // set a unique widget id
