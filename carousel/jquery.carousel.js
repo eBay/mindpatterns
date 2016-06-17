@@ -14,7 +14,7 @@
                 $paginateRight = $('<button />'),
                 $listItems = $list.find('> li'),
                 viewportSize = $this.data('carousel'),
-                numPages = Math.round($listItems.size() / viewportSize),
+                numPages = Math.round($listItems.length / viewportSize),
                 currentPageIdx = 1,
                 indexesInViewport = [],
                 $container;

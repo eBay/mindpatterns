@@ -1,10 +1,7 @@
 {
     "dependencies": [
-        "jquery/dist/jquery.js",
-        "_js/polyfills/es5-shim.min.js",
-        "_js/polyfills/json3.min.js" ,
-        "_js/polyfills/respond.min.js",
-        "_js/plugins/jquery.splendid.textchange.js",
+        "jquery/dist/jquery.min.js",
+        "node_modules/jquery-migrate/dist/jquery-migrate.min.js",
         "makeup-ebay"
     ]
 }

@@ -41,7 +41,7 @@
                     labelId;
 
                 // if native input has programmatic label we must transfer it to custom radio
-                if ($explicitLabel.size() === 1) {
+                if ($explicitLabel.length === 1) {
                     labelId = $radiogroup.attr('id') + '-label-' + index;
                     $explicitLabel.attr('id', labelId);
                     $customRadio.attr('aria-labelledby', labelId);

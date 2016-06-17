@@ -59,7 +59,7 @@
             });
 
             $input.on('escapeKeyDown', function (e) {
-                if ($('#'+$input.attr('aria-activedescendant')).size() !== 0) {
+                if ($('#'+$input.attr('aria-activedescendant')).length !== 0) {
                     $this.trigger('dismiss');
                 }
                 else {
@@ -70,7 +70,7 @@
             // ENTER key with active descendant should make selection & dismiss
             // listbox. It should not submit form.
             $input.on('enterKeyDown', function(e) {
-                if ($('#'+$input.attr('aria-activedescendant')).size() !== 0) {
+                if ($('#'+$input.attr('aria-activedescendant')).length !== 0) {
                     e.preventDefault();
                     $this.trigger('dismiss');
                 }
@@ -105,7 +105,7 @@
                     });
 
                     setTimeout(function() {
-                        $statusEl.text($listbox.find('li').size() + (($listbox.find('li').size() === 1) ? ' suggestion found' : ' suggestions found') + '. Use up and down arrow keys to navigate suggestions.');
+                        $statusEl.text($listbox.find('li').length + (($listbox.find('li').length === 1) ? ' suggestion found' : ' suggestions found') + '. Use up and down arrow keys to navigate suggestions.');
                     }, 50);
 
                     $listbox.css('left', $input.offset().left).width($input.width()).show();

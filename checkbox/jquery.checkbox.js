@@ -21,7 +21,7 @@
             labelId = $checkbox.attr('id') + '-label';
 
             // if real input has programmatic label, we must transfer it
-            if ($explicitLabel.size() === 1) {
+            if ($explicitLabel.length === 1) {
                 $explicitLabel.attr('id', labelId);
                 $customInput.attr('aria-labelledby', labelId);
             }

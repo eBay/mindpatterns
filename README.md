@@ -1,5 +1,7 @@
 # eBay MIND Patterns - Accessibility Patterns for the Web
 
+**NOTE**: Support for Internet Explorer 9 and below was recently dropped, allowing us more time to focus on accessibility matters, rather than cross-browser issues.
+
 ## Install Steps
 
 This GitHub Pages project requires [Bundler](http://bundler.io) to install and run [Jekyll](http://jekyllrb.com) locally.
@@ -8,7 +10,7 @@ This GitHub Pages project requires [Bundler](http://bundler.io) to install and r
 1. Clone this project
 1. In your terminal window, change into the project directory you just cloned
 1. Notice the project directory contains a Gemfile. It will be used by Bundler in the next step.
-1. Run `bundle install` this will install Jekyll and other [dependencies](https://pages.github.com/versions/) from the GitHub Pages gem 
+1. Run `bundle install` this will install Jekyll and other [dependencies](https://pages.github.com/versions/) from the GitHub Pages gem
 1. Run `npm install` to install all devDependencies (e.g. jQuery, Lasso, Makeup)
 1. Run `npm start` to bundle JS assets and serve local Jekyll site
 1. Visit [localhost:4000](http://localhost:4000)
