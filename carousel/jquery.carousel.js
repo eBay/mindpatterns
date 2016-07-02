@@ -108,19 +108,13 @@
                     viewportCollection.push($listItems.get(idx));
                 });
 
-                // fadeout all viewport items
-                $.when($(viewportCollection).fadeOut()).then(function() {
+                // unhide new slide items
+                newIndexesInViewport.forEach(function(idx) {
+                    $($listItems.get(idx)).removeAttr('aria-hidden');
+                });
 
-                    // hide viewport items from screen reader
-                    $(viewportCollection).attr('aria-hidden', 'true');
-
-                    // unhide all items in viewport model
-                    newIndexesInViewport.forEach(function(idx) {
-                        $($listItems.get(idx))
-                            .css('display', 'inline-block')
-                            .attr('aria-hidden', 'false');
-                    });
-                })
+                // hide current slide items
+                $(viewportCollection).attr('aria-hidden', 'true');
 
                 if (currentSlideIndex === 1) {
                     $paginateLeft.attr('aria-disabled', 'true');
