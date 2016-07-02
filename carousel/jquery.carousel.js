@@ -1,5 +1,6 @@
 /**
 * jquery.carousel.js
+* @desc Please DO NOT copy this code to production! This is 'quick & ugly, just make it work!' code.
 * @author Ian McBurnie (imcburnie@ebay.com)
 */
 (function ( $ ) {
@@ -9,15 +10,20 @@
         return this.each(function onEach() {
 
             var $this = $(this),
+                $title = $this.find('.carousel__title'),
                 $list = $this.find('> ul, > ol'),
+                $statusMessageContainer = $('<p role="status" class="clipped">'),
+                $statusMessageText = $('<span>'),
                 $paginateLeft = $('<button />'),
                 $paginateRight = $('<button />'),
                 $listItems = $list.find('> li'),
                 viewportSize = $this.data('carousel'),
-                numPages = Math.round($listItems.length / viewportSize),
-                currentPageIdx = 1,
+                numSlides = Math.round($listItems.length / viewportSize),
+                currentSlideIndex = 1,
                 indexesInViewport = [],
                 $container;
+
+            $this.nextId('carousel');
 
             $list.wrap('<div />');
 
@@ -25,10 +31,26 @@
 
             $container
                 .prepend($paginateLeft)
-                .append($paginateRight);
+                .append($paginateRight)
+                .prepend($statusMessageContainer);
 
-            $paginateLeft.attr('aria-label', 'Paginate left').attr('aria-disabled', 'true');
-            $paginateRight.attr('aria-label', 'Paginate right');
+            $statusMessageText
+                .text('Showing slide {currentSlide} of {numSlides} - {title}'
+                    .replace('{currentSlide}', currentSlideIndex)
+                    .replace('{numSlides}', numSlides)
+                    .replace('{title}', $title.text())
+                );
+            $statusMessageContainer.prop('id', $this.prop('id') + '-status');
+            $statusMessageContainer.append($statusMessageText);
+
+            $paginateLeft
+                .html('<span class="clipped">Go to previous slide - {title}</span>'.replace('{title}', $title.text()))
+                .attr('aria-disabled', 'true')
+                .attr('aria-describedby', $statusMessageContainer.prop('id'));
+
+            $paginateRight
+                .html('<span class="clipped">Go to next slide - {title}</span>'.replace('{title}', $title.text()))
+                .attr('aria-describedby', $statusMessageContainer.prop('id'));
 
             $listItems.each(function(idx, itm) {
                 var $itm = $(itm);
@@ -45,12 +67,12 @@
 
             $paginateRight.on('click', function(e) {
 
-                if (currentPageIdx < numPages) {
+                if (currentSlideIndex < numSlides) {
 
                     var newIndexesInViewport;
 
                     // increment page index
-                    currentPageIdx++;
+                    currentSlideIndex++;
 
                     newIndexesInViewport = indexesInViewport.map(function(idx) {
                         return idx + viewportSize;
@@ -62,12 +84,12 @@
 
             $paginateLeft.on('click', function(e) {
 
-                if (currentPageIdx > 1) {
+                if (currentSlideIndex > 1) {
 
                     var newIndexesInViewport;
 
                     // increment page index
-                    currentPageIdx--;
+                    currentSlideIndex--;
 
                     newIndexesInViewport = indexesInViewport.map(function(idx) {
                         return idx - viewportSize;
@@ -100,11 +122,11 @@
                     });
                 })
 
-                if (currentPageIdx === 1) {
+                if (currentSlideIndex === 1) {
                     $paginateLeft.attr('aria-disabled', 'true');
                     $paginateRight.attr('aria-disabled', 'false');
                 }
-                else if (currentPageIdx === numPages) {
+                else if (currentSlideIndex === numSlides) {
                     $paginateLeft.attr('aria-disabled', 'false');
                     $paginateRight.attr('aria-disabled', 'true');
                 }
@@ -115,9 +137,14 @@
 
                 // IMPORTANT! update the model
                 indexesInViewport = newIndexesInViewport;
+
+                $statusMessageText
+                    .text('Showing slide {currentSlide} of {numSlides} - {title}'
+                        .replace('{currentSlide}', currentSlideIndex)
+                        .replace('{numSlides}', numSlides)
+                        .replace('{title}', $title.text())
+                    );
             });
-
-
 
             $this.addClass('carousel--js');
         });

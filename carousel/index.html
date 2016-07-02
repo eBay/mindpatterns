@@ -8,9 +8,10 @@ permalink: /carousel/
 
 <style>
     .carousel {
+        display: inline-block;
         margin: 1em 0;
         padding: 1em 0;
-        width: 100%;
+        min-width: 550px;
     }
     .carousel li  {
         padding: 1em 4em;
@@ -34,30 +35,21 @@ permalink: /carousel/
         width: 70px;
         height: 110px;
     }
-    .carousel > div > button:first-child {
-        left: 0;
-    }
-    .carousel > div > button:last-child {
-        right: 0;
-    }
-    .carousel--filmstrip > div > button:first-child {
-        left: -0.25em;
-    }
-    .carousel--filmstrip > div > button:last-child {
-        right: -0.25em;
-    }
 </style>
 
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
-<p>Use left &amp; right button controls to paginate the carousel viewport. Use TAB key to navigate links inside of carousel viewport.</p>
+<p>Use left &amp; right button controls to paginate the carousel slides. Use TAB key to navigate through contents of each slide.</p>
+<p>Activate screen reader to hear carousel status updates (e.g. 'Showing slide 2 of 8').</p>
+<p>Please pay no attention to the slide fade in and out animation (and it's glitches!). We use this animation for simplicity sake, but most likely a real carousel would utilise a scroll effect. Again, this is a timely reminder that our emphasis with these examples is accessibility concepts only.</p>
 <p>Please <a href={{ "/disclosure/carousel.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <h2>Examples</h2>
 
-<h3>Default</h3>
+<h3>Slideshow Variant</h3>
 <div class="carousel" data-carousel="1">
+    <h4 class="clipped carousel__title">Video Game Slideshow</h4>
     <ul>
         <li>
             <img src="../images/horace.jpg" alt="" />
@@ -105,6 +97,7 @@ permalink: /carousel/
 
 <h3>Filmstrip Variant</h3>
 <div class="carousel carousel--filmstrip carousel-4" data-carousel="4">
+    <h4 class="clipped carousel__title">Video Game Filmstrip</h4>
     <ul>
         <li>
             <img src="../images/horace.jpg" alt="" />

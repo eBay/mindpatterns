@@ -1,6 +1,5 @@
 .carousel {
     box-sizing: border-box;
-    border: 1px solid #eee;
     margin: 0;
     padding: 0;
     position: relative;
@@ -20,7 +19,7 @@
     font-family: 'vq-icon-font';
     font-size: 20px;
 }
-.carousel > div > button:first-child:after {
+.carousel > div > button:first-of-type:after {
     content: '\e607';
 }
 .carousel > div > button:last-child:after {
@@ -63,4 +62,16 @@
 }
 .carousel.carousel-5 li {
     width: calc(20% - 4px);
+}
+.carousel > div > button:first-child {
+    left: 0;
+}
+.carousel > div > button:last-child {
+    right: 0;
+}
+.carousel--filmstrip > div > button:first-child {
+    left: -0.25em;
+}
+.carousel--filmstrip > div > button:last-child {
+    right: -0.25em;
 }
