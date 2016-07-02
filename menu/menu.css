@@ -11,7 +11,7 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    position: fixed;
+    position: absolute;
     z-index: 1;
 }
 .menu [aria-haspopup=true][aria-expanded=true] + div,
