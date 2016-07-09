@@ -1,5 +1,6 @@
 /**
 * @function jquery.customcheckbox.js
+* @desc Please DO NOT copy this code to production! This is 'quick & ugly, just make it work!' code.
 * @author Ian McBurnie (imcburnie@ebay.com)
 */
 (function ( $ ) {
@@ -71,9 +72,9 @@
                 $customInput.attr('aria-checked', $input.prop('checked'));
             });
 
-            $('.customcheckbox').preventDocumentSpaceKeyScroll();
+            $('.customcheckbox').preventScrollKeys('[role=checkbox]');
 
-            $checkbox.addClass('customcheckbox-js');
+            $checkbox.addClass('customcheckbox--js');
         });
     };
 }( jQuery ));

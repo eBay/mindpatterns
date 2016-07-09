@@ -1,6 +1,7 @@
 /**
-* jquery.expando.js
-* @author Ian McBurnie (imcburnie@ebay.com)
+* @file jquery.expando.js
+* @author Ian McBurnie <ianmcburnie@hotmail.com>
+* @desc Please DO NOT copy this code to production! This is 'quick & ugly, just make it work!' code.
 */
 (function ( $ ) {
 

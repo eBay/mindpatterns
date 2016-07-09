@@ -1,6 +1,7 @@
 /**
-* jquery.elementnotice.js
-* @author Ian McBurnie (imcburnie@ebay.com)
+* @file jquery.elementnotice.js
+* @desc Please DO NOT copy this code to production! This is 'quick & ugly, just make it work!' code.
+* @author Ian McBurnie <ianmcburnie@hotmail.com>
 */
 (function ( $ ) {
 

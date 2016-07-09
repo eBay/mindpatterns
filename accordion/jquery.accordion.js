@@ -1,6 +1,7 @@
 /**
 * @function jquery.accordion.js
-* @author Ian McBurnie <imcburnie@ebay.com>
+* @desc Please DO NOT copy this code to production! This is 'quick & ugly, just make it work!' code.
+* @author Ian McBurnie <ianmcburnie@hotmail.com>
 * @requires jquery-next-id
 * @requires jquery-roving-tabindex
 */
@@ -14,7 +15,7 @@
 
             var $accordionWidget = $(this),
                 $items = $accordionWidget.find('> div'),
-                $headings = $items.find('> h4'),
+                $tabs = $items.find('> h4'),
                 $panels = $items.find('> div');
 
             // set a unique widget id
@@ -26,7 +27,7 @@
             // add required ARIA roles, states and properties
             $accordionWidget.attr('role', 'tablist');
 
-            $headings
+            $tabs
                 .attr('role', 'tab')
                 .attr('aria-selected', 'false')
 
@@ -35,7 +36,7 @@
                 .attr('aria-hidden', 'true');
 
             // all panels are labelled and controlled by their respective tab
-            $headings.each(function(idx, tabEl) {
+            $tabs.each(function(idx, tabEl) {
                 var tabId = $accordionWidget.attr('id') + '-tab-' + idx,
                     panelId = $accordionWidget.attr('id') + '-panel-' + idx;
 
@@ -43,12 +44,14 @@
                 $panels.eq(idx).attr('id', panelId).attr('aria-labelledby', tabId);
             });
 
+            $accordionWidget.commonKeyDown($tabs);
+
             // Create a roving tab index on headings
             // roving tab index also calls keyhandlers plugin
-            $accordionWidget.rovingTabindex($headings);
+            $accordionWidget.rovingTabindex($tabs);
 
-            $headings.on('click spaceKeyDown enterKeyDown', function(e) {
-                $accordionWidget.trigger('select', $(this));
+            $accordionWidget.on('click spaceKeyDown enterKeyDown', function(e) {
+                $accordionWidget.trigger('select', e.originalEvent.target);
             });
 
             $accordionWidget.on('select', function(e, selectedTab) {
@@ -61,7 +64,7 @@
             });
 
             // call plugin to prevent page scroll
-            $('.accordion [role=tab]').preventDocumentScrollKeys();
+            $accordionWidget.preventScrollKeys($tabs);
 
             // mark widget as initialised
             $accordionWidget.addClass('accordion-js');

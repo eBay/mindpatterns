@@ -3,18 +3,18 @@
     "localhost": "bundler exec jekyll serve --config _config.yml,_config.localhost.yml",
     "start": "npm run build && npm run localhost",
     "build": "npm run lasso",
-    "lasso": "lasso browser.json --output-dir static --minify",
+    "lasso": "lasso browser.json --output-dir static && rimraf build",
     "clean": "rimraf static/browser.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ianmcburnie/a11y-examples"
+    "url": "https://github.com/ianmcburnie/mindpatterns"
   },
   "devDependencies": {
     "jquery": "^3.0.0",
     "jquery-migrate": "^1.4.1",
-    "makeup-ebay": "~0.15.0",
-    "lasso-cli": "*",
+    "makeup-ebay": "~0.16.1",
+    "lasso-cli": "^2.0.0",
     "rimraf": "^2.5.2"
   }
 }

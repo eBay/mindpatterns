@@ -1,5 +1,6 @@
 /**
 * @file jQuery plugin that creates the basic interactivity for a bubble help flyout
+* @desc Please DO NOT copy this code to production! This is 'quick & ugly, just make it work!' code.
 * @version 0.0.1
 * @author Ian McBurnie <ianmcburnie@hotmail.com>
 */

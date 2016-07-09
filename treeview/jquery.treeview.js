@@ -1,6 +1,7 @@
 /**
 * @function jquery.treeview.js
-* @author Ian McBurnie <imcburnie@ebay.com>
+* @desc Please DO NOT copy this code to production! This is 'quick & ugly, just make it work!' code.
+* @author Ian McBurnie <ianmcburnie@hotmail.com>
 * @requires jquery-next-id
 * @requires jquery-active-descendant
 */
@@ -34,7 +35,7 @@
             });
 
             // call plugin to prevent page scroll
-            $('[role=tree]').preventDocumentScrollKeys();
+            $('[role=tree]').preventScrollKeys('[role=treeitem]');
         });
     };
 }( jQuery ));

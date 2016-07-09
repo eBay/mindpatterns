@@ -1,6 +1,7 @@
 /**
 * @function jquery.customradiogroup.js
-* @author Ian McBurnie <imcburnie@ebay.com>
+* @desc Please DO NOT copy this code to production! This is 'quick & ugly, just make it work!' code.
+* @author Ian McBurnie <ianmcburnie@hotmail.com>
 * @desc Sample implementation for a custom radio group.
 * @requires jquery-next-id
 * @requires jquery-common-keys
@@ -12,18 +13,18 @@
 
         return this.each(function onEachCustomRadioGroup() {
 
-            var $radiogroup = $(this),
-                $fieldset = $radiogroup.find('> fieldset')
-                $form = $radiogroup.closest('form'),
+            var $widget = $(this),
+                $fieldset = $widget.find('> fieldset')
+                $form = $widget.closest('form'),
                 $legend = $fieldset.find('> legend'),
-                $radiogroupitems = $fieldset.find('> span, > div'),
+                $items = $fieldset.find('> span, > div'),
                 activeRadioIdx = 0;
 
             // set a unique widget id
-            $radiogroup.nextId('radiogroup');
+            $widget.nextId('radiogroup');
 
             // set a unique legend id
-            $legend.prop('id', $radiogroup.prop('id') + '-legend');
+            $legend.prop('id', $widget.prop('id') + '-legend');
 
             // custom radios must live inside a labelled radiogroup role
             $fieldset
@@ -31,18 +32,18 @@
                 .attr('aria-labelledby', $legend.prop('id'));
 
             // add a class to radio button containers for easier DOM traversal
-            $radiogroupitems.addClass('customradiogroupitem');
+            $items.addClass('customradiogroupitem');
 
             // inject custom radio elements after each input
-            $radiogroup.find('input[type=radio]').each(function onEachNativeRadio(index, nativeRadio) {
+            $widget.find('input[type=radio]').each(function onEachNativeRadio(index, nativeRadio) {
                 var $nativeRadio = $(nativeRadio),
-                    $explicitLabel = $radiogroup.find('[for=' + $nativeRadio.attr('id') + ']'),
+                    $explicitLabel = $widget.find('[for=' + $nativeRadio.attr('id') + ']'),
                     $customRadio = $('<span role="radio" />'),
                     labelId;
 
                 // if native input has programmatic label we must transfer it to custom radio
                 if ($explicitLabel.length === 1) {
-                    labelId = $radiogroup.attr('id') + '-label-' + index;
+                    labelId = $widget.attr('id') + '-label-' + index;
                     $explicitLabel.attr('id', labelId);
                     $customRadio.attr('aria-labelledby', labelId);
 
@@ -64,46 +65,47 @@
             });
 
             // click handler triggers 'check' event
-            $radiogroupitems.on('click', 'label, span', function onClick(e) {
-                $radiogroup.trigger('check', $(this).closest('.customradiogroupitem'));
+            $items.on('click', 'label, span', function onClick(e) {
+                $widget.trigger('check', $(this).closest('.customradiogroupitem'));
             });
 
             // enter key submits form
-            $radiogroupitems.on('enterKeyDown', function onEnterKeyDown(e) {
+            $items.on('enterKeyDown', function onEnterKeyDown(e) {
                 $form.submit();
             });
 
             // spacebar triggers 'check' event
-            $radiogroupitems.on('spaceKeyDown', function onSpaceKeyDown(e) {
-                $radiogroup.trigger('check', this);
+            $items.on('spaceKeyDown', function onSpaceKeyDown(e) {
+                $widget.trigger('check', this);
             });
 
-            $radiogroup.find('[role=radio]').commonKeyDown();
+            $widget.commonKeyDown('[role=radio]');
 
             // create a roving tab index on custom radios
-            $radiogroup.rovingTabindex('[role=radio]', {activeIndex: activeRadioIdx});
+            $widget.rovingTabindex('[role=radio]', {activeIndex: activeRadioIdx});
 
             // update radiogroup state on check event or rovingTabindex change
-            $radiogroup.on('check rovingTabindexChange', function onCheckAndRove(e, radiogroupitem) {
-                var $radiogroupitem = $(radiogroupitem).closest('.customradiogroupitem'),
-                    $activeInput = $radiogroup.find('input:checked'),
+            $widget.on('check rovingTabindexChange', function onCheckAndRove(e, radiogroupitem) {
+                console.log('rovingTabindexChange');
+                var $widgetitem = $(radiogroupitem).closest('.customradiogroupitem'),
+                    $activeInput = $widget.find('input:checked'),
                     $activeItem = $activeInput.closest('.customradiogroupitem');
 
-                if ($radiogroupitem.hasClass('customradiogroupitem') && ($radiogroupitem[0] !== $activeItem[0])) {
+                if ($widgetitem.hasClass('customradiogroupitem') && ($widgetitem[0] !== $activeItem[0])) {
                     // uncheck currently active native & custom radios
                     $activeInput.next('[role=radio]').attr('aria-checked', 'false');
                     $activeInput.prop('checked', false);
                     // check the new native & custom radios and set focus
-                    $radiogroupitem.find('input[type=radio]').prop('checked', true);
-                    $radiogroupitem.find('[role=radio]').attr('aria-checked', 'true');
+                    $widgetitem.find('input[type=radio]').prop('checked', true);
+                    $widgetitem.find('[role=radio]').attr('aria-checked', 'true');
                 }
             });
 
             // call plugin to prevent page scroll
-            $('.customradiogroupitem').preventDocumentScrollKeys();
+            $widget.preventScrollKeys('[role=radio]');
 
             // mark our widget as intialised
-            $radiogroup.addClass('customradiogroup-js');
+            $widget.addClass('customradiogroup--js');
         });
     };
 }( jQuery ));

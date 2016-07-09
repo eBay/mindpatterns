@@ -1,5 +1,6 @@
 /**
 * @function jquery.autocomplete.js
+* @desc Please DO NOT copy this code to production! This is 'quick & ugly, just make it work!' code.
 * @author Ian McBurnie <imcburnie@ebay.com>
 * @requires @ebay/jquery-next-id
 * @requires @ebay/jquery-common-keydown
@@ -32,7 +33,7 @@
                 .attr('role','listbox');
 
             // use commonKeys plugin on input
-            $input.commonKeyDown();
+            $this.commonKeyDown($input);
 
             // use activedescendant plugin on input
             $this.activeDescendant($input, '[role=option]');
@@ -58,9 +59,9 @@
                 $input.focus();
             });
 
-            $input.on('escapeKeyDown', function (e) {
+            $this.on('escapeKeyDown', function (e) {
                 if ($('#'+$input.attr('aria-activedescendant')).length !== 0) {
-                    $this.trigger('dismiss');
+                    $this.trigger('comboboxCollapse');
                 }
                 else {
                     $input.val('');
@@ -69,14 +70,14 @@
 
             // ENTER key with active descendant should make selection & dismiss
             // listbox. It should not submit form.
-            $input.on('enterKeyDown', function(e) {
+            $this.on('enterKeyDown', function(e) {
                 if ($('#'+$input.attr('aria-activedescendant')).length !== 0) {
                     e.preventDefault();
-                    $this.trigger('dismiss');
+                    $this.trigger('comboboxCollapse');
                 }
             });
 
-            $input.on('upArrowKeyDown', function(e) {
+            $this.on('upArrowKeyDown', function(e) {
                 // prevent caret from moving to start
                 e.preventDefault();
             });
@@ -91,7 +92,7 @@
                 $listbox.find('li').remove();
 
                 if (inputValue === '') {
-                    $this.trigger('dismiss');
+                    $this.trigger('comboboxCollapse');
                 }
                 else {
                     // filter data based on the new input text
@@ -122,11 +123,11 @@
 
             $input.on('blur', function onInputBlur(e) {
                 setTimeout(function(e) {
-                    $this.trigger('dismiss');
+                    $this.trigger('comboboxCollapse');
                 }, 250);
             });
 
-            $this.on('dismiss', function onAutocompleteDismiss(e) {
+            $this.on('comboboxCollapse', function onCollapse(e) {
                 $input.trigger('activeDescendantItemsChange');
                 $listbox.hide().empty();
                 $input.attr('aria-expanded', 'false');

@@ -1,6 +1,7 @@
 /**
 * @function jquery.pagination.js
-* @author Ian McBurnie <imcburnie@ebay.com>
+* @desc Please DO NOT copy this code to production! This is 'quick & ugly, just make it work!' code.
+* @author Ian McBurnie <ianmcburnie@hotmail.com>
 */
 (function ( $ ) {
     $.fn.pagination = function pagination() {

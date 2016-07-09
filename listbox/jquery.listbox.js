@@ -1,20 +1,17 @@
 /**
 * @function jquery.listbox.js
-* @author Ian McBurnie <imcburnie@ebay.com>
+* @desc Please DO NOT copy this code to production! This is 'quick & ugly, just make it work!' code.
+* @author Ian McBurnie <ianmcburnie@hotmail.com>
 * @version 0.0.1
 */
 (function ( $ ) {
-
     $.fn.listbox = function listbox() {
-
         return this.each(function onEach() {
-
             var $this = $(this),
                 $form = $this.closest('form'),
                 $label = $this.find('label'),
                 $select = $this.find('select'),
-                isListBoxMultiSelect = $select.attr('size')  || $select.prop('multiple'),
-                $customListbox;
+                isListBoxMultiSelect = $select.attr('size')  || $select.prop('multiple');
 
             $this.nextId('listbox');
 
@@ -26,21 +23,6 @@
             else {
                 $this.listboxmultiselect();
             }
-
-            $customListbox = $(this).find('[role=listbox]');
-
-            $customListbox.commonKeyDown();
-
-            $customListbox.on('enterKeyDown', function onListboxEnterKey(e) {
-                $form.submit();
-            })
-
-            $customListbox.attr('aria-labelledby', $label.prop('id'));
-
-            // call plugin to prevent page scroll
-            $('[role=listbox]').preventDocumentScrollKeys();
-
-            $this.addClass('listbox--js');
         });
     };
 
@@ -59,6 +41,7 @@
         return this.each(function onEach() {
 
             var $this = $(this),
+                $form = $this.closest('form'),
                 $nativeListbox = $this.find('select'),
                 $label = $this.find('label'),
                 $nativeOptions = $nativeListbox.find('option'),
@@ -92,7 +75,7 @@
 
             $customOptions = $customListbox.find('[role=option]');
 
-            $customOptions.commonKeyDown();
+            $customListbox.commonKeyDown('[role=option]');
 
             // set aria-selected on the active descendant
             $customListbox.find('#'+activeId).attr('aria-selected', 'true');
@@ -101,12 +84,13 @@
             $customListbox.rovingTabindex($customOptions, {wrap:false});
 
             // listen for click events (triggered by mouse/pointer)
-            $customOptions.on('click spaceKeyDown', function(e) {
+            $customListbox.on('click spaceKeyDown', function(e) {
+                console.log(e.originalEvent.target);
                 $customOptions.attr('tabindex', '-1');
-                $(e.currentTarget).attr('tabindex', '0');
+                $(e.originalEvent.target).attr('tabindex', '0');
                 $customListbox.find('#'+activeId).removeAttr('id');
-                $(e.currentTarget).prop('id', activeId);
-                $this.trigger('select', e.currentTarget);
+                $(e.originalEvent.target).prop('id', activeId);
+                $this.trigger('select', e.originalEvent.target);
             });
 
             $this.on('select', function(e, item) {
@@ -119,6 +103,17 @@
 
                 $(item).focus();
             });
+
+            $customListbox.on('enterKeyDown', function onListboxEnterKey(e) {
+                $form.submit();
+            });
+
+            $customListbox.attr('aria-labelledby', $label.prop('id'));
+
+            // call plugin to prevent page scroll
+            $customListbox.preventScrollKeys('[role=option]');
+
+            $this.addClass('listbox--js');
 
             // append the custom listbox to the widget
             $this.append($customListbox);

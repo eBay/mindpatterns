@@ -1,6 +1,7 @@
 /**
 * @function jquery.button.js
-* @author Ian McBurnie <imcburnie@ebay.com>
+* @desc Please DO NOT copy this code to production! This is 'quick & ugly, just make it work!' code.
+* @author Ian McBurnie <ianmcburnie@hotmail.com>
 * @desc An example of what is required to make any element equivalent to a
 * button element. In practice this should only ever be used on hyperlinks that
 * require progressively enchancing to buttons (hijaxing).

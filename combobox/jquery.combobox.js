@@ -1,21 +1,18 @@
 /**
 * @function jquery.combobox.js
+* @desc Please DO NOT copy this code to production! This is 'quick & ugly, just make it work!' code.
 * @author Ian McBurnie <imcburnie@ebay.com>
 * @requires @ebay/jquery-next-id
 * @requires @ebay/jquery-common-keydown
 * @requires @ebay/jquery-active-descendant
-*
 */
 (function ( $ ) {
-
     var data = ['Playstation 3', 'Playstation 4', 'Xbox 360', 'Xbox One', 'Wii', 'Wii U'];
 
     $.fn.combobox = function combobox(options) {
-
         options = options || {};
 
         return this.each(function onEachCombobox() {
-
             var $this = $(this),
                 $input = $this.find('> input'),
                 $button = $('<button>'),
@@ -57,42 +54,49 @@
             $this.append($listbox);
 
             // plugins
-            $input.commonKeyDown();
+            $this.commonKeyDown($input);
             $this.activeDescendant($input, '[role=option]');
 
-            $input.on('downArrowKeyDown', function(e) {
-                $this.trigger('show');
+            $this.on('downArrowKeyDown', function(e) {
+                $this.trigger('comboboxExpand');
             });
 
-            $input.on('upArrowKeyDown', function(e) {
+            $this.on('upArrowKeyDown', function(e) {
                 // prevent caret from moving to start
                 e.preventDefault();
-                $this.trigger('show');
+                $this.trigger('comboboxExpand');
             });
 
             // ENTER key with active descendant should make selection & dismiss
             // listbox. It should not submit form.
-            $input.on('enterKeyDown', function (e) {
+            $this.on('enterKeyDown', function (e) {
+                $input.val($listbox.find('[aria-selected=true]').text());
                 // check for an active descendant and ENTER key
                 if ($input.attr('aria-expanded') == 'true') {
                     e.preventDefault();
-                    $this.trigger('dismiss');
+                    $this.trigger('comboboxCollapse');
                 }
             });
 
             $input.on('focus', function(e) {
                 if (options.showOnFocus === true && $input.attr('aria-expanded') == 'false') {
-                    $this.trigger('show');
+                    $this.trigger('comboboxExpand');
                 }
             });
 
+            $input.on('blur', function onInputBlur(e) {
+                blurTimer = setTimeout(function(e) {
+                    $this.trigger('comboboxCollapse');
+                }, 100);
+            });
+
             $button.on('click', function(e) {
-                $this.trigger($input.attr('aria-expanded') == 'true' ? 'dismiss' : 'show');
+                $this.trigger($input.attr('aria-expanded') == 'true' ? 'comboboxCollapse' : 'comboboxExpand');
             });
 
             $listbox.on('click', function(e) {
                 $input.val($(e.target).text());
-                $this.trigger($input.attr('aria-expanded') == 'true' ? 'dismiss' : 'show');
+                $this.trigger($input.attr('aria-expanded') == 'true' ? 'comboboxCollapse' : 'comboboxExpand');
             });
 
             $this.on('activeDescendantChange', function(e, newActiveDescendant) {
@@ -101,30 +105,20 @@
                 console.log(e);
             });
 
-            $input.on('enterKeyDown', function(e) {
-                $input.val($listbox.find('[aria-selected=true]').text());
-            });
-
-            $input.on('blur', function onInputBlur(e) {
-                blurTimer = setTimeout(function(e) {
-                    $this.trigger('dismiss');
-                }, 100);
-            });
-
-            $input.on('escapeKeyDown', function (e) {
+            $this.on('escapeKeyDown', function (e) {
                 if($input.attr('aria-expanded') == 'true') {
-                    $this.trigger('dismiss');
+                    $this.trigger('comboboxCollapse');
                 }
                 else {
                     $input.val('');
                 }
             });
 
-            $this.on('dismiss', function onDismiss(e) {
+            $this.on('comboboxCollapse', function onCollapse(e) {
                 $input.attr('aria-expanded', 'false');
             });
 
-            $this.on('show', function onShow(e) {
+            $this.on('comboboxExpand', function onExpand(e) {
                 clearTimeout(blurTimer);
                 $input.attr('aria-expanded', 'true');
             });

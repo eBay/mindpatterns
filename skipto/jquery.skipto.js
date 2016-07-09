@@ -1,6 +1,7 @@
 /**
-* jquery.skipto.js
-* @author Ian McBurnie (imcburnie@ebay.com)
+* @file jquery.skipto.js
+* @desc Please DO NOT copy this code to production! This is 'quick & ugly, just make it work!' code.
+* @author Ian McBurnie <ianmcburnie@hotmail.com>
 */
 (function ( $ ) {
 
@@ -43,7 +44,7 @@
                     $target.focus();
                 }, 5);
 
-                // on kb blur, remove class that allows outline 
+                // on kb blur, remove class that allows outline
                 $target.one('blur', function(e) {
                     $target.removeClass('skiptotarget--active');
                 });
