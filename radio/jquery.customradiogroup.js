@@ -70,15 +70,16 @@
             });
 
             // enter key submits form
-            $items.on('enterKeyDown', function onEnterKeyDown(e) {
+            $widget.on('enterKeyDown', function onEnterKeyDown(e) {
                 $form.submit();
             });
 
             // spacebar triggers 'check' event
-            $items.on('spaceKeyDown', function onSpaceKeyDown(e) {
-                $widget.trigger('check', this);
+            $widget.on('spaceKeyDown', function onSpaceKeyDown(e) {
+                $widget.trigger('check', e.originalEvent.target);
             });
 
+            // key events on radio buttons are delegated to widget
             $widget.commonKeyDown('[role=radio]');
 
             // create a roving tab index on custom radios
@@ -86,7 +87,6 @@
 
             // update radiogroup state on check event or rovingTabindex change
             $widget.on('check rovingTabindexChange', function onCheckAndRove(e, radiogroupitem) {
-                console.log('rovingTabindexChange');
                 var $widgetitem = $(radiogroupitem).closest('.customradiogroupitem'),
                     $activeInput = $widget.find('input:checked'),
                     $activeItem = $activeInput.closest('.customradiogroupitem');
