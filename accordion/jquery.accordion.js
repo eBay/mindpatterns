@@ -48,7 +48,7 @@
 
             // Create a roving tab index on headings
             // roving tab index also calls keyhandlers plugin
-            $accordionWidget.rovingTabindex($tabs);
+            $accordionWidget.rovingTabindex('[role=tab]');
 
             $accordionWidget.on('click spaceKeyDown enterKeyDown', function(e) {
                 $accordionWidget.trigger('select', e.originalEvent.target);

@@ -81,7 +81,7 @@
             $customListbox.find('#'+activeId).attr('aria-selected', 'true');
 
             // init rovingTabindex plugin on custom listbox
-            $customListbox.rovingTabindex($customOptions, {wrap:false});
+            $customListbox.rovingTabindex('[role=option]', {wrap:false});
 
             // listen for click events (triggered by mouse/pointer)
             $customListbox.on('click spaceKeyDown', function(e) {

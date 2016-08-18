@@ -3,7 +3,7 @@
     "localhost": "bundler exec jekyll serve --config _config.yml,_config.localhost.yml",
     "start": "npm run build && npm run localhost",
     "build": "npm run lasso",
-    "lasso": "lasso browser.json --output-dir static && rimraf build",
+    "lasso": "lasso browser.json --output-dir static --minify && rimraf build",
     "clean": "rimraf static/browser.js"
   },
   "repository": {
