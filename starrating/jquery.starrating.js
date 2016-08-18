@@ -7,7 +7,19 @@
             var $stars = $widget.find('input');
             var isChecked = $widget.find('input:checked').length > 0;
 
+            $widget.one('click', function() {
+                $(this).removeClass('starrating--unselected');
+            });
+
+            if (isChecked === false) {
+                $widget.addClass('starrating--unselected');
+            }
+
             /*
+            // the following code would be needed if labels and inputs are not all siblings in the DOM
+            // in that case, CSS adjacent sibling selectors would not work
+            // example of this to come
+
             var includedStars = function(index) {
                 return index < $stars.index($widget.find('input:checked'));
             };
@@ -20,14 +32,6 @@
 
             update();
             */
-
-            $widget.one('click', function() {
-                $(this).removeClass('starrating--unselected');
-            });
-
-            if (isChecked === false) {
-                $widget.addClass('starrating--unselected');
-            }
         });
     };
 }( jQuery ));
