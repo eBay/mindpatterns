@@ -1,0 +1,71 @@
+---
+development: true
+layout: page
+title: Star Rating
+permalink: /starrating/
+---
+
+<link rel="stylesheet" href="starrating.css">
+
+<style>
+
+</style>
+
+<h1>{{ page.title }}</h1>
+
+<h2 class="clipped">Readme</h2>
+<p>Use arrow keys to change selected star rating.</p>
+
+<h2>Examples</h2>
+
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <h3>With Default Selection</h3>
+        <form>
+            <div class="starrating">
+                <fieldset>
+                    <legend>Your Rating</legend>
+                    <input id="default_1" type="radio" name="rating2" value="1" />
+                    <label for="default_1"><span class="clipped">1 star</span></label>
+                    <input id="default_2" type="radio" name="rating2" value="2" />
+                    <label for="default_2"><span class="clipped">2 stars</span></label>
+                    <input id="default_3" type="radio" name="rating2" value="3" checked />
+                    <label for="default_3"><span class="clipped">3 stars</span></label>
+                    <input id="default_4" type="radio" name="rating2" value="4" />
+                    <label for="default_4"><span class="clipped">4 stars</span></label>
+                    <input id="default_5" type="radio" name="rating2" value="5" />
+                    <label for="default_5"><span class="clipped">5 stars</span></label>
+                </fieldset>
+            </div>
+            <input type="submit" />
+        </form>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        <h3>With No Default Selection</h3>
+        <form>
+            <div class="starrating">
+                <fieldset>
+                    <legend>Your Rating</legend>
+                    <input id="nodefault_1" type="radio" name="rating1" value="1" />
+                    <label for="nodefault_1"><span class="clipped">1 star</span></label>
+                    <input id="nodefault_2" type="radio" name="rating1" value="2" />
+                    <label for="nodefault_2"><span class="clipped">2 stars</span></label>
+                    <input id="nodefault_3" type="radio" name="rating1" value="3" />
+                    <label for="nodefault_3"><span class="clipped">3 stars</span></label>
+                    <input id="nodefault_4" type="radio" name="rating1" value="4" />
+                    <label for="nodefault_4"><span class="clipped">4 stars</span></label>
+                    <input id="nodefault_5" type="radio" name="rating1" value="5" />
+                    <label for="nodefault_5"><span class="clipped">5 stars</span></label>
+                </fieldset>
+            </div>
+            <input type="submit" />
+        </form>
+    </div>
+</div>
+
+<script src="jquery.starrating.js"></script>
+<script>
+    $(function() {
+        $('.starrating').starRating();
+    });
+</script>
