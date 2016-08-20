@@ -56,6 +56,9 @@
                     $customRadio.attr('aria-checked', 'true');
                     activeRadioIdx = index;
                 }
+                else {
+                    $customRadio.attr('aria-checked', 'false');
+                }
 
                 // the native input element must be hidden
                 $nativeRadio.attr('aria-hidden', 'true');
