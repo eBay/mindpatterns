@@ -7,7 +7,13 @@ permalink: /starrating/
 <link rel="stylesheet" href="starrating.css">
 
 <style>
-
+    dt, dd {
+        display: inline-block;
+    }
+    dd {
+        margin-left: 1rem;
+        vertical-align: middle;
+    }
 </style>
 
 <h1>{{ page.title }}</h1>
@@ -20,11 +26,11 @@ permalink: /starrating/
 
 <div class="row">
     <div class="col-xs-12 col-md-6">
-        <h3>With Default Selection</h3>
+        <h3>Interactive With Default Selection</h3>
         <form>
             <div class="starrating">
                 <fieldset>
-                    <legend>Your Rating</legend>
+                    <legend>Rate this Product</legend>
                     <input id="default_1" type="radio" name="rating2" value="1" />
                     <label for="default_1"><span class="clipped">1 star</span></label>
                     <input id="default_2" type="radio" name="rating2" value="2" />
@@ -41,11 +47,11 @@ permalink: /starrating/
         </form>
     </div>
     <div class="col-xs-12 col-md-6">
-        <h3>With No Default Selection</h3>
+        <h3>Interactive Without Default Selection</h3>
         <form>
             <div class="starrating">
                 <fieldset>
-                    <legend>Your Rating</legend>
+                    <legend>Rate this Product</legend>
                     <input id="nodefault_1" type="radio" name="rating1" value="1" />
                     <label for="nodefault_1"><span class="clipped">1 star</span></label>
                     <input id="nodefault_2" type="radio" name="rating1" value="2" />
@@ -60,6 +66,16 @@ permalink: /starrating/
             </div>
             <input type="submit" />
         </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <h3>Non-Interactive (image)</h3>
+        <dl>
+            <dt>Average Rating:</dt>
+            <dd><img src="1star.png" alt="1 out of 5 - Average Rating" /></dd>
+        </dl>
     </div>
 </div>
 
