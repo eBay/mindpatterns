@@ -8,24 +8,26 @@
     opacity: 0;
     z-index: 1;
 }
+
 .starrating input[type=radio] + label::before {
-    content: '\2605';
+    content: '\e61d';
     color: gold;
+    font-family: 'vq-icon-font';
     font-size: 1.5em;
     outline: 1px dotted transparent;
 }
 
 .starrating--unselected input[type=radio] + label::before {
-    content: '\2606';
+    color: #ddd;
 }
 
 .starrating input[type=radio]:checked + label::before,
 .starrating input[type=radio].included + label::before {
-    content: '\2605';
+    color: gold;
 }
 
 .starrating input[type=radio]:checked ~ input + label::before {
-    content: '\2606';
+    color: #ddd;
 }
 
 .starrating input[type=radio]:focus + label::before {
