@@ -1,0 +1,22 @@
+.aria-radio-group {
+    border: 1px solid #eee;
+    padding: 16px;
+}
+.aria-radio-group__legend {
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+.aria-radio-group [role=radio]::before {
+    color: #B9B8B8;
+    content: '\e62b';
+    display: inline-block;
+    font-family: 'vq-icon-font';
+}
+.aria-radio-group [role=radio][aria-checked=true]::before {
+    color: #5BA71B;
+    content: '\e62d';
+}
+.aria-radio__label {
+    cursor:default;
+    margin-left: 4px;
+}

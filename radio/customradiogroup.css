@@ -20,6 +20,6 @@
 }
 
 .customradiogroup [role=radiogroup] span[role=radio][aria-checked=true]:before {
-    color: #0654ba;
+    color: #6A29B9;
     content: '\e62d';
 }

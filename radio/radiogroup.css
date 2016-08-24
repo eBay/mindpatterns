@@ -33,12 +33,11 @@ html.ie8 .radiogroup input[type=radio] + label:before {
     background-color: transparent;
 }
 .radiogroup input[type=radio]:checked + label:before {
-    color: #326ab2;
+    color: #DD1E31;
     content: '\e62d';
 }
 
 .radiogroup input[type=radio]:focus + label:before {
-    color: #326ab2;
     outline: 1px dotted #666;
 }
 html.ie8 .radiogroup input[type=radio]:focus + label:before {

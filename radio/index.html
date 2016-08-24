@@ -6,6 +6,7 @@ permalink: /radio/
 
 <link rel="stylesheet" href="radiogroup.css">
 <link rel="stylesheet" href="customradiogroup.css">
+<link rel="stylesheet" href="ariaradiogroup.css">
 
 <style>
     input[type=submit] {
@@ -24,30 +25,30 @@ permalink: /radio/
 <form>
     <div class="row">
         <div class="col-xs-12 col-md-6">
-
-                <div>
-                    <fieldset>
-                        <legend>Native HTML</legend>
-                        <div>
-                            <input id="listingformat1_all" type="radio" name="listingformat1" value="all" />
-                            <label for="listingformat1_all">All Listings</label>
-                        </div>
-                        <div>
-                            <input id="listingformat1_auction" type="radio" name="listingformat1" value="auction" />
-                            <label for="listingformat1_auction">Auction</label>
-                        </div>
-                        <div>
-                            <input id="listingformat1_bin" type="radio" name="listingformat1" value="bin" />
-                            <label for="listingformat1_bin">Buy it Now</label>
-                        </div>
-                    </fieldset>
-                </div>
-
+            <h3>HTML (native style)</h3>
+            <div>
+                <fieldset>
+                    <legend>Auction Type</legend>
+                    <div>
+                        <input id="listingformat1_all" type="radio" name="listingformat1" value="all" />
+                        <label for="listingformat1_all">All Listings</label>
+                    </div>
+                    <div>
+                        <input id="listingformat1_auction" type="radio" name="listingformat1" value="auction" />
+                        <label for="listingformat1_auction">Auction</label>
+                    </div>
+                    <div>
+                        <input id="listingformat1_bin" type="radio" name="listingformat1" value="bin" />
+                        <label for="listingformat1_bin">Buy it Now</label>
+                    </div>
+                </fieldset>
+            </div>
         </div>
         <div class="col-xs-12 col-md-6">
+            <h3>HTML (custom style)</h3>
             <div class="radiogroup">
                 <fieldset>
-                    <legend>Pure CSS (custom focus indicator)</legend>
+                    <legend>Auction Type</legend>
                     <div>
                         <input id="listingformat2_all" type="radio" name="listingformat2" value="all" />
                         <label for="listingformat2_all">All Listings</label>
@@ -66,9 +67,10 @@ permalink: /radio/
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-6">
+            <h3>ARIA (with fallbacks)</h3>
             <div class="customradiogroup">
                 <fieldset>
-                    <legend>ARIA</legend>
+                    <legend>Auction Type</legend>
                     <div>
                         <input id="listingformat3_all" type="radio" name="listingformat3" value="all" />
                         <label for="listingformat3_all">All Listings</label>
@@ -84,14 +86,42 @@ permalink: /radio/
                 </fieldset>
             </div>
         </div>
+        <div class="col-xs-12 col-md-6">
+            <h3>ARIA (without fallbacks)</h3>
+            <div class="aria-radio-group" id="aria-radios1">
+                <!-- keep 'legend' outside of radiogroup to prevent it being included in voiceover group count -->
+                <div class="aria-radio-group__legend" id="ariaradios1__legend">Auction Type</div>
+                <div class="aria-radio-group__fieldset" role="radiogroup" aria-labelledby="aria-radio-group__label">
+                    <div role="presentation">
+                        <span role="radio" aria-checked="false" aria-describedby="aria-radios1__legend" aria-labelledby="aria-radios1_label1"></span>
+                        <span class="aria-radio__label" id="aria-radios1_label1" aria-hidden="true">All Listings</span>
+                    </div>
+                    <div role="presentation">
+                        <span role="radio" aria-checked="false" aria-describedby="aria-radios1__legend" aria-labelledby="aria-radios1_label2"></span>
+                        <span class="aria-radio__label" id="aria-radios1_label2" aria-hidden="true">Auction</span>
+                    </div>
+                    <div role="presentation">
+                        <span role="radio" aria-checked="false" aria-describedby="aria-radios1__legend" aria-labelledby="aria-radios1_label3"></span>
+                        <span class="aria-radio__label" id="aria-radios1_label3" aria-hidden="true">Buy it Now</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <input type="submit" />
 </form>
 
-
 <script src="jquery.customradiogroup.js"></script>
+<script src="jquery.ariaradiogroup.js"></script>
+
 <script>
     $(function() {
+        var $form = $('form');
+
         $('.customradiogroup').customradiogroup();
+
+        $('.aria-radio-group').ariaRadioGroup().on('ariaRadioGroupSelect', function(e, data) {
+            console.log(e.type, data.index, data.label);
+        });
     });
 </script>
