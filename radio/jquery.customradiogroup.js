@@ -14,7 +14,7 @@
         return this.each(function onEachCustomRadioGroup() {
 
             var $widget = $(this),
-                $fieldset = $widget.find('> fieldset')
+                $fieldset = $widget.find('> fieldset'),
                 $form = $widget.closest('form'),
                 $legend = $fieldset.find('> legend'),
                 $items = $fieldset.find('> span, > div'),
@@ -26,13 +26,15 @@
             // set a unique legend id
             $legend.prop('id', $widget.prop('id') + '-legend');
 
-            // custom radios must live inside a labelled radiogroup role
-            $fieldset
-                .attr('role', 'radiogroup')
-                .attr('aria-labelledby', $legend.prop('id'));
+            // custom radios must live inside a labelled radiogroup
+            // note that using the existing fieldset tag causes an incorrect item count in voiceover
+            $items.wrapAll('<div role="radiogroup" aria-labelledby="'+$legend.prop('id')+'"></div>');
 
             // add a class to radio button containers for easier DOM traversal
             $items.addClass('customradiogroupitem');
+
+            // presentation role on containers fixes issue with wrong radio button count in voiceover
+            $items.attr('role', 'presentation');
 
             // inject custom radio elements after each input
             $widget.find('input[type=radio]').each(function onEachNativeRadio(index, nativeRadio) {
