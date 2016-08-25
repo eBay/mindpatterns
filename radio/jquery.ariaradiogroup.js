@@ -9,12 +9,10 @@
 * @requires jquery-prevent-scroll-keys
 */
 (function ( $ ) {
-
     $.fn.ariaRadioGroup = function ariaRadioGroup() {
-
         return this.each(function onEachAriaRadioGroup() {
-
             var $widget = $(this),
+                $form = $widget.closest('form'),
                 $fieldset = $widget.find('.aria-radio-group__fieldset'),
                 $labels = $fieldset.find('.aria-radio__label'),
                 hasCheckedRadio = $fieldset.find('[aria-checked=true]').length > 0,
@@ -30,8 +28,10 @@
 
             // enter key triggers 'ariaRadioGroupSelect' event with checked radio index and label text
             $widget.on('enterKeyDown', function onEnterKeyDown(e) {
-                var $checkedRadio = $fieldset.find('[aria-checked=true]');
-                $widget.trigger('ariaRadioGroupSelect', { index: $checkedRadio.parent().index(), label: $checkedRadio.next().text() });
+                console.log($form);
+                //var $checkedRadio = $fieldset.find('[aria-checked=true]');
+                //$widget.trigger('ariaRadioGroupSelect', { index: $checkedRadio.parent().index(), label: $checkedRadio.next().text() });
+                $form.submit();
             });
 
             // clicking a label checks the associated checkbox
@@ -43,15 +43,19 @@
             $widget.rovingTabindex('[role=radio]', {activeIndex: checkedRadioIndex});
 
             // update radiogroup state on check event or rovingTabindex change
-            $widget.on('check rovingTabindexChange', function onCheckAndRove(e, radioButton) {                
+            $widget.on('check rovingTabindexChange', function onCheckAndRove(e, radioButton) {
                 var $radioButton = $(radioButton),
                     $checkedRadio = $fieldset.find('[aria-checked=true]');
 
                 if ($radioButton[0] !== $checkedRadio[0]) {
                     // uncheck currently checked radio
                     $checkedRadio.attr('aria-checked', 'false');
+                    // uncheck the real under the hood radio if it exists
+                    $checkedRadio.prev().prop('checked', false);
                     // check the radio
                     $radioButton.attr('aria-checked', 'true');
+                    // check the real under the hood radio if it exists
+                    $radioButton.prev().prop('checked', true);
                 }
             });
 

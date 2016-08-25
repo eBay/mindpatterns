@@ -1,22 +1,33 @@
 /* using generated font icon content plus custom focus indicator */
 
-.radiogroup > fieldset > span {
+.radiogroup {
+    border: 1px solid #eee;
+}
+.radiogroup fieldset {
+    border: 0;
+    margin-bottom: 0;
+}
+.radiogroup--icons > fieldset > span,
+.radiogroup--icons > fieldset > div {
+    margin: 1.5px 0;
+}
+.radiogroup--icons > fieldset > span {
     display: inline-block;
     position: relative;
 }
-.radiogroup > fieldset > div {
+.radiogroup--icons > fieldset > div {
     position: relative;
 }
-.radiogroup input[type=radio] {
+.radiogroup--icons input[type=radio] {
     position: absolute;
     opacity: 0;
     /* filter: alpha(opacity=0); */
     z-index: 99;
 }
-.radiogroup input[type=radio] + label {
+.radiogroup--icons input[type=radio] + label {
     margin-left: 20px;
 }
-.radiogroup input[type=radio] + label:before {
+.radiogroup--icons input[type=radio] + label:before {
     background-color: white;
     border-radius: 1em;
     color: #B9B8B8;
@@ -29,17 +40,17 @@
     content: '\e62b';
     font-family: 'vq-icon-font';
 }
-html.ie8 .radiogroup input[type=radio] + label:before {
+html.ie8 .radiogroup--icons input[type=radio] + label:before {
     background-color: transparent;
 }
-.radiogroup input[type=radio]:checked + label:before {
+.radiogroup--icons input[type=radio]:checked + label:before {
     color: #DD1E31;
     content: '\e62d';
 }
 
-.radiogroup input[type=radio]:focus + label:before {
+.radiogroup--icons input[type=radio]:focus + label:before {
     outline: 1px dotted #666;
 }
-html.ie8 .radiogroup input[type=radio]:focus + label:before {
+html.ie8 .radiogroup--icons input[type=radio]:focus + label:before {
     outline: 0;
 }

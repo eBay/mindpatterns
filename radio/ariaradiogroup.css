@@ -2,9 +2,17 @@
     border: 1px solid #eee;
     padding: 16px;
 }
+.aria-radio-group fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
 .aria-radio-group__legend {
     font-weight: bold;
     margin-bottom: 24px;
+}
+.aria-radio-group input[type=radio][aria-hidden=true] {
+    display: none;
 }
 .aria-radio-group [role=radio]::before {
     color: #B9B8B8;
