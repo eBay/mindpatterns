@@ -1,12 +1,9 @@
-.flyout {
-    position: relative;
-}
-.flyout > div {
+.flyout__overlay {
     display: none;
     position: absolute;
     z-index: 1;
 }
-.flyout > div[aria-hidden=false] {
+.flyout__button[aria-expanded=true] ~ .flyout__overlay {
     display: block;
 }
 .flyout > a + button {

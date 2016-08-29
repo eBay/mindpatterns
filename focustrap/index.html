@@ -8,54 +8,50 @@ permalink: /focustrap/
     input {
         width: 75px;
     }
+    #keyboard_trap {
+        border: 1px dashed #ddd;
+        padding: 10px;
+    }
+    #keyboard_trap.active {
+        border: 1px solid #ddd;
+        background-color: #eee;
+    }
 </style>
 
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
-<p>Click button to toggle trap on/off.</p>
+<p>Activate button with keyboard. Keyboard focus will then be trapped in bordered area.</p>
 <p>Use focus trap with care! It is typically required only for modal overlays.</p>
 <p>Please <a href={{ "/techniques/focustrap.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
-<h2>Examples</h2>
+<h2>Example</h2>
 
 <div id="keyboard_trap">
     <button type="button">Activate trap</button>
-    <input aria-label="This is a dummy text input"/>
-    <input aria-label="This is a dummy text input"/>
+    <input aria-label="This is a dummy text input" placeholder="Dummy input"/>
+    <span>This is dummy text</span>
+    <input aria-label="This is a dummy text input" placeholder="Dummy input"/>
 </div>
 
 <script>
     $(function() {
         var $keyboardTrap = $('#keyboard_trap'),
-            $focusTrap = $('#focus_trap'),
-            $keyboardTrapButton = $('#keyboard_trap button'),
-            $focusTrapButton = $('#focus_trap button');
+            $keyboardTrapButton = $('#keyboard_trap button');
 
         $keyboardTrapButton.on('click', function() {
             var isActive = $('#keyboard_trap').hasClass('keyboard-trap--active');
             isActive === true ? $.untrapKeyboard() : $.trapKeyboard('#keyboard_trap');
         });
 
-        $focusTrapButton.on('click', function() {
-            var isActive = $('#focus_trap').hasClass('focus-trap--active');
-            isActive === true ? $.untrapFocus() : $.trapFocus('#focus_trap');
-        });
-
         $keyboardTrap.on('keyboardTrap', function() {
+            $keyboardTrap.addClass('active');
             $keyboardTrapButton.text('Deactivate trap');
         });
 
         $keyboardTrap.on('keyboardUntrap', function() {
+            $keyboardTrap.removeClass('active');
             $keyboardTrapButton.text('Activate trap');
-        });
-
-        $focusTrap.on('focusTrap', function() {
-            $focusTrapButton.text('Deactivate trap');
-        });
-
-        $focusTrap.on('focusUntrap', function() {
-            $focusTrapButton.text('Activate trap');
         });
     });
 </script>
