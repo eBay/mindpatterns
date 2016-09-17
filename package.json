@@ -11,10 +11,10 @@
     "url": "https://github.com/ianmcburnie/mindpatterns"
   },
   "devDependencies": {
-    "jquery": "^3.0.0",
-    "jquery-migrate": "^1.4.1",
-    "makeup-ebay": "~0.17.0",
-    "lasso-cli": "^2.0.0",
-    "rimraf": "^2.5.2"
+    "jquery": "^3",
+    "jquery-migrate": "^3",
+    "makeup-ebay": "~0.18",
+    "lasso-cli": "^2",
+    "rimraf": "^2"
   }
 }
