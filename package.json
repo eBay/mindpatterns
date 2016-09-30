@@ -4,7 +4,7 @@
     "start": "npm run build && npm run localhost",
     "build": "npm run lasso",
     "lasso": "lasso browser.json --output-dir static --minify && rimraf build",
-    "clean": "rimraf static/browser.js"
+    "clean": "rimraf .cache build static/browser.js"
   },
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
   "devDependencies": {
     "jquery": "^3",
     "jquery-migrate": "^3",
-    "makeup-ebay": "~0.18",
+    "makeup-ebay": "~0.19",
     "lasso-cli": "^2",
     "rimraf": "^2"
   }

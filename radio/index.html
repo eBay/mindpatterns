@@ -110,10 +110,7 @@ permalink: /radio/
 
 <script>
     $(function() {
-        $('.aria-radio-group').ariaRadioGroup().on('ariaRadioGroupSelect', function(e, data) {
-            console.log(e.type, data.index, data.label);
-        });
-
+        $('.aria-radio-group').ariaRadioGroup();
         $('.radiogroup--convert').nativeRadiosToAria().ariaRadioGroup();
     });
 </script>

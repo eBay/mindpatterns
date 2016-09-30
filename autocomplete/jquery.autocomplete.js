@@ -18,25 +18,25 @@
 
         return this.each(function onEachAutocomplete() {
 
-            var $this = $(this),
-                $input = $this.find('input'),
+            var $widget = $(this),
+                $input = $widget.find('input'),
                 $listbox = $('<ul>'),
                 $statusEl = $('<span>'),
                 activeDescendantId;
 
-            $this.nextId('autocomplete');
+            $widget.nextId('autocomplete');
 
-            $this.attr('role', 'application');
+            $widget.attr('role', 'application');
 
             $listbox
-                .prop('id', $this.prop('id') + '-listbox')
+                .prop('id', $widget.prop('id') + '-listbox')
                 .attr('role','listbox');
 
             // use commonKeys plugin on input
-            $this.commonKeyDown($input);
+            $widget.commonKeyDown($input);
 
             // use activedescendant plugin on input
-            $this.activeDescendant($input, '[role=option]');
+            $widget.activeDescendant('input', '[role=option]');
 
             $input
                 .attr('role', 'combobox')
@@ -51,17 +51,17 @@
                 .attr('aria-live', 'polite')
                 .attr('aria-atomic', 'true');
 
-            $this.append($statusEl);
-            $this.append($listbox);
+            $widget.append($statusEl);
+            $widget.append($listbox);
 
             $listbox.on('click', function(e) {
-                $input.val($(e.target).text());
+                $input.val($(this).text());
                 $input.focus();
             });
 
-            $this.on('escapeKeyDown', function (e) {
+            $widget.on('escapeKeyDown', function (e) {
                 if ($('#'+$input.attr('aria-activedescendant')).length !== 0) {
-                    $this.trigger('comboboxCollapse');
+                    $widget.trigger('comboboxCollapse');
                 }
                 else {
                     $input.val('');
@@ -70,14 +70,14 @@
 
             // ENTER key with active descendant should make selection & dismiss
             // listbox. It should not submit form.
-            $this.on('enterKeyDown', function(e) {
+            $widget.on('enterKeyDown', function(e) {
                 if ($('#'+$input.attr('aria-activedescendant')).length !== 0) {
                     e.preventDefault();
-                    $this.trigger('comboboxCollapse');
+                    $widget.trigger('comboboxCollapse');
                 }
             });
 
-            $this.on('upArrowKeyDown', function(e) {
+            $widget.on('upArrowKeyDown', function(e) {
                 // prevent caret from moving to start
                 e.preventDefault();
             });
@@ -92,7 +92,7 @@
                 $listbox.find('li').remove();
 
                 if (inputValue === '') {
-                    $this.trigger('comboboxCollapse');
+                    $widget.trigger('comboboxCollapse');
                 }
                 else {
                     // filter data based on the new input text
@@ -117,17 +117,17 @@
                 }
             });
 
-            $this.on('activeDescendantChange', function(e, newActiveDescendant) {
-                $input.val($(newActiveDescendant).text());
+            $widget.on('activeDescendantChange', '[role=option]', function(e, data) {
+                $input.val($(this).text());
             });
 
             $input.on('blur', function onInputBlur(e) {
                 setTimeout(function(e) {
-                    $this.trigger('comboboxCollapse');
+                    $widget.trigger('comboboxCollapse');
                 }, 250);
             });
 
-            $this.on('comboboxCollapse', function onCollapse(e) {
+            $widget.on('comboboxCollapse', function onCollapse(e) {
                 $input.trigger('activeDescendantItemsChange');
                 $listbox.hide().empty();
                 $input.attr('aria-expanded', 'false');

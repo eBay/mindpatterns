@@ -13,19 +13,19 @@
         options = options || {};
 
         return this.each(function onEachCombobox() {
-            var $this = $(this),
-                $input = $this.find('> input'),
+            var $widget = $(this),
+                $input = $widget.find('> input'),
                 $button = $('<button>'),
                 $listbox = $('<ul>'),
                 $instructionsEl = $('<span>'),
                 blurTimer;
 
-            $this.nextId('combobox');
+            $widget.nextId('combobox');
 
-            $this.attr('role', 'application');
+            $widget.attr('role', 'application');
 
             $listbox
-                .prop('id', $this.prop('id') + '-listbox')
+                .prop('id', $widget.prop('id') + '-listbox')
                 .css('width', $input.css('width'))
                 .attr('role','listbox');
 
@@ -34,7 +34,7 @@
             });
 
             $instructionsEl
-                .prop('id', $this.prop('id') + '-instructions')
+                .prop('id', $widget.prop('id') + '-instructions')
                 .text('Combobox list has 6 options. Use down key to navigate.');
 
             $input
@@ -49,76 +49,74 @@
                 .attr('tabindex', '-1')
                 .attr('aria-label', 'Expand suggestions');
 
-            $this.append($button);
-            $this.append($instructionsEl);
-            $this.append($listbox);
+            $widget.append($button);
+            $widget.append($instructionsEl);
+            $widget.append($listbox);
 
             // plugins
-            $this.commonKeyDown($input);
-            $this.activeDescendant($input, '[role=option]');
+            $widget.commonKeyDown();
+            $widget.activeDescendant($input, '[role=option]');
 
-            $this.on('downArrowKeyDown', function(e) {
-                $this.trigger('comboboxExpand');
+            $widget.on('downArrowKeyDown', function(e) {
+                $widget.trigger('comboboxExpand');
             });
 
-            $this.on('upArrowKeyDown', function(e) {
+            $widget.on('upArrowKeyDown', function(e) {
                 // prevent caret from moving to start
                 e.preventDefault();
-                $this.trigger('comboboxExpand');
+                $widget.trigger('comboboxExpand');
             });
 
             // ENTER key with active descendant should make selection & dismiss
             // listbox. It should not submit form.
-            $this.on('enterKeyDown', function (e) {
+            $widget.on('enterKeyDown', function (e) {
                 $input.val($listbox.find('[aria-selected=true]').text());
                 // check for an active descendant and ENTER key
                 if ($input.attr('aria-expanded') == 'true') {
                     e.preventDefault();
-                    $this.trigger('comboboxCollapse');
+                    $widget.trigger('comboboxCollapse');
                 }
             });
 
             $input.on('focus', function(e) {
                 if (options.showOnFocus === true && $input.attr('aria-expanded') == 'false') {
-                    $this.trigger('comboboxExpand');
+                    $widget.trigger('comboboxExpand');
                 }
             });
 
             $input.on('blur', function onInputBlur(e) {
                 blurTimer = setTimeout(function(e) {
-                    $this.trigger('comboboxCollapse');
+                    $widget.trigger('comboboxCollapse');
                 }, 100);
             });
 
             $button.on('click', function(e) {
-                $this.trigger($input.attr('aria-expanded') == 'true' ? 'comboboxCollapse' : 'comboboxExpand');
+                $widget.trigger($input.attr('aria-expanded') == 'true' ? 'comboboxCollapse' : 'comboboxExpand');
             });
 
             $listbox.on('click', function(e) {
                 $input.val($(e.target).text());
-                $this.trigger($input.attr('aria-expanded') == 'true' ? 'comboboxCollapse' : 'comboboxExpand');
+                $widget.trigger($input.attr('aria-expanded') == 'true' ? 'comboboxCollapse' : 'comboboxExpand');
             });
 
-            $this.on('activeDescendantChange', function(e, newActiveDescendant) {
-                // hack/workaround for Safari is an autocomplete type behaviour
-                //$input.val($(newActiveDescendant).text());
-                console.log(e);
+            $widget.on('activeDescendantChange', '[role=option]', function(e, data) {
+                console.log(this, data);
             });
 
-            $this.on('escapeKeyDown', function (e) {
+            $widget.on('escapeKeyDown', function (e) {
                 if($input.attr('aria-expanded') == 'true') {
-                    $this.trigger('comboboxCollapse');
+                    $widget.trigger('comboboxCollapse');
                 }
                 else {
                     $input.val('');
                 }
             });
 
-            $this.on('comboboxCollapse', function onCollapse(e) {
+            $widget.on('comboboxCollapse', function onCollapse(e) {
                 $input.attr('aria-expanded', 'false');
             });
 
-            $this.on('comboboxExpand', function onExpand(e) {
+            $widget.on('comboboxExpand', function onExpand(e) {
                 clearTimeout(blurTimer);
                 $input.attr('aria-expanded', 'true');
             });

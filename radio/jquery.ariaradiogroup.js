@@ -26,25 +26,22 @@
                 $widget.trigger('check', e.originalEvent.target);
             });
 
-            // enter key triggers 'ariaRadioGroupSelect' event with checked radio index and label text
+            // enter key submits form
             $widget.on('enterKeyDown', function onEnterKeyDown(e) {
-                console.log($form);
-                //var $checkedRadio = $fieldset.find('[aria-checked=true]');
-                //$widget.trigger('ariaRadioGroupSelect', { index: $checkedRadio.parent().index(), label: $checkedRadio.next().text() });
                 $form.submit();
             });
 
             // clicking a label checks the associated checkbox
             $labels.on('click', function(e) {
-                $widget.trigger('check', $(e.target).prev());
+                $(this).prev().trigger('check', $(this).prev());
             });
 
             // create a roving tab index on custom radios
             $widget.rovingTabindex('[role=radio]', {activeIndex: checkedRadioIndex});
 
             // update radiogroup state on check event or rovingTabindex change
-            $widget.on('check rovingTabindexChange', function onCheckAndRove(e, radioButton) {
-                var $radioButton = $(radioButton),
+            $widget.on('check rovingTabindexChange', '[role=radio]', function onCheckAndRove(e, data) {
+                var $radioButton = $(this),
                     $checkedRadio = $fieldset.find('[aria-checked=true]');
 
                 if ($radioButton[0] !== $checkedRadio[0]) {
