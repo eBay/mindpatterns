@@ -36,7 +36,7 @@
             $widget.commonKeyDown($input);
 
             // use activedescendant plugin on input
-            $widget.activeDescendant('input', '[role=option]');
+            $widget.activeDescendant('input', '[role=option]', {axis: 'y'});
 
             $input
                 .attr('role', 'combobox')

@@ -55,7 +55,7 @@
 
             // plugins
             $widget.commonKeyDown();
-            $widget.activeDescendant($input, '[role=option]');
+            $widget.activeDescendant($input, '[role=option]', {axis: 'y'});
 
             $widget.on('downArrowKeyDown', function(e) {
                 $widget.trigger('comboboxExpand');
