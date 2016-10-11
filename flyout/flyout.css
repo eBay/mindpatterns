@@ -1,9 +1,15 @@
+.flyout {
+    position: relative;
+}
 .flyout__overlay {
     display: none;
     position: absolute;
     z-index: 1;
 }
-.flyout__button[aria-expanded=true] ~ .flyout__overlay {
+.flyout__button[aria-expanded=true] ~ .flyout__live-region > .flyout__overlay,
+.flyout__button[aria-expanded=true] ~ .flyout__overlay,
+.flyout__input[aria-expanded=true] ~ .flyout__live-region > .flyout__overlay,
+.flyout__input[aria-expanded=true] ~ .flyout__overlay {
     display: block;
 }
 .flyout > a + button {
@@ -20,7 +26,7 @@
     clip: auto;
     height: auto;
     left: 0;
-    width:auto;
-    bottom: -2.5em;
+    width: auto;
+    bottom: 100%;
     z-index: 1;
 }

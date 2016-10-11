@@ -13,7 +13,7 @@
   "devDependencies": {
     "jquery": "^3",
     "jquery-migrate": "^3",
-    "makeup-ebay": "~0.19",
+    "makeup-ebay": "~0.20",
     "lasso-cli": "^2",
     "rimraf": "^2"
   }

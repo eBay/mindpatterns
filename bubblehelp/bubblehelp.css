@@ -1,8 +1,7 @@
 .bubblehelp {
     position: relative;
 }
-.bubblehelp > div,
-.bubblehelp > span {
+.bubblehelp__overlay {
     background: LightYellow;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 1px #ccc;
@@ -15,30 +14,26 @@
     text-align: justify;
     z-index: 1;
 }
-.bubblehelp > div[aria-hidden=false],
-.bubblehelp > span[aria-hidden=false] {
+.bubblehelp__button[aria-expanded=true] ~ .bubblehelp__live-region > .bubblehelp__overlay {
     display: block;
 }
-.bubblehelp--js > a[role=button],
-.bubblehelp > button {
+.bubblehelp__button {
     background: 0;
     border: 0;
     padding: 0;
 }
-.bubblehelp--js > a[role=button]:after,
-.bubblehelp > button:after {
+.bubblehelp__button:after {
     color: #006699;
     content: '\e614';
     font-family: 'vq-icon-font';
     font-size: 1.2em;
 }
-.bubblehelp--js > a[role=button][aria-expanded=true]:after,
-.bubblehelp--js > button[aria-expanded=true]:after {
+.bubblehelp--js > .bubblehelp__button[aria-expanded=true]:after {
     content: '\e60a';
 }
-.bubblehelp--js > a[role=button] sup {
+.bubblehelp--js > .bubblehelp__button sup {
     display: none;
 }
-.bubblehelp--js > a[role=button]:focus {
+.bubblehelp--js > .bubblehelp__button:focus {
     text-decoration: none;
 }

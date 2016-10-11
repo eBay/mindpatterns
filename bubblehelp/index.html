@@ -6,10 +6,18 @@ permalink: /bubblehelp/
 
 <link rel="stylesheet" href="bubblehelp.css">
 <style>
-    .bubblehelp--js > div:last-child img {
+    #bubblehelp1 img {
+        display: none;
+    }
+    .bubblehelp__overlay img {
+        display: block;
         border: 1px solid #ccc;
         margin-right: 10px;
         float: left;
+    }
+    #references ol {
+        margin: 0;
+        padding: 0;
     }
 </style>
 
@@ -24,19 +32,21 @@ permalink: /bubblehelp/
 
 <div class="row">
     <div class="col-xs-12 col-md-6">
-        <h3>Default</h3>
+        <h3>Example 1: Button</h3>
         <div>
             <span class="bubblehelp">
-                <button type="button" aria-label="Help" disabled></button>
-                <div>
-                    <p><img src="../images/gregorsamsa.jpg" alt="Illustration of Gregor Samsa" /></p>
-                    <p>Gregor Samsa appears to be based upon <a href="http://en.wikipedia.org/wiki/Franz_Kafka">Kafka</a> himself. As when Kafka suffered from insomnia, he feared he was repulsive and a burden to his family, during which time his sister was his caretaker.</p>
-                </div>
+                <button class="bubblehelp__button" type="button" aria-label="Help" disabled></button>
+                <span class="bubblehelp__live-region" aria-live="polite">
+                    <div class="bubblehelp__overlay">
+                        <p><img src="../images/gregorsamsa.jpg" alt="Illustration of Gregor Samsa" /></p>
+                        <p>Gregor Samsa appears to be based upon <a href="http://en.wikipedia.org/wiki/Franz_Kafka">Kafka</a> himself. As when Kafka suffered from insomnia, he feared he was repulsive and a burden to his family, during which time his sister was his caretaker.</p>
+                    </div>
+                </span>
             </span>
         </div>
     </div>
     <div class="col-xs-12 col-md-6">
-        <h3>Progressive Enhancement</h3>
+        <h3>Example 2: Enhanced Anchor</h3>
         <div>
             <span class="bubblehelp">
                 <a href="#bubblehelp1"><sup>[1]</sup></a>
