@@ -4,12 +4,13 @@ title: Bubble Help
 permalink: /bubblehelp/
 ---
 
+<link rel="stylesheet" href="../flyout/flyout.css">
 <link rel="stylesheet" href="bubblehelp.css">
 <style>
     #bubblehelp1 img {
         display: none;
     }
-    .bubblehelp__overlay img {
+    .flyout__overlay img {
         display: block;
         border: 1px solid #ccc;
         margin-right: 10px;
@@ -35,9 +36,9 @@ permalink: /bubblehelp/
         <h3>Example 1: Button</h3>
         <div>
             <span class="bubblehelp">
-                <button class="bubblehelp__button" type="button" aria-label="Help" disabled></button>
-                <span class="bubblehelp__live-region" aria-live="polite">
-                    <div class="bubblehelp__overlay">
+                <button class="flyout__trigger" type="button" aria-label="Help" disabled></button>
+                <span class="flyout__live-region" aria-live="polite">
+                    <div class="flyout__overlay">
                         <p><img src="../images/gregorsamsa.jpg" alt="Illustration of Gregor Samsa" /></p>
                         <p>Gregor Samsa appears to be based upon <a href="http://en.wikipedia.org/wiki/Franz_Kafka">Kafka</a> himself. As when Kafka suffered from insomnia, he feared he was repulsive and a burden to his family, during which time his sister was his caretaker.</p>
                     </div>
@@ -67,7 +68,6 @@ permalink: /bubblehelp/
         </li>
     </ol>
 </section>
-
 <script src="jquery.bubblehelp.js"></script>
 <script>
     $(function() {

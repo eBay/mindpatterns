@@ -1,39 +1,33 @@
 .bubblehelp {
     position: relative;
 }
-.bubblehelp__overlay {
+.bubblehelp .flyout__overlay {
     background: LightYellow;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 1px #ccc;
-    display: none;
     font-size: small;
     margin: 0 0.25em;
     min-width: 250px;
     padding: 0 1em;
-    position: absolute;
     text-align: justify;
-    z-index: 1;
 }
-.bubblehelp__button[aria-expanded=true] ~ .bubblehelp__live-region > .bubblehelp__overlay {
-    display: block;
-}
-.bubblehelp__button {
+.bubblehelp .flyout__trigger {
     background: 0;
     border: 0;
     padding: 0;
 }
-.bubblehelp__button:after {
+.bubblehelp .flyout__trigger:after {
     color: #006699;
     content: '\e614';
     font-family: 'vq-icon-font';
     font-size: 1.2em;
 }
-.bubblehelp--js > .bubblehelp__button[aria-expanded=true]:after {
+.bubblehelp--js > .flyout__trigger[aria-expanded=true]:after {
     content: '\e60a';
 }
-.bubblehelp--js > .bubblehelp__button sup {
+.bubblehelp--js > .flyout__trigger sup {
     display: none;
 }
-.bubblehelp--js > .bubblehelp__button:focus {
+.bubblehelp--js > .flyout__trigger:focus {
     text-decoration: none;
 }

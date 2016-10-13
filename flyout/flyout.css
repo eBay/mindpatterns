@@ -1,32 +1,17 @@
 .flyout {
     position: relative;
 }
+.flyout .flyout {
+    position: static;
+}
 .flyout__overlay {
     display: none;
-    position: absolute;
-    z-index: 1;
-}
-.flyout__button[aria-expanded=true] ~ .flyout__live-region > .flyout__overlay,
-.flyout__button[aria-expanded=true] ~ .flyout__overlay,
-.flyout__input[aria-expanded=true] ~ .flyout__live-region > .flyout__overlay,
-.flyout__input[aria-expanded=true] ~ .flyout__overlay {
-    display: block;
-}
-.flyout > a + button {
-    position: absolute;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
-    padding: 0.2em 0.3em;
-    border: 0;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-}
-.flyout > a + button:focus {
-    clip: auto;
-    height: auto;
     left: 0;
-    width: auto;
-    bottom: 100%;
+    position: absolute;
     z-index: 1;
+}
+.flyout__trigger[aria-expanded=true] ~ .flyout__live-region .flyout__overlay,
+.flyout__trigger[aria-expanded=true] ~ .flyout__overlay,
+.flyout__trigger[aria-expanded=true] ~ .flyout .flyout__overlay {
+    display: block;
 }

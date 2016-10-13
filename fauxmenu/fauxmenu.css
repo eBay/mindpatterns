@@ -1,4 +1,4 @@
-.fauxmenu > .flyout__button:after {
+.fauxmenu > button.flyout__trigger:after {
     content: ' \e601';
     font-family: 'vq-icon-font';
 }

@@ -17,17 +17,15 @@ permalink: /flyout/
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
-<p>Flyout is a standalone pattern, but also form the basis of many composite patterns such as tooltip, bubble help, menu and faux menu.</p>
-<p>Use of hover and focus activated flyout is <strong>discouraged</strong> as this behaviour forces keyboard and screen reader users to navigate through overlay (thus defeating the purpose of progressive disclosure). This problem can be mitigated by use of a 'stealth' button (a button that only appears on keyboard focus).</p>
+<p>Flyout is a standalone pattern, but also form the basis of many composite patterns such as bubble help, combobox, date picker, menu &amp; faux menu.</p>
 <p>Please <a href={{ "/disclosure/flyout.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <h2>Examples</h2>
-
 <div class="row">
     <div class="col-xs-12 col-md-6">
         <h3>Click Activated</h3>
-        <div class="flyout flyout--button">
-            <button class="flyout__button">Toggle Flyout</button>
+        <div class="flyout flyout--click">
+            <button class="flyout__trigger">Button</button>
             <div class="flyout__live-region" aria-live="off">
                 <div class="flyout__overlay">
                     <p>Any kind of HTML control can go inside of a flyout...</p>
@@ -39,45 +37,27 @@ permalink: /flyout/
             </div>
         </div>
     </div>
-
-</div>
-<div class="row">
-    <div class="col-xs-12 col-md-6">
-        <h3>Hover Activated</h3>
-        <div class="flyout flyout--input">
-            <a class="flyout__input" href="http://www.ebay.com">My Ebay</a>
-            <div class="flyout__live-region" aria-live="off">
-                <div class="flyout__overlay">
-                    <p>Any kind of HTML control can go inside of a flyout...</p>
-                    <p>A link: <a href="http://www.ebay.com">www.ebay.com</a></p>
-                    <p>A button: <button>Click Me</button></p>
-                    <p>An input: <input type="text" aria-label="Dummy textbox"></p>
-                    <p>A checkbox: <input type="checkbox" aria-label="Dummy checkbox"></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-12 col-md-6">
-        <h3>Hover Activated with Stealth Button</h3>
-        <div class="flyout flyout--link">
-            <a class="flyout__link" href="http://www.ebay.com">My Ebay</a>
-            <div class="flyout__live-region" aria-live="off">
-                <div class="flyout__overlay">
-                    <p>Any kind of HTML control can go inside of a flyout...</p>
-                    <p>A link: <a href="http://www.ebay.com">www.ebay.com</a></p>
-                    <p>A button: <button>Click Me</button></p>
-                    <p>An input: <input type="text" aria-label="Dummy textbox"></p>
-                    <p>A checkbox: <input type="checkbox" aria-label="Dummy checkbox"></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-md-6">
         <h3>Focus Activated</h3>
-        <div class="flyout flyout--input">
-            <input type="text" class="flyout__input" />
+        <div class="flyout flyout--focus">
+            <input type="text" class="flyout__trigger" aria-label="dummy textbox" placeholder="input" />
+            <div class="flyout__live-region" aria-live="off">
+                <div class="flyout__overlay">
+                    <p>Any kind of HTML control can go inside of a flyout...</p>
+                    <p>A link: <a href="http://www.ebay.com">www.ebay.com</a></p>
+                    <p>A button: <button>Click Me</button></p>
+                    <p>An input: <input type="text" aria-label="Dummy textbox"></p>
+                    <p>A checkbox: <input type="checkbox" aria-label="Dummy checkbox"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <h3>Hover Activated (with Focus)</h3>
+        <div class="flyout flyout--hover flyout--focus">
+            <a class="flyout__trigger" href="http://www.ebay.com">Link</a>
             <div class="flyout__live-region" aria-live="off">
                 <div class="flyout__overlay">
                     <p>Any kind of HTML control can go inside of a flyout...</p>
@@ -90,15 +70,30 @@ permalink: /flyout/
         </div>
     </div>
     <div class="col-xs-12 col-md-6">
-        <h3>Focus Activated with Stealth Button</h3>
-        <p>todo</p>
+        <h3>Hover Activated (with Stealth Button)</h3>
+        <div>
+            <span class="flyout flyout--hover">
+                <a class="flyout__trigger" href="http://www.ebay.com">Link</a>
+                <span class="flyout flyout--click">
+                    <button class="flyout__trigger stealth">Expand</button>
+                    <div class="flyout__live-region" aria-live="off">
+                        <div class="flyout__overlay">
+                            <p>Any kind of HTML control can go inside of a flyout...</p>
+                            <p>A link: <a href="http://www.ebay.com">www.ebay.com</a></p>
+                            <p>A button: <button>Click Me</button></p>
+                            <p>An input: <input type="text" aria-label="Dummy textbox"></p>
+                            <p>A checkbox: <input type="checkbox" aria-label="Dummy checkbox"></p>
+                        </div>
+                    </div>
+                </span>
+            </span>
+        </div>
     </div>
 </div>
-<script src="jquery.inputflyout.js"></script>
 <script>
     $(function() {
-        $('.flyout--button').buttonFlyout();
-        $('.flyout--link').linkFlyout();
-        $('.flyout--input').inputFlyout();
+        $('.flyout--click').clickFlyout();
+        $('.flyout--focus').focusFlyout();
+        $('.flyout--hover').hoverFlyout();
     });
 </script>

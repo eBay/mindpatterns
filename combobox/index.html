@@ -4,6 +4,7 @@ title: Combobox
 permalink: /combobox/
 ---
 
+<link rel="stylesheet" href="../flyout/flyout.css">
 <link rel="stylesheet" href="combobox.css">
 <style>
     .combobox label {
@@ -50,7 +51,7 @@ permalink: /combobox/
 <script src="jquery.combobox.js"></script>
 <script>
     $(function() {
-        $('.combobox').first().combobox();
-        $('.combobox').last().combobox({"showOnFocus":true});
+        $('.combobox').first().combobox({autoExpand: false});
+        $('.combobox').last().combobox({autoExpand: true});
     });
 </script>

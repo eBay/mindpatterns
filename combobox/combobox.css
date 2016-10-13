@@ -5,25 +5,19 @@
     font-family: 'vq-icon-font';
     content: '\e606';
 }
-.combobox > span {
+.combobox .combobox__description {
     display: none;
 }
 .combobox [role=combobox][aria-expanded=true] + button:after {
     content: '\e609';
 }
 .combobox [role=listbox] {
-    display: none;
     background: LightYellow;
     border: 1px solid #eee;
     font-size: small;
     list-style-type: none;
     margin: 0;
     padding: 0;
-    position: fixed;
-    z-index: 1;
-}
-.combobox [role=combobox][aria-expanded=true] ~ [role=listbox] {
-    display: block;
 }
 .combobox li {
     cursor: pointer;

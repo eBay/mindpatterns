@@ -14,12 +14,11 @@ permalink: /fauxmenu/
 <p>Please <a href={{ "/navigation/fauxmenu.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <h2>Examples</h2>
-
 <div class="row">
     <div class="col-xs-12 col-md-6">
         <h3>On Button</h3>
-        <div class="flyout fauxmenu">
-            <button class="flyout__button">My Actions</button>
+        <div class="fauxmenu flyout flyout--click">
+            <button class="flyout__trigger">My eBay</button>
             <ul class="flyout__overlay">
                 <li><a href="http://www.ebay.com">Visit Seller</a></li>
                 <li><a href="http://www.ebay.com">Contact Seller</a></li>
@@ -29,20 +28,22 @@ permalink: /fauxmenu/
     </div>
     <div class="col-xs-12 col-md-6">
         <h3>On Link (with stealth button)</h3>
-        <div class="flyout fauxmenu">
-            <a class="flyout__link" href="http://www.ebay.com">My eBay</a>
-            <ul class="flyout__overlay">
-                <li><a href="http://www.ebay.com">Buying</a></li>
-                <li><a href="http://www.ebay.com">Selling</a></li>
-                <li><a href="http://www.ebay.com">Collections</a></li>
-            </ul>
-        </div>
+        <span class="fauxmenu flyout flyout--hover">
+            <a class="flyout__trigger" href="http://my.ebay.com">My eBay</a>
+            <span class="flyout flyout--click">
+                <button class="flyout__trigger stealth">Expand My eBay</button>
+                <ul class="flyout__overlay">
+                    <li><a href="http://www.ebay.com">Buying</a></li>
+                    <li><a href="http://www.ebay.com">Selling</a></li>
+                    <li><a href="http://www.ebay.com">Collections</a></li>
+                </ul>
+            </span>
+        </span>
     </div>
 </div>
-
-<script src="jquery.fauxmenu.js"></script>
 <script>
     $(function() {
-        $('.fauxmenu').fauxMenu();
+        $('.flyout--click').clickFlyout({focusManagement: 'first'});
+        $('.flyout--hover').hoverFlyout();
     });
 </script>

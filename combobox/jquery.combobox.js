@@ -5,6 +5,7 @@
 * @requires @ebay/jquery-next-id
 * @requires @ebay/jquery-common-keydown
 * @requires @ebay/jquery-active-descendant
+* @requires @ebay/jquery-click-flyout
 */
 (function ( $ ) {
     var data = ['Playstation 3', 'Playstation 4', 'Xbox 360', 'Xbox One', 'Wii', 'Wii U'];
@@ -22,33 +23,38 @@
 
             $widget.nextId('combobox');
 
-            $widget.attr('role', 'application');
-
-            $listbox
-                .prop('id', $widget.prop('id') + '-listbox')
-                .css('width', $input.css('width'))
-                .attr('role','listbox');
-
-            data.forEach(function(item, idx) {
-                $listbox.append('<li role="option">'+item+'</li>');
-            });
-
-            $instructionsEl
-                .prop('id', $widget.prop('id') + '-instructions')
-                .text('Combobox list has 6 options. Use down key to navigate.');
+            $widget
+                .attr('role', 'application')
+                .addClass('flyout');
 
             $input
                 .attr('role', 'combobox')
-                .attr('aria-expanded', 'false')
                 .attr('autocomplete','off') // Disable HTML5 autocomplete
                 .attr('aria-owns', $listbox.prop('id'))
-                .attr('aria-describedby', $instructionsEl.prop('id'));
+                .attr('aria-describedby', $instructionsEl.prop('id'))
+                .addClass('flyout__trigger');
 
             $button
                 .attr('type', 'button')
                 .attr('tabindex', '-1')
                 .attr('aria-label', 'Expand suggestions');
 
+            $listbox
+                .prop('id', $widget.prop('id') + '-listbox')
+                .css('width', $input.css('width'))
+                .attr('role', 'listbox')
+                .addClass('flyout__overlay')
+
+            data.forEach(function(item, idx) {
+                $listbox.append('<li role="option">'+item+'</li>');
+            });
+
+            $instructionsEl
+                .addClass('combobox__description')
+                .prop('id', $widget.prop('id') + '-instructions')
+                .text('Combobox list has 6 options. Use down key to navigate.');
+
+            // DOM manipulation
             $widget.append($button);
             $widget.append($instructionsEl);
             $widget.append($listbox);
@@ -56,70 +62,73 @@
             // plugins
             $widget.commonKeyDown();
             $widget.activeDescendant($input, '[role=option]', {axis: 'y'});
+            $widget.focusFlyout({autoExpand: options.autoExpand});
 
-            $widget.on('downArrowKeyDown', function(e) {
-                $widget.trigger('comboboxExpand');
-            });
+            var isExpanded = function() {
+                return $input.attr('aria-expanded') === 'true';
+            };
 
-            $widget.on('upArrowKeyDown', function(e) {
-                // prevent caret from moving to start
-                e.preventDefault();
-                $widget.trigger('comboboxExpand');
-            });
-
-            // ENTER key with active descendant should make selection & dismiss
-            // listbox. It should not submit form.
-            $widget.on('enterKeyDown', function (e) {
-                $input.val($listbox.find('[aria-selected=true]').text());
-                // check for an active descendant and ENTER key
-                if ($input.attr('aria-expanded') == 'true') {
-                    e.preventDefault();
-                    $widget.trigger('comboboxCollapse');
-                }
-            });
-
-            $input.on('focus', function(e) {
-                if (options.showOnFocus === true && $input.attr('aria-expanded') == 'false') {
-                    $widget.trigger('comboboxExpand');
-                }
-            });
-
-            $input.on('blur', function onInputBlur(e) {
-                blurTimer = setTimeout(function(e) {
-                    $widget.trigger('comboboxCollapse');
-                }, 100);
-            });
-
-            $button.on('click', function(e) {
-                $widget.trigger($input.attr('aria-expanded') == 'true' ? 'comboboxCollapse' : 'comboboxExpand');
-            });
-
-            $listbox.on('click', function(e) {
-                $input.val($(e.target).text());
-                $widget.trigger($input.attr('aria-expanded') == 'true' ? 'comboboxCollapse' : 'comboboxExpand');
-            });
-
-            $widget.on('activeDescendantChange', '[role=option]', function(e, data) {
-                console.log(this, data);
-            });
-
-            $widget.on('escapeKeyDown', function (e) {
-                if($input.attr('aria-expanded') == 'true') {
-                    $widget.trigger('comboboxCollapse');
-                }
-                else {
-                    $input.val('');
-                }
-            });
-
-            $widget.on('comboboxCollapse', function onCollapse(e) {
-                $input.attr('aria-expanded', 'false');
-            });
-
-            $widget.on('comboboxExpand', function onExpand(e) {
+            var expandCombobox = function() {
                 clearTimeout(blurTimer);
                 $input.attr('aria-expanded', 'true');
-            });
+                $widget.trigger('comboboxExpand');
+            };
+
+            var collapseCombobox = function() {
+                $input.attr('aria-expanded', 'false');
+                $widget.trigger('comboboxCollapse');
+            };
+
+            var toggleCombobox = function() {
+                var _void = isExpanded() ? collapseCombobox() : expandCombobox();
+            };
+
+            var onComboboxEscape = function(e) {
+                var _void = isExpanded() ? collapseCombobox() : $input.val('');
+            };
+
+            var onActiveDescendantChange = function(e) {
+                // console.log(e, this, data);
+            };
+
+            var onListboxClick = function(e) {
+                $input.val($(this).text());
+                var _void = toggleCombobox();
+            };
+
+            var onComboboxUpArrow = function(e) {
+                // prevent caret from moving to start
+                e.preventDefault();
+                expandCombobox();
+            };
+
+            var onComboboxDownArrow = function(e) {
+                expandCombobox();
+            };
+
+            var onComboboxEnterKey = function(e) {
+                // if combobox is expanded
+                if (isExpanded()) {
+                    // update combobox value
+                    $input.val($listbox.find('[aria-selected=true]').text());
+                    // prevent form submission
+                    e.preventDefault();
+                    collapseCombobox();
+                }
+            };
+
+            var onButtonClick = function(e) {
+                toggleCombobox();
+            };
+
+            // listen for events
+            $widget.on('downArrowKeyDown', '[role=combobox]', onComboboxDownArrow);
+            $widget.on('upArrowKeyDown', '[role=combobox]', onComboboxUpArrow);
+            $widget.on('enterKeyDown', '[role=combobox]', onComboboxEnterKey);
+            $widget.on('activeDescendantChange', '[role=option]', onActiveDescendantChange);
+            $widget.on('escapeKeyDown', '[role=combobox]', onComboboxEscape);
+            $button.on('click', onButtonClick);
+            $listbox.on('click', '[role=option]', onListboxClick);
         });
     };
 }( jQuery ));

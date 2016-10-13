@@ -1,26 +1,26 @@
 .clipped {
-    position: absolute;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
-    padding: 0;
     border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
     height: 1px;
-    width: 1px;
     overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }
 .stealth {
-    position: absolute;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
-    padding: 0;
     border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
     height: 1px;
-    width: 1px;
     overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }
 .stealth:focus {
     clip: auto;
+    height: auto;
     padding: inherit;
     width: auto;
-    height: auto;
 }
