@@ -38,7 +38,7 @@
             }
 
             // call click flyout plugin which does most of the work
-            $widget.clickFlyout();
+            $widget.clickFlyout({autoCollapse: false});
 
             // button is ready to use
             $button.prop('disabled', false);
