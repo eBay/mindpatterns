@@ -37,7 +37,11 @@
             });
 
             // create a roving tab index on custom radios
-            $widget.rovingTabindex('[role=radio]', {activeIndex: checkedRadioIndex, autoWrap: true});
+            $widget.rovingTabindex('[role=radio]', {
+                activeIndex: checkedRadioIndex,
+                autoWrap: true,
+                disableHomeAndEndKeys: true
+            });
 
             // update radiogroup state on check event or rovingTabindex change
             $widget.on('check rovingTabindexChange', '[role=radio]', function onCheckAndRove(e, data) {
