@@ -27,6 +27,17 @@
                 .attr('role', 'application')
                 .addClass('flyout');
 
+            $listbox
+                .prop('id', $widget.prop('id') + '-listbox')
+                .css('width', $input.css('width'))
+                .attr('role', 'listbox')
+                .addClass('flyout__overlay');
+
+            $instructionsEl
+                .addClass('combobox__description')
+                .prop('id', $widget.prop('id') + '-instructions')
+                .text('Combobox list has 6 options. Use down key to navigate.');
+
             $input
                 .attr('role', 'combobox')
                 .attr('autocomplete','off') // Disable HTML5 autocomplete
@@ -39,20 +50,9 @@
                 .attr('tabindex', '-1')
                 .attr('aria-label', 'Expand suggestions');
 
-            $listbox
-                .prop('id', $widget.prop('id') + '-listbox')
-                .css('width', $input.css('width'))
-                .attr('role', 'listbox')
-                .addClass('flyout__overlay')
-
             data.forEach(function(item, idx) {
                 $listbox.append('<li role="option">'+item+'</li>');
             });
-
-            $instructionsEl
-                .addClass('combobox__description')
-                .prop('id', $widget.prop('id') + '-instructions')
-                .text('Combobox list has 6 options. Use down key to navigate.');
 
             // DOM manipulation
             $widget.append($button);
