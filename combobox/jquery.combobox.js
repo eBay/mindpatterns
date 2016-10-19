@@ -41,7 +41,6 @@
             $input
                 .attr('role', 'combobox')
                 .attr('autocomplete','off') // Disable HTML5 autocomplete
-                .attr('aria-owns', $listbox.prop('id'))
                 .attr('aria-describedby', $instructionsEl.prop('id'))
                 .addClass('flyout__trigger');
 
@@ -61,7 +60,7 @@
 
             // plugins
             $widget.commonKeyDown();
-            $widget.activeDescendant($input, '[role=option]', {axis: 'y'});
+            $widget.activeDescendant($input, '[role=listbox]', '[role=option]', {axis: 'y'});
             $widget.focusFlyout({autoExpand: options.autoExpand});
 
             var isExpanded = function() {

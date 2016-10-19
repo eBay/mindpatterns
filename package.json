@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "jquery": "^3",
-    "makeup-ebay": "~0.22",
+    "makeup-ebay": "~0.23",
     "lasso-cli": "^2",
     "rimraf": "^2"
   }

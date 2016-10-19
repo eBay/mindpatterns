@@ -1,0 +1,78 @@
+/*
+notice of oddities:
+    I have found that using display: flex on table rows causes issues for Voiceover
+    I have found that using display: table-cell on gridcell causes issue for Voiceover
+*/
+.datepicker {
+    position: relative;
+}
+.datepicker button {
+    font-family: 'vq-icon-font';
+    padding: 0;
+}
+.datepicker__caption {
+    font-weight: bold;
+    text-align: center;
+}
+.datepicker__prev-month::after {
+    content: '\e607';
+}
+.datepicker__next-month::after {
+    content: '\e608';
+}
+
+.datepicker [role=grid],
+.datepicker table {
+    background-color: LightYellow;
+    border: 1px solid #eee;
+    border-radius: 2px;
+}
+.datepicker th,
+.datepicker [role=columnheader] {
+    font-weight: bold;
+}
+
+.datepicker th,
+.datepicker td,
+.datepicker [role=columnheader],
+.datepicker [role=gridcell] {
+    border-radius: 2px;
+    display: table-cell;
+    padding: 0.5em;
+    text-align: center;
+    vertical-align: middle;
+    height: 25px;
+    width: 25px;
+}
+
+.datepicker [role=row] {
+    display: flex;
+}
+.datepicker [role=columnheader],
+.datepicker [role=gridcell] {
+    text-align: center;
+}
+
+.datepicker td:focus,
+.datepicker [role=gridcell]:focus {
+    background-color: #006699;
+    color: white;
+    outline: 0 none;
+}
+
+.datepicker td[aria-disabled=true],
+.datepicker [role=gridcell][aria-disabled=true] {
+    color: #767676;
+}
+
+.datepicker td[aria-selected=true],
+.datepicker [role=gridcell][aria-selected=true] {
+    background-color: #000;
+    color: #fff;
+}
+
+.datepicker td[aria-disabled=true][aria-selected=true],
+.datepicker [role=gridcell][aria-disabled=true][aria-selected=true] {
+    background-color: #ccc;
+    color: #000;
+}
