@@ -6,19 +6,10 @@ notice of oddities:
 .datepicker {
     position: relative;
 }
-.datepicker button {
-    font-family: 'vq-icon-font';
-    padding: 0;
-}
+.datepicker caption,
 .datepicker__caption {
     font-weight: bold;
     text-align: center;
-}
-.datepicker__prev-month::after {
-    content: '\e607';
-}
-.datepicker__next-month::after {
-    content: '\e608';
 }
 
 .datepicker [role=grid],
@@ -37,7 +28,6 @@ notice of oddities:
 .datepicker [role=columnheader],
 .datepicker [role=gridcell] {
     border-radius: 2px;
-    display: table-cell;
     padding: 0.5em;
     text-align: center;
     vertical-align: middle;
@@ -47,17 +37,6 @@ notice of oddities:
 
 .datepicker [role=row] {
     display: flex;
-}
-.datepicker [role=columnheader],
-.datepicker [role=gridcell] {
-    text-align: center;
-}
-
-.datepicker td:focus,
-.datepicker [role=gridcell]:focus {
-    background-color: #006699;
-    color: white;
-    outline: 0 none;
 }
 
 .datepicker td[aria-disabled=true],

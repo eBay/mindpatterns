@@ -24,7 +24,7 @@ permalink: /datepicker/
         <h3>Table Markup</h3>
         <form>
             <label for="start_date">Start Date</label>:
-            <span class="datepicker flyout flyout--focus">
+            <span class="datepicker flyout flyout--focus" role="application">
                 <input autocomplete="off" aria-label="start date" aria-describedby="datepicker-instructions" class="flyout__trigger" name="start_date" id="start_date" type="text" role="group" />
                 <p class="clipped" id="datepicker-instructions">Enter a date in format mm/dd/yyyy or use arrow keys to select a date from grid.</p>
                 <table class="flyout__overlay datepicker__grid">
@@ -57,6 +57,46 @@ permalink: /datepicker/
                         </tr>
                     </tbody>
                 </table>
+            </span>
+        </form>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        <h3>ARIA Grid</h3>
+        <form>
+            <label for="start_date">Start Date</label>:
+            <span class="datepicker flyout flyout--focus" role="application">
+                <input autocomplete="off" aria-label="start date" aria-describedby="datepicker-instructions" class="flyout__trigger" name="start_date" id="start_date" type="text" role="group" />
+                <p class="clipped" id="datepicker-instructions">Enter a date in format mm/dd/yyyy or use arrow keys to select a date from grid.</p>
+                <div class="flyout__overlay datepicker__grid" role="grid">
+                    <div role="presentation" class="datepicker__caption" id="datepicker-caption">January 2016</div>
+                    <div role="rowgroup">
+                        <div role="row"><span role="columnheader" abbr="Sunday">S</span><span role="columnheader" abbr="Monday">M</span><span role="columnheader">T</span><span role="columnheader">W</span><span role="columnheader">T</span><span role="columnheader">F</span><span role="columnheader">S</span></div>
+                    </div>
+                    <div class="grid__body" role="rowgroup">
+                        <div role="row">
+                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">27</span>
+                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">28</span>
+                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">29</span>
+                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">30</span>
+                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">31</span>
+                            <span role="gridcell" aria-describedby="datepicker-caption">01</span>
+                            <span role="gridcell" aria-describedby="datepicker-caption">02</span>
+                        </div>
+                        <div role="row"><span role="gridcell" aria-describedby="datepicker-caption">03</span><span role="gridcell" aria-describedby="datepicker-caption">04</span><span role="gridcell" aria-describedby="datepicker-caption">05</span><span role="gridcell" aria-describedby="datepicker-caption">06</span><span role="gridcell" aria-describedby="datepicker-caption">07</span><span role="gridcell" aria-describedby="datepicker-caption">08</span><span role="gridcell" aria-describedby="datepicker-caption">09</span></div>
+                        <div role="row"><span role="gridcell" aria-describedby="datepicker-caption">10</span><span role="gridcell" aria-describedby="datepicker-caption">11</span><span role="gridcell" aria-describedby="datepicker-caption">12</span><span role="gridcell" aria-describedby="datepicker-caption">13</span><span role="gridcell" aria-describedby="datepicker-caption">14</span><span role="gridcell" aria-describedby="datepicker-caption">15</span><span role="gridcell" aria-describedby="datepicker-caption">16</span></div>
+                        <div role="row"><span role="gridcell" aria-describedby="datepicker-caption">17</span><span role="gridcell" aria-describedby="datepicker-caption">18</span><span role="gridcell" aria-describedby="datepicker-caption">19</span><span role="gridcell" aria-describedby="datepicker-caption">20</span><span role="gridcell" aria-describedby="datepicker-caption">21</span><span role="gridcell" aria-describedby="datepicker-caption">22</span><span role="gridcell" aria-describedby="datepicker-caption">23</span></div>
+                        <div role="row"><span role="gridcell" aria-describedby="datepicker-caption">24</span><span role="gridcell" aria-describedby="datepicker-caption">25</span><span role="gridcell" aria-describedby="datepicker-caption">26</span><span role="gridcell" aria-describedby="datepicker-caption">27</span><span role="gridcell" aria-describedby="datepicker-caption">28</span><span role="gridcell" aria-describedby="datepicker-caption">29</span><span role="gridcell" aria-describedby="datepicker-caption">30</span></div>
+                        <div role="row">
+                            <span role="gridcell" aria-describedby="datepicker-caption">31</span>
+                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">01</span>
+                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">02</span>
+                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">03</span>
+                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">04</span>
+                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">05</span>
+                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">06</span>
+                        </div>
+                    </div>
+                </div>
             </span>
         </form>
     </div>

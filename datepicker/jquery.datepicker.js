@@ -21,7 +21,7 @@
             var year = 2016;
 
             $widget.focusFlyout();
-            $widget.activeDescendant('.flyout__trigger', 'tbody', 'td', {isGrid: true});
+            $widget.activeDescendant('.flyout__trigger', 'tbody, grid__body', 'td, [role=gridcell]', {isGrid: true});
 
             $widget.commonKeyDown().on('enterKeyDown', function(e) {
                 //console.log(e);
