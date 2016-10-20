@@ -16,12 +16,42 @@
         return this.each(function onEachDatePicker() {
             var $widget = $(this);
             var $input = $widget.find('.flyout__trigger');
+            var $description = $widget.find('.datepicker__description');
             var $grid = $widget.find('.datepicker__grid');
+            var $caption = $grid.find('caption, .grid__caption');
+            var $cells = $grid.find('td');
             var month = 1;
             var year = 2016;
 
+            $widget.nextId('datepicker');
+
+            if ($caption.prop('id') === '') {
+                $caption.prop('id', $widget.prop('id') + '-caption');
+            }
+
+            if ($description.prop('id') === '') {
+                $description.prop('id', $widget.prop('id') + '-description');
+            }
+
+            // add description to input
+            $input.attr('aria-describedby', $description.prop('id'));
+
+            // workaround for issue where voiceover does not announce first arrow key into grid
+            $caption.attr('role', 'presentation');
+
+            // voiceover must have a valid active-descendant container role on input
+            $input.attr('role', 'group');
+
+            $cells.each(function(cellIndex, cell) {
+                var $cell = $(cell);
+
+                $cell
+                    .attr('aria-label', $cell.text())
+                    .attr('aria-describedby', $caption.prop('id'));
+            });
+
             $widget.focusFlyout();
-            $widget.activeDescendant('.flyout__trigger', 'tbody, grid__body', 'td, [role=gridcell]', {isGrid: true});
+            $widget.activeDescendant('.flyout__trigger', 'table, [role=grid]', 'td, [role=gridcell]', {isGrid: true});
 
             $widget.commonKeyDown().on('enterKeyDown', function(e) {
                 //console.log(e);

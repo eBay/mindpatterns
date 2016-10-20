@@ -15,45 +15,77 @@ permalink: /datepicker/
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
-<p>Set focus on textbox to open datepicker. Use ARROW keys to change day selection.</p>
+<p>The datepicker is currently being developed/prototyped. You have ninja skills for finding this page.</p>
 
 <h2>Examples</h2>
 
 <div class="row">
     <div class="col-xs-12 col-md-6">
-        <h3>Table Markup</h3>
+        <h3>Example 1: Active Descendant</h3>
         <form>
             <label for="start_date">Start Date</label>:
             <span class="datepicker flyout flyout--focus" role="application">
-                <input autocomplete="off" aria-label="start date" aria-describedby="datepicker-instructions" class="flyout__trigger" name="start_date" id="start_date" type="text" role="group" />
-                <p class="clipped" id="datepicker-instructions">Enter a date in format mm/dd/yyyy or use arrow keys to select a date from grid.</p>
+                <input autocomplete="off" aria-label="start date" class="flyout__trigger" name="start_date" id="start_date" type="text" />
+                <p class="datepicker__description clipped">Enter a date in format mm/dd/yyyy or use arrow keys to select a date from grid.</p>
                 <table class="flyout__overlay datepicker__grid">
-                    <caption role="presentation" class="datepicker__caption" id="datepicker-caption">January 2016</caption>
+                    <caption class="datepicker__caption">January 2016</caption>
                     <thead>
                         <tr><th abbr="Sunday">S</th><th abbr="Monday">M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th></tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td aria-describedby="datepicker-caption" aria-disabled="true">27</td>
-                            <td aria-describedby="datepicker-caption" aria-disabled="true">28</td>
-                            <td aria-describedby="datepicker-caption" aria-disabled="true">29</td>
-                            <td aria-describedby="datepicker-caption" aria-disabled="true">30</td>
-                            <td aria-describedby="datepicker-caption" aria-disabled="true">31</td>
-                            <td aria-describedby="datepicker-caption">01</td>
-                            <td aria-describedby="datepicker-caption">02</td>
+                            <td aria-disabled="true">27</td>
+                            <td aria-disabled="true">28</td>
+                            <td aria-disabled="true">29</td>
+                            <td aria-disabled="true">30</td>
+                            <td aria-disabled="true">31</td>
+                            <td>01</td>
+                            <td>02</td>
                         </tr>
-                        <tr><td aria-describedby="datepicker-caption">03</td><td aria-describedby="datepicker-caption">04</td><td aria-describedby="datepicker-caption">05</td><td aria-describedby="datepicker-caption">06</td><td aria-describedby="datepicker-caption">07</td><td aria-describedby="datepicker-caption">08</td><td aria-describedby="datepicker-caption">09</td></tr>
-                        <tr><td aria-describedby="datepicker-caption">10</td><td aria-describedby="datepicker-caption">11</td><td aria-describedby="datepicker-caption">12</td><td aria-describedby="datepicker-caption">13</td><td aria-describedby="datepicker-caption">14</td><td aria-describedby="datepicker-caption">15</td><td aria-describedby="datepicker-caption">16</td></tr>
-                        <tr><td aria-describedby="datepicker-caption">17</td><td aria-describedby="datepicker-caption">18</td><td aria-describedby="datepicker-caption">19</td><td aria-describedby="datepicker-caption">20</td><td aria-describedby="datepicker-caption">21</td><td aria-describedby="datepicker-caption">22</td><td aria-describedby="datepicker-caption">23</td></tr>
-                        <tr><td aria-describedby="datepicker-caption">24</td><td aria-describedby="datepicker-caption">25</td><td aria-describedby="datepicker-caption">26</td><td aria-describedby="datepicker-caption">27</td><td aria-describedby="datepicker-caption">28</td><td aria-describedby="datepicker-caption">29</td><td aria-describedby="datepicker-caption">30</td></tr>
                         <tr>
-                            <td aria-describedby="datepicker-caption">31</td>
-                            <td aria-describedby="datepicker-caption" aria-disabled="true">01</td>
-                            <td aria-describedby="datepicker-caption" aria-disabled="true">02</td>
-                            <td aria-describedby="datepicker-caption" aria-disabled="true">03</td>
-                            <td aria-describedby="datepicker-caption" aria-disabled="true">04</td>
-                            <td aria-describedby="datepicker-caption" aria-disabled="true">05</td>
-                            <td aria-describedby="datepicker-caption" aria-disabled="true">06</td>
+                            <td>03</td>
+                            <td>04</td>
+                            <td>05</td>
+                            <td>06</td>
+                            <td>07</td>
+                            <td>08</td>
+                            <td>09</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>13</td>
+                            <td>14</td>
+                            <td>15</td>
+                            <td>16</td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>18</td>
+                            <td>19</td>
+                            <td>20</td>
+                            <td>21</td>
+                            <td>22</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
+                            <td>24</td>
+                            <td>25</td>
+                            <td>26</td>
+                            <td>27</td>
+                            <td>28</td>
+                            <td>29</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>31</td>
+                            <td aria-disabled="true">01</td>
+                            <td aria-disabled="true">02</td>
+                            <td aria-disabled="true">03</td>
+                            <td aria-disabled="true">04</td>
+                            <td aria-disabled="true">05</td>
+                            <td aria-disabled="true">06</td>
                         </tr>
                     </tbody>
                 </table>
@@ -61,44 +93,8 @@ permalink: /datepicker/
         </form>
     </div>
     <div class="col-xs-12 col-md-6">
-        <h3>ARIA Grid</h3>
-        <form>
-            <label for="start_date">Start Date</label>:
-            <span class="datepicker flyout flyout--focus" role="application">
-                <input autocomplete="off" aria-label="start date" aria-describedby="datepicker-instructions" class="flyout__trigger" name="start_date" id="start_date" type="text" role="group" />
-                <p class="clipped" id="datepicker-instructions">Enter a date in format mm/dd/yyyy or use arrow keys to select a date from grid.</p>
-                <div class="flyout__overlay datepicker__grid" role="grid">
-                    <div role="presentation" class="datepicker__caption" id="datepicker-caption">January 2016</div>
-                    <div role="rowgroup">
-                        <div role="row"><span role="columnheader" abbr="Sunday">S</span><span role="columnheader" abbr="Monday">M</span><span role="columnheader">T</span><span role="columnheader">W</span><span role="columnheader">T</span><span role="columnheader">F</span><span role="columnheader">S</span></div>
-                    </div>
-                    <div class="grid__body" role="rowgroup">
-                        <div role="row">
-                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">27</span>
-                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">28</span>
-                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">29</span>
-                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">30</span>
-                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">31</span>
-                            <span role="gridcell" aria-describedby="datepicker-caption">01</span>
-                            <span role="gridcell" aria-describedby="datepicker-caption">02</span>
-                        </div>
-                        <div role="row"><span role="gridcell" aria-describedby="datepicker-caption">03</span><span role="gridcell" aria-describedby="datepicker-caption">04</span><span role="gridcell" aria-describedby="datepicker-caption">05</span><span role="gridcell" aria-describedby="datepicker-caption">06</span><span role="gridcell" aria-describedby="datepicker-caption">07</span><span role="gridcell" aria-describedby="datepicker-caption">08</span><span role="gridcell" aria-describedby="datepicker-caption">09</span></div>
-                        <div role="row"><span role="gridcell" aria-describedby="datepicker-caption">10</span><span role="gridcell" aria-describedby="datepicker-caption">11</span><span role="gridcell" aria-describedby="datepicker-caption">12</span><span role="gridcell" aria-describedby="datepicker-caption">13</span><span role="gridcell" aria-describedby="datepicker-caption">14</span><span role="gridcell" aria-describedby="datepicker-caption">15</span><span role="gridcell" aria-describedby="datepicker-caption">16</span></div>
-                        <div role="row"><span role="gridcell" aria-describedby="datepicker-caption">17</span><span role="gridcell" aria-describedby="datepicker-caption">18</span><span role="gridcell" aria-describedby="datepicker-caption">19</span><span role="gridcell" aria-describedby="datepicker-caption">20</span><span role="gridcell" aria-describedby="datepicker-caption">21</span><span role="gridcell" aria-describedby="datepicker-caption">22</span><span role="gridcell" aria-describedby="datepicker-caption">23</span></div>
-                        <div role="row"><span role="gridcell" aria-describedby="datepicker-caption">24</span><span role="gridcell" aria-describedby="datepicker-caption">25</span><span role="gridcell" aria-describedby="datepicker-caption">26</span><span role="gridcell" aria-describedby="datepicker-caption">27</span><span role="gridcell" aria-describedby="datepicker-caption">28</span><span role="gridcell" aria-describedby="datepicker-caption">29</span><span role="gridcell" aria-describedby="datepicker-caption">30</span></div>
-                        <div role="row">
-                            <span role="gridcell" aria-describedby="datepicker-caption">31</span>
-                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">01</span>
-                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">02</span>
-                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">03</span>
-                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">04</span>
-                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">05</span>
-                            <span role="gridcell" aria-describedby="datepicker-caption" aria-disabled="true">06</span>
-                        </div>
-                    </div>
-                </div>
-            </span>
-        </form>
+        <h3>Example 2: Click Flyout</h3>
+        <p>Coming soon.</p>
     </div>
 </div>
 
