@@ -6,6 +6,10 @@ notice of oddities:
 .datepicker {
     position: relative;
 }
+.datepicker__button::after {
+    content: ' \e621';
+    font-family: 'vq-icon-font';
+}
 .datepicker caption,
 .datepicker__caption {
     font-weight: bold;

@@ -25,6 +25,8 @@
 
             $widget.nextId('datepicker');
 
+            $widget.attr('role', 'application');
+
             if ($caption.prop('id') === '') {
                 $caption.prop('id', $widget.prop('id') + '-caption');
             }
