@@ -4,25 +4,25 @@
     padding: 0;
     position: relative;
 }
-.carousel > div > button {
+.carousel > button {
     background-color: transparent;
     border: 0;
     position: absolute;
     padding: 0;
     top: 45%;
 }
-.carousel > div > button[aria-disabled=true] {
+.carousel > button[aria-disabled=true] {
     color: #ccc;
     cursor: default;
 }
-.carousel > div > button:after {
+.carousel > button:after {
     font-family: 'vq-icon-font';
     font-size: 20px;
 }
-.carousel > div > button:first-of-type:after {
+.carousel > button:first-of-type:after {
     content: '\e607';
 }
-.carousel > div > button:last-child:after {
+.carousel > button:last-child:after {
     content: '\e608';
 }
 .carousel ul {
@@ -63,15 +63,15 @@
 .carousel.carousel-5 li {
     width: calc(20% - 4px);
 }
-.carousel > div > button:first-child {
+.carousel > button:first-child {
     left: 0;
 }
-.carousel > div > button:last-child {
+.carousel > button:last-child {
     right: 0;
 }
-.carousel--filmstrip > div > button:first-child {
+.carousel--filmstrip > button:first-child {
     left: -0.25em;
 }
-.carousel--filmstrip > div > button:last-child {
+.carousel--filmstrip > button:last-child {
     right: -0.25em;
 }

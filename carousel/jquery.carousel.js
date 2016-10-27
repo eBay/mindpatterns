@@ -3,16 +3,13 @@
 * @desc Please DO NOT copy this code to production! This is 'quick & ugly, just make it work!' code.
 * @author Ian McBurnie (imcburnie@ebay.com)
 */
-(function ( $ ) {
-
+(function($) {
     $.fn.carousel = function carousel() {
-
         return this.each(function onEach() {
-
             var $this = $(this),
                 $title = $this.find('.carousel__title'),
-                $list = $this.find('> ul, > ol'),
-                $statusMessageContainer = $('<p role="status" class="clipped">'),
+                $list = $this.find('.carousel__list, > ul, > ol'),
+                $statusMessageContainer = $('<p>'),
                 $statusMessageText = $('<span>'),
                 $paginateLeft = $('<button />'),
                 $paginateRight = $('<button />'),
@@ -20,16 +17,11 @@
                 viewportSize = $this.data('carousel'),
                 numSlides = Math.round($listItems.length / viewportSize),
                 currentSlideIndex = 1,
-                indexesInViewport = [],
-                $container;
+                indexesInViewport = [];
 
             $this.nextId('carousel');
 
-            $list.wrap('<div />');
-
-            $container = $this.find('> div');
-
-            $container
+            $this
                 .prepend($paginateLeft)
                 .append($paginateRight)
                 .prepend($statusMessageContainer);
@@ -40,7 +32,12 @@
                     .replace('{numSlides}', numSlides)
                     .replace('{title}', $title.text())
                 );
-            $statusMessageContainer.prop('id', $this.prop('id') + '-status');
+            $statusMessageContainer
+                .attr('role', 'status')
+                .attr('aria-live', 'polite')
+                .prop('id', $this.prop('id') + '-status')
+                .addClass('clipped');
+
             $statusMessageContainer.append($statusMessageText);
 
             $paginateLeft
@@ -56,17 +53,15 @@
                 var $itm = $(itm);
 
                 // hide every list item not in viewport
-                if(idx < viewportSize) {
+                if (idx < viewportSize) {
                     $itm.attr('aria-hidden', 'false');
                     indexesInViewport.push(idx);
-                }
-                else {
+                } else {
                     $itm.attr('aria-hidden', 'true');
                 }
             });
 
             $paginateRight.on('click', function(e) {
-
                 if (currentSlideIndex < numSlides) {
 
                     var newIndexesInViewport;
@@ -83,7 +78,6 @@
             });
 
             $paginateLeft.on('click', function(e) {
-
                 if (currentSlideIndex > 1) {
 
                     var newIndexesInViewport;
@@ -100,7 +94,6 @@
             });
 
             $this.on('paginate', function(e, newIndexesInViewport) {
-
                 var viewportCollection = [];
 
                 // convert viewport items to collection
@@ -119,12 +112,10 @@
                 if (currentSlideIndex === 1) {
                     $paginateLeft.attr('aria-disabled', 'true');
                     $paginateRight.attr('aria-disabled', 'false');
-                }
-                else if (currentSlideIndex === numSlides) {
+                } else if (currentSlideIndex === numSlides) {
                     $paginateLeft.attr('aria-disabled', 'false');
                     $paginateRight.attr('aria-disabled', 'true');
-                }
-                else {
+                } else {
                     $paginateLeft.attr('aria-disabled', 'false');
                     $paginateRight.attr('aria-disabled', 'false');
                 }
@@ -143,4 +134,4 @@
             $this.addClass('carousel--js');
         });
     };
-}( jQuery ));
+}(jQuery));

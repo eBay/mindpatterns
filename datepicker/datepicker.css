@@ -21,6 +21,7 @@ notice of oddities:
     background-color: LightYellow;
     border: 1px solid #eee;
     border-radius: 2px;
+    outline: 0 none;
 }
 .datepicker th,
 .datepicker [role=columnheader] {
