@@ -18,4 +18,4 @@ markdown: kramdown
 sass:
     style: :compressed
 
-exclude: ["node_modules", "js"]
+exclude: ["node_modules", "_js", ".cache", ".sass-cache", ".git"]

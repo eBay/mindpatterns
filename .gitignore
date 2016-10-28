@@ -1,6 +1,7 @@
 _site/
 .sass-cache/
 .cache
+.jekyll-metadata
 node_modules
 build
 /static/browser.js.*
