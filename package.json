@@ -6,7 +6,7 @@
     "start": "npm run lasso && npm run jekyll:build && parallelshell 'npm run browser-sync:static' 'npm run nodemon'",
     "lasso": "lasso browser.json --output-dir static --minify && rimraf build",
     "clean": "rimraf _site .cache .sass-cache build static/browser.js",
-    "nodemon": "nodemon --exec 'npm run jekyll:build' -e html,scss,js"
+    "nodemon": "nodemon --exec 'npm run jekyll:build' -e html,css,scss,js"
   },
   "license": "MIT",
   "repository": {

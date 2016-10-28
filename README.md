@@ -13,5 +13,5 @@ This project uses [Bundler](http://bundler.io) to ensure our local [Jekyll](http
 1. Run `bundle install` this will install Jekyll and other [dependencies](https://pages.github.com/versions/) from the GitHub Pages gem
 1. Run `npm install` to install all devDependencies (e.g. jQuery, Lasso, Makeup)
 1. Run `npm start` to build and run site
-1. Visit [localhost:3000](http://localhost:3000)
+1. Browser will automatically open at [localhost:3000](http://localhost:3000)
 1. Browser will automatically reload when local HTML, JS or CSS assets are modified
