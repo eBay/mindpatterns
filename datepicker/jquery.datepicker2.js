@@ -11,7 +11,9 @@
 
     $.fn.datePicker2 = function datePicker2(options) {
 
-        options = $.extend({}, options);
+        options = $.extend({
+            activeIndex: 0
+        }, options);
 
         return this.each(function onEachDatePicker2() {
             var $widget = $(this);
@@ -42,20 +44,19 @@
             $grid.attr('aria-describedby', $description.prop('id'));
 
             $grid.attr('tabindex', '0');
-            $widget.activeDescendant('table', 'table', 'td', {isGrid: true, autoInit: true, setFocusDelay: 100});
-
-            //$widget.rovingTabindex('button', {isGrid: true});
-
-            //$cells.attr('role', 'gridcell');
+            $widget.activeDescendant('table', 'table', 'td', {isGrid: true, activeIndex: options.activeIndex, autoInit: true, autoReset: false});
 
             $widget.clickFlyout({focusManagement: 'first'});
 
             $widget.commonKeyDown().on('enterKeyDown spaceKeyDown', 'table', function(e) {
                 var $activeDescendant = $grid.find('#' + $grid.attr('aria-activedescendant'));
                 e.preventDefault();
-                $input.val('0' + month + '/' + $activeDescendant.text() + '/' + year);
-                $button.attr('aria-expanded', 'false');
-                $button.focus();
+
+                if ($activeDescendant.attr('aria-disabled') !== 'true') {
+                    $input.val('0' + month + '/' + $activeDescendant.text() + '/' + year);
+                    $button.attr('aria-expanded', 'false');
+                    $button.focus();
+                }
             });
 
             $widget.commonKeyDown().on('escapeKeyDown', 'table', function(e) {

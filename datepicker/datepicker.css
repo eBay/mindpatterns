@@ -21,7 +21,6 @@ notice of oddities:
     background-color: LightYellow;
     border: 1px solid #eee;
     border-radius: 2px;
-    outline: 0 none;
 }
 .datepicker th,
 .datepicker [role=columnheader] {
@@ -57,6 +56,5 @@ notice of oddities:
 
 .datepicker td[aria-disabled=true][aria-selected=true],
 .datepicker [role=gridcell][aria-disabled=true][aria-selected=true] {
-    background-color: #ccc;
-    color: #000;
+
 }

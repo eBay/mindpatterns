@@ -34,11 +34,11 @@ permalink: /datepicker/
                     </thead>
                     <tbody>
                         <tr>
-                            <td aria-disabled="true">27</td>
-                            <td aria-disabled="true">28</td>
-                            <td aria-disabled="true">29</td>
-                            <td aria-disabled="true">30</td>
-                            <td aria-disabled="true">31</td>
+                            <td aria-disabled="true"><s>27</s></td>
+                            <td aria-disabled="true"><s>28</s></td>
+                            <td aria-disabled="true"><s>29</s></td>
+                            <td aria-disabled="true"><s>30</s></td>
+                            <td aria-disabled="true"><s>31</s></td>
                             <td>01</td>
                             <td>02</td>
                         </tr>
@@ -80,12 +80,12 @@ permalink: /datepicker/
                         </tr>
                         <tr>
                             <td>31</td>
-                            <td aria-disabled="true">01</td>
-                            <td aria-disabled="true">02</td>
-                            <td aria-disabled="true">03</td>
-                            <td aria-disabled="true">04</td>
-                            <td aria-disabled="true">05</td>
-                            <td aria-disabled="true">06</td>
+                            <td>01</td>
+                            <td>02</td>
+                            <td>03</td>
+                            <td>04</td>
+                            <td>05</td>
+                            <td>06</td>
                         </tr>
                     </tbody>
                 </table>
@@ -108,11 +108,11 @@ permalink: /datepicker/
                         </thead>
                         <tbody>
                             <tr>
-                                <td aria-disabled="true">27</td>
-                                <td aria-disabled="true">28</td>
-                                <td aria-disabled="true">29</td>
-                                <td aria-disabled="true">30</td>
-                                <td aria-disabled="true">31</td>
+                                <td aria-disabled="true"><s>27</s></td>
+                                <td aria-disabled="true"><s>28</s></td>
+                                <td aria-disabled="true"><s>29</s></td>
+                                <td aria-disabled="true"><s>30</s></td>
+                                <td aria-disabled="true"><s>31</s></td>
                                 <td>01</td>
                                 <td>02</td>
                             </tr>
@@ -154,12 +154,12 @@ permalink: /datepicker/
                             </tr>
                             <tr>
                                 <td>31</td>
-                                <td aria-disabled="true">01</td>
-                                <td aria-disabled="true">02</td>
-                                <td aria-disabled="true">03</td>
-                                <td aria-disabled="true">04</td>
-                                <td aria-disabled="true">05</td>
-                                <td aria-disabled="true">06</td>
+                                <td>01</td>
+                                <td>02</td>
+                                <td>03</td>
+                                <td>04</td>
+                                <td>05</td>
+                                <td>06</td>
                             </tr>
                         </tbody>
                     </table>
@@ -174,7 +174,7 @@ permalink: /datepicker/
 <script src="jquery.datepicker2.js"></script>
 <script>
     $(function() {
-        $('.datepicker.flyout--focus').datePicker();
-        $('.datepicker.flyout--click').datePicker2();
+        $('.datepicker.flyout--focus').datePicker({activeIndex: 5});
+        $('.datepicker.flyout--click').datePicker2({activeIndex: 5});
     });
 </script>

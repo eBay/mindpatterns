@@ -11,7 +11,9 @@
 
     $.fn.datePicker = function datePicker(options) {
 
-        options = $.extend({}, options);
+        options = $.extend({
+            activeIndex: 0
+        }, options);
 
         return this.each(function onEachDatePicker() {
             var $widget = $(this);
@@ -53,7 +55,7 @@
             });
 
             $widget.focusFlyout();
-            $widget.activeDescendant('.flyout__trigger', 'table, [role=grid]', 'td, [role=gridcell]', {isGrid: true});
+            $widget.activeDescendant('.flyout__trigger', 'table, [role=grid]', 'td, [role=gridcell]', {isGrid: true, autoReset: false, activeIndex: options.activeIndex});
 
             $widget.commonKeyDown().on('enterKeyDown', function(e) {
                 //console.log(e);
