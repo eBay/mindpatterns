@@ -6,113 +6,93 @@
 (function($) {
     $.fn.carousel = function carousel() {
         return this.each(function onEach() {
-            var $this = $(this),
-                $title = $this.find('.carousel__title'),
-                $list = $this.find('.carousel__list, > ul, > ol'),
+            var $widget = $(this),
+                $title = $widget.find('.carousel__title'),
+                titleText = ($title.length > 0) ? $title.text() : '',
+                $carouselMain = $widget.find('.carousel__main'),
+                $carouselList = $widget.find('.carousel__list'),
+                $carouselItems = $carouselList.find('> li'),
                 $statusMessageContainer = $('<p>'),
                 $statusMessageText = $('<span>'),
-                $paginateLeft = $('<button />'),
-                $paginateRight = $('<button />'),
-                $listItems = $list.find('> li'),
-                viewportSize = $this.data('carousel'),
-                numSlides = Math.round($listItems.length / viewportSize),
-                currentSlideIndex = 1,
-                indexesInViewport = [];
+                $paginateLeft = $('<button>'),
+                $paginateRight = $('<button>'),
+                viewportSize = $widget.data('carousel-size'),
+                numSlides = Math.round($carouselItems.length / viewportSize),
+                model = {
+                    currentSlideIndex: 1, // 1 based index, rather than 0
+                    indexesInViewport: []
+                };
 
-            $this.nextId('carousel');
-
-            $this
-                .prepend($paginateLeft)
-                .append($paginateRight)
-                .prepend($statusMessageContainer);
-
-            $statusMessageText
-                .text('Showing slide {currentSlide} of {numSlides} - {title}'
-                    .replace('{currentSlide}', currentSlideIndex)
-                    .replace('{numSlides}', numSlides)
-                    .replace('{title}', $title.text())
-                );
-            $statusMessageContainer
-                .attr('role', 'status')
-                .attr('aria-live', 'polite')
-                .prop('id', $this.prop('id') + '-status')
-                .addClass('clipped');
-
-            $statusMessageContainer.append($statusMessageText);
-
-            $paginateLeft
-                .html('<span class="clipped">Go to previous slide - {title}</span>'.replace('{title}', $title.text()))
-                .attr('aria-disabled', 'true')
-                .attr('aria-describedby', $statusMessageContainer.prop('id'));
-
-            $paginateRight
-                .html('<span class="clipped">Go to next slide - {title}</span>'.replace('{title}', $title.text()))
-                .attr('aria-describedby', $statusMessageContainer.prop('id'));
-
-            $listItems.each(function(idx, itm) {
-                var $itm = $(itm);
-
-                // hide every list item not in viewport
-                if (idx < viewportSize) {
-                    $itm.attr('aria-hidden', 'false');
-                    indexesInViewport.push(idx);
-                } else {
-                    $itm.attr('aria-hidden', 'true');
+            var onPaginateNextClick = function(e) {
+                if (model.currentSlideIndex < numSlides) {
+                    gotoSlide(model.currentSlideIndex + 1);
                 }
-            });
+            };
 
-            $paginateRight.on('click', function(e) {
-                if (currentSlideIndex < numSlides) {
-
-                    var newIndexesInViewport;
-
-                    // increment page index
-                    currentSlideIndex++;
-
-                    newIndexesInViewport = indexesInViewport.map(function(idx) {
-                        return idx + viewportSize;
-                    });
-
-                    $this.trigger('paginate', [newIndexesInViewport]);
+            var onPaginatePreviousClick = function(e) {
+                if (model.currentSlideIndex > 1) {
+                    gotoSlide(model.currentSlideIndex - 1);
                 }
-            });
+            };
 
-            $paginateLeft.on('click', function(e) {
-                if (currentSlideIndex > 1) {
+            var setStatusMessage = function(slideIndex, slideCount, title) {
+                $statusMessageText
+                    .text('Showing slide {currentSlide} of {numSlides} - {title}'
+                        .replace('{currentSlide}', slideIndex)
+                        .replace('{numSlides}', slideCount)
+                        .replace('{title}', title)
+                    );
+            };
 
-                    var newIndexesInViewport;
+            var shiftViewportLeft = function(val) {
+                return val - viewportSize;
+            };
 
-                    // increment page index
-                    currentSlideIndex--;
+            var shiftViewportRight = function(val) {
+                return val + viewportSize;
+            };
 
-                    newIndexesInViewport = indexesInViewport.map(function(idx) {
-                        return idx - viewportSize;
-                    });
+            var gotoSlide = function(newSlideIndex) {
+                var newIndexesInViewport;
+                var mapFunction;
 
-                    $this.trigger('paginate', [newIndexesInViewport]);
+                if (newSlideIndex > model.currentSlideIndex) {
+                    mapFunction = shiftViewportLeft;
+                } else if (newSlideIndex < model.currentSlideIndex) {
+                    mapFunction = shiftViewportRight;
                 }
-            });
 
-            $this.on('paginate', function(e, newIndexesInViewport) {
-                var viewportCollection = [];
+                newIndexesInViewport = model.indexesInViewport.map(mapFunction);
 
-                // convert viewport items to collection
-                indexesInViewport.forEach(function(idx, itm) {
-                    viewportCollection.push($listItems.get(idx));
+                // map current viewport indexes to collection
+                var itemsInViewport = model.indexesInViewport.map(function(val) {
+                    return $carouselItems.get(val);
+                });
+
+                // map new viewport indexes to collection
+                var newItemsInViewport = newIndexesInViewport.map(function(val) {
+                    return $carouselItems.get(val);
                 });
 
                 // unhide new slide items
-                newIndexesInViewport.forEach(function(idx) {
-                    $($listItems.get(idx)).removeAttr('aria-hidden');
-                });
+                $(newItemsInViewport)
+                    .removeAttr('aria-hidden')
+                    .removeAttr('tabindex');
 
                 // hide current slide items
-                $(viewportCollection).attr('aria-hidden', 'true');
+                $(itemsInViewport)
+                    .attr('aria-hidden', 'true')
+                    .attr('tabindex', '-1');
 
-                if (currentSlideIndex === 1) {
+                // update model
+                model.indexesInViewport = newIndexesInViewport;
+                model.currentSlideIndex = newSlideIndex;
+
+                // update pagination button state
+                if (model.currentSlideIndex === 1) {
                     $paginateLeft.attr('aria-disabled', 'true');
                     $paginateRight.attr('aria-disabled', 'false');
-                } else if (currentSlideIndex === numSlides) {
+                } else if (model.currentSlideIndex === numSlides) {
                     $paginateLeft.attr('aria-disabled', 'false');
                     $paginateRight.attr('aria-disabled', 'true');
                 } else {
@@ -120,18 +100,64 @@
                     $paginateRight.attr('aria-disabled', 'false');
                 }
 
-                // IMPORTANT! update the model
-                indexesInViewport = newIndexesInViewport;
+                // update the status message with new model
+                setStatusMessage(model.currentSlideIndex, numSlides, titleText);
 
-                $statusMessageText
-                    .text('Showing slide {currentSlide} of {numSlides} - {title}'
-                        .replace('{currentSlide}', currentSlideIndex)
-                        .replace('{numSlides}', numSlides)
-                        .replace('{title}', $title.text())
-                    );
+                $widget.trigger('carouselSlideChange');
+            };
+
+            // ensure widget has a unique id
+            $widget.nextId('carousel');
+
+            // add status message container to DOM
+            $widget
+                .prepend($statusMessageContainer);
+
+            // add pagination buttons to DOM
+            $carouselMain
+                .prepend($paginateLeft)
+                .append($paginateRight);
+
+            // set the initial status message text
+            setStatusMessage(model.currentSlideIndex, numSlides, titleText);
+
+            $statusMessageContainer
+                .attr('role', 'status')
+                .attr('aria-live', 'polite')
+                .prop('id', $widget.prop('id') + '-status')
+                .addClass('clipped');
+
+            $statusMessageContainer
+                .append($statusMessageText);
+
+            $paginateLeft
+                .attr('type', 'button')
+                .attr('aria-label', 'Go to previous slide - {title}'.replace('{title}', titleText))
+                .attr('aria-disabled', 'true')
+                .attr('aria-describedby', $statusMessageContainer.prop('id'))
+                .addClass('carousel__previous')
+                .on('click', onPaginatePreviousClick);
+
+            $paginateRight
+                .attr('type', 'button')
+                .attr('aria-label', 'Go to next slide - {title}'.replace('{title}', titleText))
+                .attr('aria-describedby', $statusMessageContainer.prop('id'))
+                .addClass('carousel__next')
+                .on('click', onPaginateNextClick);
+
+            // cache items in viewport & hide items not in viewport
+            $carouselItems.each(function(index, item) {
+                if (index < viewportSize) {
+                    model.indexesInViewport.push(index);
+                } else {
+                    $(item)
+                        .attr('aria-hidden', 'true')
+                        .attr('tabindex', '-1');
+                }
             });
 
-            $this.addClass('carousel--js');
+            // mark widget as js ready
+            $widget.addClass('carousel--js');
         });
     };
 }(jQuery));
