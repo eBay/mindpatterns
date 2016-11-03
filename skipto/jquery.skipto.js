@@ -16,10 +16,8 @@
     });
     */
 
-    $.fn.skipto = function() {
-
+    $.fn.skipTo = function() {
         return this.each(function onEach() {
-
             var $this = $(this),
                 $link = $this.find('a'),
                 targetId = $link.attr('href'),
@@ -28,15 +26,10 @@
             // set a unique widget id
             $this.nextId('skipto');
 
-            $target.addClass('skiptotarget');
-
-            // make target programmatically focussable
-            $target.attr('tabindex', '-1');
-
             $link.on('click', function onClick(e) {
 
-                // add class to allow kb focus outline
-                $target.addClass('skiptotarget--active');
+                // make target programmatically focussable
+                $target.attr('tabindex', '-1');
 
                 // set programmatic focus on target
                 // firefox needs a short delay
@@ -44,9 +37,9 @@
                     $target.focus();
                 }, 5);
 
-                // on kb blur, remove class that allows outline
+                // remove tabindex on blur
                 $target.one('blur', function(e) {
-                    $target.removeClass('skiptotarget--active');
+                    $target.removeAttr('tabindex');
                 });
 
                 // store link id in history state

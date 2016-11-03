@@ -4,9 +4,19 @@ title: Skip-To
 permalink: /skipto/
 ---
 
-<link rel="stylesheet" href="skipto.css">
-
 <style>
+    #skiptodemo {
+        position: relative;
+    }
+    /* hide link offscreen */
+    #skiptodemo a {
+        background-color: LightYellow;
+        color: #006699;
+        font-size: 12px;
+        padding: 0.2em 0.3em;
+        text-decoration: underline;
+        top: -1.75em;
+    }
     #nav_to_skip {
         font-size: small;
         margin: 2em 0;
@@ -32,7 +42,7 @@ permalink: /skipto/
 
 <h2>Examples</h2>
 <div>
-    <div class="skipto"><a href="#skiptotarget">Skip to main</a></div>
+    <div class="skipto" id="skiptodemo"><a class="clipped clipped--stealth" href="#skiptotarget">Skip to main</a></div>
     <ul id="nav_to_skip">
         <li><a href="http://www.ebay.com">Motors</a></li>
         <li><a href="http://www.ebay.com">Fashion</a></li>
@@ -43,16 +53,9 @@ permalink: /skipto/
         <li><a href="http://www.ebay.com">Toys &amp; Hobbies</a></li>
         <li><a href="http://www.ebay.com">Deals &amp; Gifts</a></li>
     </ul>
-    <div id="skiptotarget" tabindex="-1">
+    <div id="skiptotarget">
         <p>This is the main content (our skip to target).</p>
         <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
         <a href="http://www.ebay.com">www.ebay.com</a>
     </div>
 </div>
-
-<script src="jquery.skipto.js"></script>
-<script>
-    $(function() {
-        $('.skipto').skipto();
-    });
-</script>

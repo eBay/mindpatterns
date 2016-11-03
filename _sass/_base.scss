@@ -92,9 +92,6 @@ body > header {
 }
 [role=main] {
     padding: 1rem;
-    &:focus {
-        outline: 0 none;
-    }
 }
 #logo {
     display: block;
@@ -117,19 +114,19 @@ body > header {
     }
 }
 
-#skipto {
+#skiptomain {
     left: 0;
     position: absolute;
+    text-align: center;
     top: 0;
+}
 
-    &:focus {
-        background-color: LightYellow;
-        clip: auto;
-        height: auto;
-        padding: 0.25rem 1rem;
-        width: 100%;
-        z-index: 1;
-    }
+#skiptomain a {
+    background-color: LightYellow;
+}
+
+sup {
+    font-size: small;
 }
 
 // large screen breakpoint
@@ -154,7 +151,7 @@ body > header {
     [role=main] {
         padding: 0 0.75rem 2rem;
     }
-    #skipto:focus {
+    #skiptomain a:focus {
         width: 310px;
     }
 }
