@@ -1,5 +1,6 @@
 .clipped {
     border: 0;
+    clip: rect(1px 1px 1px 1px);
     clip: rect(1px, 1px, 1px, 1px);
     height: 1px;
     overflow: hidden;
@@ -8,19 +9,10 @@
     white-space: nowrap;
     width: 1px;
 }
-.stealth {
-    border: 0;
-    clip: rect(1px, 1px, 1px, 1px);
-    height: 1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-}
-.stealth:focus {
+.clipped--stealth:focus {
     clip: auto;
     height: auto;
     padding: inherit;
     width: auto;
+    z-index: 1;
 }
