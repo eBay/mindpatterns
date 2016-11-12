@@ -1,6 +1,6 @@
 /**
 * @function jquery.datepickerbutton.js
-* @author Ian McBurnie <imcburnie@ebay.com>
+* @author Ian McBurnie <ianmcburnie@hotmail.com>
 * @desc Please DO NOT copy this code to production! This is 'quick & ugly, just make it work!' code.
 * @requires jquery-next-id
 * @requires jquery-common-keydown
@@ -15,40 +15,23 @@
 
         return this.each(function onEachDatePickerButton() {
             var $widget = $(this);
-            var $input = $widget.find('input').first();
             var $button = $widget.find('.flyout__trigger').first();
             var $overlay = $widget.find('.flyout__overlay').first();
-            var $description = $('<div>Use arrow keys to navigate grid.</div>');
+            var $description = $('<div>Activate button, then use arrow keys to navigate calendar grid.</div>');
             var $carousel = $widget.find('.carousel').first();
             var $carouselList = $widget.find('.carousel__list').first();
             var $carouselItems = $carouselList.find('> li');
             var $grids = $widget.find('.datepicker__grid, table');
             var $captions = $grids.find('.datepicker__caption, caption');
             var $cells = $grids.find('td');
-            var month = 1;
             var year = 2016; // hardcoded for purpose of demo
-            var $carouselNext;
-            var $carouselPrevious;
+            var $carouselButtons;
+            var $buttonSlideNext;
+            var $buttonSlidePrevious;
             var activeTableId;
-
-            var collapseOverlay = function() {
-                $button.attr('aria-expanded', 'false');
-                $button.focus();
-            };
 
             var getCurrentSlide = function() {
                 return $carouselList.find('li:not([aria-hidden=true])');
-            };
-
-            var getCurrentCaption = function() {
-                return getCurrentSlide().find('caption').text();
-            };
-
-            var getMonth = function() {
-                var currentCaption = getCurrentCaption();
-                var currentMonthTitle = currentCaption.split(' ')[0].toLowerCase();
-
-                return currentMonth = (currentMonthTitle === 'january') ? '01' : '02';
             };
 
             var onCarouselSlideChange = function(e) {
@@ -59,28 +42,69 @@
                 $currentSlide.find('table').prop('id', activeTableId);
             };
 
+            var onGridNavigationBoundary = function(e, data) {
+                if (data.boundary === 'bottom') {
+                    $buttonSlideNext.click();
+                } else if (data.boundary === 'top') {
+                    $buttonSlidePrevious.click();
+                }
+            };
+
+            var getCurrentCaption = function() {
+                return getCurrentSlide().find('caption').text();
+            };
+
+            var collapseOverlay = function() {
+                $button.attr('aria-expanded', 'false');
+                $button.focus();
+            };
+
+            var getMonth = function() {
+                var currentCaption = getCurrentCaption();
+                var currentMonthTitle = currentCaption.split(' ')[0].toLowerCase();
+
+                return currentMonth = (currentMonthTitle === 'january') ? '01' : '02';
+            };
+
+            var onCarouselButtonClick = function(e) {
+                $widget.find('#' + activeTableId).focus();
+            };
+
             $widget.nextId('datepicker');
 
+            // create a unique id for the active table
             activeTableId = $widget.prop('id') + '__active-month';
 
+            // the active table is the one with active descendants
+            $grids.first().prop('id', activeTableId);
+
+            // ensure the table captions have an id
             if ($captions.prop('id') === '') {
                 $captions.prop('id', $widget.prop('id') + '-caption');
             }
 
+            // use caption (month & year) as description for every cell
+            $grids.each(function(gridIndex, gridEl) {
+                var captionEl = $(gridEl).find('caption');
+                var captionId = captionEl.id;
+                $(gridEl).find('td').each(function(cellIndex, cellEl) {
+                    $(cellEl).attr('aria-describedby', captionId);
+                });
+            });
+
+            // add id and clipped class to description el
             $description
                 .prop('id', $widget.prop('id') + '-description')
                 .addClass('clipped');
-
-            $cells.attr('aria-describedby', $captions.prop('id'));
 
             $grids
                 .attr('role', 'grid')
                 .attr('aria-describedby', $description.prop('id'))
                 .attr('tabindex', '0');
 
-            $grids.first().prop('id', activeTableId);
-
             $carouselItems.activeDescendant('table', 'table', 'td', {isGrid: true, activeIndex: options.activeIndex, autoInit: true, autoReset: false});
+
+            $carouselItems.on('gridNavigationBoundary', onGridNavigationBoundary);
 
             // use helper plugin to create expand/collapse overlay behaviour on click
             $widget.clickFlyout({
@@ -101,8 +125,8 @@
                 }
 
                 if ($activeDescendant.attr('aria-disabled') !== 'true') {
-                    $input.val(getMonth() + '/' + $activeDescendant.text() + '/' + year);
                     collapseOverlay();
+                    $widget.trigger('datePickerSelect', getMonth() + '/' + $activeDescendant.text() + '/' + year);
                 }
             });
 
@@ -112,14 +136,22 @@
             // call carousel plugin
             $carousel.carousel();
 
-            $carouselPrevious = $carousel.find('.carousel__previous');
-            $carouselNext = $carousel.find('.carousel__next');
+            $carouselButtons = $carousel.find('.carousel__previous, .carousel__next');
+
+            $buttonSlideNext = $carousel.find('.carousel__next');
+            $buttonSlidePrevious = $carousel.find('.carousel__previous');
+
+            $carouselButtons
+                .attr('tabindex', '-1')
+                .attr('aria-hidden', 'true');
+
+            $carouselButtons.on('click', onCarouselButtonClick);
 
             $overlay.append($description);
 
-            $widget.addClass('datepicker--js');
-
             $carousel.on('carouselSlideChange', onCarouselSlideChange);
+
+            $widget.addClass('datepicker--js');
         });
     };
 }(jQuery));

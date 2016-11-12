@@ -113,7 +113,7 @@
                     $input.attr('aria-expanded', 'true');
 
                     // notify observers that active descendant items have changed
-                    $input.trigger('activeDescendantItemsChange');
+                    $listbox.trigger('domChange');
                 }
             });
 
@@ -128,10 +128,10 @@
             });
 
             $widget.on('comboboxCollapse', function onCollapse(e) {
-                $input.trigger('activeDescendantItemsChange');
                 $listbox.hide().empty();
                 $input.attr('aria-expanded', 'false');
                 $statusEl.text('');
+                $listbox.trigger('domChange');
             });
         });
     };

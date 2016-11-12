@@ -16,7 +16,7 @@
                 $statusMessageText = $('<span>'),
                 $paginateLeft = $('<button>'),
                 $paginateRight = $('<button>'),
-                viewportSize = $widget.data('carousel-size'),
+                viewportSize = $widget.data('carousel-size') || 1,
                 numSlides = Math.round($carouselItems.length / viewportSize),
                 model = {
                     currentSlideIndex: 1, // 1 based index, rather than 0
