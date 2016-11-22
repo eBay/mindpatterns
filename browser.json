@@ -2,7 +2,6 @@
     "dependencies": [
         "jquery/dist/jquery.min.js",
         "makeup-ebay",
-        "skipto/jquery.skipto.js",
         "_js/main.js"
     ]
 }
