@@ -150,6 +150,8 @@
 
             $carousel.on('carouselSlideChange', onCarouselSlideChange);
 
+            $grids.preventScrollKeys();
+
             $widget.addClass('datepicker--js');
         });
     };
