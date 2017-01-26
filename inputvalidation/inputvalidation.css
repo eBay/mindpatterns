@@ -1,7 +1,7 @@
-.inputvalidation [aria-live] {
+.input-validation__error {
     color: #cc3300;
-    font-size: small;
 }
-.inputvalidation input[aria-invalid=true] {
+
+.input-validation input[aria-invalid=true] {
     border: 1px solid #cc3300;
 }

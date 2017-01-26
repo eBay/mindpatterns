@@ -3,7 +3,7 @@
 * @desc Please DO NOT copy this code to production! This is 'quick & ugly, just make it work!' code.
 * @author Ian McBurnie <ianmcburnie@hotmail.com>
 */
-(function ( $ ) {
+(function ($) {
 
     // template for the error message that will be displayed
     var messageTemplate = '{0} entered is not a valid {1}!';
@@ -13,29 +13,31 @@
         return !isNaN(x);
     };
 
-    $.fn.inputvalidation = function inputValidation() {
-
+    $.fn.inputValidation = function inputValidation() {
         return this.each(function() {
-
             var $this = $(this),
                 labelText = $this.find('label').text(),
                 $input = $this.find('input'),
-                $status = $('<span aria-live="polite" />'),
+                $status = $this.find('.input-validation__error'),
                 $statusMsg = $('<span />'),
                 message,
                 validationType;
 
-            $this.nextId('inputvalidation');
+            $this.nextId('input-validation');
+
+            $status
+                .attr('aria-live', 'assertive')
+                .attr('role', 'alert');
 
             $status.append($statusMsg);
 
             // input is described by contents of status
             $status.prop('id', $this.prop('id') + '-status');
-            $status.appendTo($this);
+
             $input.attr('aria-describedby', $status.prop('id'));
 
             // determine validation type (number, date, url, etc)
-            if ($this.hasClass('inputvalidation__number')) {
+            if ($this.hasClass('input-validation--number')) {
                 validationType = 'number';
             }
             // it's always number or string for this simple example
@@ -47,12 +49,12 @@
             message = messageTemplate.replace('{0}', labelText).replace('{1}', validationType);
 
             // validate on page load
-            if ($this.hasClass('inputvalidation__onload')) {
+            if ($this.hasClass('input-validation--onload')) {
                 $this.trigger('validate');
             }
 
             // validate on input
-            if ($this.hasClass('inputvalidation__oninput')) {
+            if ($this.hasClass('input-validation--oninput')) {
                 $input.on('input', function(e) {
                     // if input is supported we don't need the keyup fallback
                     $input.off('keyup');
@@ -65,7 +67,7 @@
             }
 
             // validate on blur
-            if ($this.hasClass('inputvalidation__onblur')) {
+            if ($this.hasClass('input-validation--onblur')) {
                 $input.on('blur', function(e) {
                     $this.trigger('validate');
                 });
@@ -79,7 +81,6 @@
                 $statusMsg.text(isValid === true ? '' : message);
                 $input.attr('aria-invalid', isValid ? 'false' : 'true');
             });
-
         });
     };
-}( jQuery ));
+}(jQuery));
