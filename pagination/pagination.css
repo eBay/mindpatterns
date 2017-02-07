@@ -10,7 +10,7 @@
 .pagination span,
 .pagination a {
     display: inline-block;
-    padding: 0.5em 1em;
+    padding: 8px 16px;
 }
 .pagination li {
     display: inline;
@@ -25,4 +25,8 @@
     color: #000;
     opacity: 0.5;
     text-decoration: none;
+}
+
+.pagination a span.clipped {
+    padding: 0;
 }

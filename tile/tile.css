@@ -3,7 +3,7 @@
     box-sizing: border-box;
     cursor: pointer;
     display: inline-block;
-    padding: 0.5em 2em 1em 1em;
+    padding: 8px 32px 16px 16px;
     text-decoration: none;
     width: 100%;
 }
@@ -14,7 +14,7 @@
 .tile:hover,
 .tile:focus,
 .tile--focusin {
-    border-color: #bbb;
+    border-color: #aaa;
 }
 .tile--heavy:hover a {
     text-decoration: underline;

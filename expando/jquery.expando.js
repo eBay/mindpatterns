@@ -13,7 +13,7 @@
                 $contents = $expandoWidget.find('> *'),
                 $liveRegion = $('<div aria-live="polite" />'),
                 $container = $('<div/>'),
-                $button = $('<button type="button">Show Translation</button>');
+                $button = $('<button class="button" type="button">Translation</button>');
 
             // set unique ids
             $expandoWidget.nextId('expando');
@@ -30,7 +30,7 @@
             // update state and button label on click
             $button.on('click', function(e) {
                 $(this).attr('aria-expanded', $(this).attr('aria-expanded') === 'true' ? 'false' : 'true');
-                $(this).text($(this).text() === 'Show Translation' ? 'Hide Translation' : 'Show Translation');
+                //$(this).text($(this).text() === 'Show Translation' ? 'Hide Translation' : 'Show Translation');
             });
 
             // prepend our button

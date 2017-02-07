@@ -5,3 +5,5 @@ _site/
 node_modules
 build
 /static/browser.js.*
+
+npm-debug.log

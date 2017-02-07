@@ -6,6 +6,13 @@ permalink: /autocomplete/
 
 <link rel="stylesheet" href="autocomplete.css">
 
+<style>
+    label {
+        display: block;
+        margin-bottom: 8px;
+    }
+</style>
+
 <h1 class="post-title">{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
@@ -15,10 +22,11 @@ permalink: /autocomplete/
 <h2>Examples</h1>
 <div>
     <form>
-        <div class="autocomplete">
+        <span class="autocomplete">
             <label for="autocomplete-example">Search</label>
             <input id="autocomplete-example" name="animal" type="text" placeholder="Aardvark, Antelope, etc." />
-        </div>
+        </span>
+        <input class="button" type="submit" value="Submit" />
     </form>
 </div>
 

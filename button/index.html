@@ -4,7 +4,15 @@ title: Button
 permalink: /button/
 ---
 
-<link rel="stylesheet" href="button.css">
+<style>
+    .button.clipped--stealth {
+        background-color: #eee;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1em;
+        padding: 4px 8px;
+    }
+</style>
 
 <h1>{{ page.title }}</h1>
 
@@ -18,11 +26,11 @@ permalink: /button/
 <div class="row">
     <div class="col-xs-12 col-md-6">
         <h3>Native HTML</h3>
-        <button type="button">Buy iPhone 6</button>
+        <button class="button" type="button">Buy iPhone 6</button>
     </div>
     <div class="col-xs-12 col-md-6">
         <h3>Ambiguous Label</h3>
-        <button>Place Bid<span class="clipped"> - iPhone 6</span></button>
+        <button class="button" >Place Bid<span class="clipped"> - iPhone 6</span></button>
     </div>
 </div>
 <div class="row">
@@ -37,17 +45,17 @@ permalink: /button/
 </div>
 <div class="row">
     <div class="col-xs-12">
-        <h3>Stealth Button (keyboard &amp; screen reader only)</h3>
-        <button class="clipped clipped--stealth" type="button">Buy iPhone 6</button>
+        <h3>Stealth Button (keyboard only)</h3>
+        <button class="button clipped clipped--stealth" type="button">Buy iPhone 6</button>
     </div>
 </div>
 
 <script src="jquery.button.js"></script>
 <script>
     $(function() {
-        $('.button').button()
+        $('span.button, a.button').button()
         $('[role=main] button').on('click', onButtonClick);
-        $('[role=button]').on('clicked', onButtonClick);
+        $('[role=main] [role=button]').on('clicked', onButtonClick);
     });
 
     function onButtonClick(e) {

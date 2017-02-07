@@ -1,17 +1,29 @@
 .flyout {
     position: relative;
 }
+
 .flyout .flyout {
     position: static;
 }
+
 .flyout__overlay {
     display: none;
     left: 0;
     position: absolute;
     z-index: 1;
 }
+
 .flyout__trigger[aria-expanded=true] ~ .flyout__live-region .flyout__overlay,
 .flyout__trigger[aria-expanded=true] ~ .flyout__overlay,
 .flyout__trigger[aria-expanded=true] ~ .flyout .flyout__overlay {
     display: block;
+}
+
+.flyout__trigger.clipped--stealth {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    padding: 4px 8px;
+    white-space: nowrap;
 }

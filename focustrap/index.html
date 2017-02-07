@@ -5,16 +5,13 @@ permalink: /focustrap/
 ---
 
 <style>
-    input {
-        width: 75px;
-    }
     #keyboard_trap {
         border: 1px dashed #ddd;
         padding: 10px;
     }
     #keyboard_trap.active {
         border: 1px solid #ddd;
-        background-color: #eee;
+        background-color: LightYellow;
     }
 </style>
 
@@ -28,10 +25,9 @@ permalink: /focustrap/
 <h2>Example</h2>
 
 <div id="keyboard_trap">
-    <button type="button">Activate trap</button>
-    <input aria-label="This is a dummy text input" placeholder="Dummy input"/>
-    <span>This is dummy text</span>
-    <input aria-label="This is a dummy text input" placeholder="Dummy input"/>
+    <button class="button" type="button">Activate trap</button>
+    <input aria-label="Dummy textbox" placeholder="Dummy textbox" type="text"/>
+    <input aria-label="Dummy textbox" placeholder="Dummy textbox" type="text"/>
 </div>
 
 <script>

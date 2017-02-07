@@ -6,15 +6,25 @@ permalink: /formvalidation/
 
 <link rel="stylesheet" href="formvalidation.css">
 <style>
+    label {
+        display: inline-block;
+        margin-bottom: 8px;
+    }
     input {
         display: block;
-        margin: 0.25em 0;
+        margin: 4px 0;
     }
     .regionnotice {
         border: 2px solid #cc3300;
         color: #cc3300;
-        margin-bottom: 2em;
-        padding: 1em;
+        margin-bottom: 32px;
+        padding: 32px;
+    }
+    .regionnotice h3 {
+        margin-top: 0;
+    }
+    .regionnotice ol {
+        margin-bottom: 0;
     }
     .regionnotice a {
         color: #cc3300;
@@ -22,7 +32,6 @@ permalink: /formvalidation/
     }
     .elementnotice {
         color: #cc3300;
-        font-size: small;
         margin-top: 0;
     }
 </style>
@@ -48,7 +57,7 @@ permalink: /formvalidation/
                 <input id="shoesize" type="text" name="shoesize" />
             </div>
         </fieldset>
-        <input type="submit" />
+        <input class="button" type="submit" />
     </form>
 </div>
 

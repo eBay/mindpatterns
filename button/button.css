@@ -1,7 +1,0 @@
-button,
-[role=button],
-a[role=button] {
-    display: inline-block;
-    font-size: 1em;
-    text-decoration: none;
-}

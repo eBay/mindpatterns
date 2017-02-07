@@ -1,3 +1,11 @@
+.menu {
+    position: relative;
+}
+
+span.menu {
+    display: inline-block;
+}
+
 .menu > div,
 .menu [role=menuitem][aria-haspopup=true] > div {
     display: none;
@@ -6,13 +14,14 @@
     background-color: LightYellow;
     border: 1px solid #aaa;
     box-shadow: 1px 2px 2.5px #ccc;
+    box-sizing: border-box;
     cursor: pointer;
-    font-size: small;
     list-style-type: none;
     margin: 0;
     padding: 0;
     position: absolute;
     z-index: 1;
+    width: 100%;
 }
 .menu [aria-haspopup=true][aria-expanded=true] + div,
 .menu [aria-haspopup=true][aria-expanded=true] > [role=menu] {
@@ -21,12 +30,13 @@
 .menu button:after {
     content: ' \e61c';
     font-family: 'vq-icon-font';
+    font-size: 12px;
 }
 .menu [role=menu] hr {
     border: 0;
     background-color: #ccc;
     height: 1px;
-    margin: 0.1em 0;
+    margin: 1px 0;
 }
 .menu [role=menu] hr {
     margin: 0;
@@ -35,7 +45,7 @@
 .menu [role=menu] a {
     display: inline-block;
     box-sizing: border-box;
-    padding: 0.5em 1em 0.25em 1em;
+    padding: 8px 16px 4px 16px;
     width: 100%;
 }
 .menu [role^=menuitem]::first-letter {
@@ -49,8 +59,8 @@
 }
 .menu [role^=menuitem][aria-checked=true]::before {
     display: inline-block;
-    width: 1em;
-    margin-left: -1em;
+    width: 16px;
+    margin-left: -16px;
 }
 .menu [role=menuitemcheckbox][aria-checked=true]::after {
     content: '\2713';

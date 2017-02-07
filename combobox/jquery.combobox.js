@@ -47,7 +47,8 @@
             $button
                 .attr('type', 'button')
                 .attr('tabindex', '-1')
-                .attr('aria-label', 'Expand suggestions');
+                .attr('aria-label', 'Expand suggestions')
+                .addClass('button');
 
             data.forEach(function(item, idx) {
                 $listbox.append('<li role="option">'+item+'</li>');

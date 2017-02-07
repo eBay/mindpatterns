@@ -6,24 +6,25 @@
 .customcheckbox input[type=checkbox] + [role=checkbox] {
     background-color: white;
     border: 1px solid #B9B8B8;
-    border-radius: .25em;
+    border-radius: 4px;
     color: #0654ba;
     display: inline-block;
-    height: 1em;
+    height: 16px;
+    margin-right: 4px;
     overflow: hidden;
     position: relative;
-    vertical-align: middle;
-    width: 1em;
     text-align: center;
+    vertical-align: middle;
+    width: 16px;
 }
 .customcheckbox input[type=checkbox]:checked + [role=checkbox]:after {
     content: '\e625';
     display: inline-block;
-    font-size: 6px;
+    font-size: 8px;
     font-family: 'vq-icon-font';
     position: absolute;
-    left: 0.66em;
-    top: 0.66em;
+    left: 3px;
+    top: 3px;
 }
 
 /*
@@ -46,7 +47,7 @@ hides default browser visual focus indicator (therefore not recommended)
 .checkbox input[type=checkbox] + *:after {
     background-color: white;
     border: 1px solid #B9B8B8;
-    border-radius: .25em;
+    border-radius: 4px;
     content: '';
     display: inline-block;
     height: 16px;

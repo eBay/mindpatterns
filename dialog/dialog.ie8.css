@@ -1,8 +1,0 @@
-.dialog[role=dialog] {
-    background-color: black;
-    filter: alpha(opacity=85);
-}
-.dialog[role=dialog] header button {
-    background-color: #666;
-    filter: alpha(opacity=50);
-}

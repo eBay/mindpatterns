@@ -14,14 +14,14 @@
 .combobox [role=listbox] {
     background: LightYellow;
     border: 1px solid #eee;
-    font-size: small;
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 .combobox li {
     cursor: pointer;
-    padding: 0.5em;
+    font-size: 1em;
+    padding: 8px;
 }
 .combobox li[role=option]:hover,
 .combobox li[role=option][aria-selected=true] {

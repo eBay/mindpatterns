@@ -5,96 +5,121 @@
     src: url('fonts/vq-icon-font.eot');
     src: url('fonts/vq-icon-font.eot?#iefix') format('embedded-opentype'), url('fonts/vq-icon-font.woff') format('woff'), url('fonts/vq-icon-font.ttf') format('truetype'), url('fonts/vq-icon-font.svg#vq-icon-font') format('svg');
 }
+
+body {
+    color: #111;
+    font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, Roboto, sans-serif;
+    margin: 0;
+}
+
 h1 {
     font-weight: 100;
-    font-size: 56px;
-    margin-bottom: 1.5rem;
-    margin-top: 1rem;
+    font-size: 3.5rem;
+    margin-bottom: 24px;
+    margin-top: 20px;
 }
+
 h2 {
     border-bottom: 1px solid #eee;
     font-weight: 200;
-    font-size: 36px;
-    margin-bottom: 2rem;
-    margin-top: 3rem;
-    padding-bottom: 0.5rem;
+    font-size: 2rem;
+    margin-bottom: 32px;
+    margin-top: 48px;
+    padding-bottom: 8px;
 }
+
 h3 {
     font-weight: 400;
-    font-size: 20px;
-    margin-top: 2.5rem;
+    font-size: 1.25rem;
+    margin-top: 40px;
 }
+
+p {
+    line-height: 1.5;
+}
+
 a {
     color: #006699;
-    &:focus {
-        text-decoration: underline;
-    }
 }
+
 legend {
     font-weight: bold;
 }
+
 fieldset {
     border: 1px solid #ddd;
-    margin: 1em 0;
-    padding: 2em;
+    margin: 16px 0;
+    padding: 32px;
 }
-button,
-input[type=submit],
-input[type=reset],
-input[type=button],
-[role=button],
+
 select {
+    font-size: 1em;
+}
+
+input[type=text],
+input[type=password] {
+    font-size: 1em;
+    padding: 4px 8px;
+}
+
+[hidden] {
+    display: none;
+}
+
+.button {
     background-color: #eee;
     border: 1px solid #ccc;
-    border-radius: 0;
-    cursor: pointer;
-    padding: 0.3em 0.8em;
+    border-radius: 4px;
+    font-size: 1em;
+    padding: 4px 8px;
+}
+
+a.button[role=button] {
+    color: currentColor;
+    display: inline-block;
     text-decoration: none;
 }
-a[role=button] {
-    color: currentColor;
-    font-size: 12px;
-    &:hover {
-        text-decoration: none;
-    }
+
+[role=button] {
+    cursor: default;
 }
-body {
-    color: #333;
-    font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, Roboto, sans-serif;
-    font-size: 14px;
-    margin: 0;
-}
+
 body > header {
     background-color: #fafafa;
     border-bottom: 1px solid #ddd;
-    padding: 2rem 1rem 1rem 1rem;
+    padding: 32px 16px 16px 16px;
     overflow: auto;
+
     ul {
         column-count: 3;
         -moz-column-count: 3;
         -webkit-column-count: 3;
         list-style-type: none;
-        margin: 1rem 0 0.5rem;
+        margin: 16px 0 8px;
         padding: 0;
     }
+
     li {
-        line-height: 2;
+        line-height: 1.5;
     }
+
     a {
-        color: #555;
-        font-weight: 300;
-        font-size: 16px;
+        color: #000;
+        font-weight: 200;
         text-decoration: none;
     }
     a:hover {
         text-decoration: underline;
     }
 }
+
 [role=main] {
-    padding: 1rem;
+    padding: 16px;
 }
+
 #logo {
     display: block;
+
     span:first-child {
         background: url('http://ir.ebaystatic.com/rs/v/fxxj3ttftm5ltcqnto1o4baovyl.png?e') 0 117px;
         background-size: 190px;
@@ -106,23 +131,28 @@ body > header {
         width: 89px;
         vertical-align: bottom;
     }
+
     span:last-child {
         color: #333;
         display: inline-block;
+        font-size: 1.75rem;
         font-weight: 200;
-        font-size: 1.75em;
     }
 }
 
 #skiptomain {
     left: 0;
-    position: absolute;
     text-align: center;
     top: 0;
 }
 
 #skiptomain a {
     background-color: LightYellow;
+    display: inline-block;
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
     z-index: 1;
 }
 
@@ -133,25 +163,39 @@ sup {
 // large screen breakpoint
 
 @media (min-width: 800px) {
+
     h1 {
-        margin-top: 5rem;
+        margin-top: 88px;
     }
+
     body > header {
         border-bottom: 0;
         border-right: 1px solid #eee;
         display: block;
+
         ul {
             column-count: 2;
             -moz-column-count:2;
             -webkit-column-count: 2;
         }
+
+        li {
+            line-height: 2;
+        }
+
+        li a {
+            font-size: 1.125rem;
+        }
     }
+
     .row:first-of-type h3 {
         margin-top: 0;
     }
+
     [role=main] {
-        padding: 0 0.75rem 2rem;
+        padding: 0 12px 32px;
     }
+
     #skiptomain a:focus {
         width: 310px;
     }

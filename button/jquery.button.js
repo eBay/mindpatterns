@@ -45,7 +45,7 @@
             });
 
             // mark our widget as intialised
-            $this.addClass('button-js');
+            $this.addClass('button--js');
         });
     };
 }( jQuery ));

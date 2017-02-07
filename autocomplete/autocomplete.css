@@ -3,7 +3,7 @@
     border: 1px solid #eee;
     cursor: pointer;
     display: none;
-    font-size: small;
+    font-size: 1em;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -17,5 +17,5 @@
     outline: 0;
 }
 .autocomplete li {
-    padding: 0.5em;
+    padding: 8px;
 }

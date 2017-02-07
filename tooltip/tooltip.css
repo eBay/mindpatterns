@@ -6,9 +6,8 @@
     border: 1px solid #eee;
     bottom: 100%;
     display: none;
-    font-size: small;
     left: 0;
-    padding: 0.25em 0.5em;
+    padding: 4px 8px;
     position: absolute;
     white-space: nowrap;
     z-index: 1;

@@ -8,7 +8,7 @@ permalink: /pagenotice/
     .page-notice {
         border: 1px solid #ccc;
         border-top: 3px solid currentColor;
-        padding: 1em;
+        padding: 16px;
     }
     .page-notice h3 {
         margin-top: 0;
@@ -19,11 +19,14 @@ permalink: /pagenotice/
         width: 30px;
         height: 25px;
         display: inline-block;
-        margin-right: 0.25em;
+        margin-right: 16px;
         vertical-align: top;
     }
     .page-notice p {
-        margin-left: 2.25em;
+        margin-left: 46px;
+    }
+    .page-notice p:last-child {
+        margin-bottom: 0;
     }
     .page-notice--error {
         color: rgb(223, 37, 57);
@@ -43,11 +46,13 @@ permalink: /pagenotice/
 
 
 <h2 class="clipped">Readme</h2>
-<p><a href="#page-notice-example">Reload page and simulate critical page notice</a></p>
 <p>A page notice must receive programmatic keyboard focus only if a critical task or operation was unsuccessful.</p>
+<p><a href="#page-notice-example">Reload page and simulate critical page notice</a></p>
 <p>Please <a href={{ "/messaging/pagenotice.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <h2>Examples</h2>
+
+<h3>Critical Page Notice</h3>
 <section aria-label="Error Message" class="page-notice page-notice--error" id="page-notice-example" role="region" tabindex="-1">
     <h3>We had trouble connecting to PayPal.</h3>
     <p>Please make your payment later.</p>

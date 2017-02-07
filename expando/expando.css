@@ -3,6 +3,11 @@
 }
 
 .expando-js > button:after {
-    content: ' \e601';
+    content: ' \e608';
     font-family: 'vq-icon-font';
+    font-size: 12px;
+}
+
+.expando-js > button[aria-expanded=true]:after {
+    content: ' \e606';
 }

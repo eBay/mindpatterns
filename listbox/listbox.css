@@ -6,11 +6,10 @@
     background-color: LightYellow;
     border: 1px solid #eee;
     box-sizing: border-box;
-    cursor: pointer;
+    cursor: default;
     display: inline-block;
-    font-size: small;
-    margin: 0 0.5em;
-    padding: 0 0 0 0;
+    margin: 0;
+    padding: 0;
     height: 75px;
     width: 100px;
     overflow-y: scroll;
