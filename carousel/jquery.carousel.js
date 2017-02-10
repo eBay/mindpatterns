@@ -37,7 +37,7 @@
 
             var setStatusMessage = function(slideIndex, slideCount, title) {
                 $statusMessageText
-                    .text('{title} - slide {currentSlide} of {numSlides}'
+                    .text('Slide {currentSlide} of {numSlides} - {title}'
                         .replace('{currentSlide}', slideIndex)
                         .replace('{numSlides}', slideCount)
                         .replace('{title}', title)
