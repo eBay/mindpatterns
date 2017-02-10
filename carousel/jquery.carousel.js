@@ -37,7 +37,7 @@
 
             var setStatusMessage = function(slideIndex, slideCount, title) {
                 $statusMessageText
-                    .text('Showing slide {currentSlide} of {numSlides} - {title}'
+                    .text('{title} - slide {currentSlide} of {numSlides}'
                         .replace('{currentSlide}', slideIndex)
                         .replace('{numSlides}', slideCount)
                         .replace('{title}', title)
@@ -132,7 +132,7 @@
 
             $paginateLeft
                 .attr('type', 'button')
-                .attr('aria-label', 'Go to previous slide - {title}'.replace('{title}', titleText))
+                .attr('aria-label', 'Previous slide - {title}'.replace('{title}', titleText))
                 .attr('aria-disabled', 'true')
                 .attr('aria-describedby', $statusMessageContainer.prop('id'))
                 .addClass('carousel__previous')
@@ -140,7 +140,7 @@
 
             $paginateRight
                 .attr('type', 'button')
-                .attr('aria-label', 'Go to next slide - {title}'.replace('{title}', titleText))
+                .attr('aria-label', 'Next slide - {title}'.replace('{title}', titleText))
                 .attr('aria-describedby', $statusMessageContainer.prop('id'))
                 .addClass('carousel__next')
                 .on('click', onPaginateNextClick);
