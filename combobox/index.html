@@ -1,0 +1,53 @@
+---
+layout: page
+title: Combobox
+permalink: /combobox/
+---
+
+<link rel="stylesheet" href="../flyout/flyout.css">
+<link rel="stylesheet" href="combobox.css">
+<style>
+    .combobox label {
+        display: block;
+        margin-bottom: 8px;
+    }
+</style>
+
+<h1 class="post-title">{{ page.title }}</h1>
+
+<h2 class="clipped">Readme</h2>
+<p>Input your own text or use UP and DOWN ARROW keys to select a predefined choice from list.</p>
+<p>Please <a href={{ "/input/combobox.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+<h2>Examples</h2>
+
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <h3>Opens On Down Key</h3>
+        <form>
+            <span class="combobox" id="combobox-0">
+                <label for="combobox-0-input">Sell your games console</label>
+                <input id="combobox-0-input" name="console0" type="text" placeholder="Playstation 4, Xbox One, etc." />
+            </span>
+            <input class="button" type="submit" value="Submit" />
+        </form>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        <h3>Opens On Focus</h3>
+        <form>
+            <span class="combobox" id="combobox-1">
+                <label for="combobox-1-input">List your game console on eBay</label>
+                <input id="combobox-1-input" name="console1" type="text" placeholder="Playstation 4, Xbox One, etc." />
+            </span>
+            <input class="button" type="submit" value="Submit" />
+        </form>
+    </div>
+</div>
+
+<script src="jquery.combobox.js"></script>
+<script>
+    $(function() {
+        $('.combobox').first().combobox({autoExpand: false});
+        $('.combobox').last().combobox({autoExpand: true});
+    });
+</script>

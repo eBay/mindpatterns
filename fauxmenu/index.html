@@ -1,0 +1,49 @@
+---
+layout: page
+title: Faux Menu
+permalink: /fauxmenu/
+---
+
+<link rel="stylesheet" href="../flyout/flyout.css">
+<link rel="stylesheet" href="fauxmenu.css">
+
+<h1>{{ page.title }}</h1>
+
+<h2 class="clipped">Readme</h2>
+<p>Use SPACEBAR or ENTER key to activate button. Use TAB key to navigate links or buttons inside overlay.</p>
+<p>Please <a href={{ "/navigation/fauxmenu.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+<h2>Examples</h2>
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <h3>On Button</h3>
+        <div class="fauxmenu flyout flyout--click">
+            <button class="button flyout__trigger">My eBay</button>
+            <ul class="flyout__overlay">
+                <li><a href="http://www.ebay.com">Visit Seller</a></li>
+                <li><a href="http://www.ebay.com">Contact Seller</a></li>
+                <li><a href="http://www.ebay.com">View Similar Items</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        <h3>On Link (with stealth button)</h3>
+        <span class="fauxmenu flyout flyout--hover">
+            <a class="flyout__trigger" href="http://my.ebay.com">My eBay</a>
+            <span class="flyout flyout--click">
+                <button class="flyout__trigger clipped clipped--stealth">Expand My eBay</button>
+                <ul class="flyout__overlay">
+                    <li><a href="http://www.ebay.com">Buying</a></li>
+                    <li><a href="http://www.ebay.com">Selling</a></li>
+                    <li><a href="http://www.ebay.com">Collections</a></li>
+                </ul>
+            </span>
+        </span>
+    </div>
+</div>
+<script>
+    $(function() {
+        $('.flyout--click').clickFlyout({focusManagement: 'first'});
+        $('.flyout--hover').hoverFlyout();
+    });
+</script>

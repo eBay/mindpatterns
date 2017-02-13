@@ -1,0 +1,14 @@
+@media (min-width: 800px) {
+    body > header {
+        height: 100%;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 310px;
+    }
+    [role=main] {
+        max-width: 810px;
+        margin-left: 350px;
+        margin-right: 40px;
+    }
+}

@@ -1,0 +1,116 @@
+---
+layout: page
+title: Radio
+permalink: /radio/
+---
+
+<link rel="stylesheet" href="radiogroup.css">
+<link rel="stylesheet" href="ariaradiogroup.css">
+
+<h1>{{ page.title }}</h1>
+
+<h2 class="clipped">Readme</h2>
+<p>Use ARROW keys to change radio option, ENTER key submits form.</p>
+<p>Always use <a href="http://www.w3.org/TR/html-markup/input.radio.html">native HTML radio buttons</a> if possible! They are 100% accessible by default.</p>
+<p>Please <a href={{ "/input/radio.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+<h2>Examples</h2>
+<form>
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <h3>HTML (native style)</h3>
+            <div class="radiogroup">
+                <fieldset>
+                    <legend>Auction Type</legend>
+                    <div>
+                        <input id="listingformat1_all" type="radio" name="listingformat1" value="all" />
+                        <label for="listingformat1_all">All Listings</label>
+                    </div>
+                    <div>
+                        <input id="listingformat1_auction" type="radio" name="listingformat1" value="auction" />
+                        <label for="listingformat1_auction">Auction</label>
+                    </div>
+                    <div>
+                        <input id="listingformat1_bin" type="radio" name="listingformat1" value="bin" />
+                        <label for="listingformat1_bin">Buy it Now</label>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <h3>HTML (custom style)</h3>
+            <div class="radiogroup radiogroup--icons">
+                <fieldset>
+                    <legend>Auction Type</legend>
+                    <div>
+                        <input id="listingformat2_all" type="radio" name="listingformat2" value="all" />
+                        <label for="listingformat2_all">All Listings</label>
+                    </div>
+                    <div>
+                        <input id="listingformat2_auction" type="radio" name="listingformat2" value="auction" />
+                        <label for="listingformat2_auction">Auction</label>
+                    </div>
+                    <div>
+                        <input id="listingformat2_bin" type="radio" name="listingformat2" value="bin" />
+                        <label for="listingformat2_bin">Buy it Now</label>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <h3>ARIA (with fallbacks)</h3>
+            <div class="radiogroup radiogroup--convert">
+                <fieldset>
+                    <legend>Auction Type</legend>
+                    <div>
+                        <input id="listingformat3_all" type="radio" name="listingformat3" value="all" />
+                        <label for="listingformat3_all">All Listings</label>
+                    </div>
+                    <div>
+                        <input id="listingformat3_auction" type="radio" name="listingformat3" value="auction" />
+                        <label for="listingformat3_auction">Auction</label>
+                    </div>
+                    <div>
+                        <input id="listingformat3_bin" type="radio" name="listingformat3" value="bin" />
+                        <label for="listingformat3_bin">Buy it Now</label>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <h3>ARIA (without fallbacks)</h3>
+            <div class="aria-radio-group" id="aria-radios1">
+                <!-- keep 'legend' outside of radiogroup to prevent it being included in voiceover group count -->
+                <div class="aria-radio-group__legend" id="aria-radios1__legend">Auction Type</div>
+                <div class="aria-radio-group__fieldset" role="radiogroup" aria-labelledby="aria-radio-group__label">
+                    <div class="aria-radio__container" role="presentation">
+                        <span role="radio" aria-checked="false" aria-describedby="aria-radios1__legend" aria-labelledby="aria-radios1_label1"></span>
+                        <span class="aria-radio__label" id="aria-radios1_label1" aria-hidden="true">All Listings</span>
+                    </div>
+                    <div class="aria-radio__container" role="presentation">
+                        <span role="radio" aria-checked="false" aria-describedby="aria-radios1__legend" aria-labelledby="aria-radios1_label2"></span>
+                        <span class="aria-radio__label" id="aria-radios1_label2" aria-hidden="true">Auction</span>
+                    </div>
+                    <div class="aria-radio__container" role="presentation">
+                        <span role="radio" aria-checked="false" aria-describedby="aria-radios1__legend" aria-labelledby="aria-radios1_label3"></span>
+                        <span class="aria-radio__label" id="aria-radios1_label3" aria-hidden="true">Buy it Now</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div style="text-align: center;"><input type="submit"/></div>
+</form>
+
+<script src="jquery.ariaradiogroup.js"></script>
+<script src="jquery.nativeradiostoaria.js"></script>
+
+<script>
+    $(function() {
+        $('.aria-radio-group').ariaRadioGroup();
+        $('.radiogroup--convert').nativeRadiosToAria().ariaRadioGroup();
+    });
+</script>

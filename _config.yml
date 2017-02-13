@@ -19,19 +19,3 @@ sass:
     style: :compressed
 
 exclude: ["node_modules", "_js", ".cache", ".sass-cache", ".git"]
-
-collections:
-- messaging
-- input
-- navigation
-- disclosure
-
-collections:
-    messaging:
-        output: true
-    input:
-        output: true
-    navigation:
-        output: true
-    disclosure:
-        output: true
