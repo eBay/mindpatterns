@@ -1,0 +1,53 @@
+/*
+notice of oddities:
+    I have found that using display: flex on table rows causes issues for Voiceover
+    I have found that using display: table-cell on gridcell causes issue for Voiceover
+*/
+.datepicker {
+    font-size: 1rem;
+}
+
+.datepicker .flyout__overlay {
+    background-color: LightYellow;
+}
+
+.datepicker__button::after {
+    content: ' \e621';
+    font-family: 'vq-icon-font';
+}
+
+.datepicker caption,
+.datepicker__caption {
+    font-weight: bold;
+    text-align: center;
+}
+
+.datepicker table:focus {
+    
+}
+
+.datepicker th {
+    font-weight: bold;
+}
+
+.datepicker th,
+.datepicker td {
+    padding: 0.5em;
+    text-align: center;
+    vertical-align: middle;
+    height: 1em;
+    width: 1em;
+}
+
+.datepicker td {
+    cursor: pointer;
+}
+
+.datepicker td[aria-disabled=true] {
+    color: #767676;
+}
+
+.datepicker td[aria-selected=true] {
+    background-color: #000;
+    color: #fff;
+}

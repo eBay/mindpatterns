@@ -1,0 +1,37 @@
+---
+layout: page
+title: Autocomplete
+---
+
+<link rel="stylesheet" href="autocomplete.css">
+
+<style>
+    label {
+        display: block;
+        margin-bottom: 8px;
+    }
+</style>
+
+<h1 class="post-title">{{ page.title }}</h1>
+
+<h2 class="clipped">Readme</h2>
+<p>Type a letter (a - f) then use ARROW keys to change options, ENTER key to make a selection, ESC to dismiss.</p>
+<p>Please <a href={{ "/input/autocomplete.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+<h2>Examples</h1>
+<div>
+    <form>
+        <span class="autocomplete">
+            <label for="autocomplete-example">Search</label>
+            <input id="autocomplete-example" name="animal" type="text" placeholder="Aardvark, Antelope, etc." />
+        </span>
+        <input class="button" type="submit" value="Submit" />
+    </form>
+</div>
+
+<script src="jquery.autocomplete.js"></script>
+<script>
+    $(function() {
+        $('.autocomplete').autocomplete();
+    });
+</script>

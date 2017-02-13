@@ -14,24 +14,19 @@ body {
 
 h1 {
     font-weight: 100;
-    font-size: 3.5rem;
-    margin-bottom: 24px;
-    margin-top: 20px;
+    font-size: 2.75rem;
+    margin-bottom: 1rem;
 }
 
 h2 {
-    border-bottom: 1px solid #eee;
     font-weight: 200;
     font-size: 2rem;
-    margin-bottom: 32px;
-    margin-top: 48px;
-    padding-bottom: 8px;
+    margin-bottom: 1rem;
 }
 
 h3 {
-    font-weight: 400;
+    font-weight: 300;
     font-size: 1.25rem;
-    margin-top: 40px;
 }
 
 p {
@@ -40,6 +35,10 @@ p {
 
 a {
     color: #006699;
+}
+
+hr {
+    border-style: solid;
 }
 
 legend {
@@ -84,59 +83,81 @@ a.button[role=button] {
     cursor: default;
 }
 
-body > header {
-    background-color: #fafafa;
-    border-bottom: 1px solid #ddd;
-    padding: 32px 16px 16px 16px;
-    overflow: auto;
+.header-small {
+    border-bottom: 1px solid black;
+    text-align: center;
+    padding: 8px 0;
+
+    li {
+        display: inline;
+
+        a {
+            display: inline-block;
+            text-transform: capitalize;
+            &:first-letter {
+                font-weight: 300;
+            }
+        }
+
+        &::after {
+            content: ' - ';
+        }
+
+        &:last-child::after {
+            content: '';
+        }
+    }
+
+    .header-small__home {
+        font-size: 1.5rem;
+    }
+}
+
+.header-large {
+    display: none;
+}
+
+.header-small,
+.header-large {
+    background-color: #222;
+    box-sizing: border-box;
+    color: #fff;
 
     ul {
-        column-count: 3;
-        -moz-column-count: 3;
-        -webkit-column-count: 3;
         list-style-type: none;
-        margin: 16px 0 8px;
+        margin: 0;
         padding: 0;
     }
 
-    li {
-        line-height: 1.5;
-    }
-
     a {
-        color: #000;
+        color: #ddd;
         font-weight: 200;
         text-decoration: none;
-    }
-    a:hover {
-        text-decoration: underline;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 
 [role=main] {
-    padding: 16px;
+    padding: 32px 16px;
 }
 
 #logo {
-    display: block;
+    text-align: center;
 
-    span:first-child {
+    a {
+        display: inline-block;
+    }
+
+    span {
         background: url('http://ir.ebaystatic.com/rs/v/fxxj3ttftm5ltcqnto1o4baovyl.png?e') 0 117px;
         background-size: 190px;
         display: inline-block;
         height: 37px;
         overflow: hidden;
-        position: relative;
-        top: 1px;
         width: 89px;
-        vertical-align: bottom;
-    }
-
-    span:last-child {
-        color: #333;
-        display: inline-block;
-        font-size: 1.75rem;
-        font-weight: 200;
     }
 }
 
@@ -162,41 +183,57 @@ sup {
 
 // large screen breakpoint
 
-@media (min-width: 800px) {
+@media (min-width: 600px) {
 
-    h1 {
-        margin-top: 88px;
+    .header-small {
+        display: none;
     }
 
-    body > header {
+    .header-large {
         border-bottom: 0;
-        border-right: 1px solid #eee;
+        border-right: 1px solid black;
         display: block;
+        height: 100%;
+        left: 0;
+        overflow: auto;
+        padding: 32px 16px;
+        position: fixed;
+        top: 0;
+        width: 200px;
+
+        h2 {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        h3 {
+            font-size: 1rem;
+            line-height: 1.75;
+            margin-bottom: 0;
+            text-transform: capitalize;
+
+            &:first-letter {
+                font-weight: 400;
+            }
+        }
 
         ul {
-            column-count: 2;
-            -moz-column-count:2;
-            -webkit-column-count: 2;
+            line-height: 1.75;
+            margin-bottom: 16px;
         }
+    }
 
-        li {
-            line-height: 2;
-        }
-
-        li a {
-            font-size: 1.125rem;
-        }
+    [role=main] {
+        max-width: 1000px;
+        margin-left: 240px;
+        margin-right: 40px;
     }
 
     .row:first-of-type h3 {
         margin-top: 0;
     }
 
-    [role=main] {
-        padding: 0 12px 32px;
-    }
-
     #skiptomain a:focus {
-        width: 310px;
+        width: 200px;
     }
 }

@@ -1,0 +1,17 @@
+---
+hidden: true
+layout: page
+---
+
+{% for collection in site.collections %}
+    {% if collection.label == "navigation" %}
+    <h3>Navigation</h3>
+    <ul>
+        {% for document in collection.docs %}
+            {% if document.hidden != true and document.development != true %}
+            <li><a href="{{ document.url | prepend: site.baseurl }}">{{ document.title }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endfor %}

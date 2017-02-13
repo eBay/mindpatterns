@@ -1,0 +1,37 @@
+---
+layout: page
+title: Dialog
+---
+
+<link rel="stylesheet" href="dialog.css">
+
+<h1>{{ page.title }}</h1>
+
+<h2 class="clipped">Readme</h2>
+<p>Activate the button to view dialog.</p>
+<p>Please <a href={{ "/disclosure/dialog.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+<h2>Examples</h2>
+
+<div>
+    <button aria-controls="dialog-0" class="button dialog-button" type="button">Dialog</button>
+    <div role="dialog" class="dialog" id="dialog-0" aria-labelledby="dialog-0-title" aria-hidden="true">
+        <div role="document">
+             <header>
+                <button aria-label="Close Dialog" class="button" type="button"></button>
+                <h2 id="dialog-0-title">Notifications</h2>
+            </header>
+            <div class="dialog__body">
+                <!-- dialog content goes here -->
+                <p>The dialog content goes here.</p>
+                <a href="http://www.ebay.com">www.ebay.com</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function() {
+        $('.dialog-button').dialogButton();
+    });
+</script>

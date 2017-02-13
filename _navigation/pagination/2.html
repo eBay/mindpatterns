@@ -1,0 +1,61 @@
+---
+hidden: true
+layout: page
+---
+
+<link rel="stylesheet" href="pagination.css">
+
+<h1 class="post-title">Pagination</h1>
+
+<h2 class="clipped">Readme</h2>
+<p>Use TAB and ENTER keys to navigate and activate pagination links.</p>
+<p>Please <a href={{ "/navigation/pagination.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+<h2>Examples</h2>
+
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <h3>Non-AJAX Pagination</h3>
+        <nav class="pagination" aria-labelledby="pagination_heading" role="navigation">
+            <h2 id="pagination_heading" class="clipped">Results pagination</h2>
+            <a class="icon-chevron-left" href="index.html"><span class="clipped">Previous results</span></a>
+            <ol>
+                <li>
+                    <a href="index.html">1</a>
+                </li>
+                <li>
+                    <span>2</span>
+                </li>
+                <li>
+                    <a href="3.html">3</a>
+                </li>
+            </ol>
+            <a class="icon-chevron-right" href="3.html"><span class="clipped">Next results</span></a>
+        </nav>
+    </div>
+
+    <div class="col-xs-12 col-md-6">
+        <h3>AJAX Pagination</h3>
+        <nav class="pagination pagination--ajax" aria-labelledby="pagination_heading" role="navigation">
+            <h2 id="pagination_heading" class="clipped">Results pagination</h2>
+            <a class="icon-chevron-left-disabled" aria-disabled="true" href="index.html" tabindex="-1"><span class="clipped">Previous results</span></a>
+            <ol>
+                <li>
+                    <a href="index.html" aria-disabled="true" tabindex="-1">1</a>
+                </li>
+                <li>
+                    <a href="2.html">2</a>
+                </li>
+                <li>
+                    <a href="3.html">3</a>
+                </li>
+            </ol>
+            <a class="icon-chevron-right" href="2.html"><span class="clipped">Next results</span></a>
+        </nav>
+    </div>
+</div>
+
+<script src="jquery.pagination.js"></script>
+<script>
+    $('.pagination--ajax').pagination();
+</script>

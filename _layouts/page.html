@@ -2,26 +2,4 @@
 layout: master
 ---
 
-<div class="skipto" id="skiptomain"><a href="#main" class="clipped clipped--stealth">Skip to main content</a></div>
-
-<header role="banner">
-    <nav role="navigation" aria-labelledby="patterns_heading">
-        <h2 class="clipped" id="patterns_heading">Directory</h2>
-        <a href="{{ site.baseurl | prepend: site.url}}" id="logo">
-            <span role="img" aria-label="ebay"></span>
-            <span>MIND Patterns</span>
-        </a>
-        <ul>
-        {% assign sorted_pages = site.pages | sort:"title" %}
-        {% for page in sorted_pages %}
-          {% if page.title and page.development != true %}
-          <li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
-          {% endif %}
-        {% endfor %}
-        </ul>
-    </nav>
-</header>
-
-<div id="main" role="main">
-    {{ content }}
-</div>
+{{ content }}

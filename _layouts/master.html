@@ -7,6 +7,39 @@
         {% include head.html %}
     </head>
     <body>
-        {{ content }}
+        <div class="skipto" id="skiptomain"><a href="#main" class="clipped clipped--stealth">Skip to main content</a></div>
+
+        <header class="header-large" role="banner">
+            <nav role="navigation">
+                <h2><a class="header-large__home" href="/index.html">eBay MIND Patterns</a></h2>
+                {% for collection in site.collections %}
+                    {% if collection.label != "posts" %}
+                    <h3>{{ collection.label }}</h3>
+                    <ul>
+                        {% for document in collection.docs %}
+                            {% if document.hidden != true and document.development != true %}
+                            <li><a href="{{ document.url | prepend: site.baseurl }}">{{ document.title }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                {% endfor %}
+            </nav>
+        </header>
+
+
+        <header class="header-small" role="banner">
+            <a class="header-small__home" href="/index.html">MIND Patterns</a>
+            <ul>
+                <li><a href="/messaging">messaging</a></li>
+                <li><a href="/input">input</a></li>
+                <li><a href="/navigation">navigation</a></li>
+                <li><a href="/disclosure">disclosure</a></li>
+            </ul>
+        </header>
+        <div id="main" role="main">
+            <div id="logo"><a href="http://www.ebay.com"><span role="img" aria-label="eBay"></span></a></div>
+            {{ content }}
+        </div>
     </body>
 </html>
