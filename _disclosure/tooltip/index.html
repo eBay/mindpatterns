@@ -1,0 +1,61 @@
+---
+layout: page
+title: Tooltip
+---
+
+<link rel="stylesheet" href="tooltip.css">
+
+<h1>{{ page.title }}</h1>
+
+<h2 class="clipped">Readme</h2>
+<p>Hover or focus on the link, button or input in the examples below to show tooltip.</p>
+<p>Please <a href={{ "/disclosure/tooltip.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+<h2>Examples</h2>
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <h3>On a Link</h3>
+        <div>
+            <span class="tooltip">
+                <a class="tooltip__trigger" href="http://www.ebay.com" aria-describedby="tooltip-0">Add to Cart</a>
+                <span class="tooltip__overlay" role="tooltip" id="tooltip-0">Your cart contains 6 items</span>
+            </span>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        <h3>On a Button</h3>
+        <div>
+            <span class="tooltip tooltip--padded">
+                <button class="button tooltip__trigger" type="button" aria-describedby="tooltip-1">Add to Cart</button>
+                <span class="tooltip__overlay" role="tooltip" id="tooltip-1">Your cart contains 6 items</span>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <h3>On an Input</h3>
+        <div>
+            <label for="userid">User ID</label>
+            <span class="tooltip tooltip--input tooltip--padded">
+                <input class="tooltip__trigger" type="text" id="userid" name="userid" aria-describedby="tooltip-2" />
+                <span class="tooltip__overlay" role="tooltip" id="tooltip-2">Use 6-12 characters.</span>
+            </span>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        <h3>Nested Link (not recommended)</h3>
+        <div>
+            <span class="tooltip tooltip--padded">
+                <button class="button tooltip__trigger" type="button" aria-describedby="tooltip-3">Add to Cart</button>
+                <span class="tooltip__overlay" role="tooltip" id="tooltip-3">Your cart contains <a href="http://cart.payments.ebay.com/sc/view">6 items</a></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function() {
+        $('.tooltip').tooltip();
+    });
+</script>
