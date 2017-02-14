@@ -140,7 +140,8 @@ a.button[role=button] {
     }
 }
 
-[role=main] {
+#main[role=main],
+#main[role=presentation] {
     padding: 32px 16px;
 }
 
@@ -223,7 +224,8 @@ sup {
         }
     }
 
-    [role=main] {
+    #main[role=main],
+    #main[role=presentation] {
         max-width: 1000px;
         margin-left: 240px;
         margin-right: 40px;
