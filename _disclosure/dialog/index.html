@@ -14,19 +14,19 @@ title: Dialog
 <h2>Examples</h2>
 
 <div>
-    <button aria-controls="dialog-0" class="button dialog-button" type="button">Dialog</button>
-    <div role="dialog" class="dialog" id="dialog-0" aria-labelledby="dialog-0-title" aria-hidden="true">
-        <div role="document">
-             <header>
-                <button aria-label="Close Dialog" class="button" type="button"></button>
-                <h2 id="dialog-0-title">Notifications</h2>
+    <button data-jquery-dialog-button-for="dialog" class="button dialog-button" type="button">Dialog</button>
+    <div role="dialog" class="dialog" id="dialog" aria-labelledby="dialog-title" hidden>
+        <div class="dialog__window" role="document">
+            <header class="dialog__header">
+                <h2 class="dialog__title" id="dialog-title">Dialog Title</h2>
+                <button aria-label="Close Dialog" class="dialog__close button" type="button"></button>
             </header>
             <div class="dialog__body">
-                <!-- dialog content goes here -->
-                <p>The dialog content goes here.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 <a href="http://www.ebay.com">www.ebay.com</a>
             </div>
         </div>
+        <div class="dialog__mask"></div>
     </div>
 </div>
 
