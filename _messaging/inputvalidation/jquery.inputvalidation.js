@@ -18,23 +18,22 @@
             var $this = $(this),
                 labelText = $this.find('label').text(),
                 $input = $this.find('input'),
-                $status = $this.find('.input-validation__error'),
-                $statusMsg = $('<span />'),
+                $status = $this.find('.input-validation__status'),
+                $description = $status.find('.input-validation__description'),
                 message,
                 validationType;
 
             $this.nextId('input-validation');
 
             $status
-                .attr('aria-live', 'assertive')
-                .attr('role', 'alert');
+                .attr('aria-live', 'polite')
+                .attr('role', 'status');
 
-            $status.append($statusMsg);
+            // description needs a unique id to be a target of aria-describedby
+            $description.prop('id', $this.prop('id') + '-status');
 
-            // input is described by contents of status
-            $status.prop('id', $this.prop('id') + '-status');
-
-            $input.attr('aria-describedby', $status.prop('id'));
+            // give input a description
+            $input.attr('aria-describedby', $description.prop('id'));
 
             // determine validation type (number, date, url, etc)
             if ($this.hasClass('input-validation--number')) {
@@ -78,7 +77,7 @@
                 var isValid = validateNumber($input.val());
 
                 // update live-region contents and aria-invalid state
-                $statusMsg.text(isValid === true ? '' : message);
+                $description.text(isValid === true ? '' : message);
                 $input.attr('aria-invalid', isValid ? 'false' : 'true');
             });
         });

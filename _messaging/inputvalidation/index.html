@@ -26,14 +26,18 @@ title: Input Validation
 
 <div class="input-validation input-validation--number input-validation--onblur">
     <label for="age">Age</label>
-    <input id="age" type="text" name="age" />
-    <span class="input-validation__error"></span>
+    <input autocomplete="false" id="age" type="text" name="age" />
+    <span class="input-validation__status">
+        <span class="input-validation__description"></span>
+    </span>
 </div>
 
 <div class="input-validation input-validation--number input-validation--onblur">
     <label for="shoesize">Shoe-Size</label>
-    <input id="shoesize" type="text" name="shoesize" />
-    <span class="input-validation__error"></span>
+    <input autocomplete="false" id="shoesize" type="text" name="shoesize" />
+    <span class="input-validation__status">
+        <span class="input-validation__description"></span>
+    </span>
 </div>
 
 <script src="jquery.inputvalidation.js"></script>
