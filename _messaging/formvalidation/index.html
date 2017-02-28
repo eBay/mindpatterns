@@ -39,7 +39,7 @@ title: Form Validation
 
 <h2 class="clipped">Readme</h2>
 <p>Submit the form with any values to display a hard-coded region notice and element notices.</p>
-<p>With JavaScript disabled the page will reload and display a page notice and element notices.</p>
+<p><a href="post.html#pagenotice">Simulate form validation without JavaScript.</a></p>
 <p>Please <a href={{ "/messaging/formvalidation.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <h2>Examples</h2>
@@ -47,11 +47,11 @@ title: Form Validation
     <form action="post.html#pagenotice" class="formvalidation">
         <fieldset>
             <legend>Your Details</legend>
-            <div id="age_container" tabindex="-1">
+            <div id="age_field">
                 <label for="age">Age</label>
                 <input id="age" type="text" name="age" />
             </div>
-            <div id="shoesize_container" tabindex="-1">
+            <div id="shoesize_field">
                 <label for="shoesize">Shoe-Size</label>
                 <input id="shoesize" type="text" name="shoesize" />
             </div>
@@ -63,6 +63,6 @@ title: Form Validation
 <script src="jquery.formvalidation.js"></script>
 <script>
     $(function() {
-        $('.formvalidation').formvalidation();
+        $('.formvalidation').formValidation();
     });
 </script>
