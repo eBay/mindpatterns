@@ -1,30 +1,28 @@
-.pagination ol {
-    display: inline;
+.pagination__list {
+    display: inline-block;
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-.pagination > a:focus {
-    text-decoration: none;
-}
-.pagination span,
+
 .pagination a {
     display: inline-block;
     padding: 8px 16px;
+    text-decoration: none;
 }
+
+.pagination a:focus,
+.pagination a:hover {
+    text-decoration: underline;
+}
+
 .pagination li {
     display: inline;
 }
-.pagination a[aria-disabled="true"] {
-    cursor: default;
-}
-.pagination li span,
-.pagination li a[aria-disabled="true"] {
+
+.pagination a[aria-current="page"] {
     border: 1px solid #c9dde9;
     border-radius: 3px;
-    color: #000;
-    opacity: 0.5;
-    text-decoration: none;
 }
 
 .pagination a span.clipped {
