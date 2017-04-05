@@ -5,6 +5,15 @@ title: Pagination
 
 <link rel="stylesheet" href="pagination.css">
 
+<svg hidden>
+    <symbol id="svg-icon-chevron-light-left" viewBox="0 0 24 32">
+        <path d="M28.176 1.327c-0.468-0.468-1.249-0.468-1.717 0l-14.049 14.049c-0.234 0.234-0.39 0.546-0.39 0.859s0.156 0.624 0.39 0.859l13.581 13.581c0.234 0.234 0.546 0.39 0.859 0.39s0.624-0.156 0.859-0.39c0.468-0.468 0.468-1.249 0-1.717l-12.722-12.722 13.19-13.19c0.468-0.468 0.468-1.249 0-1.717z"></path>
+    </symbol>
+    <symbol id="svg-icon-chevron-light-right" viewBox="0 0 24 32">
+        <path d="M12.41 1.327c0.468-0.468 1.249-0.468 1.717 0l14.049 14.049c0.234 0.234 0.39 0.546 0.39 0.859s-0.156 0.624-0.39 0.859l-13.581 13.581c-0.234 0.234-0.546 0.39-0.859 0.39s-0.624-0.156-0.859-0.39c-0.468-0.468-0.468-1.249 0-1.717l12.722-12.722-13.19-13.19c-0.468-0.468-0.468-1.249 0-1.717z"></path>
+    </symbol>
+</svg>
+
 <h1 class="post-title">{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
@@ -17,40 +26,64 @@ title: Pagination
     <div class="col-xs-12 col-md-6">
         <h3>Server-Side Pagination</h3>
         <nav class="pagination" aria-labelledby="pagination_heading" role="navigation">
-            <h2 id="pagination_heading" class="clipped">Results pagination</h2>
-            <a aria-disabled="true" class="icon-chevron-left-disabled" href="index.html"><span class="clipped">Previous results</span></a>
+            <span aria-live="off">
+                <h2 id="pagination_heading" class="clipped">Results Pagination - Page 1</h2>
+            </span>
+            <a aria-disabled="true" class="pagination__previous" href="index.html">
+                <svg aria-labelledby="pagination-previous-title" role="img">
+                    <title id="pagination-previous-title">Previous Page</title>
+                    <use xlink:href="#svg-icon-chevron-light-left"></use>
+                </svg>
+            </a>
             <ol class="pagination__list">
                 <li>
-                    <a aria-current="page" href="index.html">1<span class="clipped"> - current page</span></a>
+                    <a aria-current="page" class="pagination__item" href="index.html">1<span class="clipped"> - current page</span></a>
                 </li>
                 <li>
-                    <a href="2.html">2</a>
+                    <a href="2.html" class="pagination__item" >2</a>
                 </li>
                 <li>
-                    <a href="3.html">3</a>
+                    <a href="3.html" class="pagination__item" >3</a>
                 </li>
             </ol>
-            <a href="2.html" class="icon-chevron-right"><span class="clipped">Next results</span></a>
+            <a class="pagination__next" href="2.html">
+                <svg aria-labelledby="pagination-next-title" role="img">
+                    <title id="pagination-next-title">Next Page</title>
+                    <use xlink:href="#svg-icon-chevron-light-right"></use>
+                </svg>
+            </a>
         </nav>
     </div>
 
     <div class="col-xs-12 col-md-6">
         <h3>Client-Side Pagination</h3>
         <nav class="pagination pagination--ajax" aria-labelledby="pagination_heading" role="navigation">
-            <h2 id="pagination_heading" class="clipped">Results pagination</h2>
-            <a aria-disabled="true" class="icon-chevron-left-disabled" href="index.html"><span class="clipped">Previous results</span></a>
+            <span aria-live="polite" role="status">
+                <h2 id="pagination_heading" class="clipped">Results Pagination - Page <span class="pagination__index">1</span></a></h2>
+            </span>
+            <a aria-disabled="true" class="pagination__previous" href="index.html">
+                <svg aria-labelledby="pagination-previous-title" role="img">
+                    <title id="pagination-previous-title">Previous Page</title>
+                    <use xlink:href="#svg-icon-chevron-light-left"></use>
+                </svg>
+            </a>
             <ol class="pagination__list">
                 <li>
-                    <a aria-current="page" href="index.html">1</a>
+                    <a aria-current="page" class="pagination__item" href="index.html">1</a>
                 </li>
                 <li>
-                    <a href="2.html">2</a>
+                    <a href="2.html" class="pagination__item">2</a>
                 </li>
                 <li>
-                    <a href="3.html">3</a>
+                    <a href="3.html" class="pagination__item">3</a>
                 </li>
             </ol>
-            <a class="icon-chevron-right" href="2.html"><span class="clipped">Next results</span></a>
+            <a class="pagination__next" href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2">
+                <svg aria-labelledby="pagination-next-title" role="img">
+                    <title id="pagination-next-title">Next Page</title>
+                    <use xlink:href="#svg-icon-chevron-light-right"></use>
+                </svg>
+            </a>
         </nav>
     </div>
 </div>

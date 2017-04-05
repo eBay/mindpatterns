@@ -182,6 +182,11 @@ sup {
     font-size: small;
 }
 
+// polyfill the hidden attribute
+[hidden] {
+    display: none;
+}
+
 // large screen breakpoint
 
 @media (min-width: 600px) {
