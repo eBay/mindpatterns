@@ -137,6 +137,11 @@ a.button[role=button] {
     padding: 32px 16px;
 }
 
+#main[role=main]:focus,
+#main[role=presentation]:focus {
+    outline: 0 none;
+}
+
 #logo {
     text-align: center;
 
