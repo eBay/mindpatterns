@@ -14,17 +14,17 @@ title: Checkbox
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
+<p><i>Last Updated</i>: Jun 10, 2017</p>
 <p>Use TAB key to navigate checkboxes, SPACEBAR to toggle selection, ENTER key submits form.</p>
-<p>Always use <a href="https://www.w3.org/TR/html5/forms.html#checkbox-state-(type=checkbox)">native HTML checkboxes</a> if possible! They are 100% accessible by default.</p>
 <p>Please <a href={{ "/input/checkbox.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
-
 
 <h2>Examples</h2>
 <form>
     <div class="row">
         <div class="col-xs-12 col-md-6">
+            <h3>Native HTML</h3>
             <fieldset>
-                <legend>Native HTML</legend>
+                <legend>Auction Type</legend>
                 <div>
                     <input id="checkbox1_freeshipping1" type="checkbox" name="freeshipping1" />
                     <label for="checkbox1_freeshipping1">Free Shipping</label>
@@ -40,48 +40,80 @@ title: Checkbox
             </fieldset>
         </div>
         <div class="col-xs-12 col-md-6">
+            <h3>Custom</h3>
             <fieldset>
-                <legend>Pure CSS (custom focus indicator)</legend>
-                <div class="checkbox">
-                    <input id="checkbox1_freeshipping2" type="checkbox" name="freeshipping2" />
+                <legend>Auction Type</legend>
+                <div>
+                    <span class="checkbox">
+                        <input class="checkbox__control" id="checkbox1_freeshipping2" type="checkbox" name="freeshipping2" />
+                        <span class="checkbox__icon" hidden>
+                            <svg aria-hidden="true" focusable="false">
+                                <use xlink:href="{{ '/svg/icons.svg#svg-icon-checkbox' | relative_url }}"></use>
+                            </svg>
+                        </span>
+                    </span>
                     <label for="checkbox1_freeshipping2">Free Shipping</label>
                 </div>
-                <div class="checkbox">
-                    <input id="checkbox2_endssoon2" type="checkbox" name="endssoon2" />
+                <div>
+                    <span class="checkbox">
+                        <input class="checkbox__control" id="checkbox2_endssoon2" type="checkbox" name="endssoon2" />
+                        <span class="checkbox__icon" hidden>
+                            <svg aria-hidden="true" focusable="false">
+                                <use xlink:href="{{ '/svg/icons.svg#svg-icon-checkbox' | relative_url }}"></use>
+                            </svg>
+                        </span>
+                    </span>
                     <label for="checkbox2_endssoon2">Ends soon</label>
                 </div>
-                <div class="checkbox">
-                    <input id="checkbox3_zerobids2" type="checkbox" name="zerobids2" />
+                <div>
+                    <span class="checkbox">
+                        <input class="checkbox__control" id="checkbox3_zerobids2" type="checkbox" name="zerobids2" />
+                        <span class="checkbox__icon" hidden>
+                            <svg aria-hidden="true" focusable="false">
+                                <use xlink:href="{{ '/svg/icons.svg#svg-icon-checkbox' | relative_url }}"></use>
+                            </svg>
+                        </span>
+                    </span>
                     <label for="checkbox3_zerobids2">Zero bids</label>
                 </div>
             </fieldset>
         </div>
     </div>
+    <!--
     <div class="row">
         <div class="col-xs-12 col-md-6">
             <fieldset>
-                <legend>ARIA</legend>
-                <div class="customcheckbox">
-                    <input id="checkbox1_freeshipping3" type="checkbox" name="freeshipping3" />
+                <legend>ARIA (requires JavaScript)</legend>
+                <div>
+                    <span class="checkbox checkbox--aria" role="presentation">
+                        <input class="checkbox__control" id="checkbox1_freeshipping3" type="checkbox" name="freeshipping3" />
+                    </span>
                     <label for="checkbox1_freeshipping3">Free Shipping</label>
                 </div>
-                <div class="customcheckbox">
-                    <input id="checkbox2_endssoon3" type="checkbox" name="endssoon3" />
+                <div>
+                    <span class="checkbox checkbox--aria" role="presentation">
+                        <input class="checkbox__control" id="checkbox2_endssoon3" type="checkbox" name="endssoon3" />
+                    </span>
                     <label for="checkbox2_endssoon3">Ends soon</label>
                 </div>
-                <div class="customcheckbox">
-                    <input id="checkbox3_zerobids3" type="checkbox" name="zerobids3" />
+                <div>
+                    <span class="checkbox checkbox--aria" role="presentation">
+                        <input class="checkbox__control" id="checkbox3_zerobids3" type="checkbox" name="zerobids3" />
+                    </span>
                     <label for="checkbox3_zerobids3">Zero bids</label>
                 </div>
             </fieldset>
         </div>
     </div>
+    -->
     <input type="submit" />
 </form>
 
+<!--
 <script src="jquery.checkbox.js"></script>
 <script>
     $(function() {
-        $('.customcheckbox').customcheckbox();
+        $('.checkbox--aria').ariacheckbox();
     });
 </script>
+-->

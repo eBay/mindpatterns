@@ -3,22 +3,22 @@ layout: page
 title: Radio
 ---
 
-<link rel="stylesheet" href="radiogroup.css">
-<link rel="stylesheet" href="ariaradiogroup.css">
+<link rel="stylesheet" href="radio.css">
+<!--<link rel="stylesheet" href="ariaradiogroup.css">-->
 
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
+<p><i>Last Updated</i>: Jun 10, 2017</p>
 <p>Use ARROW keys to change radio option, ENTER key submits form.</p>
-<p>Always use <a href="http://www.w3.org/TR/html-markup/input.radio.html">native HTML radio buttons</a> if possible! They are 100% accessible by default.</p>
 <p>Please <a href={{ "/input/radio.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <h2>Examples</h2>
 <form>
     <div class="row">
         <div class="col-xs-12 col-md-6">
-            <h3>HTML (native style)</h3>
-            <div class="radiogroup">
+            <h3>Native HTML</h3>
+            <div>
                 <fieldset>
                     <legend>Auction Type</legend>
                     <div>
@@ -37,26 +37,48 @@ title: Radio
             </div>
         </div>
         <div class="col-xs-12 col-md-6">
-            <h3>HTML (custom style)</h3>
-            <div class="radiogroup radiogroup--icons">
+            <h3>Custom</h3>
+            <div>
                 <fieldset>
                     <legend>Auction Type</legend>
                     <div>
-                        <input id="listingformat2_all" type="radio" name="listingformat2" value="all" />
+                        <span class="radio">
+                            <input class="radio__control" id="listingformat2_all" type="radio" name="listingformat2" value="all" />
+                            <span class="radio__icon" hidden>
+                                <svg aria-hidden="true" focusable="false">
+                                    <use xlink:href="{{ '/svg/icons.svg#svg-icon-radio' | relative_url }}"></use>
+                                </svg>
+                            </span>
+                        </span>
                         <label for="listingformat2_all">All Listings</label>
                     </div>
                     <div>
-                        <input id="listingformat2_auction" type="radio" name="listingformat2" value="auction" />
+                        <span class="radio">
+                            <input class="radio__control" id="listingformat2_auction" type="radio" name="listingformat2" value="auction" />
+                            <span class="radio__icon" hidden>
+                                <svg aria-hidden="true" focusable="false">
+                                    <use xlink:href="{{ '/svg/icons.svg#svg-icon-radio' | relative_url }}"></use>
+                                </svg>
+                            </span>
+                        </span>
                         <label for="listingformat2_auction">Auction</label>
                     </div>
                     <div>
-                        <input id="listingformat2_bin" type="radio" name="listingformat2" value="bin" />
+                        <span class="radio">
+                            <input class="radio__control" id="listingformat2_bin" type="radio" name="listingformat2" value="bin" />
+                            <span class="radio__icon" hidden>
+                                <svg aria-hidden="true" focusable="false">
+                                    <use xlink:href="{{ '/svg/icons.svg#svg-icon-radio' | relative_url }}"></use>
+                                </svg>
+                            </span>
+                        </span>
                         <label for="listingformat2_bin">Buy it Now</label>
                     </div>
                 </fieldset>
             </div>
         </div>
     </div>
+    <!--
     <div class="row">
         <div class="col-xs-12 col-md-6">
             <h3>ARIA (with fallbacks)</h3>
@@ -81,7 +103,9 @@ title: Radio
         <div class="col-xs-12 col-md-6">
             <h3>ARIA (without fallbacks)</h3>
             <div class="aria-radio-group" id="aria-radios1">
+            -->
                 <!-- keep 'legend' outside of radiogroup to prevent it being included in voiceover group count -->
+                <!--
                 <div class="aria-radio-group__legend" id="aria-radios1__legend">Auction Type</div>
                 <div class="aria-radio-group__fieldset" role="radiogroup" aria-labelledby="aria-radio-group__label">
                     <div class="aria-radio__container" role="presentation">
@@ -100,9 +124,12 @@ title: Radio
             </div>
         </div>
     </div>
+    -->
     <br />
     <div style="text-align: center;"><input type="submit"/></div>
 </form>
+
+<!--
 
 <script src="jquery.ariaradiogroup.js"></script>
 <script src="jquery.nativeradiostoaria.js"></script>
@@ -113,3 +140,5 @@ title: Radio
         $('.radiogroup--convert').nativeRadiosToAria().ariaRadioGroup();
     });
 </script>
+
+-->

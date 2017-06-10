@@ -5,14 +5,15 @@
 */
 (function ( $ ) {
 
-    $.fn.customcheckbox = function() {
+    $.fn.ariacheckbox = function() {
 
         return this.each(function onEach() {
 
             var $checkbox = $(this),
                 $input = $checkbox.find('input[type=checkbox]'),
                 $form = $checkbox.closest('form'),
-                $customInput = $('<span role="checkbox" />'),
+                $customInput = $('<span role="checkbox" class="checkbox__icon" />'),
+                $svg = $('<svg aria-hidden="true" focusable="false"><use xlink:href="../../svg/icons.svg#svg-icon-checkbox"></use></svg>'),
                 $explicitLabel = $checkbox.find('[for=' + $input.attr('id') + ']'),
                 labelId;
 
@@ -35,10 +36,12 @@
             $customInput.attr('aria-checked', $input.prop('checked'));
 
             // hide real input element
-            $input.attr('aria-hidden', 'true');
+            $input.prop('hidden', true);
 
             // add custom checkbox element to tabindex
             $customInput.attr('tabindex', '0');
+
+            $customInput.append($svg);
 
             // insert custom checkbox element
             $input.after($customInput);
@@ -72,9 +75,9 @@
                 $customInput.attr('aria-checked', $input.prop('checked'));
             });
 
-            $('.customcheckbox').preventScrollKeys('[role=checkbox]');
+            $('.ariacheckbox').preventScrollKeys('[role=checkbox]');
 
-            $checkbox.addClass('customcheckbox--js');
+            $checkbox.addClass('ariacheckbox--js');
         });
     };
 }( jQuery ));
