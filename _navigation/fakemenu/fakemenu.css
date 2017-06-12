@@ -1,10 +1,10 @@
-.fauxmenu > button.flyout__trigger:after {
+.fake-menu > button.flyout__trigger:after {
     content: ' \e601';
     font-family: 'vq-icon-font';
     font-size: 12px;
 }
 
-.fauxmenu .flyout__overlay {
+.fake-menu .flyout__overlay {
     background-color: LightYellow;
     border: 1px solid #aaa;
     box-shadow: 2px 4px 5px #aaa;
@@ -13,7 +13,7 @@
     padding: 0;
 }
 
-.fauxmenu .flyout__overlay a {
+.fake-menu .flyout__overlay a {
     box-sizing: border-box;
     display: inline-block;
     padding: 8px;
@@ -21,7 +21,7 @@
     width: 100%;
 }
 
-.fauxmenu .flyout__overlay a:focus,
-.fauxmenu .flyout__overlay a:hover {
+.fake-menu .flyout__overlay a:focus,
+.fake-menu .flyout__overlay a:hover {
     text-decoration: underline;
 }
