@@ -1856,9 +1856,9 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
 
-jquery-active-descendant@~0.16:
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/jquery-active-descendant/-/jquery-active-descendant-0.16.1.tgz#389a6e725e9af84d70697f2b3593987f76f4a288"
+jquery-active-descendant@~0.17:
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/jquery-active-descendant/-/jquery-active-descendant-0.17.0.tgz#f9175b392d3e34c51f7065f4aabd9b73c319b530"
 
 jquery-click-flyout@>=0.0.5:
   version "0.0.9"
@@ -2316,12 +2316,12 @@ make-dir@^1.0.0:
   dependencies:
     pify "^2.3.0"
 
-makeup-ebay@~0.26:
-  version "0.26.0"
-  resolved "https://registry.yarnpkg.com/makeup-ebay/-/makeup-ebay-0.26.0.tgz#13d1a00d79c8e6e9ed3d61d2f9d95977e72c8044"
+makeup-ebay@~0.27:
+  version "0.27.0"
+  resolved "https://registry.yarnpkg.com/makeup-ebay/-/makeup-ebay-0.27.0.tgz#5d753a22e2ee615e4312ccec7423b6fb1edd5724"
   dependencies:
     jquery ">=1.11"
-    jquery-active-descendant "~0.16"
+    jquery-active-descendant "~0.17"
     jquery-click-flyout ">=0.0.5"
     jquery-common-keydown ">=0.3.1"
     jquery-dialog ">=0.2.2"
@@ -2491,8 +2491,8 @@ node-pre-gyp@^0.6.36:
     tar-pack "^3.4.0"
 
 nodemon@^1:
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.12.0.tgz#e538548a777340a19f855c4f087b7e528aa3feda"
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.12.1.tgz#996a56dc49d9f16bbf1b78a4de08f13634b3878d"
   dependencies:
     chokidar "^1.7.0"
     debug "^2.6.8"

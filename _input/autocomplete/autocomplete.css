@@ -11,7 +11,7 @@
     z-index:1;
 }
 .autocomplete li[role=option]:hover,
-.autocomplete li[role=option][aria-selected=true] {
+.autocomplete li.active-descendant[role=option] {
     background-color: #006699;
     color: white;
     outline: 0;

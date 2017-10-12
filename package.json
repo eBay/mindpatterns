@@ -17,7 +17,7 @@
     "browser-sync": "^2",
     "jquery": "^3",
     "lasso-cli": "^2",
-    "makeup-ebay": "~0.26",
+    "makeup-ebay": "~0.27",
     "nodemon": "^1",
     "parallelshell": "^3",
     "rimraf": "^2"

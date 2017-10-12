@@ -17,8 +17,11 @@
             var $widget = $(this),
                 $input = $widget.find('> input'),
                 $button = $('<button>'),
+                $flyoutEl = $('<div>'),
                 $listbox = $('<ul>'),
+                $statusEl = $('<span aria-live="assertive" aria-atomic="true">Option: <span></span></span>'),
                 $instructionsEl = $('<span>'),
+                $statusMsg,
                 blurTimer;
 
             $widget.nextId('combobox');
@@ -27,16 +30,21 @@
                 .attr('role', 'application')
                 .addClass('flyout');
 
+            $flyoutEl.addClass('flyout__overlay');
+
             $listbox
                 .prop('id', $widget.prop('id') + '-listbox')
                 .css('width', $input.css('width'))
-                .attr('role', 'listbox')
-                .addClass('flyout__overlay');
+                .attr('role', 'listbox');
 
             $instructionsEl
                 .addClass('combobox__description')
                 .prop('id', $widget.prop('id') + '-instructions')
-                .text('Combobox list has 6 options. Use down key to navigate.');
+                .text('Combo box list has 6 options. Use arrow keys to navigate options and ENTER to select.');
+
+            $statusEl
+                .addClass('combobox__status')
+                .prop('id', $widget.prop('id') + '-status');
 
             $input
                 .attr('role', 'combobox')
@@ -57,7 +65,11 @@
             // DOM manipulation
             $widget.append($button);
             $widget.append($instructionsEl);
-            $widget.append($listbox);
+            $flyoutEl.append($listbox);
+            $flyoutEl.append($statusEl);
+            $widget.append($flyoutEl);
+
+            $statusMsg = $statusEl.children().first();
 
             // plugins
             $widget.commonKeyDown();
@@ -87,8 +99,8 @@
                 var _void = isExpanded() ? collapseCombobox() : $input.val('');
             };
 
-            var onActiveDescendantChange = function(e) {
-                // console.log(e, this, data);
+            var onActiveDescendantChange = function(e, data) {
+                $statusMsg.text($listbox.find('[role=option]').get(data.toIndex).innerText);
             };
 
             var onListboxClick = function(e) {
@@ -110,7 +122,7 @@
                 // if combobox is expanded
                 if (isExpanded()) {
                     // update combobox value
-                    $input.val($listbox.find('[aria-selected=true]').text());
+                    $input.val($listbox.find('.active-descendant').text());
                     // prevent form submission
                     e.preventDefault();
                     collapseCombobox();
