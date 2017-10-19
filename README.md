@@ -1,6 +1,6 @@
 # eBay MIND Patterns - Accessibility Patterns for the Web
 
-**NOTE**: Support for Internet Explorer 9 and below was recently dropped, allowing us more time to focus on accessibility matters, rather than cross-browser issues.
+**NOTE**: Support for Internet Explorer 10 and below was recently dropped, allowing us more time to focus on accessibility matters, rather than cross-browser issues.
 
 ## Local Development
 
