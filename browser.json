@@ -1,7 +1,7 @@
 {
     "dependencies": [
         "jquery/dist/jquery.min.js",
-        "makeup-ebay",
+        "makeup-jquery",
         "_js/main.js"
     ]
 }
