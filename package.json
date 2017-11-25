@@ -1,14 +1,19 @@
 {
   "author": "Ian McBurnie <ianmcburnie@hotmail.com>",
   "scripts": {
-    "jekyll:build": "bundler exec jekyll build --incremental --config _config.yml,_config.localhost.yml",
-    "browser-sync:static": "browser-sync start -s --ss _site --index _site/index.html --files '_site'",
-    "start": "npm run lasso && npm run jekyll:build && parallelshell 'npm run browser-sync:static' 'npm run nodemon'",
+    "build": "npm run lasso && npm run jekyll",
+    "jekyll": "bundler exec jekyll build --incremental --config _config.yml,_config.localhost.yml",
+    "browser-sync": "browser-sync start -s --ss _site --index _site/index.html --files '_site'",
+    "start": "npm run build && parallelshell 'npm run browser-sync' 'npm run nodemon'",
     "lasso": "lasso browser.json --output-dir static --minify && rimraf build",
     "clean": "rimraf _site .cache .sass-cache build static/browser.js",
-    "nodemon": "nodemon --exec 'npm run jekyll:build' -e html,css,scss,js --ignore '_site'"
+    "nodemon": "nodemon --exec 'npm run jekyll' -e html,css,scss,js --ignore '_site'",
+    "prepublishOnly": "npm run build"
   },
   "license": "MIT",
+  "pre-commit": [
+    "prepublishOnly"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ianmcburnie/mindpatterns"
@@ -20,6 +25,7 @@
     "makeup-jquery": "~0.0",
     "nodemon": "^1",
     "parallelshell": "^3",
+    "pre-commit": "^1.2.2",
     "rimraf": "^2"
   }
 }
