@@ -1,5 +1,6 @@
 /**
 * @function jquery.accordion.js
+* @deprecated This jQuery version is deprecated in favour of the new ES6 version
 * @desc Please DO NOT copy this code to production! This is 'quick & ugly, just make it work!' code.
 * @author Ian McBurnie <ianmcburnie@hotmail.com>
 * @requires jquery-next-id

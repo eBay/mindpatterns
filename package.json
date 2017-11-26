@@ -1,14 +1,16 @@
 {
   "author": "Ian McBurnie <ianmcburnie@hotmail.com>",
   "scripts": {
-    "build": "npm run lasso && npm run jekyll",
+    "build": "npm run transpile && npm run lasso && npm run jekyll",
     "jekyll": "bundler exec jekyll build --incremental --config _config.yml,_config.localhost.yml",
     "browser-sync": "browser-sync start -s --ss _site --index _site/index.html --files '_site'",
-    "start": "npm run build && parallelshell 'npm run browser-sync' 'npm run nodemon'",
+    "start": "npm run build && parallelshell 'npm run browser-sync' 'npm run nodemon' 'npm run onchange'",
     "lasso": "lasso browser.json --output-dir static --minify && rimraf build",
     "clean": "rimraf _site .cache .sass-cache build static/browser.js",
-    "nodemon": "nodemon --exec 'npm run jekyll' -e html,css,scss,js --ignore '_site'",
-    "prepublishOnly": "npm run build"
+    "nodemon": "nodemon --exec 'npm run lasso && npm run jekyll' -e html,css,scss,js --ignore 'static' --ignore '*.es6.js' --ignore '_site'",
+    "prepublishOnly": "npm run build",
+    "transpile": "babel _js/accordion.es6.js --out-file _js/accordion.js",
+    "onchange": "onchange _js/*.es6.js -- npm run transpile"
   },
   "license": "MIT",
   "pre-commit": [
@@ -19,13 +21,21 @@
     "url": "https://github.com/ianmcburnie/mindpatterns"
   },
   "devDependencies": {
+    "babel-cli": "^6",
+    "babel-plugin-transform-object-assign": "^6",
+    "babel-preset-env": "^1",
     "browser-sync": "^2",
     "jquery": "^3",
     "lasso-cli": "^2",
     "makeup-jquery": "~0.0",
+    "makeup-key-emitter": "~0.0",
+    "makeup-next-id": "~0.0",
+    "makeup-prevent-scroll-keys": "~0.0.",
+    "makeup-roving-tabindex": "~0.0",
     "nodemon": "^1",
+    "onchange": "^3",
     "parallelshell": "^3",
-    "pre-commit": "^1.2.2",
+    "pre-commit": "^1",
     "rimraf": "^2"
   }
 }

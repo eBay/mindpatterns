@@ -1,52 +1,50 @@
-.accordion > div {
+.accordion__item {
     border: 1px solid #ddd;
     border-bottom: 0;
 }
-.accordion > div > div {
+.accordion__panel {
     padding: 16px;
 }
-.accordion > div:last-child {
+.accordion__item:last-child {
     border-bottom: 1px solid #ddd;
 }
-.accordion > div >:first-child {
-    margin: 0;
-    padding: 8px;
-}
-.accordion > div > *:first-child {
+.accordion__tab {
     background-color: LightYellow;
     font-weight: normal;
+    margin: 0;
+    padding: 8px;
 }
 
 /* after enhancement */
 
-.accordion [role=tab] {
+.accordion--js [role=tab] {
     cursor: pointer;
 }
-.accordion [role=tab]::after {
+.accordion--js [role=tab]::after {
     color: #999;
     content: '\e608';
     float: right;
     font-family: 'vq-icon-font';
     font-size: 1em;
 }
-.accordion [role=tab]:focus {
+.accordion--js [role=tab]:focus {
     background-color: #006699;
     color: white;
     outline: 0;
 }
-.accordion [role=tab][aria-selected=true]:after {
+.accordion--js [role=tab][aria-selected=true]:after {
     content: '\e606';
 }
-.accordion [role=tab]:focus:after {
+.accordion--js [role=tab]:focus:after {
     color: white;
 }
-.accordion [role=tab][aria-selected=true] + [role=tabpanel] {
+.accordion--js [role=tab][aria-selected=true] + [role=tabpanel] {
     display: block;
 }
-.accordion [role=tab][aria-selected=false] + [role=tabpanel] {
+.accordion--js [role=tab][aria-selected=false] + [role=tabpanel] {
     display: none;
 }
-.accordion [role=tabpanel] {
+.accordion--js [role=tabpanel] {
     border-top: 1px solid #ddd;
     padding: 8px 16px;
 }
