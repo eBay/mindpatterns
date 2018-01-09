@@ -1,33 +1,53 @@
+span.listbox {
+    display: inline-block;
+}
 .listbox--js select {
     display: none;
-
 }
-.listbox--multi-select [role=listbox] {
+.listbox [role="listbox"] {
     background-color: LightYellow;
     border: 1px solid #eee;
     box-sizing: border-box;
-    cursor: default;
-    display: inline-block;
+    list-style-type: none;
     margin: 0;
     padding: 0;
+}
+.listbox--single [role="combobox"] {
+    display: inline-block;
+}
+.listbox--single [role="listbox"] {
+    cursor: default;
+    display: none;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+.listbox--single [role="combobox"][aria-expanded="true"] ~ [role="listbox"] {
+    display: block;
+}
+.listbox--multiple [role="listbox"] {
+    cursor: default;
+    display: inline-block;
     height: 75px;
     width: 100px;
     overflow-y: scroll;
     vertical-align: top;
 }
-.listbox--multi-select [role=option] {
+.listbox [role="option"] {
     box-sizing: border-box;
     padding: 5px 15px 5px 10px;
 }
-.listbox--multi-select [role=option]:focus {
+.listbox--single [role="option"][aria-selected="true"],
+.listbox--multiple [role="option"]:focus {
     outline: 0;
     background-color: #006699;
     color: white;
 }
-.listbox--multi-select [role=option]:after {
+.listbox [role="option"]::after {
     font-family: 'vq-icon-font';
     float: right;
 }
-.listbox--multi-select [role=option][aria-selected=true]:after {
+.listbox [role="option"][aria-selected="true"]::after {
     content: '\2713';
 }

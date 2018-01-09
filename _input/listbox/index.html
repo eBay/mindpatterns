@@ -12,6 +12,12 @@ title: Listbox
     select[multiple] {
         vertical-align: top;
     }
+    .listbox {
+        position: relative;
+    }
+    .listbox--single [role="combobox"] {
+        width: 100px;
+    }
 </style>
 
 
@@ -28,8 +34,8 @@ title: Listbox
         <div class="col-xs-12 col-md-6">
             <h3>Native Listbox</h3>
             <span>
-                <label for="car_native">Car</label>
-                <select id="car_native" name="car_native">
+                <label for="car-native">Car</label>
+                <select id="car-native" name="car_native">
                     <option value="volvo">Volvo</option>
                     <option value="saab">Saab</option>
                     <option value="opel">Opel</option>
@@ -38,18 +44,25 @@ title: Listbox
             </span>
         </div>
         <div class="col-xs-12 col-md-6">
-            <h3>Enhanced Listbox</h3>
-            <span>
-                <p>todo</p>
+            <h3>ARIA Listbox</h3>
+            <label for="car-aria">Car</label>
+            <span class="listbox">
+                <select id="car-aria" name="car-aria">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
             </span>
+            <span>(todo: needs 'dropdown' icon)</span>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-6">
             <h3>Native Multi-Select</h3>
             <span>
-                <label for="cars_native">Car</label>
-                <select id="cars_native" name="cars_native[]" multiple>
+                <label for="cars-native">Car</label>
+                <select id="cars-native" name="cars-native[]" multiple>
                     <option value="volvo">Volvo</option>
                     <option value="saab">Saab</option>
                     <option value="opel">Opel</option>
@@ -58,10 +71,10 @@ title: Listbox
             </span>
         </div>
         <div class="col-xs-12 col-md-6">
-            <h3>Enhanced Multi-Select</h3>
+            <h3>ARIA Multi-Select</h3>
             <span class="listbox">
-                <label for="cars_aria">Car</label>
-                <select id="cars_aria" name="cars_aria[]" multiple>
+                <label for="cars-aria">Car</label>
+                <select id="cars-aria" name="cars-aria[]" multiple>
                     <option value="volvo">Volvo</option>
                     <option value="saab">Saab</option>
                     <option value="opel">Opel</option>

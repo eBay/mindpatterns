@@ -9,35 +9,121 @@
         return this.each(function onEach() {
             var $this = $(this),
                 $form = $this.closest('form'),
-                $label = $this.find('label'),
                 $select = $this.find('select'),
-                isListBoxMultiSelect = $select.attr('size')  || $select.prop('multiple');
+                $label = $('label[for="' + $select.prop('id') + '"]'),
+                $options = $select.find('option'),
+                $listbox = $('<ul role="listbox" />'),
+                isMultiSelect = $select.attr('size')  || $select.prop('multiple');
 
             $this.nextId('listbox');
 
             $label.prop('id', $this.prop('id') + '-label');
 
-            if (isListBoxMultiSelect === false) {
-                $this.listboxsingleselect();
+            $options.each(function(idx, item) {
+                var $nativeOption = $(item),
+                    $ariaOption = $('<li>');
+
+                $ariaOption
+                    .attr('role', 'option')
+                    .text($nativeOption.text());
+
+                if($($options.get(idx)).prop('selected') === true) {
+                    $ariaOption.attr('aria-selected', 'true');
+                }
+
+                $listbox.append($ariaOption);
+            });
+
+            if (isMultiSelect === false) {
+                $this.listboxsingleselect($listbox, $label);
             }
             else {
-                $this.listboxmultiselect();
+                $this.listboxmultiselect($listbox);
             }
+
+            $this.addClass('listbox--js');
         });
     };
 
-    $.fn.listboxsingleselect = function listboxsingleselect() {
+    $.fn.listboxsingleselect = function listboxsingleselect($listbox, $label) {
         var $this = $(this),
             $nativeListbox = $this.find('select'),
             $nativeOptions = $nativeListbox.find('option'),
-            $button = $('<button aria-haspopup="true" />');
+            $customOptions = $listbox.find('[role=option]'),
+            $input = $('<input role="combobox" type="text" readonly />'),
+            numOptions = $nativeOptions.length,
+            $selected = $nativeListbox.find('[selected]'),
+            selectedIndex = $selected.length > 0 ? $selected.first().index() : 0;
 
-        $this.addClass('listbox--single-select');
-        $button.text($nativeOptions.first().text());
-        $this.append($button);
+        $this.addClass('listbox--single');
+
+        $input.attr('aria-labelledby', $label.prop('id'));
+
+        $input.val($nativeOptions.eq(selectedIndex).text());
+
+        $input.attr('aria-expanded', 'false');
+
+        $this.append($input);
+        $this.append($listbox);
+
+        $this.preventScrollKeys('[role="combobox"]');
+
+        $this.commonKeyDown('[role="combobox"]');
+
+        // $this.activeDescendant($input, '[role=listbox]', '[role=option]', {axis: 'y', useAriaSelected: true});
+
+        $this.on('spaceKeyDown', function(e) {
+            //$input.attr('aria-expanded', $input.attr('aria-expanded') === 'true' ? 'false' : 'true');
+            $input.trigger('click');
+        });
+
+        $this.clickFlyout({
+            overlaySelector: '[role=listbox]',
+            triggerSelector: '[role=combobox]'
+        });
+
+        $this.on('escapeKeyDown', function(e) {
+            $input.attr('aria-expanded', 'false');
+        });
+
+        $this.on('upArrowKeyDown', function(e) {
+            if (selectedIndex > 0) {
+                $nativeOptions.eq(selectedIndex).prop('selected', false);
+                $customOptions.eq(selectedIndex).attr('aria-selected', false);
+                $input.val($nativeOptions.eq(--selectedIndex).text());
+                $nativeOptions.eq(selectedIndex).prop('selected', true);
+                $customOptions.eq(selectedIndex).attr('aria-selected', true);
+            }
+        });
+
+        $this.on('downArrowKeyDown', function(e) {
+            if (selectedIndex < numOptions - 1) {
+                $nativeOptions.eq(selectedIndex).prop('selected', false);
+                $customOptions.eq(selectedIndex).attr('aria-selected', false);
+                $input.val($nativeOptions.eq(++selectedIndex).text());
+                $nativeOptions.eq(selectedIndex).prop('selected', true);
+                $customOptions.eq(selectedIndex).attr('aria-selected', true);
+            }
+        });
+
+        $listbox.on('click', '[role=option]', function(e) {
+            var $this = $(this);
+
+            $input.val($this.text());
+
+            $nativeOptions.eq(selectedIndex).prop('selected', false);
+            $customOptions.eq(selectedIndex).attr('aria-selected', false);
+
+            selectedIndex = $this.index();
+
+            $nativeOptions.eq(selectedIndex).prop('selected', true);
+            $customOptions.eq(selectedIndex).attr('aria-selected', true);
+
+            $input.attr('aria-expanded', 'false');
+        });
     };
 
-    $.fn.listboxmultiselect = function listboxmultiselect() {
+    $.fn.listboxmultiselect = function listboxmultiselect($listbox) {
         return this.each(function onEach() {
 
             var $this = $(this),
@@ -45,50 +131,26 @@
                 $nativeListbox = $this.find('select'),
                 $label = $this.find('label'),
                 $nativeOptions = $nativeListbox.find('option'),
-                $customListbox = $('<ul role="listbox" />'),
-                $customOptions,
+                $customOptions = $listbox.find('[role=option]'),
                 indexOfSelectedNativeOption,
                 activeId = $this.prop('id') + '-active';
 
-            $this.addClass('listbox--multi-select');
+            $this.addClass('listbox--multiple');
 
-            // find the current selected index state of native select
-            indexOfFirstSelectedNativeOption = $nativeListbox.find('[selected]').first().index() || -1;
-
-            $nativeOptions.each(function(idx, item) {
-                var $nativeOption = $(item),
-                    $customOption = $('<li>');
-
-                $customOption
-                    .attr('role', 'option')
-                    .text($nativeOption.text());
-
-                console.log();
-
-                if($($nativeOptions.get(idx)).prop('selected') === true) {
-                    $customOption
-                        .attr('aria-selected', 'true');
-                }
-
-                $customListbox.append($customOption);
-            });
-
-            $customOptions = $customListbox.find('[role=option]');
-
-            $customListbox.commonKeyDown('[role=option]');
+            $listbox.commonKeyDown('[role=option]');
 
             // set aria-selected on the active descendant
-            $customListbox.find('#'+activeId).attr('aria-selected', 'true');
+            $listbox.find('#'+activeId).attr('aria-selected', 'true');
 
             // init rovingTabindex plugin on custom listbox
-            $customListbox.rovingTabindex('[role=option]', {axis: 'y', wrap:false});
+            $listbox.rovingTabindex('[role=option]', {axis: 'y', wrap:false});
 
             // listen for click events (triggered by mouse/pointer)
-            $customListbox.on('click spaceKeyDown', function(e) {
+            $listbox.on('click spaceKeyDown', function(e) {
                 console.log(e.originalEvent.target);
                 $customOptions.attr('tabindex', '-1');
                 $(e.originalEvent.target).attr('tabindex', '0');
-                $customListbox.find('#'+activeId).removeAttr('id');
+                $listbox.find('#'+activeId).removeAttr('id');
                 $(e.originalEvent.target).prop('id', activeId);
                 $this.trigger('select', e.originalEvent.target);
             });
@@ -104,19 +166,17 @@
                 $(item).focus();
             });
 
-            $customListbox.on('enterKeyDown', function onListboxEnterKey(e) {
+            $listbox.on('enterKeyDown', function onListboxEnterKey(e) {
                 $form.submit();
             });
 
-            $customListbox.attr('aria-labelledby', $label.prop('id'));
+            $listbox.attr('aria-labelledby', $label.prop('id'));
 
             // call plugin to prevent page scroll
-            $customListbox.preventScrollKeys('[role=option]');
+            $listbox.preventScrollKeys('[role=option]');
 
-            $this.addClass('listbox--js');
-
-            // append the custom listbox to the widget
-            $this.append($customListbox);
+            // append the ARIA listbox to the widget
+            $this.append($listbox);
         });
     };
 
