@@ -15,6 +15,9 @@ span.listbox {
 .listbox--single [role="combobox"] {
     display: inline-block;
 }
+.listbox--single [role="combobox"]:focus {
+    outline: 1px solid #0654ba;
+}
 .listbox--single [role="listbox"] {
     cursor: default;
     display: none;
