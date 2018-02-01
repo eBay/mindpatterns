@@ -4,6 +4,14 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+/**
+* Copyright 2015 eBay Inc.
+*
+* Use of this source code is governed by a MIT-style
+* license that can be found in the LICENSE file or at
+* https://opensource.org/licenses/MIT.
+*/
+
 function nodeListToArray(nodeList) {
     return Array.prototype.slice.call(nodeList);
 }
