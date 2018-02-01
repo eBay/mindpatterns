@@ -15,3 +15,9 @@ This project uses [Bundler](http://bundler.io) to ensure our local [Jekyll](http
 1. Run `npm start` to build and run site
 1. Browser will automatically open at [localhost:3000](http://localhost:3000)
 1. Browser will automatically reload when local HTML, JS or CSS assets are modified
+
+## License
+
+Copyright (c) 2015 eBay Inc.
+
+Use of this source code is governed by a MIT-style license that can be found in the LICENSE file or at https://opensource.org/licenses/MIT.
