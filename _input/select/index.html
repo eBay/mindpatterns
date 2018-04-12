@@ -1,16 +1,13 @@
 ---
 layout: page
-title: Listbox
+title: Select
 ---
 
-<link rel="stylesheet" href="listbox.css">
+<link rel="stylesheet" href="select.css">
 
 <style>
     label {
         margin-right: 0.5rem;
-    }
-    select[multiple] {
-        vertical-align: top;
     }
     .listbox {
         position: relative;
@@ -24,16 +21,17 @@ title: Listbox
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
-<p>The native multi-select can be problematic for keyboard users. Therefore we recommended checkboxes for multi-select.</p>
+<p>Use ARROW keys to navigate select options; SPACE key to select/deselect; ENTER key to submit.</p>
+<p>Please <a href={{ "/input/select.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <h2>Examples</h2>
 <form>
     <div class="row">
         <div class="col-xs-12 col-md-6">
-            <h3>Native Listbox</h3>
+            <h3>Native Select</h3>
             <span>
-                <label for="cars-native">Car</label>
-                <select id="cars-native" name="cars-native[]" multiple>
+                <label for="car-native">Car</label>
+                <select id="car-native" name="car_native">
                     <option value="volvo">Volvo</option>
                     <option value="saab">Saab</option>
                     <option value="opel">Opel</option>
@@ -42,16 +40,17 @@ title: Listbox
             </span>
         </div>
         <div class="col-xs-12 col-md-6">
-            <h3>ARIA Listbox</h3>
+            <h3>ARIA Select</h3>
+            <label for="car-aria">Car</label>
             <span class="listbox">
-                <label for="cars-aria">Car</label>
-                <select id="cars-aria" name="cars-aria[]" multiple>
+                <select id="car-aria" name="car-aria">
                     <option value="volvo">Volvo</option>
                     <option value="saab">Saab</option>
                     <option value="opel">Opel</option>
                     <option value="audi">Audi</option>
                 </select>
             </span>
+            <span>(todo: needs 'dropdown' icon)</span>
         </div>
     </div>
     <div style="text-align: right;">
