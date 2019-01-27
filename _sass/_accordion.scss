@@ -17,9 +17,6 @@
 
 /* after enhancement */
 
-.accordion--js [role=tab] {
-    cursor: pointer;
-}
 .accordion--js [role=tab]::after {
     color: #999;
     content: '\e608';

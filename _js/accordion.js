@@ -24,11 +24,11 @@ function onKeyboardToggle(e) {
     toggle(e.detail.target);
 }
 
-function toggle(selectedTab) {
-    var isSelected = selectedTab.getAttribute('aria-selected') === 'true';
+function toggle(clickedTab) {
+    var isSelected = clickedTab.getAttribute('aria-selected') === 'true';
 
-    selectedTab.setAttribute('aria-selected', !isSelected);
-    selectedTab.getAttribute('aria-expanded', !isSelected);
+    clickedTab.setAttribute('aria-selected', !isSelected);
+    clickedTab.setAttribute('aria-expanded', !isSelected);
 }
 
 var NextID = require('makeup-next-id');
