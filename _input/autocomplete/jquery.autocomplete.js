@@ -49,7 +49,7 @@
             $input
                 .attr('role', 'combobox')
                 .attr('aria-expanded', 'false')
-                .attr('aria-autocomplete', 'list')
+                .attr('aria-autocomplete', 'both')
                 .attr('autocomplete','off') // Disable HTML5 autocomplete
                 .attr('aria-owns', $listbox.prop('id'));
 

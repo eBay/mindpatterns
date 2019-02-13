@@ -3,32 +3,21 @@ layout: page
 title: Select
 ---
 
-<link rel="stylesheet" href="select.css">
-
-<style>
-    label {
-        margin-right: 0.5rem;
-    }
-    .listbox {
-        position: relative;
-    }
-    .listbox--single [role="combobox"] {
-        width: 100px;
-    }
-</style>
-
-
 <h1>{{ page.title }}</h1>
 
+<p><i>Last Updated</i>: Feb 12, 2019</p>
+
 <h2 class="clipped">Readme</h2>
+
 <p>Use ARROW keys to navigate select options; SPACE key to select/deselect; ENTER key to submit.</p>
 <p>Please <a href={{ "/input/select.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <h2>Examples</h2>
+
 <form>
     <div class="row">
         <div class="col-xs-12 col-md-6">
-            <h3>Native Select</h3>
+            <h3>Native HTML Select</h3>
             <span>
                 <label for="car-native">Car</label>
                 <select id="car-native" name="car_native">
@@ -41,27 +30,9 @@ title: Select
         </div>
         <div class="col-xs-12 col-md-6">
             <h3>ARIA Select</h3>
-            <label for="car-aria">Car</label>
-            <span class="listbox">
-                <select id="car-aria" name="car-aria">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
-                </select>
-            </span>
-            <span>(todo: needs 'dropdown' icon)</span>
+            <p>See the <a href="../listbox">Listbox</a> pattern or Readonly Combobox pattern.</p>
         </div>
     </div>
-    <div style="text-align: right;">
-        <input type="submit" value="Submit" />
-    </div>
+    <hr />
+    <input class="button" type="submit" value="Submit Values" />
 </form>
-
-
-<script src="jquery.listbox.js"></script>
-<script>
-    $(function() {
-        $('.listbox').listbox();
-    });
-</script>

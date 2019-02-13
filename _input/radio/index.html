@@ -8,16 +8,19 @@ title: Radio
 
 <h1>{{ page.title }}</h1>
 
-<h2 class="clipped">Readme</h2>
 <p><i>Last Updated</i>: September 11, 2017</p>
+
+<h2 class="clipped">Readme</h2>
+
 <p>Use ARROW keys to change radio option, ENTER key submits form.</p>
 <p>Please <a href={{ "/input/radio.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <h2>Examples</h2>
+
 <form>
     <div class="row">
         <div class="col-xs-12 col-md-6">
-            <h3>Native HTML</h3>
+            <h3>Native HTML Radios</h3>
             <div>
                 <fieldset>
                     <legend>Auction Type</legend>
@@ -37,7 +40,7 @@ title: Radio
             </div>
         </div>
         <div class="col-xs-12 col-md-6">
-            <h3>Custom</h3>
+            <h3>Custom SVG Radios</h3>
             <div>
                 <fieldset>
                     <legend>Auction Type</legend>
@@ -113,8 +116,8 @@ title: Radio
         </div>
     </div>
     -->
-    <br />
-    <div style="text-align: center;"><input type="submit"/></div>
+    <hr />
+    <input class="button" type="submit" value="Submit Values"/>
 </form>
 
 <!--

@@ -14,13 +14,18 @@ title: Autocomplete
 
 <h1 class="post-title">{{ page.title }}</h1>
 
+<p><i>Last Updated</i>: Feb 12, 2019</p>
+
 <h2 class="clipped">Readme</h2>
-<p>Type a letter (a - f) then use ARROW keys to change options, ENTER key to make a selection, ESC to dismiss.</p>
+
+<p>Autocomplete is an enhancement of the <a href="../combobox">combobox</a> pattern. Enter text to filter out results, then use ARROW keys to select an option.</p>
 <p>Please <a href={{ "/input/autocomplete.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
-<h2>Examples</h1>
+<h2>Examples</h2>
+
 <div>
     <form>
+        <h3>List and Inline</h3>
         <span class="autocomplete">
             <label for="autocomplete-example">Search</label>
             <input id="autocomplete-example" name="animal" type="text" placeholder="Aardvark, Antelope, etc." />
