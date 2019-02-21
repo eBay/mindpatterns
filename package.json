@@ -33,7 +33,7 @@
     "makeup-prevent-scroll-keys": "~0.0.2",
     "makeup-roving-tabindex": "~0.1.0",
     "nodemon": "^1",
-    "onchange": "^3",
+    "onchange": "^5",
     "parallelshell": "^3",
     "pre-commit": "^1",
     "rimraf": "^2"
