@@ -7,7 +7,7 @@
 This project uses [Bundler](http://bundler.io) to ensure our local [Jekyll](http://jekyllrb.com) environment matches the GitHub Pages Jekyll environment.
 
 1. To install Bundler, please refer to this short [Requirements](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/#requirements) section over on GitHub Help (you can skip all the other steps on that page and come back here)
-1. Clone this project to your local environment, e.g. `git clone https://github.com/ianmcburnie/mindpatterns.git`
+1. Clone this project to your local environment, e.g. `git clone https://github.com/eBay/mindpatterns.git`
 1. In your terminal window, change into the project directory you just cloned
 1. Notice the project directory contains a Gemfile. It will be used by Bundler in the next step.
 1. Run `bundle install` this will install Jekyll and other [dependencies](https://pages.github.com/versions/) from the GitHub Pages gem
