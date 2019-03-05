@@ -1,7 +1,7 @@
-.bubblehelp {
+.infotip {
     position: relative;
 }
-.bubblehelp .flyout__overlay {
+.infotip .flyout__overlay {
     background: LightYellow;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 1px #ccc;
@@ -10,26 +10,26 @@
     padding: 0 16px;
     text-align: justify;
 }
-.bubblehelp .flyout__trigger {
+.infotip .flyout__trigger {
     background: 0;
     border: 0;
     padding: 0;
 }
-.bubblehelp a.flyout__trigger {
+.infotip a.flyout__trigger {
     text-decoration: none;
 }
-.bubblehelp .flyout__trigger:after {
+.infotip .flyout__trigger:after {
     color: #006699;
     content: '\e614';
     font-family: 'vq-icon-font';
     font-size: 16px;
 }
-.bubblehelp--js > .flyout__trigger[aria-expanded=true]:after {
+.infotip--js > .flyout__trigger[aria-expanded=true]:after {
     content: '\e60a';
 }
-.bubblehelp--js > .flyout__trigger sup {
+.infotip--js > .flyout__trigger sup {
     display: none;
 }
-.bubblehelp--js > .flyout__trigger:focus {
+.infotip--js > .flyout__trigger:focus {
     text-decoration: none;
 }

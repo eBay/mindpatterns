@@ -7,7 +7,7 @@
 */
 
 /**
-* @file jQuery plugin that creates the basic interactivity for a bubble help flyout
+* @file jQuery plugin that creates the basic interactivity for an infotip flyout
 * @desc Please DO NOT copy this code to production! This is 'quick & ugly, just make it work!' code.
 * @requires jquery-click-flyout
 * @requires jquery-hijax-button
@@ -15,7 +15,7 @@
 * @author Ian McBurnie <ianmcburnie@hotmail.com>
 */
 (function($, window, document, undefined) {
-    $.fn.bubbleHelp = function() {
+    $.fn.infotip = function() {
         return this.each(function onEach() {
             var $widget = $(this);
             var $button = $widget.find('.flyout__trigger');
@@ -52,7 +52,7 @@
             $button.prop('disabled', false);
 
             // mark the widget as done
-            $widget.addClass('bubblehelp--js');
+            $widget.addClass('infotip--js');
         });
     };
 }(jQuery, window, document));

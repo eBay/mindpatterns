@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Bubble Help
+title: Infotip
 ---
 
 <link rel="stylesheet" href="../flyout/flyout.css">
-<link rel="stylesheet" href="bubblehelp.css">
+<link rel="stylesheet" href="infotip.css">
 <style>
-    #bubblehelp1 img {
+    #infotip img {
         display: none;
     }
     .flyout__overlay img {
@@ -24,9 +24,9 @@ title: Bubble Help
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
-<p>Use TAB key to reach bubble-help icon, then use ENTER or SPACEBAR to toggle flyout.</p>
+<p>Use TAB key to reach infotip button, then use ENTER or SPACEBAR to expand content.</p>
 <p>Disable JavaScript to view progressive enhancement fallback.</p>
-<p>Please <a href={{ "/disclosure/bubblehelp.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+<p>Please <a href={{ "/disclosure/infotip.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <h2>Examples</h2>
 
@@ -34,7 +34,7 @@ title: Bubble Help
     <div class="col-xs-12 col-md-6">
         <h3>Example 1: Button</h3>
         <div>
-            <span class="bubblehelp">
+            <span class="infotip">
                 <button class="flyout__trigger" type="button" aria-label="Help" disabled></button>
                 <span class="flyout__live-region" aria-live="polite">
                     <div class="flyout__overlay">
@@ -46,10 +46,10 @@ title: Bubble Help
         </div>
     </div>
     <div class="col-xs-12 col-md-6">
-        <h3>Example 2: Enhanced Anchor</h3>
+        <h3>Example 2: Enhanced Anchor/Footnote</h3>
         <div>
-            <span class="bubblehelp">
-                <a href="#bubblehelp1"><sup>[1]</sup></a>
+            <span class="infotip">
+                <a href="#infotip1"><sup>[1]</sup></a>
             </span>
         </div>
     </div>
@@ -60,17 +60,17 @@ title: Bubble Help
     <h2 id="ref_heading">References</h2>
     <ol>
         <li>
-            <div id="bubblehelp1" tabindex="-1">
+            <div id="infotip1" tabindex="-1">
                 <p><img src="{{ '/images/gregorsamsa.jpg' | relative_url }}" alt="Illustration of Gregor Samsa" /></p>
                 <p>Gregor Samsa appears to be based upon <a href="http://en.wikipedia.org/wiki/Franz_Kafka">Kafka</a> himself. As when Kafka suffered from insomnia, he feared he was repulsive and a burden to his family, during which time his sister was his caretaker.</p>
             </div>
         </li>
     </ol>
 </section>
-<script src="jquery.bubblehelp.js"></script>
+<script src="jquery.infotip.js"></script>
 <script>
     $(function() {
-        $('.bubblehelp').bubbleHelp();
+        $('.infotip').infotip();
         $('#references').remove();
     });
 </script>
