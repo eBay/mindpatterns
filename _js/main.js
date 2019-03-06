@@ -1,21 +1,24 @@
 /**
-* Copyright 2015 eBay Inc.
+* Copyright 2019 eBay Inc.
 *
 * Use of this source code is governed by a MIT-style
 * license that can be found in the LICENSE file or at
 * https://opensource.org/licenses/MIT.
 */
 
-$(function() {
+document.addEventListener("DOMContentLoaded", function(e) {
+    var Util = require('./util.js');
     var Accordion = require('./accordion.js');
+    var Tabs = require('./tabs.js');
 
-    function nodeListToArray(nodeList) {
-        return Array.prototype.slice.call(nodeList);
-    }
-
-    $('.skipto').skipTo();
-
-    nodeListToArray(document.querySelectorAll('.accordion')).forEach(function(el) {
+    Util.querySelectorAllToArray('.accordion').forEach(function(el) {
         return new Accordion(el);
-    })
+    });
+
+    Util.querySelectorAllToArray('.tabs').forEach(function(el) {
+        el.addEventListener('tabsChange', function(e) {
+            // console.log(e.detail);
+        });
+        return new Tabs(el);
+    });
 });

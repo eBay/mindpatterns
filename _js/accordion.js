@@ -12,10 +12,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 * https://opensource.org/licenses/MIT.
 */
 
-function nodeListToArray(nodeList) {
-    return Array.prototype.slice.call(nodeList);
-}
-
 function onMouseToggle(e) {
     toggle(e.target);
 }
@@ -31,6 +27,7 @@ function toggle(clickedTab) {
     clickedTab.setAttribute('aria-expanded', !isSelected);
 }
 
+var Util = require('./util.js');
 var NextID = require('makeup-next-id');
 var RovingTabindex = require('makeup-roving-tabindex');
 var scrollKeyPreventer = require('makeup-prevent-scroll-keys');
@@ -41,9 +38,9 @@ module.exports = function () {
         _classCallCheck(this, _class);
 
         this._el = widgetEl;
-        var items = nodeListToArray(widgetEl.querySelectorAll('.accordion__item'));
-        var tabs = nodeListToArray(widgetEl.querySelectorAll('.accordion__tab'));
-        var panels = nodeListToArray(widgetEl.querySelectorAll('.accordion__panel'));
+        var items = Util.querySelectorAllToArray('.accordion__item');
+        var tabs = Util.querySelectorAllToArray('.accordion__tab');
+        var panels = Util.querySelectorAllToArray('.accordion__panel');
 
         // ensure the widget has an ID
         NextID(widgetEl, 'accordion');

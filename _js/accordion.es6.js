@@ -6,10 +6,6 @@
 * https://opensource.org/licenses/MIT.
 */
 
-function nodeListToArray(nodeList) {
-    return Array.prototype.slice.call(nodeList);
-}
-
 function onMouseToggle(e) {
     toggle(e.target);
 }
@@ -25,6 +21,7 @@ function toggle(clickedTab) {
     clickedTab.setAttribute('aria-expanded', !isSelected);
 }
 
+const Util = require('./util.js');
 const NextID = require('makeup-next-id');
 const RovingTabindex = require('makeup-roving-tabindex');
 const scrollKeyPreventer = require('makeup-prevent-scroll-keys');
@@ -33,9 +30,9 @@ const keyEmitter = require('makeup-key-emitter');
 module.exports = class {
     constructor(widgetEl) {
         this._el = widgetEl;
-        const items = nodeListToArray(widgetEl.querySelectorAll('.accordion__item'));
-        const tabs = nodeListToArray(widgetEl.querySelectorAll('.accordion__tab'));
-        const panels = nodeListToArray(widgetEl.querySelectorAll('.accordion__panel'));
+        const items = Util.querySelectorAllToArray('.accordion__item');
+        const tabs = Util.querySelectorAllToArray('.accordion__tab');
+        const panels = Util.querySelectorAllToArray('.accordion__panel');
 
         // ensure the widget has an ID
         NextID(widgetEl, 'accordion');
