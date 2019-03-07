@@ -28,23 +28,16 @@ function removeLink(el) {
 }
 
 function onRovingTabindexChange(e) {
-    var tabs = Util.querySelectorAllToArray('.tabs__item', this._el);
-    var panels = Util.querySelectorAllToArray('.tabs__panel', this._el);
-    var currentTab = tabs[e.detail.fromIndex];
-    var newTab = tabs[e.detail.toIndex];
-    var currentPanel = panels[e.detail.fromIndex];
-    var newPanel = panels[e.detail.toIndex];
+    this.tabs[e.detail.fromIndex].setAttribute('aria-selected', 'false');
+    this.panels[e.detail.fromIndex].hidden = true;
 
-    currentTab.setAttribute('aria-selected', 'false');
-    currentPanel.hidden = true;
-
-    newTab.setAttribute('aria-selected', 'true');
-    newPanel.hidden = false;
+    this.tabs[e.detail.toIndex].setAttribute('aria-selected', 'true');
+    this.panels[e.detail.toIndex].hidden = false;
 
     this._el.dispatchEvent(new CustomEvent('tabsChange', {
         detail: {
-            toIndex: e.detail.toIndex,
-            fromIndex: e.detail.fromIndex
+            fromIndex: e.detail.fromIndex,
+            toIndex: e.detail.toIndex
         }
     }));
 }
