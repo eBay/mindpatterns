@@ -82,6 +82,11 @@ a.button[role=button] {
         a {
             display: inline-block;
             text-transform: capitalize;
+
+            &:focus {
+                outline: 1px dotted white;
+            }
+
             &:first-letter {
                 font-weight: 300;
             }
@@ -121,6 +126,10 @@ a.button[role=button] {
         color: #ddd;
         font-weight: 200;
         text-decoration: none;
+
+        &:focus {
+            outline: 1px dotted white;
+        }
 
         &:hover {
             text-decoration: underline;

@@ -8,11 +8,11 @@
 
 document.addEventListener("DOMContentLoaded", function(e) {
     var Util = require('./util.js');
-    var Accordion = require('./accordion.js');
+    var AccordionLegacy = require('./accordion-legacy.js');
     var Tabs = require('./tabs.js');
 
-    Util.querySelectorAllToArray('.accordion').forEach(function(el) {
-        return new Accordion(el);
+    Util.querySelectorAllToArray('.accordion-legacy').forEach(function(el) {
+        return new AccordionLegacy(el);
     });
 
     Util.querySelectorAllToArray('.tabs').forEach(function(el) {
