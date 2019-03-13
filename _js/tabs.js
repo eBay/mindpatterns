@@ -144,6 +144,8 @@ module.exports = function () {
         key: 'destroy',
         value: function destroy() {
             this._el.removeEventListener('rovingTabindexChange', this._onRovingTabindexChangeListener);
+
+            this._onRovingTabindexChangeListener = null;
         }
     }]);
 

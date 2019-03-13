@@ -112,5 +112,7 @@ module.exports = class {
 
     destroy() {
         this._el.removeEventListener('rovingTabindexChange', this._onRovingTabindexChangeListener);
+
+        this._onRovingTabindexChangeListener = null;
     }
 }
