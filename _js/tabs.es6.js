@@ -109,4 +109,8 @@ module.exports = class {
         // mark the widget as progressively enhanced
         this._el.classList.add('tabs--js');
     }
+
+    destroy() {
+        this._el.removeEventListener('rovingTabindexChange', this._onRovingTabindexChangeListener);
+    }
 }
