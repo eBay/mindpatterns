@@ -24,7 +24,7 @@ function linkPanelToTab(widgetID, el, i) {
     el.setAttribute('aria-labelledby', widgetID + '-tab-' + i);
 }
 
-function removeLink(el) {
+function disableLink(el) {
     el.setAttribute('role', 'presentation');
     el.removeAttribute('href');
 }
@@ -36,7 +36,7 @@ function onRovingTabindexChange(e) {
     this.tabs[e.detail.toIndex].setAttribute('aria-selected', 'true');
     this.panels[e.detail.toIndex].hidden = false;
 
-    this._el.dispatchEvent(new CustomEvent('tabsChange', {
+    this._el.dispatchEvent(new CustomEvent('tabs-change', {
         detail: {
             fromIndex: e.detail.fromIndex,
             toIndex: e.detail.toIndex
@@ -124,14 +124,13 @@ module.exports = function () {
 
         // remove link behaviour and semantics
         links.forEach(function (el) {
-            return removeLink(el);
+            return disableLink(el);
         });
 
         // create a roving tab index
         var rovingTabindex = RovingTabindex.createLinear(this._el, '[role=tab]', { wrap: true });
 
-        // listen for changes to roving tab index
-        this._el.addEventListener('rovingTabindexChange', this._onRovingTabindexChangeListener);
+        this.enableEvents();
 
         // prevent page scroll when scroll keys are pressed
         ScrollKeyPreventer.add(tabList);
@@ -141,9 +140,24 @@ module.exports = function () {
     }
 
     _createClass(_class, [{
+        key: 'disableEvents',
+        value: function disableEvents() {
+            this._el.removeEventListener('rovingTabindexChange', this._onRovingTabindexChangeListener);
+        }
+    }, {
+        key: 'enableEvents',
+        value: function enableEvents() {
+            if (this._destroyed !== true) {
+                // listen for changes to roving tab index
+                this._el.addEventListener('rovingTabindexChange', this._onRovingTabindexChangeListener);
+            }
+        }
+    }, {
         key: 'destroy',
         value: function destroy() {
-            this._el.removeEventListener('rovingTabindexChange', this._onRovingTabindexChangeListener);
+            this._destroyed = true;
+
+            this.disableEvents();
 
             this._onRovingTabindexChangeListener = null;
         }

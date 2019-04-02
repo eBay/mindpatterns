@@ -1,0 +1,50 @@
+---
+layout: page
+title: Details
+---
+
+<!-- generic styles -->
+<link rel="stylesheet" href="details.css">
+
+<!-- example specific styles -->
+<style>
+    img {
+        margin-bottom: 1rem;
+    }
+</style>
+
+<h1>{{ page.title }}</h1>
+    <div>
+        <h2 class="clipped">Readme</h2>
+        <p>Use TAB key to focus details button.</p>
+        <p>Please <a href={{ "/disclosure/details.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+        <hr />
+    </div>
+    <div>
+        <h2>Example 1</h2>
+
+        <h3>Nintendo Entertainment System</h3>
+
+        <img alt="Nintendo" src="{{ '/images/nes.jpg' | relative_url }}" />
+        <details class="details">
+            <summary>Details</summary>
+            <p>The <a href="http://en.wikipedia.org/wiki/Nintendo_Entertainment_System">Nintendo Entertainment System</a> (also abbreviated as NES) is an 8-bit home video game console that was developed and manufactured by Nintendo.</p>
+            <p>It was initially released in Japan as the Family Computer (Japanese: ファミリーコンピュータ Hepburn: Famirī Konpyūta?) (also known by the portmanteau abbreviation Famicom (ファミコン Famikon?) and abbreviated as FC) on July 15, 1983, and was later released in North America during 1985, in Europe during 1986, and Australia in 1987.</p>
+            <p>In South Korea, it was known as the Hyundai Comboy (현대 컴보이) and was distributed by SK Hynix which then was known as Hyundai Electronics. It was succeeded by the Super Famicom/Super Nintendo Entertainment System.</p>
+        </details>
+    </div>
+    <hr />
+    <div>
+        <h2>Example 2</h2>
+
+        <details class="details">
+            <summary>Buying Activity</summary>
+            <ul>
+                <li><a href="http://www.ebay.com">Purchases</a></li>
+                <li><a href="http://www.ebay.com">Bids/Offers</a></li>
+                <li><a href="http://www.ebay.com">Didn't Win</a></li>
+            </ul>
+        </details>
+    </div>
+    <hr />
+</div>

@@ -16,7 +16,7 @@ function linkPanelToTab(widgetID, el, i) {
     el.setAttribute('aria-labelledby', widgetID + '-tab-' + i);
 }
 
-function removeLink(el) {
+function disableLink(el) {
     el.setAttribute('role', 'presentation')
     el.removeAttribute('href');
 }
@@ -28,7 +28,7 @@ function onRovingTabindexChange(e) {
     this.tabs[e.detail.toIndex].setAttribute('aria-selected', 'true');
     this.panels[e.detail.toIndex].hidden = false;
 
-    this._el.dispatchEvent(new CustomEvent('tabsChange', {
+    this._el.dispatchEvent(new CustomEvent('tabs-change', {
         detail: {
             fromIndex: e.detail.fromIndex,
             toIndex: e.detail.toIndex
@@ -95,13 +95,12 @@ module.exports = class {
         panels.forEach((el, i) => linkPanelToTab(this._el.id, el, i));
 
         // remove link behaviour and semantics
-        links.forEach(el => removeLink(el));
+        links.forEach(el => disableLink(el));
 
         // create a roving tab index
         const rovingTabindex = RovingTabindex.createLinear(this._el, '[role=tab]', { wrap: true });
 
-        // listen for changes to roving tab index
-        this._el.addEventListener('rovingTabindexChange', this._onRovingTabindexChangeListener);
+        this.enableEvents();
 
         // prevent page scroll when scroll keys are pressed
         ScrollKeyPreventer.add(tabList);
@@ -110,8 +109,21 @@ module.exports = class {
         this._el.classList.add('tabs--js');
     }
 
-    destroy() {
+    disableEvents() {
         this._el.removeEventListener('rovingTabindexChange', this._onRovingTabindexChangeListener);
+    }
+
+    enableEvents() {
+        if (this._destroyed !== true) {
+            // listen for changes to roving tab index
+            this._el.addEventListener('rovingTabindexChange', this._onRovingTabindexChangeListener);
+        }
+    }
+
+    destroy() {
+        this._destroyed = true;
+
+        this.disableEvents();
 
         this._onRovingTabindexChangeListener = null;
     }
