@@ -65,7 +65,8 @@ module.exports = function () {
             }
 
             this._summaryEl.setAttribute('tabindex', '0');
-            this._summaryEl.setAttribute('role', 'button');
+            this._summaryEl.setAttribute('role', 'group');
+            this._summaryEl.setAttribute('aria-roledescription', 'summary');
 
             this.wake();
         } else {

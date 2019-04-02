@@ -38,12 +38,12 @@ module.exports = function () {
         _classCallCheck(this, _class);
 
         this._el = widgetEl;
-        var items = Util.querySelectorAllToArray('.accordion__item');
-        var tabs = Util.querySelectorAllToArray('.accordion__tab');
-        var panels = Util.querySelectorAllToArray('.accordion__panel');
+        var items = Util.querySelectorAllToArray('.accordion-legacy__item');
+        var tabs = Util.querySelectorAllToArray('.accordion-legacy__tab');
+        var panels = Util.querySelectorAllToArray('.accordion-legacy__panel');
 
         // ensure the widget has an ID
-        NextID(widgetEl, 'accordion');
+        NextID(widgetEl, 'accordion-legacy');
 
         // add appropriate ARIA roles
         widgetEl.setAttribute('role', 'tablist');
@@ -72,7 +72,7 @@ module.exports = function () {
         });
 
         // create a roving tab index on headings
-        RovingTabindex.createLinear(widgetEl, '.accordion__tab');
+        RovingTabindex.createLinear(widgetEl, '.accordion-legacy__tab');
 
         // listen for common keyboard commands
         keyEmitter.addKeyDown(widgetEl);
@@ -86,7 +86,7 @@ module.exports = function () {
         widgetEl.addEventListener('enterKeyDown', onKeyboardToggle);
 
         // mark widget as initialised
-        widgetEl.classList.add('accordion--js');
+        widgetEl.classList.add('accordion-legacy--js');
     }
 
     _createClass(_class, [{

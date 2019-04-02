@@ -30,12 +30,12 @@ const keyEmitter = require('makeup-key-emitter');
 module.exports = class {
     constructor(widgetEl) {
         this._el = widgetEl;
-        const items = Util.querySelectorAllToArray('.accordion__item');
-        const tabs = Util.querySelectorAllToArray('.accordion__tab');
-        const panels = Util.querySelectorAllToArray('.accordion__panel');
+        const items = Util.querySelectorAllToArray('.accordion-legacy__item');
+        const tabs = Util.querySelectorAllToArray('.accordion-legacy__tab');
+        const panels = Util.querySelectorAllToArray('.accordion-legacy__panel');
 
         // ensure the widget has an ID
-        NextID(widgetEl, 'accordion');
+        NextID(widgetEl, 'accordion-legacy');
 
         // add appropriate ARIA roles
         widgetEl.setAttribute('role', 'tablist');
@@ -64,7 +64,7 @@ module.exports = class {
         });
 
         // create a roving tab index on headings
-        RovingTabindex.createLinear(widgetEl, '.accordion__tab');
+        RovingTabindex.createLinear(widgetEl, '.accordion-legacy__tab');
 
         // listen for common keyboard commands
         keyEmitter.addKeyDown(widgetEl);
@@ -78,7 +78,7 @@ module.exports = class {
         widgetEl.addEventListener('enterKeyDown', onKeyboardToggle);
 
         // mark widget as initialised
-        widgetEl.classList.add('accordion--js');
+        widgetEl.classList.add('accordion-legacy--js');
     }
 
     destroy() {

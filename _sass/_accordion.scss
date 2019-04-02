@@ -1,47 +1,17 @@
-.accordion__item {
-    border: 1px solid #ddd;
-    border-bottom: 0;
-}
-.accordion__panel {
-    padding: 16px;
-}
-.accordion__item:last-child {
-    border-bottom: 1px solid #ddd;
-}
-.accordion__tab {
-    background-color: LightYellow;
-    font-weight: normal;
+.accordion {
     margin: 0;
-    padding: 8px;
+    padding: 0;
 }
 
-/* after enhancement */
+.accordion > li {
+    list-style: none;
+}
 
-.accordion--js [role=tab]::after {
-    color: #999;
-    content: '\e608';
-    float: right;
-    font-family: 'vq-icon-font';
-    font-size: 1em;
-}
-.accordion--js [role=tab]:focus {
-    background-color: #006699;
-    color: white;
-    outline: 0;
-}
-.accordion--js [role=tab][aria-selected=true]:after {
-    content: '\e606';
-}
-.accordion--js [role=tab]:focus:after {
-    color: white;
-}
-.accordion--js [role=tab][aria-selected=true] + [role=tabpanel] {
-    display: block;
-}
-.accordion--js [role=tab][aria-selected=false] + [role=tabpanel] {
-    display: none;
-}
-.accordion--js [role=tabpanel] {
-    border-top: 1px solid #ddd;
-    padding: 8px 16px;
+.accordion details summary h2,
+.accordion details summary h3,
+.accordion details summary h4,
+.accordion details summary h5,
+.accordion details summary h6 {
+    display: inline-block;
+    margin: 1em;
 }

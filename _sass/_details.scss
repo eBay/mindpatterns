@@ -10,7 +10,7 @@ details.details summary {
     list-style-type: none;
 }
 
-/* Remove details marker non-webkit */
+/* Remove details marker for webkit */
 details.details summary::-webkit-details-marker {
     display: none
 }
