@@ -6,8 +6,8 @@ description: > # this means to ignore newlines until "baseurl:"
   eBay MIND Patterns - Accessibility Patterns for the Web.
 baseurl: "/mindpatterns"
 url: "http://ianmcburnie.github.io"
-patterns_baseurl: "/mindpatterns/content"
-patterns_url: "https://ebay.gitbooks.io"
+patterns_baseurl: "/mindpatterns/"
+patterns_url: "https://ebay.gitbook.io"
 
 # twitter_username: ianmcburnie
 # github_username:  ianmcburnie
