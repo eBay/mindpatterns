@@ -1,22 +1,26 @@
 /* Polyfill IE/Edge */
-details.details {
+details.details,
+.accordion__details {
     display: block;
 }
 
 /* Remove details marker for non-webkit */
-details.details summary {
+details.details summary,
+.accordion__details summary {
     display: list-item;
     list-style-position: inside;
     list-style-type: none;
 }
 
 /* Remove details marker for webkit */
-details.details summary::-webkit-details-marker {
+details.details summary::-webkit-details-marker,
+.accordion__details summary::-webkit-details-marker {
     display: none
 }
 
 /* Custom details marker for closed state */
-details.details summary::before {
+details.details summary::before,
+.accordion__details summary::before {
     content: "\025B8";
     display: inline-block;
     width: 1em;
@@ -24,13 +28,18 @@ details.details summary::before {
 
 /* Custom details marker for open state */
 details.details[open] summary::before,
-details.details[data-makeup-open] summary::before {
+details.details[data-makeup-open] summary::before,
+.accordion__details[open] summary::before,
+.accordion__details[data-makeup-open] summary::before  {
     content: "\025BE";
 }
 
 /* Move to accordion */
 details.details summary h2,
 details.details summary h3,
-details.details summary h4 {
+details.details summary h4,
+.accordion__details summary h2,
+.accordion__details summary h3,
+.accordion__details summary h4 {
     display: inline-block;
 }
