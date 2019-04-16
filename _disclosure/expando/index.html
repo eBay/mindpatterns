@@ -3,16 +3,6 @@ layout: page
 title: Expando
 ---
 
-<link rel="stylesheet" href="expando.css">
-<style>
-    .expando > div > div {
-        background-color: LightYellow;
-        border: 1px solid #eee;
-        margin-top: 16px;
-        padding: 4px 16px;
-    }
-</style>
-
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
@@ -24,14 +14,8 @@ title: Expando
     <h3>Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC</h3>
     <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
     <div class="expando">
+        <button class="expando__button">Toggle Translation</button>
         <h4>1914 translation by H. Rackham</h4>
         <p>"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.</p>
     </div>
 </div>
-
-<script src="jquery.expando.js"></script>
-<script>
-    $(function() {
-        $('.expando').expando();
-    });
-</script>

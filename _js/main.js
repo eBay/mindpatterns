@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     var Accordion = require('./accordion.js');
     var AccordionLegacy = require('./accordion-legacy.js');
     var Details = require('./details.js');
+    var Expando = require('./expando.js');
     var Tabs = require('./tabs.js');
 
     Util.querySelectorAllToArray('.accordion').forEach(function(accordionEl) {
@@ -36,5 +37,11 @@ document.addEventListener("DOMContentLoaded", function(e) {
         detailsEl.addEventListener('toggle', Util.logEvent);
 
         pageWidgets.push(new Details(detailsEl));
+    });
+
+    Util.querySelectorAllToArray('.expando').forEach(function(expandoEl) {
+        expandoEl.addEventListener('expando-toggle', Util.logEvent);
+
+        pageWidgets.push(new Expando(expandoEl));
     });
 });

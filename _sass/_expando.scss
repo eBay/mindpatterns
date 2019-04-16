@@ -1,0 +1,13 @@
+.expando__button {
+    font-size: 20px;
+}
+
+.expando__button::after {
+    content: "\025B8";
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.expando__button[aria-expanded="true"]::after {
+    content: "\025BE";
+}

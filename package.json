@@ -9,12 +9,8 @@
     "clean": "rimraf _site .cache .sass-cache build static/browser.js",
     "nodemon": "nodemon --exec 'npm run lasso && npm run jekyll' -e html,css,scss,js --ignore 'static' --ignore '*.es6.js' --ignore '_site'",
     "prepublishOnly": "npm run build",
-    "transpile": "npm run transpile:accordion && npm run transpile:accordion-legacy && npm run transpile:details && npm run transpile:tabs",
-    "transpile:accordion": "babel _js/accordion.es6.js --out-file _js/accordion.js",
-    "transpile:accordion-legacy": "babel _js/accordion-legacy.es6.js --out-file _js/accordion-legacy.js",
-    "transpile:details": "babel _js/details.es6.js --out-file _js/details.js",
-    "transpile:tabs": "babel _js/tabs.es6.js --out-file _js/tabs.js",
-    "onchange": "onchange _js/*.es6.js -- npm run transpile"
+    "transpile": "babel _js/src --out-dir _js",
+    "onchange": "onchange _js/src -- npm run transpile"
   },
   "license": "MIT",
   "pre-commit": [
