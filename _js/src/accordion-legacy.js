@@ -21,7 +21,6 @@ function toggle(clickedTab) {
     clickedTab.setAttribute('aria-expanded', !isSelected);
 }
 
-const Util = require('./util.js');
 const NextID = require('makeup-next-id');
 const RovingTabindex = require('makeup-roving-tabindex');
 const scrollKeyPreventer = require('makeup-prevent-scroll-keys');
@@ -30,9 +29,9 @@ const keyEmitter = require('makeup-key-emitter');
 module.exports = class {
     constructor(widgetEl) {
         this._el = widgetEl;
-        const items = Util.querySelectorAllToArray('.accordion-legacy__item');
-        const tabs = Util.querySelectorAllToArray('.accordion-legacy__tab');
-        const panels = Util.querySelectorAllToArray('.accordion-legacy__panel');
+        const items = document.querySelectorAll('.accordion-legacy__item');
+        const tabs = document.querySelectorAll('.accordion-legacy__tab');
+        const panels = document.querySelectorAll('.accordion-legacy__panel');
 
         // ensure the widget has an ID
         NextID(widgetEl, 'accordion-legacy');

@@ -1,17 +1,9 @@
-function nodeListToArray(nodeList) {
-    return Array.prototype.slice.call(nodeList);
-}
+"use strict";
 
-function querySelectorAllToArray(selector, parentNode) {
-    parentNode = parentNode || document;
-    return nodeListToArray(parentNode.querySelectorAll(selector));
-}
-
-function logEvent(e) {
-    console.log(e);
-}
+var logEvent = function logEvent() {
+  return console.log(e);
+};
 
 module.exports = {
-    logEvent: logEvent,
-    querySelectorAllToArray: querySelectorAllToArray
+  logEvent: logEvent
 };

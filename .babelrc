@@ -1,4 +1,14 @@
 {
-  "presets": ["env"],
+  "presets": [
+    [
+      "@babel/preset-env",{
+        "useBuiltIns": "false",
+        "corejs": 3,
+        "targets": {
+          "ie": "11"
+        }
+      }
+    ]
+  ],
   "plugins": ["transform-object-assign"]
 }

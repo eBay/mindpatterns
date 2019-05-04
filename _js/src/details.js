@@ -1,9 +1,7 @@
 /**
-* Copyright 2019 eBay Inc.
-*
-* Use of this source code is governed by a MIT-style
-* license that can be found in the LICENSE file or at
-* https://opensource.org/licenses/MIT.
+* this is a very rudimentary (and unfinished!) approach to polyfilling the details element
+* please use this one instead:
+* https://github.com/javan/details-element-polyfill
 */
 
 function nodeListToArray(nodeList) {

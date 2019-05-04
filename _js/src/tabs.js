@@ -6,6 +6,8 @@
 * https://opensource.org/licenses/MIT.
 */
 
+const nodeListToArray = (nodeList) => Array.prototype.slice.call(nodeList);
+
 function linkTabToPanel(widgetID, el, i) {
     el.setAttribute('id', widgetID + '-tab-' + i);
     el.setAttribute('aria-controls', widgetID + '-panel-' + i);
@@ -55,10 +57,10 @@ module.exports = class {
         // cache the root element
         this._el = widgetEl;
 
-        const tabList = this._el.querySelector('.tabs__items', this._el);
-        const tabs = Util.querySelectorAllToArray('.tabs__item', this._el);
-        const panels = Util.querySelectorAllToArray('.tabs__panel', this._el);
-        const links = Util.querySelectorAllToArray('a', tabList);
+        const tabList = this._el.querySelector('.tabs__items');
+        const tabs = this._el.querySelectorAll('.tabs__item');
+        const panels = this._el.querySelectorAll('.tabs__panel');
+        const links = tabList.querySelectorAll('a');
 
         this.tabs = tabs;
         this.panels = panels;
@@ -83,10 +85,10 @@ module.exports = class {
         tabs[initialIndex].setAttribute('aria-selected', 'true');
 
         // set all unselected tabs to false
-        tabs.filter((el, i) => i !== initialIndex).forEach(el => el.setAttribute('aria-selected', 'false'));
+        nodeListToArray(tabs).filter((el, i) => i !== initialIndex).forEach(el => el.setAttribute('aria-selected', 'false'));
 
         // hide all unselected panels
-        panels.filter((el, i) => i !== initialIndex).forEach(el => el.hidden = true);
+        nodeListToArray(panels).filter((el, i) => i !== initialIndex).forEach(el => el.hidden = true);
 
         // all tabs control their respective panel
         tabs.forEach((el, i) => linkTabToPanel(this._el.id, el, i));

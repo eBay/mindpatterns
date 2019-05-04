@@ -6,9 +6,6 @@
 * https://opensource.org/licenses/MIT.
 */
 
-const Util = require('./util.js');
-const Details = require('./details.js');
-
 const dataSetKey = 'data-makeup-accordion-index';
 
 const defaultOptions = {
@@ -26,22 +23,16 @@ function onToggle(e) {
 }
 
 function addToggleListener(detailsEl, i) {
-    // this event will be fired by browsers that DO NOT support details element
-    detailsEl.addEventListener('details-toggle', this._onToggleListener);
-    // this event will be fired by browsers that DO support details element
     detailsEl.addEventListener('toggle', this._onToggleListener);
 }
 
 function removeToggleListener(detailsEl, i) {
-    // this event will be fired by browsers that DO NOT support details element
-    detailsEl.removeEventListener('details-toggle', this._onToggleListener);
-    // this event will be fired by browsers that DO support details element
     detailsEl.removeEventListener('toggle', this._onToggleListener);
 }
 
 function createDetailsWidget(el, i) {
     el.setAttribute(dataSetKey, i);
-    this._detailsWidgets.push(new Details(el));
+    this._detailsWidgets.push(el);
 }
 
 module.exports = class {
@@ -55,7 +46,7 @@ module.exports = class {
 
         this._detailsWidgets = [];
 
-        const detailsEls = Util.querySelectorAllToArray('.accordion__details', this._el);
+        const detailsEls = this._el.querySelectorAll('.accordion__details');
 
         detailsEls.forEach(createDetailsWidget.bind(this));
 
@@ -66,12 +57,12 @@ module.exports = class {
     }
 
     disableEvents() {
-        Util.querySelectorAllToArray('.accordion__details', this._el).forEach(removeToggleListener.bind(this));
+        this._el.querySelectorAll('.accordion__details').forEach(removeToggleListener.bind(this));
     }
 
     enableEvents() {
         if (this._destroyed !== true) {
-            Util.querySelectorAllToArray('.accordion__details', this._el).forEach(addToggleListener.bind(this));
+            this._el.querySelectorAll('.accordion__details').forEach(addToggleListener.bind(this));
         }
     }
 
