@@ -3493,10 +3493,15 @@ makeup-next-id@~0.0.2:
   resolved "https://registry.yarnpkg.com/makeup-next-id/-/makeup-next-id-0.0.2.tgz#70f19812b0b5cb8d5f0f7f78719179ea4b61a0ef"
   integrity sha512-nAeDpu/X8Z978mvtj1GnalHNs3ulHOLIpEm2lLAM3SO8KdTDtl4uP3utfW8oYtOZIXaeMhR53JqxFDQ3ZYCZug==
 
-makeup-prevent-scroll-keys@~0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/makeup-prevent-scroll-keys/-/makeup-prevent-scroll-keys-0.0.2.tgz#1c255e5f97968ee3586c0aa55d0d8b3df8318501"
-  integrity sha512-V0bmWCviz5bVJYqDM7xJI0PjkUKb2mXav+o99UmGV4enOnXAGfr6bAp2a+0p/8eKQXV2kTQ4/eaZQykT56cGng==
+makeup-next-id@~0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/makeup-next-id/-/makeup-next-id-0.0.3.tgz#75cf06cf39f85fc96f4f6d5a3bec95086b34769c"
+  integrity sha512-ZVRpb31OK8P2qjJzJf2OAQShUmutHvexrCPdtw0SOw1RaIFCD6NPsfnaIapMwZLZWfvnlBijtvQu0lhQIpSEiQ==
+
+makeup-prevent-scroll-keys@~0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/makeup-prevent-scroll-keys/-/makeup-prevent-scroll-keys-0.0.3.tgz#71eb9045f3ebe3cac17933c8222de69b7c4e6f56"
+  integrity sha512-R3x0jd3/WkYzOlL6VzGhsTdmLLDvARtPNejaO4xKWUIzfaeDFMdpvtonNuoDqwi7KpKpm9cR9oNgYd9e0SCoGw==
 
 makeup-roving-tabindex@~0.2.1:
   version "0.2.1"
