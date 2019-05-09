@@ -14,24 +14,29 @@ document.addEventListener("DOMContentLoaded", function(e) {
     var AccordionLegacy = require('./accordion-legacy.js');
     var Expando = require('./expando.js');
     var Tabs = require('./tabs.js');
+    var Tooltip = require('./tooltip.js');
 
-    document.querySelectorAll('.accordion').forEach(function(accordionEl) {
-        pageWidgets.push(new Accordion(accordionEl, { autoCollapse: accordionEl.hasAttribute('data-makeup-accordion-auto-collapse')}));
+    document.querySelectorAll('.accordion').forEach(function(widgetEl) {
+        pageWidgets.push(new Accordion(widgetEl, { autoCollapse: widgetEl.hasAttribute('data-makeup-accordion-auto-collapse')}));
     });
 
-    document.querySelectorAll('.accordion-legacy').forEach(function(accordionEl) {
-        pageWidgets.push(new AccordionLegacy(accordionEl));
+    document.querySelectorAll('.accordion-legacy').forEach(function(widgetEl) {
+        pageWidgets.push(new AccordionLegacy(widgetEl));
     });
 
-    document.querySelectorAll('.tabs').forEach(function(tabsEl) {
-        tabsEl.addEventListener('tabs-change', Util.logEvent);
+    document.querySelectorAll('.tabs').forEach(function(widgetEl) {
+        widgetEl.addEventListener('tabs-change', Util.logEvent);
 
-        pageWidgets.push(new Tabs(tabsEl));
+        pageWidgets.push(new Tabs(widgetEl));
     });
 
-    document.querySelectorAll('.expando').forEach(function(expandoEl) {
-        expandoEl.addEventListener('expando-toggle', Util.logEvent);
+    document.querySelectorAll('.expando').forEach(function(widgetEl) {
+        widgetEl.addEventListener('expando-toggle', Util.logEvent);
 
-        pageWidgets.push(new Expando(expandoEl));
+        pageWidgets.push(new Expando(widgetEl));
+    });
+
+    document.querySelectorAll('.tooltip').forEach(function(widgetEl) {
+        pageWidgets.push(new Tooltip(widgetEl));
     });
 });

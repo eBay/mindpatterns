@@ -12,6 +12,7 @@
     white-space: nowrap;
     z-index: 1;
 }
-.tooltip--expanded [role=tooltip] {
+.tooltip--expanded [role=tooltip],
+.tooltip__host[aria-expanded="true"] ~ [role=tooltip] {
     display: block;
 }

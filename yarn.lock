@@ -3444,6 +3444,21 @@ makeup-exit-emitter@~0.1.0:
     custom-event-polyfill "^1"
     makeup-next-id "~0.0.2"
 
+makeup-expander@~0.7.2:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/makeup-expander/-/makeup-expander-0.7.2.tgz#ada8a29bd9b1eeacdaed4df776bcd1bfc179b438"
+  integrity sha512-8naPI3nLbT1CygjzNWBc3znSiqcPucvR+yP9bUxLZp33NNj4kTKYLj2WBRfIW6odSttZqU2ZmDD5Rbd+b37kGQ==
+  dependencies:
+    custom-event-polyfill "^1"
+    makeup-exit-emitter "~0.1.0"
+    makeup-focusables "~0.0.3"
+    makeup-next-id "~0.0.2"
+
+makeup-focusables@~0.0.3:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/makeup-focusables/-/makeup-focusables-0.0.4.tgz#1a324b1e7c026f2254dd599caa4099344f1c266c"
+  integrity sha512-2yOaXhTnltA9Fb9+sSk2d2oS5150/qMhyjvFYUUWBxlnVpSR7H7cktH/WLgYl7Nab79W29pNUnAIHX9SpnWKKQ==
+
 makeup-jquery@~0.0:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/makeup-jquery/-/makeup-jquery-0.0.1.tgz#c48449a987956b401ff9f448dee0cd9f3d50e06e"

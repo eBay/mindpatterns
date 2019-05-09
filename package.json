@@ -31,6 +31,7 @@
     "jquery": "^3",
     "lasso-cli": "^2",
     "makeup-jquery": "~0.0",
+    "makeup-expander": "~0.7.2",
     "makeup-key-emitter": "~0.1.0",
     "makeup-next-id": "~0.0.3",
     "makeup-prevent-scroll-keys": "~0.0.3",
