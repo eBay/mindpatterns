@@ -1,4 +1,4 @@
-body.has-dialog {
+body.has-modal {
     overflow: hidden;
 }
 
@@ -71,6 +71,6 @@ body.has-dialog {
 .dialog__body {
     background-color: #fafafa;
     box-sizing: border-box;
-    padding: 0 16px 16px 16px;
+    padding: 8px 16px 16px 16px;
     overflow-y: scroll;
 }
