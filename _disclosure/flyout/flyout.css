@@ -19,6 +19,11 @@
     display: block;
 }
 
+.flyout__host[aria-expanded=true] ~ .flyout__overlay,
+.flyout__host[aria-expanded=true] ~ .flyout .flyout__content {
+    display: block;
+}
+
 .flyout__trigger.clipped--stealth {
     background-color: #eee;
     border: 1px solid #ccc;

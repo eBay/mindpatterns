@@ -1,0 +1,23 @@
+.infotip {
+    position: relative;
+}
+
+.infotip__host {
+    background: 0;
+    border: 0;
+    padding: 0;
+}
+
+.infotip__content {
+    background: LightYellow;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 1px #ccc;
+    margin: 0 4px;
+    min-width: 250px;
+    padding: 0 16px;
+    text-align: justify;
+}
+
+.infotip__host[aria-expanded=true] + .infotip__content {
+    display: block;
+}

@@ -5,72 +5,30 @@ title: Infotip
 
 <link rel="stylesheet" href="../flyout/flyout.css">
 <link rel="stylesheet" href="infotip.css">
-<style>
-    #infotip img {
-        display: none;
-    }
-    .flyout__overlay img {
-        display: block;
-        border: 1px solid #ccc;
-        margin-right: 10px;
-        float: left;
-    }
-    #references ol {
-        margin: 0;
-        padding: 0;
-    }
-</style>
 
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
 <p>Use TAB key to reach infotip button, then use ENTER or SPACEBAR to expand content.</p>
-<p>Disable JavaScript to view progressive enhancement fallback.</p>
 <p>Please <a href={{ "disclosure/infotip" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+<hr />
 
 <h2>Examples</h2>
 
-<div class="row">
-    <div class="col-xs-12 col-md-6">
-        <h3>Example 1: Button</h3>
-        <div>
-            <span class="infotip">
-                <button class="flyout__trigger" type="button" aria-label="Help" disabled></button>
-                <span class="flyout__live-region" aria-live="polite">
-                    <div class="flyout__overlay">
-                        <p><img src="{{ '/images/gregorsamsa.jpg' | relative_url }}" alt="Illustration of Gregor Samsa" /></p>
-                        <p>Gregor Samsa appears to be based upon <a href="http://en.wikipedia.org/wiki/Franz_Kafka">Kafka</a> himself. As when Kafka suffered from insomnia, he feared he was repulsive and a burden to his family, during which time his sister was his caretaker.</p>
-                    </div>
-                </span>
-            </span>
+<h3>Example 1: Form Field Help</h3>
+<div>
+    <input />
+    <span class="infotip flyout">
+        <button class="infotip__host flyout__host" type="button" aria-label="Help">
+            <svg focusable="false" width="16" height="16" aria-hidden="true">
+                <use xlink:href="#icon-information"></use>
+            </svg>
+        </button>
+        <div class="infotip__content flyout__overlay">
+            <p>This textbox needs a <a href="https://www.w3.org/TR/html52/sec-forms.html#the-label-element">label</a>!</p>
         </div>
-    </div>
-    <div class="col-xs-12 col-md-6">
-        <h3>Example 2: Enhanced Anchor/Footnote</h3>
-        <div>
-            <span class="infotip">
-                <a href="#infotip1"><sup>[1]</sup></a>
-            </span>
-        </div>
-    </div>
+    </span>
 </div>
 
-<!-- this footnotes section is used by the progressive enhancement example -->
-<section aria-labelledby="ref_heading" id="references" role="region">
-    <h2 id="ref_heading">References</h2>
-    <ol>
-        <li>
-            <div id="infotip1" tabindex="-1">
-                <p><img src="{{ '/images/gregorsamsa.jpg' | relative_url }}" alt="Illustration of Gregor Samsa" /></p>
-                <p>Gregor Samsa appears to be based upon <a href="http://en.wikipedia.org/wiki/Franz_Kafka">Kafka</a> himself. As when Kafka suffered from insomnia, he feared he was repulsive and a burden to his family, during which time his sister was his caretaker.</p>
-            </div>
-        </li>
-    </ol>
-</section>
-<script src="jquery.infotip.js"></script>
-<script>
-    $(function() {
-        $('.infotip').infotip();
-        $('#references').remove();
-    });
-</script>
+<hr />
