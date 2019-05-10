@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
   var Tooltip = require('./tooltip.js');
 
+  var DialogButton = require('./dialog-button.js');
+
   document.querySelectorAll('.accordion').forEach(function (widgetEl) {
     pageWidgets.push(new Accordion(widgetEl, {
       autoCollapse: widgetEl.hasAttribute('data-makeup-accordion-auto-collapse')
@@ -34,6 +36,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
   document.querySelectorAll('.tabs').forEach(function (widgetEl) {
     widgetEl.addEventListener('tabs-change', Util.logEvent);
     pageWidgets.push(new Tabs(widgetEl));
+  });
+  document.querySelectorAll('.dialog-button').forEach(function (widgetEl) {
+    pageWidgets.push(new DialogButton(widgetEl));
   });
   document.querySelectorAll('.expando').forEach(function (widgetEl) {
     widgetEl.addEventListener('expando-toggle', Util.logEvent);

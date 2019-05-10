@@ -9,13 +9,11 @@
     "clean": "rimraf _site .cache .sass-cache build static/browser.js",
     "nodemon": "nodemon --exec 'npm run lasso && npm run jekyll' -e html,css,scss,js --ignore 'static' --ignore '*.es6.js' --ignore '_site'",
     "prepublishOnly": "npm run build",
+    "prep": "npm run prepublishOnly",
     "transpile": "babel _js/src --out-dir _js",
     "onchange": "onchange _js/src -- npm run transpile"
   },
   "license": "MIT",
-  "pre-commit": [
-    "prepublishOnly"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ebay/mindpatterns"
@@ -27,12 +25,15 @@
     "babel-plugin-transform-object-assign": "^6",
     "browser-sync": "^2",
     "core-js-pure": "^3",
+    "custom-event-polyfill": "^1",
     "details-element-polyfill": "^2",
     "jquery": "^3",
     "lasso-cli": "^2",
-    "makeup-jquery": "~0.0",
     "makeup-expander": "~0.7.2",
+    "makeup-focusables": "^0.0.4",
+    "makeup-jquery": "~0.0",
     "makeup-key-emitter": "~0.1.0",
+    "makeup-modal": "~0.1.0",
     "makeup-next-id": "~0.0.3",
     "makeup-prevent-scroll-keys": "~0.0.3",
     "makeup-roving-tabindex": "~0.2.1",
@@ -40,7 +41,6 @@
     "nodemon": "^1",
     "onchange": "^5",
     "parallelshell": "^3",
-    "pre-commit": "^1",
     "rimraf": "^2"
   }
 }

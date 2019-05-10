@@ -3454,7 +3454,7 @@ makeup-expander@~0.7.2:
     makeup-focusables "~0.0.3"
     makeup-next-id "~0.0.2"
 
-makeup-focusables@~0.0.3:
+makeup-focusables@^0.0.4, makeup-focusables@~0.0.3, makeup-focusables@~0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/makeup-focusables/-/makeup-focusables-0.0.4.tgz#1a324b1e7c026f2254dd599caa4099344f1c266c"
   integrity sha512-2yOaXhTnltA9Fb9+sSk2d2oS5150/qMhyjvFYUUWBxlnVpSR7H7cktH/WLgYl7Nab79W29pNUnAIHX9SpnWKKQ==
@@ -3493,6 +3493,22 @@ makeup-key-emitter@~0.1.0:
   dependencies:
     custom-event-polyfill "^1"
 
+makeup-keyboard-trap@~0.2:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/makeup-keyboard-trap/-/makeup-keyboard-trap-0.2.0.tgz#c4746eb0722c9548340668a30d27a67e25381e46"
+  integrity sha512-BKbX/kye6bhv5O8KSwT2VkwW4Rk3SVPZAvKqGMz7osgFd1CHwWl/dQcRs8TTafCDA6HlAlPYm4EFXXVt1NnyLQ==
+  dependencies:
+    custom-event-polyfill "^1"
+    makeup-focusables "~0.0.4"
+
+makeup-modal@~0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/makeup-modal/-/makeup-modal-0.1.0.tgz#3cdead9c3e0fa83fd34f7b4dc926bb45f7748ee9"
+  integrity sha512-wWcM3PZ1vyBnRhi9pxltyX+ubVDmc0MsNALQLPpaANitRoKIc1Y7JuAiBbObrYMV9IBzwibgYnmRsMP6NIBo7w==
+  dependencies:
+    makeup-keyboard-trap "~0.2"
+    makeup-screenreader-trap "~0.1"
+
 makeup-navigation-emitter@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/makeup-navigation-emitter/-/makeup-navigation-emitter-0.2.0.tgz#dd7c1f0d2c6e8abdcb8f17ba3d15e29aaca211a9"
@@ -3526,6 +3542,13 @@ makeup-roving-tabindex@~0.2.1:
     custom-event-polyfill "^1"
     makeup-navigation-emitter "~0.2.0"
     nodelist-foreach-polyfill "^1"
+
+makeup-screenreader-trap@~0.1:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/makeup-screenreader-trap/-/makeup-screenreader-trap-0.1.0.tgz#accbd8d23c81cbbd55ac972078b2e5a82e26d024"
+  integrity sha512-bEBOPrZp/LgdAEAFylqSzFqjxQdIbwknpUeTwl2dqVGrEVPMOSaoxogSlaIckB70mkNLRXwzbyuySYIzu1lXqA==
+  dependencies:
+    custom-event-polyfill "^1"
 
 map-cache@^0.2.2:
   version "0.2.2"
