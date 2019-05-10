@@ -50,4 +50,32 @@ document.addEventListener("DOMContentLoaded", function(e) {
             hostSelector: '.infotip__host'
         }));
     });
+
+    document.querySelectorAll('.flyout--click').forEach(function(widgetEl) {
+        pageWidgets.push(new Expander(widgetEl, {
+            contentSelector: '.flyout__content',
+            expandOnClick: true,
+            collapseOnClick: true,
+            hostSelector: '.flyout__host'
+        }));
+    });
+
+    document.querySelectorAll('.flyout--focus').forEach(function(widgetEl) {
+        pageWidgets.push(new Expander(widgetEl, {
+            contentSelector: '.flyout__content',
+            expandOnFocus: true,
+            autoCollapse: true,
+            hostSelector: '.flyout__host'
+        }));
+    });
+
+    document.querySelectorAll('.flyout--hover').forEach(function(widgetEl) {
+        pageWidgets.push(new Expander(widgetEl, {
+            contentSelector: '.flyout__content',
+            expandOnFocus: true,
+            expandOnHover: true,
+            autoCollapse: true,
+            hostSelector: '.flyout__host'
+        }));
+    });
 });

@@ -3,9 +3,6 @@ layout: page
 title: Infotip
 ---
 
-<link rel="stylesheet" href="../flyout/flyout.css">
-<link rel="stylesheet" href="infotip.css">
-
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
@@ -19,13 +16,13 @@ title: Infotip
 <h3>Example 1: Form Field Help</h3>
 <div>
     <input />
-    <span class="infotip flyout">
-        <button class="infotip__host flyout__host" type="button" aria-label="Help">
+    <span class="infotip">
+        <button class="infotip__host" type="button" aria-label="Help">
             <svg focusable="false" width="16" height="16" aria-hidden="true">
                 <use xlink:href="#icon-information"></use>
             </svg>
         </button>
-        <div class="infotip__content flyout__overlay">
+        <div class="infotip__content">
             <p>This textbox needs a <a href="https://www.w3.org/TR/html52/sec-forms.html#the-label-element">label</a>!</p>
         </div>
     </span>

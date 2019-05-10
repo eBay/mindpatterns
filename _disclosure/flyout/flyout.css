@@ -6,6 +6,7 @@
     position: static;
 }
 
+.flyout__content,
 .flyout__overlay {
     display: none;
     left: 0;
@@ -19,7 +20,9 @@
     display: block;
 }
 
+.flyout__host[aria-expanded=true] ~ .flyout__live-region .flyout__content,
 .flyout__host[aria-expanded=true] ~ .flyout__overlay,
+.flyout__host[aria-expanded=true] ~ .flyout__content,
 .flyout__host[aria-expanded=true] ~ .flyout .flyout__content {
     display: block;
 }
