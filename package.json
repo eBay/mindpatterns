@@ -6,7 +6,7 @@
     "browser-sync": "browser-sync start -s --ss _site --index _site/index.html --files '_site'",
     "start": "npm run build && parallelshell 'npm run browser-sync' 'npm run nodemon' 'npm run onchange'",
     "lasso": "lasso browser.json --output-dir static --minify && rimraf build",
-    "clean": "rimraf _site .cache .sass-cache build static/browser.js",
+    "clean": "rimraf _site .cache .sass-cache build static/browser.js. static/browser.js.*",
     "nodemon": "nodemon --exec 'npm run lasso && npm run jekyll' -e html,css,scss,js --ignore 'static' --ignore '*.es6.js' --ignore '_site'",
     "prepublishOnly": "npm run build",
     "prep": "npm run prepublishOnly",

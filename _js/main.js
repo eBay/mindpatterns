@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
   var HijaxButton = require('./hijax-button.js');
 
+  var StarRating = require('./star-rating.js');
+
   document.querySelectorAll('.accordion').forEach(function (widgetEl) {
     pageWidgets.push(new Accordion(widgetEl, {
       autoCollapse: widgetEl.hasAttribute('data-makeup-accordion-auto-collapse')
@@ -65,6 +67,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
   document.querySelectorAll('.expando').forEach(function (widgetEl) {
     widgetEl.addEventListener('expando-toggle', Util.logEvent);
     pageWidgets.push(new Expando(widgetEl));
+  });
+  document.querySelectorAll('.star-rating').forEach(function (widgetEl) {
+    pageWidgets.push(new StarRating(widgetEl));
   });
   document.querySelectorAll('.tooltip').forEach(function (widgetEl) {
     pageWidgets.push(new Tooltip(widgetEl));

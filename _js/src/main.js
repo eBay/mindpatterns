@@ -11,15 +11,16 @@ const Expander = require('makeup-expander');
 const pageWidgets = [];
 
 document.addEventListener("DOMContentLoaded", function(e) {
-    var Util = require('./util.js');
-    var Accordion = require('./accordion.js');
-    var AccordionLegacy = require('./accordion-legacy.js');
-    var Expando = require('./expando.js');
-    var Tabs = require('./tabs.js');
-    var Tooltip = require('./tooltip.js');
-    var DialogButton = require('./dialog-button.js');
-    var AriaButton = require('./aria-button.js');
-    var HijaxButton = require('./hijax-button.js');
+    const Util = require('./util.js');
+    const Accordion = require('./accordion.js');
+    const AccordionLegacy = require('./accordion-legacy.js');
+    const Expando = require('./expando.js');
+    const Tabs = require('./tabs.js');
+    const Tooltip = require('./tooltip.js');
+    const DialogButton = require('./dialog-button.js');
+    const AriaButton = require('./aria-button.js');
+    const HijaxButton = require('./hijax-button.js');
+    const StarRating = require('./star-rating.js');
 
     document.querySelectorAll('.accordion').forEach(function(widgetEl) {
         pageWidgets.push(new Accordion(widgetEl, { autoCollapse: widgetEl.hasAttribute('data-makeup-accordion-auto-collapse')}));
@@ -66,6 +67,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
         widgetEl.addEventListener('expando-toggle', Util.logEvent);
 
         pageWidgets.push(new Expando(widgetEl));
+    });
+
+    document.querySelectorAll('.star-rating').forEach(function(widgetEl) {
+        pageWidgets.push(new StarRating(widgetEl));
     });
 
     document.querySelectorAll('.tooltip').forEach(function(widgetEl) {

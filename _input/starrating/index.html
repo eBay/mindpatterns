@@ -3,8 +3,6 @@ layout: page
 title: Star Rating
 ---
 
-<link rel="stylesheet" href="starrating.css">
-
 <style>
     dt, dd {
         display: inline-block;
@@ -21,66 +19,58 @@ title: Star Rating
 <p>Use ARROW keys to change star rating, ENTER key submits form.</p>
 <p>Please <a href={{ "input/star-rating" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
-<h2>Examples</h2>
+<h2 class="clipped">Examples</h2>
 
-<div class="row">
-    <div class="col-xs-12 col-md-6">
-        <h3>Interactive With Default Selection</h3>
-        <form>
-            <div class="starrating">
-                <fieldset>
-                    <legend>Rate this Product</legend>
-                    <input id="default_1" type="radio" name="rating2" value="1" />
-                    <label for="default_1"><span class="clipped">1 star</span></label>
-                    <input id="default_2" type="radio" name="rating2" value="2" />
-                    <label for="default_2"><span class="clipped">2 stars</span></label>
-                    <input id="default_3" type="radio" name="rating2" value="3" checked />
-                    <label for="default_3"><span class="clipped">3 stars</span></label>
-                    <input id="default_4" type="radio" name="rating2" value="4" />
-                    <label for="default_4"><span class="clipped">4 stars</span></label>
-                    <input id="default_5" type="radio" name="rating2" value="5" />
-                    <label for="default_5"><span class="clipped">5 stars</span></label>
-                </fieldset>
-            </div>
-            <input type="submit" />
-        </form>
-    </div>
-    <div class="col-xs-12 col-md-6">
-        <h3>Interactive Without Default Selection</h3>
-        <form>
-            <div class="starrating">
-                <fieldset>
-                    <legend>Rate this Product</legend>
-                    <input id="nodefault_1" type="radio" name="rating1" value="1" />
-                    <label for="nodefault_1"><span class="clipped">1 star</span></label>
-                    <input id="nodefault_2" type="radio" name="rating1" value="2" />
-                    <label for="nodefault_2"><span class="clipped">2 stars</span></label>
-                    <input id="nodefault_3" type="radio" name="rating1" value="3" />
-                    <label for="nodefault_3"><span class="clipped">3 stars</span></label>
-                    <input id="nodefault_4" type="radio" name="rating1" value="4" />
-                    <label for="nodefault_4"><span class="clipped">4 stars</span></label>
-                    <input id="nodefault_5" type="radio" name="rating1" value="5" />
-                    <label for="nodefault_5"><span class="clipped">5 stars</span></label>
-                </fieldset>
-            </div>
-            <input type="submit" />
-        </form>
-    </div>
-</div>
+<hr />
 
-<div class="row">
-    <div class="col-xs-12 col-md-6">
-        <h3>Non-Interactive (image)</h3>
-        <dl>
-            <dt>Average Rating:</dt>
-            <dd><img src="1star.png" alt="1 out of 5 - Average Rating" /></dd>
-        </dl>
+<h3>Example 1: Interactive With Default Selection</h3>
+<form>
+    <div class="star-rating">
+        <fieldset>
+            <legend>Rate this Product</legend>
+            <input id="default_1" type="radio" name="rating2" value="1" />
+            <label for="default_1"><span class="clipped">1 star</span></label>
+            <input id="default_2" type="radio" name="rating2" value="2" />
+            <label for="default_2"><span class="clipped">2 stars</span></label>
+            <input id="default_3" type="radio" name="rating2" value="3" checked />
+            <label for="default_3"><span class="clipped">3 stars</span></label>
+            <input id="default_4" type="radio" name="rating2" value="4" />
+            <label for="default_4"><span class="clipped">4 stars</span></label>
+            <input id="default_5" type="radio" name="rating2" value="5" />
+            <label for="default_5"><span class="clipped">5 stars</span></label>
+        </fieldset>
     </div>
-</div>
+    <input type="submit" />
+</form>
 
-<script src="jquery.starrating.js"></script>
-<script>
-    $(function() {
-        $('.starrating').starRating();
-    });
-</script>
+<hr />
+
+<h3>Example 2: Interactive Without Default Selection</h3>
+<form>
+    <div class="star-rating">
+        <fieldset>
+            <legend>Rate this Product</legend>
+            <input id="nodefault_1" type="radio" name="rating1" value="1" />
+            <label for="nodefault_1"><span class="clipped">1 star</span></label>
+            <input id="nodefault_2" type="radio" name="rating1" value="2" />
+            <label for="nodefault_2"><span class="clipped">2 stars</span></label>
+            <input id="nodefault_3" type="radio" name="rating1" value="3" />
+            <label for="nodefault_3"><span class="clipped">3 stars</span></label>
+            <input id="nodefault_4" type="radio" name="rating1" value="4" />
+            <label for="nodefault_4"><span class="clipped">4 stars</span></label>
+            <input id="nodefault_5" type="radio" name="rating1" value="5" />
+            <label for="nodefault_5"><span class="clipped">5 stars</span></label>
+        </fieldset>
+    </div>
+    <input type="submit" />
+</form>
+
+<hr />
+
+<h3>Example 3: Non-Interactive (image)</h3>
+<dl>
+    <dt>Average Rating:</dt>
+    <dd><img src="1star.png" alt="1 out of 5 - Average Rating" /></dd>
+</dl>
+
+<hr />
