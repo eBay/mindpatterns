@@ -1,0 +1,78 @@
+---
+layout: page
+title: Page Notice
+---
+
+<style>
+    .page-notice {
+        border: 1px solid #ccc;
+        border-top: 3px solid currentColor;
+        padding: 16px;
+    }
+    .page-notice h3 {
+        margin-top: 0;
+    }
+    .page-notice h3:before {
+        background: url({{ '/images/skin_sprite3.png' | relative_url }}) no-repeat;
+        content: '';
+        width: 30px;
+        height: 25px;
+        display: inline-block;
+        margin-right: 16px;
+        vertical-align: top;
+    }
+    .page-notice--attention h3:before {
+        background-position: -140px -100px;
+    }
+    .page-notice--confirmation h3:before {
+        background-position: -341px -100px;
+    }
+    .page-notice--information h3:before {
+        background-position: -45px -100px;
+    }
+    .page-notice p {
+        margin-left: 46px;
+    }
+    .page-notice p:last-child {
+        margin-bottom: 0;
+    }
+    .page-notice--attention {
+        color: rgb(223, 37, 57);
+    }
+    .page-notice--information {
+        color: purple;
+    }
+    .page-notice--confirmation {
+        color: green;
+    }
+</style>
+
+<h1>{{ page.title }}</h1>
+
+
+<h2 class="clipped">Readme</h2>
+<p>A page notice must receive programmatic keyboard focus only if a critical task or operation was unsuccessful.</p>
+<p><a href="#page-alert">Reload page and simulate critical page notice</a></p>
+<p>Please <a href={{ "messaging/page-notice" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+<hr />
+<h2 class="clipped">Examples</h2>
+
+<h3>Example 1: Attention</h3>
+<section aria-label="Attention" class="page-notice page-notice--attention" id="page-alert" role="region" tabindex="-1">
+    <h3>Alert!</h3>
+    <p>We had trouble connecting to PayPal. Please make your payment later.</p>
+</section>
+<hr />
+<h3>Example 2: Confirmation</h3>
+<section aria-label="Confirmation" class="page-notice page-notice--confirmation" role="region" tabindex="-1">
+    <h3>Congrats!</h3>
+    <p>You just listed <a href="#">"Spam and Eggs From the Cow's Perspective</a> (paperback)."</p>
+</section>
+<hr />
+<h3>Example 3: Information</h3>
+<section aria-label="Information" class="page-notice page-notice--information" role="region" tabindex="-1">
+    <h3>Good news!</h3>
+    <p>Good news! You get free shipping on your next pair of shoes! <a href="http://www.ebay.com"> Learn more</a>.</p>
+</section>
+<hr />

@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
   var HijaxButton = require('./hijax-button.js');
 
+  var PageNotice = require('./page-notice.js');
+
   var StarRating = require('./star-rating.js');
 
   document.querySelectorAll('.accordion').forEach(function (widgetEl) {
@@ -67,6 +69,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
   document.querySelectorAll('.expando').forEach(function (widgetEl) {
     widgetEl.addEventListener('expando-toggle', Util.logEvent);
     pageWidgets.push(new Expando(widgetEl));
+  });
+  document.querySelectorAll('.page-notice').forEach(function (widgetEl) {
+    PageNotice.create(widgetEl);
   });
   document.querySelectorAll('.star-rating').forEach(function (widgetEl) {
     pageWidgets.push(new StarRating(widgetEl));

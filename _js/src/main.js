@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     const DialogButton = require('./dialog-button.js');
     const AriaButton = require('./aria-button.js');
     const HijaxButton = require('./hijax-button.js');
+    const PageNotice = require('./page-notice.js');
     const StarRating = require('./star-rating.js');
 
     document.querySelectorAll('.accordion').forEach(function(widgetEl) {
@@ -67,6 +68,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
         widgetEl.addEventListener('expando-toggle', Util.logEvent);
 
         pageWidgets.push(new Expando(widgetEl));
+    });
+
+    document.querySelectorAll('.page-notice').forEach(function(widgetEl) {
+        PageNotice.create(widgetEl);
     });
 
     document.querySelectorAll('.star-rating').forEach(function(widgetEl) {
