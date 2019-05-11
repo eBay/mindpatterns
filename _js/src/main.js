@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
     var Tabs = require('./tabs.js');
     var Tooltip = require('./tooltip.js');
     var DialogButton = require('./dialog-button.js');
+    var AriaButton = require('./aria-button.js');
+    var HijaxButton = require('./hijax-button.js');
 
     document.querySelectorAll('.accordion').forEach(function(widgetEl) {
         pageWidgets.push(new Accordion(widgetEl, { autoCollapse: widgetEl.hasAttribute('data-makeup-accordion-auto-collapse')}));
@@ -25,6 +27,29 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
     document.querySelectorAll('.accordion-legacy').forEach(function(widgetEl) {
         pageWidgets.push(new AccordionLegacy(widgetEl));
+    });
+
+    document.querySelectorAll('.native-button, .stealth-button').forEach(function(widgetEl) {
+        pageWidgets.push(widgetEl);
+        widgetEl.addEventListener('click', function() {
+            alert(this);
+        });
+    });
+
+    document.querySelectorAll('.aria-button').forEach(function(widgetEl) {
+        pageWidgets.push(new AriaButton(widgetEl));
+
+        widgetEl.addEventListener('aria-button-click', function(e) {
+            alert(this);
+        });
+    });
+
+    document.querySelectorAll('.hijax-button').forEach(function(widgetEl) {
+        pageWidgets.push(new HijaxButton(widgetEl));
+
+        widgetEl.addEventListener('hijax-button-click', function(e) {
+            alert(this);
+        });
     });
 
     document.querySelectorAll('.tabs').forEach(function(widgetEl) {

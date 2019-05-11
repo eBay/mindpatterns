@@ -14,16 +14,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 * https://opensource.org/licenses/MIT.
 */
 function onClick(e) {
-  e.preventDefault();
-
-  this._el.dispatchEvent(new CustomEvent('hijax-button-click'));
+  this._el.dispatchEvent(new CustomEvent('aria-button-click'));
 }
 
 function onKeyDown(e) {
-  if (e.keyCode === 32) {
+  if (e.keyCode === 32 || e.keyCode === 13) {
     e.preventDefault();
 
-    this._el.dispatchEvent(new CustomEvent('hijax-button-click'));
+    this._el.dispatchEvent(new CustomEvent('aria-button-click'));
   }
 }
 
@@ -40,7 +38,9 @@ function () {
 
     this._el.setAttribute('role', 'button');
 
-    this._el.classList.add('hijax-button--js');
+    this._el.setAttribute('tabindex', '0');
+
+    this._el.classList.add('aria-button--js');
 
     this.wake();
   }
@@ -48,9 +48,9 @@ function () {
   _createClass(_class, [{
     key: "sleep",
     value: function sleep() {
-      this._el.removeEventListener('keydown');
+      this._el.removeEventListener('keydown', this._onKeyDownListener);
 
-      this._el.removeEventListener('click');
+      this._el.removeEventListener('click', this._onClickListener);
     }
   }, {
     key: "wake",
