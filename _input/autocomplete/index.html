@@ -14,25 +14,29 @@ title: Autocomplete
 
 <h1 class="post-title">{{ page.title }}</h1>
 
-<p><i>Last Updated</i>: Feb 12, 2019</p>
 
 <h2 class="clipped">Readme</h2>
 
-<p>Autocomplete is an enhancement of the <a href="../combobox">combobox</a> pattern. Enter text to filter out results, then use ARROW keys to select an option.</p>
+<p>Autocomplete is an enhancement of the <a href="../combobox">combobox</a> pattern. It provides tailored suggestions based on the current value of the textbox.</p>
 <p>Please <a href={{ "input/autocomplete" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
-<h2>Examples</h2>
+<p><i>Updated</i>: May 12th, 2019</p>
 
-<div>
-    <form>
-        <h3>List and Inline</h3>
-        <span class="autocomplete">
-            <label for="autocomplete-example">Search</label>
-            <input id="autocomplete-example" name="animal" type="text" placeholder="Aardvark, Antelope, etc." />
-        </span>
-        <input class="button" type="submit" value="Submit" />
-    </form>
-</div>
+<hr />
+
+<h2 class="clipped">Examples</h2>
+
+<h3>Example 1: With Listbox</h3>
+<p>Enter text to update listbox options. Use ARROW keys and ENTER to select a value.</p>
+<form>
+    <span class="autocomplete">
+        <label for="autocomplete-example">Search animals beginning with 'A'</label>
+        <input id="autocomplete-example" name="animal" type="text" placeholder="Aardvark, Antelope, etc." />
+    </span>
+    <input class="button" type="submit" />
+</form>
+
+<hr />
 
 <script src="jquery.autocomplete.js"></script>
 <script>

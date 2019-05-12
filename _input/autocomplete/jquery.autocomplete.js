@@ -49,7 +49,7 @@
             $input
                 .attr('role', 'combobox')
                 .attr('aria-expanded', 'false')
-                .attr('aria-autocomplete', 'both')
+                .attr('aria-autocomplete', 'list')
                 .attr('autocomplete','off') // Disable HTML5 autocomplete
                 .attr('aria-owns', $listbox.prop('id'));
 
@@ -81,6 +81,7 @@
             $widget.on('enterKeyDown', function(e) {
                 if ($('#'+$input.attr('aria-activedescendant')).length !== 0) {
                     e.preventDefault();
+                    $input.val($('#'+$input.attr('aria-activedescendant')).text());
                     $widget.trigger('comboboxCollapse');
                 }
             });
@@ -126,7 +127,7 @@
             });
 
             $widget.on('activeDescendantChange', '[role=option]', function(e, data) {
-                $input.val($(this).text());
+                // $input.val($(this).text());
             });
 
             $input.on('blur', function onInputBlur(e) {
