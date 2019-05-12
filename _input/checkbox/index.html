@@ -3,107 +3,68 @@ layout: page
 title: Checkbox
 ---
 
-<link rel="stylesheet" href="checkbox.css">
-<style>
-    input[type=submit] {
-        float: right;
-    }
-</style>
-
-
 <h1>{{ page.title }}</h1>
-<p><i>Last Updated</i>: July 6th, 2018</p>
 
 <h2 class="clipped">Readme</h2>
 
 <p>Use TAB key to navigate checkboxes, SPACEBAR to toggle selection, ENTER key submits form.</p>
 <p>Please <a href={{ "input/checkbox" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
-<h2>Examples</h2>
+<p><i>Updated</i>: May 12th, 2019 (removed jQuery)</p>
 
+<h2 class="clipped">Examples</h2>
+
+<hr />
+
+<h3>Example 1: Native HTML Checkboxes</h3>
 <form>
-    <div class="row">
-        <div class="col-xs-12 col-md-6">
-            <h3>Native HTML Checkboxes</h3>
-            <fieldset>
-                <legend>Auction Type</legend>
-                <div>
-                    <input id="checkbox1_freeshipping1" type="checkbox" name="freeshipping1" />
-                    <label for="checkbox1_freeshipping1">Free Shipping</label>
-                </div>
-                <div>
-                    <input id="checkbox2_endssoon1" type="checkbox" name="endssoon1" />
-                    <label for="checkbox2_endssoon1">Ends soon</label>
-                </div>
-                <div>
-                    <input id="checkbox3_zerobids1" type="checkbox" name="zerobids1" />
-                    <label for="checkbox3_zerobids1">Zero bids</label>
-                </div>
-            </fieldset>
+    <fieldset>
+        <legend>Auction Type</legend>
+        <div>
+            <input id="checkbox1_freeshipping1" type="checkbox" name="freeshipping1" />
+            <label for="checkbox1_freeshipping1">Free Shipping</label>
         </div>
-        <div class="col-xs-12 col-md-6">
-            <h3>Custom SVG Checkboxes</h3>
-            <fieldset>
-                <legend>Auction Type</legend>
-                <div>
-                    <span class="checkbox">
-                        <input class="checkbox__control" id="checkbox1_freeshipping2" type="checkbox" name="freeshipping2" />
-                        <span class="checkbox__icon"></span>
-                    </span>
-                    <label for="checkbox1_freeshipping2">Free Shipping</label>
-                </div>
-                <div>
-                    <span class="checkbox">
-                        <input class="checkbox__control" id="checkbox2_endssoon2" type="checkbox" name="endssoon2" />
-                        <span class="checkbox__icon"></span>
-                    </span>
-                    <label for="checkbox2_endssoon2">Ends soon</label>
-                </div>
-                <div>
-                    <span class="checkbox">
-                        <input class="checkbox__control" id="checkbox3_zerobids2" type="checkbox" name="zerobids2" />
-                        <span class="checkbox__icon"></span>
-                    </span>
-                    <label for="checkbox3_zerobids2">Zero bids</label>
-                </div>
-            </fieldset>
+        <div>
+            <input id="checkbox2_endssoon1" type="checkbox" name="endssoon1" />
+            <label for="checkbox2_endssoon1">Ends soon</label>
         </div>
-    </div>
-    <!--
-    <div class="row">
-        <div class="col-xs-12 col-md-6">
-            <fieldset>
-                <legend>ARIA (requires JavaScript)</legend>
-                <div>
-                    <span class="checkbox checkbox--aria" role="presentation">
-                        <input class="checkbox__control" id="checkbox1_freeshipping3" type="checkbox" name="freeshipping3" />
-                    </span>
-                    <label for="checkbox1_freeshipping3">Free Shipping</label>
-                </div>
-                <div>
-                    <span class="checkbox checkbox--aria" role="presentation">
-                        <input class="checkbox__control" id="checkbox2_endssoon3" type="checkbox" name="endssoon3" />
-                    </span>
-                    <label for="checkbox2_endssoon3">Ends soon</label>
-                </div>
-                <div>
-                    <span class="checkbox checkbox--aria" role="presentation">
-                        <input class="checkbox__control" id="checkbox3_zerobids3" type="checkbox" name="zerobids3" />
-                    </span>
-                    <label for="checkbox3_zerobids3">Zero bids</label>
-                </div>
-            </fieldset>
+        <div>
+            <input id="checkbox3_zerobids1" type="checkbox" name="zerobids1" />
+            <label for="checkbox3_zerobids1">Zero bids</label>
         </div>
-    </div>
-    -->
-    <input type="submit" />
+    </fieldset>
+    <input class="button" type="submit" />
 </form>
 
-<!--
-<script src="jquery.checkbox.js"></script>
-<script>
-    $(function() {
-        $('.checkbox--aria').ariacheckbox();
-    });
-</script>
--->
+<hr />
+
+<h3>Example 2: Native HTML Checkbox with Background SVG Icon</h3>
+<form>
+    <fieldset>
+        <legend>Auction Type</legend>
+        <div>
+            <span class="checkbox">
+                <input class="checkbox__control" id="checkbox1_freeshipping2" type="checkbox" name="freeshipping2" />
+                <span class="checkbox__icon"></span>
+            </span>
+            <label for="checkbox1_freeshipping2">Free Shipping</label>
+        </div>
+        <div>
+            <span class="checkbox">
+                <input class="checkbox__control" id="checkbox2_endssoon2" type="checkbox" name="endssoon2" />
+                <span class="checkbox__icon"></span>
+            </span>
+            <label for="checkbox2_endssoon2">Ends soon</label>
+        </div>
+        <div>
+            <span class="checkbox">
+                <input class="checkbox__control" id="checkbox3_zerobids2" type="checkbox" name="zerobids2" />
+                <span class="checkbox__icon"></span>
+            </span>
+            <label for="checkbox3_zerobids2">Zero bids</label>
+        </div>
+    </fieldset>
+    <input class="button" type="submit" />
+</form>
+
+<hr />
