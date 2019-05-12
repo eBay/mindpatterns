@@ -1,4 +1,5 @@
-.clipped {
+.clipped,
+.stealth {
     border: 0;
     clip: rect(1px 1px 1px 1px);
     clip: rect(1px, 1px, 1px, 1px);
@@ -10,7 +11,7 @@
     width: 1px;
 }
 
-.clipped--stealth:focus {
+.stealth:focus {
     clip: auto;
     height: auto;
     overflow: visible;

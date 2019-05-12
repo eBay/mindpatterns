@@ -51,6 +51,16 @@ document.addEventListener("DOMContentLoaded", function (e) {
       alert(this);
     });
   });
+  document.querySelectorAll('.fake-menu').forEach(function (widgetEl) {
+    pageWidgets.push(new Expander(widgetEl, {
+      expandOnClick: true,
+      collapseOnFocusOut: true,
+      collapseOnClickOut: true,
+      contentSelector: '.fake-menu__content',
+      focusManagement: 'focusable',
+      hostSelector: '.fake-menu__host'
+    }));
+  });
   document.querySelectorAll('.hijax-button').forEach(function (widgetEl) {
     pageWidgets.push(new HijaxButton(widgetEl));
     widgetEl.addEventListener('hijax-button-click', function (e) {

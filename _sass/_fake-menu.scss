@@ -1,19 +1,32 @@
-.fake-menu > button.flyout__trigger:after {
+.fake-menu {
+    position: relative;
+}
+
+.fake-menu__host[aria-expanded=true] ~ .fake-menu__content {
+    display: block;
+}
+
+.fake-menu__host::after {
     content: ' \e601';
     font-family: 'vq-icon-font';
     font-size: 12px;
 }
 
-.fake-menu .flyout__overlay {
+.fake-menu__content {
     background-color: LightYellow;
     border: 1px solid #aaa;
     box-shadow: 2px 4px 5px #aaa;
+    display: none;
+    left: 0;
     list-style-type: none;
     margin: 0;
     padding: 0;
+    position: absolute;
+    z-index: 1;
 }
 
-.fake-menu .flyout__overlay a {
+.fake-menu__content a,
+.fake-menu__content button {
     box-sizing: border-box;
     display: inline-block;
     padding: 8px;
@@ -21,7 +34,7 @@
     width: 100%;
 }
 
-.fake-menu .flyout__overlay a:focus,
-.fake-menu .flyout__overlay a:hover {
+.fake-menu__content a:focus,
+.fake-menu__content a:hover {
     text-decoration: underline;
 }
