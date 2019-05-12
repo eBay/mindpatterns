@@ -17,12 +17,6 @@ var Modal = require('makeup-modal');
 
 var Focusables = require('makeup-focusables');
 
-function onClick(e) {
-    if (e.target.classList.contains('dialog') || e.target.classList.contains('dialog__window')) {
-        this.open = false;
-    }
-}
-
 function onCloseButtonClick(e) {
   this.open = false;
 }
@@ -42,8 +36,6 @@ function () {
     this._el = widgetEl;
     this._windowEl = this._el.querySelector('.dialog__window');
     this._closeButtonEl = this._el.querySelector('.dialog__close');
-
-    this._onClickListener = onClick.bind(this);
     this._onCloseButtonClickListener = onCloseButtonClick.bind(this);
     this._onKeyDownListener = onKeyDown.bind(this);
 
@@ -55,17 +47,17 @@ function () {
   _createClass(_class, [{
     key: "sleep",
     value: function sleep() {
-      this._closeButtonEl.removeEventListener('click', this._onCloseButtonClickListener);
+      this._el.removeEventListener('click', this._onCloseButtonClickListener);
+
       this._el.removeEventListener('keydown', this._onKeyDownListener);
-      this._el.removeEventListener('click', this._onClickListener);
     }
   }, {
     key: "wake",
     value: function wake() {
       if (this._destroyed !== true) {
         this._closeButtonEl.addEventListener('click', this._onCloseButtonClickListener);
+
         this._windowEl.addEventListener('keydown', this._onKeyDownListener);
-        this._el.addEventListener('click', this._onClickListener);
       }
     }
   }, {
