@@ -23,3 +23,7 @@
 .breadcrumbs li a:focus {
     text-decoration: underline;
 }
+
+.breadcrumbs a[aria-current] {
+    color: inherit;
+}
