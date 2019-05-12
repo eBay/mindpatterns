@@ -3,6 +3,7 @@ body.has-modal {
 }
 
 .dialog {
+    background-color: rgba(51,51,51,.7);
     bottom: 0;
     box-sizing: border-box;
     left: 0;
@@ -30,17 +31,6 @@ body.has-modal {
     position: relative;
     -webkit-overflow-scrolling: touch;
     z-index: 1;
-}
-
-.dialog__mask {
-    background-color: #000000;
-    height: 100%;
-    left: 0;
-    opacity: 0.6;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    width: 100%;
 }
 
 .dialog__header {
