@@ -25,6 +25,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
   var DialogButton = require('./dialog-button.js');
 
+  var MenuButton = require('./menu-button.js');
+
+  var Menu = require('./menu.js');
+
   var AriaButton = require('./aria-button.js');
 
   var HijaxButton = require('./hijax-button.js');
@@ -42,13 +46,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
   document.querySelectorAll('.native-button, .stealth-button').forEach(function (widgetEl) {
     pageWidgets.push(widgetEl);
     widgetEl.addEventListener('click', function () {
-      alert(this);
+      console.log(this);
     });
   });
   document.querySelectorAll('.aria-button').forEach(function (widgetEl) {
     pageWidgets.push(new AriaButton(widgetEl));
     widgetEl.addEventListener('aria-button-click', function (e) {
-      alert(this);
+      console.log(this);
     });
   });
   document.querySelectorAll('.fake-menu').forEach(function (widgetEl) {
@@ -64,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
   document.querySelectorAll('.hijax-button').forEach(function (widgetEl) {
     pageWidgets.push(new HijaxButton(widgetEl));
     widgetEl.addEventListener('hijax-button-click', function (e) {
-      alert(this);
+      console.log(this);
     });
   });
   document.querySelectorAll('.tabs').forEach(function (widgetEl) {
@@ -73,6 +77,24 @@ document.addEventListener("DOMContentLoaded", function (e) {
   });
   document.querySelectorAll('.dialog-button').forEach(function (widgetEl) {
     pageWidgets.push(new DialogButton(widgetEl));
+  });
+  document.querySelectorAll('.menu-button').forEach(function (widgetEl) {
+    pageWidgets.push(new MenuButton(widgetEl));
+    widgetEl.addEventListener('menuitem-select', function (e, detail) {
+      console.log(e.type, detail.el.innerText);
+    });
+  });
+  document.querySelectorAll('.menu').forEach(function (widgetEl) {
+    pageWidgets.push(new Menu(widgetEl));
+    widgetEl.addEventListener('menuitem-select', function (e) {
+      return console.log(e.type, e.detail);
+    });
+    widgetEl.addEventListener('menuitemradio-change', function (e) {
+      return console.log(e.type, e.detail);
+    });
+    widgetEl.addEventListener('menuitemcheckbox-toggle', function (e) {
+      return console.log(e.type, e.detail);
+    });
   });
   document.querySelectorAll('.expando').forEach(function (widgetEl) {
     widgetEl.addEventListener('expando-toggle', Util.logEvent);
@@ -122,5 +144,22 @@ document.addEventListener("DOMContentLoaded", function (e) {
       autoCollapse: true,
       hostSelector: '.flyout__host'
     }));
+  });
+  document.querySelectorAll('.menu').forEach(function (widgetEl, i) {
+    // check this isn't a buttonless menu
+    if (widgetEl.querySelector('.expand-btn')) {
+      var widget = new Expander(widgetEl, {
+        autoCollapse: true,
+        contentSelector: '[role=menu]',
+        expandOnClick: true,
+        focusManagement: 'focusable',
+        hostSelector: '.expand-btn'
+      });
+      var contentEl = widgetEl.querySelector('[role=menu]');
+      var rovingTabindexState = RovingTabindex.createLinear(contentEl, '.menu__item');
+      querySelectorAllToArray('.menu__item', contentEl).forEach(function (el) {
+        ScrollKeyPreventer.add(el);
+      });
+    }
   });
 });

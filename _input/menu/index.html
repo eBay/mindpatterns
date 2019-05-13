@@ -7,76 +7,68 @@ title: Menu
 
 <h2 class="clipped">Readme</h2>
 
-<p>Use ENTER or SPACE key to open menu, then ARROW keys to navigate menu items.</p>
+<p>Use ARROW keys to navigate menu items. ENTER or SPACEBAR to select an item.</p>
 <p>A menu contains commands (menuitem, menuitemradio, or menuitemcheckbox) that execute JavaScript. If you require non-JavaScript fallbacks, consider using native form controls.</p>
 <p>Please <a href={{ "input/menu" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+<p><i>Updated</i>: May 12th, 2019</p>
 
-<h2>Examples</h2>
+<h2 class="clipped">Examples</h2>
 
-<div class="row">
-    <div class="col-xs-12 col-md-6">
-        <h3>Ungrouped Items</h3>
-        <span class="menu">
-            <button class="button" type="button">Customise View</button>
-            <div role="menu">
-                <div role="menuitem">Grid</div>
-                <div role="menuitem">List</div>
-                <!--
-                <div role="menuitem" aria-haspopup="true">More Options
-                    <div>
-                        <div role="menu">
-                            <div role="menuitem">Text</div>
-                            <div role="menuitem">Filmstrip</div>
-                        </div>
-                    </div>
-                </div>
-                -->
-            </div>
-        </span>
+<hr />
+
+<h3>Example 1: Stateless (menuitem)</h3>
+<span class="menu">
+    <div role="menu">
+        <div role="menuitem">Grid</div>
+        <div role="menuitem">List</div>
     </div>
+</span>
 
-    <div class="col-xs-12 col-md-6">
-        <h3>Grouped Items</h3>
-        <span class="menu">
-            <button class="button" type="button">Customise Results</button>
-            <div role="menu">
-                <div role="presentation">
-                    <div role="menuitem">Grid View</div>
-                    <div role="menuitem">List View</div>
-                </div>
-                <hr />
-                <div role="presentation">
-                    <div role="menuitemradio" aria-checked="true">Name Sort</div>
-                    <div role="menuitemradio" aria-checked="false">Date Sort</div>
-                    <div role="menuitemradio" aria-checked="false">Price Sort</div>
-                </div>
-                <hr />
-                <div role="presentation">
-                    <div role="menuitemcheckbox" aria-checked="true">Buy it Now</div>
-                    <div role="menuitemcheckbox" aria-checked="true">Auction</div>
-                </div>
-                <!--
-                <hr />
-                <div role="presentation">
-                    <div role="menuitem" aria-haspopup="true">More Options
-                        <div>
-                            <div role="menu">
-                                <div role="presentation">
-                                    <div role="menuitem">Show More Results</div>
-                                    <div role="menuitem">Show Less Results</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                -->
-            </div>
-        </span>
+<hr />
+
+<h3>Example 2: Single-Select (menuitemradio)</h3>
+
+<span class="menu">
+    <div role="menu">
+        <div role="menuitemradio" data-menuitemradio-name="sort" aria-checked="true">Name Sort</div>
+        <div role="menuitemradio" data-menuitemradio-name="sort" aria-checked="false">Date Sort</div>
+        <div role="menuitemradio" data-menuitemradio-name="sort" aria-checked="false">Price Sort</div>
     </div>
-</div>
+</span>
 
-<script>
-    $(function() {
-        $('.menu').menu();
-    });
-</script>
+<hr />
+
+<h3>Example 3: Multi-Select (menuitemcheckbox)</h3>
+
+<span class="menu">
+    <div role="menu">
+        <div role="menuitemcheckbox" aria-checked="true">Buy it Now</div>
+        <div role="menuitemcheckbox" aria-checked="false">Auction</div>
+    </div>
+</span>
+
+<hr />
+
+<h3>Example 4: Mixed</h3>
+
+<span class="menu">
+    <div role="menu">
+        <div role="presentation">
+            <div role="menuitem">Grid View</div>
+            <div role="menuitem">List View</div>
+        </div>
+        <hr />
+        <div role="presentation">
+            <div role="menuitemradio" data-menuitemradio-name="sort" aria-checked="true">Name Sort</div>
+            <div role="menuitemradio" data-menuitemradio-name="sort" aria-checked="false">Date Sort</div>
+            <div role="menuitemradio" data-menuitemradio-name="sort" aria-checked="false">Price Sort</div>
+        </div>
+        <hr />
+        <div role="presentation">
+            <div role="menuitemcheckbox" aria-checked="true">Buy it Now</div>
+            <div role="menuitemcheckbox" aria-checked="false">Auction</div>
+        </div>
+    </div>
+</span>
+
+<hr />
