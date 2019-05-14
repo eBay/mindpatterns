@@ -23,65 +23,43 @@ title: Listbox
 
 <h1>{{ page.title }}</h1>
 
-<p><i>Last Updated</i>: Feb 12, 2019</p>
-
 <h2 class="clipped">Readme</h2>
 
-<p>The native HTML multi-select can be problematic for keyboard users. Therefore we recommended checkboxes for natively inputting multiple form values.</p>
+<p>Listbox is a JavaScript alternative to HTML's built-in <a href="../select/index.html">select</a> control. It allows custom HTML.</p>
+<p><em>Keyboard users:</em> TAB to control then use ARROW keys to navigate options; SPACEBAR to make a selection.</p>
 <p>Please <a href={{ "input/listbox" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
-<h2>Examples</h2>
+<hr />
 
-<form>
-    <div class="row">
-        <div class="col-xs-12 col-md-6">
-            <h3>Native HTML Single-Select</h3>
-            <p>See the <a href="../select">select</a> pattern.</p>
-        </div>
-        <div class="col-xs-12 col-md-6">
-            <h3>ARIA Single-Select</h3>
-            <label for="car-aria">Car</label>
-            <span class="listbox">
-                <select id="car-aria" name="car-aria">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
-                </select>
-            </span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 col-md-6">
-            <h3>Native HTML Multi-Select</h3>
-            <span>
-                <label for="cars-native">Car</label>
-                <select id="cars-native" name="cars-native[]" multiple>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
-                </select>
-            </span>
-        </div>
-        <div class="col-xs-12 col-md-6">
-            <h3>ARIA Multi-Select</h3>
-            <span class="listbox">
-                <label for="cars-aria">Car</label>
-                <select id="cars-aria" name="cars-aria[]" multiple>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
-                </select>
-            </span>
-        </div>
-    </div>
-    <div style="text-align: right;">
-        <input type="submit" value="Submit" />
-    </div>
-</form>
+<h2 class="clipped">Examples</h2>
 
+<h3>Example 1: Single-Select</h3>
+
+<span class="listbox">
+    <select id="car-aria" name="car-aria">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="opel">Opel</option>
+        <option value="audi">Audi</option>
+    </select>
+</span>
+
+<hr />
+
+<h3>Example 2: Multi-Select</h3>
+
+<span class="listbox">
+    <select id="cars-aria" name="cars-aria[]" multiple>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="opel">Opel</option>
+        <option value="audi">Audi</option>
+    </select>
+</span>
+
+<hr />
+
+<p><i>Last Updated</i>: May 14th, 2019</p>
 
 <script src="jquery.listbox.js"></script>
 <script>

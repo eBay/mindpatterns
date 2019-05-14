@@ -7,25 +7,39 @@ title: Select
 
 <h2 class="clipped">Readme</h2>
 
-<p>Use ARROW keys to navigate select options; SPACE key to select/deselect; ENTER key to submit.</p>
+<p>This is a native HTML form control. No ARIA is present or required.</p>
+<p><em>Keyboard users:</em> TAB to control then use ARROW keys to navigate options. Use SPACEBAR for single-select. Multi-select is operating system dependent.</p>
 <p>Please <a href={{ "input/select" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
-<p><i>Updated</i>: May 12th, 2019</p>
 
 <hr />
 <h2 class="clipped">Examples</h2>
 
-<h3>Example 1: Native HTML Select</h3>
+<h3>Example 1: Single Select</h3>
 <form>
-    <span>
-        <label for="car">Car</label>
-        <select id="car" name="car">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="opel">Opel</option>
-            <option value="audi">Audi</option>
-        </select>
-    </span>
+    <label for="car">Car</label>
+    <select id="car" name="car">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="opel">Opel</option>
+        <option value="audi">Audi</option>
+    </select>
     <input class="button" type="submit" />
 </form>
 
 <hr />
+
+<h3>Example 2: Multi-Select</h3>
+<form>
+    <label for="cars-native">Car</label>
+    <select id="cars-native" name="cars-native[]" multiple style="vertical-align: top">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="opel">Opel</option>
+        <option value="audi">Audi</option>
+    </select>
+    <input class="button" type="submit" />
+</form>
+
+<hr />
+
+<p><i>Updated</i>: May 14th, 2019</p>
