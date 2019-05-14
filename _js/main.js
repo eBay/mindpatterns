@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
   var Tooltip = require('./tooltip.js');
 
+  var Dialog = require('./dialog.js');
+
   var DialogButton = require('./dialog-button.js');
 
   var MenuButton = require('./menu-button.js');
@@ -75,8 +77,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
     widgetEl.addEventListener('tabs-change', Util.logEvent);
     pageWidgets.push(new Tabs(widgetEl));
   });
+  document.querySelectorAll('.dialog').forEach(function (widgetEl) {
+    pageWidgets.push(new Dialog(widgetEl));
+  });
   document.querySelectorAll('.dialog-button').forEach(function (widgetEl) {
-    pageWidgets.push(new DialogButton(widgetEl));
+    var dialogWidgetIndex = pageWidgets.findIndex(function (widget) {
+      return widget._el.id === widgetEl.dataset.makeupDialog;
+    });
+    pageWidgets.push(new DialogButton(widgetEl, pageWidgets[dialogWidgetIndex]));
   });
   document.querySelectorAll('.menu-button').forEach(function (widgetEl) {
     pageWidgets.push(new MenuButton(widgetEl));

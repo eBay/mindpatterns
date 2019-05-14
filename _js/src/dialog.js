@@ -32,23 +32,31 @@ module.exports = class {
         this._el.classList.add('dialog--js');
 
         this.wake();
+
+        if (this._el.hidden !== true) {
+            document.body.classList.add('has-modal');
+            this.focusables[0].focus();
+            Modal.modal(this._el);
+        }
     }
 
     get focusables() {
         return Focusables(this._windowEl);
     }
 
+    get open() {
+        return !this._el.hidden;
+    }
+
     set open(bool) {
         this._el.hidden = !bool;
 
         if (bool === true) {
-            this._el.open = true;
             document.body.classList.add('has-modal');
             this.focusables[0].focus();
             Modal.modal(this._el);
         } else {
             Modal.unmodal();
-            this._el.open = false;
             this._el.dispatchEvent(new CustomEvent('dialog-close'));
             document.body.classList.remove('has-modal');
         }

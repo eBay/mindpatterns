@@ -6,33 +6,22 @@ title: Dialog
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
-<p>Activate the button to view dialog.</p>
+<p>After dialog has closed, keyboard focus returns to the beginning of the parent window.</p>
+<p><a href="index.html">Reload page</a> to trigger dialog, or view <a href="../dialog-button/index.html">Dialog Button</a> pattern to open a dialog with a button.</p>
 <p>Please <a href={{ "disclosure/dialog" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 <p><i>Updated</i>: May 12th, 2019</p>
 
 <h2 class="clipped">Examples</h2>
 
-<hr />
-
-<h3>Example 1: Modal Lightbox</h3>
-<div>
-    <button data-makeup-dialog="dialog" class="button dialog-button" type="button">Dialog</button>
-    <div role="dialog" class="dialog" id="dialog" aria-labelledby="dialog-title" hidden>
-        <div class="dialog__window" role="document">
-            <header class="dialog__header">
-                <h2 class="dialog__title" id="dialog-title">Dialog Title</h2>
-                <button aria-label="Close Dialog" class="dialog__close button" type="button"></button>
-            </header>
-            <div class="dialog__body">
-                <a href="http://www.ebay.com">www.ebay.com</a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <select>
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="opel">Opel</option>
-                  <option value="audi">Audi</option>
-                </select>
-            </div>
+<div role="dialog" class="dialog" aria-labelledby="dialog-title">
+    <div class="dialog__window" role="document">
+        <header class="dialog__header">
+            <h2 class="dialog__title" id="dialog-title">This is a Dialog</h2>
+            <button aria-label="Close Dialog" class="dialog__close button" type="button"></button>
+        </header>
+        <div class="dialog__body">
+            <p>This dialog just opened on page load, preventing access to the main page underneath. Probably not what you were expecting, right? Right. This interaction should be avoided if at all possible.</p>
+            <p>Typically, a dialog should only be opened after an explicit user action, such as clicking a <a href="../dialog-button/index.html">Dialog Button</a>.</p>
         </div>
     </div>
 </div>

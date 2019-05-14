@@ -6,7 +6,6 @@
 * https://opensource.org/licenses/MIT.
 */
 
-const Dialog = require('./dialog.js');
 
 function onClick() {
     this._dialogWidget.open = true;
@@ -17,11 +16,11 @@ function onClose() {
 }
 
 module.exports = class {
-    constructor(widgetEl) {
+    constructor(widgetEl, dialogWidget) {
         this._el = widgetEl;
 
-        this._dialogEl = document.getElementById(widgetEl.dataset.makeupDialog);
-        this._dialogWidget = new Dialog(this._dialogEl);
+        this._dialogWidget = dialogWidget;
+        this._dialogEl = dialogWidget._el;
 
         this._destroyed = false;
 

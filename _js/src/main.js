@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     const Expando = require('./expando.js');
     const Tabs = require('./tabs.js');
     const Tooltip = require('./tooltip.js');
+    const Dialog = require('./dialog.js');
     const DialogButton = require('./dialog-button.js');
     const MenuButton = require('./menu-button.js');
     const Menu = require('./menu.js');
@@ -72,8 +73,15 @@ document.addEventListener("DOMContentLoaded", function(e) {
         pageWidgets.push(new Tabs(widgetEl));
     });
 
+    document.querySelectorAll('.dialog').forEach(function(widgetEl) {
+        pageWidgets.push(new Dialog(widgetEl));
+    });
+
     document.querySelectorAll('.dialog-button').forEach(function(widgetEl) {
-        pageWidgets.push(new DialogButton(widgetEl));
+        const dialogWidgetIndex = pageWidgets.findIndex(function(widget) {
+            return widget._el.id === widgetEl.dataset.makeupDialog;
+        });
+        pageWidgets.push(new DialogButton(widgetEl, pageWidgets[dialogWidgetIndex]));
     });
 
     document.querySelectorAll('.menu-button').forEach(function(widgetEl) {

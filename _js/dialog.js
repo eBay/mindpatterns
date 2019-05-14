@@ -42,6 +42,12 @@ function () {
     this._el.classList.add('dialog--js');
 
     this.wake();
+
+    if (this._el.hidden !== true) {
+      document.body.classList.add('has-modal');
+      this.focusables[0].focus();
+      Modal.modal(this._el);
+    }
   }
 
   _createClass(_class, [{
@@ -74,17 +80,18 @@ function () {
     }
   }, {
     key: "open",
+    get: function get() {
+      return !this._el.hidden;
+    },
     set: function set(bool) {
       this._el.hidden = !bool;
 
       if (bool === true) {
-        this._el.open = true;
         document.body.classList.add('has-modal');
         this.focusables[0].focus();
         Modal.modal(this._el);
       } else {
         Modal.unmodal();
-        this._el.open = false;
 
         this._el.dispatchEvent(new CustomEvent('dialog-close'));
 

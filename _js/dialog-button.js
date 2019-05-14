@@ -13,8 +13,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 * license that can be found in the LICENSE file or at
 * https://opensource.org/licenses/MIT.
 */
-var Dialog = require('./dialog.js');
-
 function onClick() {
   this._dialogWidget.open = true;
 }
@@ -26,12 +24,12 @@ function onClose() {
 module.exports =
 /*#__PURE__*/
 function () {
-  function _class(widgetEl) {
+  function _class(widgetEl, dialogWidget) {
     _classCallCheck(this, _class);
 
     this._el = widgetEl;
-    this._dialogEl = document.getElementById(widgetEl.dataset.makeupDialog);
-    this._dialogWidget = new Dialog(this._dialogEl);
+    this._dialogWidget = dialogWidget;
+    this._dialogEl = dialogWidget._el;
     this._destroyed = false;
     this._onClickListener = onClick.bind(this);
     this._onDialogCloseListener = onClose.bind(this);
