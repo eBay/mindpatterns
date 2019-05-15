@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
     const Tooltip = require('./tooltip.js');
     const Dialog = require('./dialog.js');
     const DialogButton = require('./dialog-button.js');
+    const ListboxButton = require('./listbox-button.js');
+    const Listbox = require('./listbox.js');
     const MenuButton = require('./menu-button.js');
     const Menu = require('./menu.js');
     const AriaButton = require('./aria-button.js');
@@ -84,6 +86,18 @@ document.addEventListener("DOMContentLoaded", function(e) {
         pageWidgets.push(new DialogButton(widgetEl, pageWidgets[dialogWidgetIndex]));
     });
 
+    document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
+        pageWidgets.push(new ListboxButton(widgetEl));
+
+        widgetEl.addEventListener('listbox-select', function(e, detail) {
+            console.log(e.type, detail.el.innerText);
+        })
+    });
+
+    document.querySelectorAll('.listbox').forEach(function(widgetEl) {
+        pageWidgets.push(new Listbox(widgetEl));
+    });
+
     document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
         pageWidgets.push(new MenuButton(widgetEl));
 
@@ -95,9 +109,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
     document.querySelectorAll('.menu').forEach(function(widgetEl) {
         pageWidgets.push(new Menu(widgetEl));
 
-        widgetEl.addEventListener('menuitem-select', (e) => console.log(e.type, e.detail));
-        widgetEl.addEventListener('menuitemradio-change', (e) => console.log(e.type, e.detail));
-        widgetEl.addEventListener('menuitemcheckbox-toggle', (e) => console.log(e.type, e.detail));
+        widgetEl.addEventListener('menu-select', (e) => console.log(e.type, e.detail));
+        widgetEl.addEventListener('menu-change', (e) => console.log(e.type, e.detail));
+        widgetEl.addEventListener('menu-toggle', (e) => console.log(e.type, e.detail));
     });
 
     document.querySelectorAll('.expando').forEach(function(widgetEl) {

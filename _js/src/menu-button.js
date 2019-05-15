@@ -7,22 +7,22 @@
 */
 
 const Expander = require('makeup-expander');
-const Menu = require('./menu.js');
 
 function onButtonFirstClick(e) {
     this._menuEl.hidden = false;
 }
 
-function onMenuEscape(e) {
-    this._buttonEl.setAttribute('aria-expanded', 'false');
-    this._buttonEl.focus();
+function onMenuKeyDown(e) {
+    if (e.keyCode === 27) {
+        this._expander.collapse();
+        this._buttonEl.focus();
+    }
 }
 
 function onMenuItemSelect(e) {
-    this._buttonEl.setAttribute('aria-expanded', 'false');
+    this._expander.collapse();
     this._buttonEl.focus();
 }
-
 
 module.exports = class {
     constructor(widgetEl) {
@@ -45,7 +45,7 @@ module.exports = class {
         this._destroyed = false;
 
         this._onButtonFirstClickListener = onButtonFirstClick.bind(this);
-        this._onMenuEscapeListener = onMenuEscape.bind(this);
+        this._onMenuKeyDownListener = onMenuKeyDown.bind(this);
         this._onMenuItemSelectListener = onMenuItemSelect.bind(this);
 
         this._el.classList.add('menu-button--js');
@@ -55,15 +55,15 @@ module.exports = class {
 
     sleep() {
         this._buttonEl.removeEventListener('click', this._onButtonFirstClickListener);
-        this._menuEl.removeEventListener('menu-escape', this._onMenuEscapeListener);
-        this._menuEl.removeEventListener('menuitem-select', this._onMenuItemSelectListener);
+        this._menuEl.removeEventListener('keydown', this._onMenuKeyDownListener);
+        this._menuEl.removeEventListener('menu-select', this._onMenuItemSelectListener);
     }
 
     wake() {
         if (this._destroyed !== true) {
             this._buttonEl.addEventListener('click', this._onButtonFirstClickListener, { once: true });
-            this._menuEl.addEventListener('menu-escape', this._onMenuEscapeListener);
-            this._menuEl.addEventListener('menuitem-select', this._onMenuItemSelectListener);
+            this._menuEl.addEventListener('keydown', this._onMenuKeyDownListener);
+            this._menuEl.addEventListener('menu-select', this._onMenuItemSelectListener);
         }
     }
 
@@ -73,7 +73,7 @@ module.exports = class {
         this.sleep();
 
         this._onButtonFirstClickListener = null;
-        this._onMenuEscapeListener = null;
+        this._onMenuKeyDownListener = null;
         this._onMenuItemSelectListener = null;
     }
 }

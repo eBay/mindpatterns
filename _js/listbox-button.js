@@ -16,21 +16,37 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var Expander = require('makeup-expander');
 
 function onButtonFirstClick(e) {
-  this._menuEl.hidden = false;
+  this._listboxEl.hidden = false;
 }
 
-function onMenuKeyDown(e) {
-  if (e.keyCode === 27) {
+function onListboxDone(e) {
+  this._expander.collapse();
+
+  this._buttonEl.focus();
+}
+
+function onListboxKeyDown(e) {
+  if (e.keyCode === 13 || e.keyCode === 27 || e.keyCode === 32) {
+    e.preventDefault();
+
     this._expander.collapse();
 
     this._buttonEl.focus();
   }
 }
 
-function onMenuItemSelect(e) {
-  this._expander.collapse();
+function onListboxClick(e) {
+  var _this = this;
 
-  this._buttonEl.focus();
+  setTimeout(function () {
+    _this._expander.collapse();
+
+    _this._buttonEl.focus();
+  }, 150);
+}
+
+function onListboxChange(e) {
+  this._buttonEl.innerText = e.detail.optionValue;
 }
 
 module.exports =
@@ -41,23 +57,25 @@ function () {
 
     this._el = widgetEl;
     this._buttonEl = this._el.querySelector('button');
-    this._menuEl = this._el.querySelector('.menu');
+    this._listboxEl = this._el.querySelector('.listbox');
     this._expander = new Expander(this._el, {
+      alwaysDoFocusManagement: true,
       collapseOnClick: true,
       collapseOnClickOut: true,
       collapseOnFocusOut: true,
-      contentSelector: '.menu',
+      contentSelector: '.listbox',
       expandOnClick: true,
       focusManagement: 'focusable',
       hostSelector: 'button'
     });
-    this._menuEl = this._el.querySelector('.menu');
     this._destroyed = false;
     this._onButtonFirstClickListener = onButtonFirstClick.bind(this);
-    this._onMenuKeyDownListener = onMenuKeyDown.bind(this);
-    this._onMenuItemSelectListener = onMenuItemSelect.bind(this);
+    this._onListboxDoneListener = onListboxDone.bind(this);
+    this._onListboxClickListener = onListboxClick.bind(this);
+    this._onListboxKeyDownListener = onListboxKeyDown.bind(this);
+    this._onListboxChangeListener = onListboxChange.bind(this);
 
-    this._el.classList.add('menu-button--js');
+    this._el.classList.add('listbox-button--js');
 
     this.wake();
   }
@@ -67,9 +85,13 @@ function () {
     value: function sleep() {
       this._buttonEl.removeEventListener('click', this._onButtonFirstClickListener);
 
-      this._menuEl.removeEventListener('keydown', this._onMenuKeyDownListener);
+      this._listboxEl.removeEventListener('listbox-done', this._onListboxDoneListener);
 
-      this._menuEl.removeEventListener('menu-select', this._onMenuItemSelectListener);
+      this._listboxEl.removeEventListener('click', this._onListboxClickListener);
+
+      this._listboxEl.removeEventListener('keydown', this._onListboxKeyDownListener);
+
+      this._listboxEl.removeEventListener('listbox-change', this._onListboxChangeListener);
     }
   }, {
     key: "wake",
@@ -79,9 +101,13 @@ function () {
           once: true
         });
 
-        this._menuEl.addEventListener('keydown', this._onMenuKeyDownListener);
+        this._listboxEl.addEventListener('listbox-done', this._onListboxDoneListener);
 
-        this._menuEl.addEventListener('menu-select', this._onMenuItemSelectListener);
+        this._listboxEl.addEventListener('click', this._onListboxClickListener);
+
+        this._listboxEl.addEventListener('keydown', this._onListboxKeyDownListener);
+
+        this._listboxEl.addEventListener('listbox-change', this._onListboxChangeListener);
       }
     }
   }, {
@@ -90,8 +116,10 @@ function () {
       this._destroyed = true;
       this.sleep();
       this._onButtonFirstClickListener = null;
-      this._onMenuKeyDownListener = null;
-      this._onMenuItemSelectListener = null;
+      this._onListboxDoneListener = null;
+      this._onListboxClickListener = null;
+      this._onListboxKeyDownListener = null;
+      this._onListboxChangeListener = null;
     }
   }]);
 

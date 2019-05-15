@@ -10,10 +10,11 @@ const RovingTabIndex = require('makeup-roving-tabindex');
 const PreventScrollKeys = require('makeup-prevent-scroll-keys');
 
 function onKeyDown(e) {
-    if (e.keyCode === 27) {
-        this._el.dispatchEvent(new CustomEvent('menu-escape'));
+    if (e.keyCode === 13) {
+        e.preventDefault();
+        processMenuItemAction(this._el, e.target);
     }
-    else if (e.keyCode === 13 || e.keyCode === 32) {
+    else if (e.keyCode === 32) {
         processMenuItemAction(this._el, e.target);
     }
 }
@@ -37,7 +38,7 @@ function processMenuItemAction(widgetEl, menuItemEl) {
 }
 
 function doMenuItem(widgetEl, menuItemEl) {
-    widgetEl.dispatchEvent(new CustomEvent('menuitem-select', {
+    widgetEl.dispatchEvent(new CustomEvent('menu-select', {
         detail: {
             el: menuItemEl
         }
@@ -47,7 +48,7 @@ function doMenuItem(widgetEl, menuItemEl) {
 function doMenuItemCheckbox(widgetEl, menuItemEl) {
     menuItemEl.setAttribute('aria-checked', (menuItemEl.getAttribute('aria-checked') === 'true') ? 'false' : 'true');
 
-    widgetEl.dispatchEvent(new CustomEvent('menuitemcheckbox-toggle', {
+    widgetEl.dispatchEvent(new CustomEvent('menu-toggle', {
         detail: {
             el: menuItemEl,
             checked: menuItemEl.getAttribute('aria-checked')
@@ -62,7 +63,7 @@ function doMenuItemRadio(widgetEl, menuItemEl, radioGroupEls) {
 
     menuItemEl.setAttribute('aria-checked', 'true');
 
-    widgetEl.dispatchEvent(new CustomEvent('menuitemradio-change', {
+    widgetEl.dispatchEvent(new CustomEvent('menu-change', {
         detail: {
             el: menuItemEl
         }
@@ -73,7 +74,9 @@ module.exports = class {
     constructor(widgetEl) {
         this._el = widgetEl;
 
-        this._rovingTabIndex = RovingTabIndex.createLinear(this._el, '[role^=menuitem]');
+        this._rovingTabIndex = RovingTabIndex.createLinear(this._el, '[role^=menuitem]' , {
+            autoReset: 0
+        });
 
         PreventScrollKeys.add(this._el);
 

@@ -27,6 +27,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
   var DialogButton = require('./dialog-button.js');
 
+  var ListboxButton = require('./listbox-button.js');
+
+  var Listbox = require('./listbox.js');
+
   var MenuButton = require('./menu-button.js');
 
   var Menu = require('./menu.js');
@@ -86,6 +90,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
     pageWidgets.push(new DialogButton(widgetEl, pageWidgets[dialogWidgetIndex]));
   });
+  document.querySelectorAll('.listbox-button').forEach(function (widgetEl) {
+    pageWidgets.push(new ListboxButton(widgetEl));
+    widgetEl.addEventListener('listbox-select', function (e, detail) {
+      console.log(e.type, detail.el.innerText);
+    });
+  });
+  document.querySelectorAll('.listbox').forEach(function (widgetEl) {
+    pageWidgets.push(new Listbox(widgetEl));
+  });
   document.querySelectorAll('.menu-button').forEach(function (widgetEl) {
     pageWidgets.push(new MenuButton(widgetEl));
     widgetEl.addEventListener('menuitem-select', function (e, detail) {
@@ -94,13 +107,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
   });
   document.querySelectorAll('.menu').forEach(function (widgetEl) {
     pageWidgets.push(new Menu(widgetEl));
-    widgetEl.addEventListener('menuitem-select', function (e) {
+    widgetEl.addEventListener('menu-select', function (e) {
       return console.log(e.type, e.detail);
     });
-    widgetEl.addEventListener('menuitemradio-change', function (e) {
+    widgetEl.addEventListener('menu-change', function (e) {
       return console.log(e.type, e.detail);
     });
-    widgetEl.addEventListener('menuitemcheckbox-toggle', function (e) {
+    widgetEl.addEventListener('menu-toggle', function (e) {
       return console.log(e.type, e.detail);
     });
   });

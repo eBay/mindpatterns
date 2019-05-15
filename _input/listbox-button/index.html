@@ -1,0 +1,39 @@
+---
+layout: page
+title: Listbox Button
+---
+
+<style>
+    span.listbox-button {
+        width: 250px;
+    }
+</style>
+
+<h1>{{ page.title }}</h1>
+
+<h2 class="clipped">Readme</h2>
+
+<p>Activate the button to open a <a href="../listbox/index.html">listbox</a>.</p>
+<p>Please <a href={{ "input/listbox" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+<hr />
+
+<h2 class="clipped">Examples</h2>
+
+<h3>Example 1: Single-Select</h3>
+
+<span class="listbox-button">
+    <button class="button listbox-button__button">Volvo</button>
+    <div class="listbox" hidden>
+        <div role="listbox">
+            <div role="option">Volvo</div>
+            <div role="option">Saab</div>
+            <div role="option">Opel</div>
+            <div role="option">Audi</div>
+        </div>
+    </div>
+</span>
+
+<hr />
+
+<p><i>Last Updated</i>: May 14th, 2019</p>
