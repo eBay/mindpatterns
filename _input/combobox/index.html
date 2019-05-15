@@ -3,8 +3,6 @@ layout: page
 title: Combobox
 ---
 
-<link rel="stylesheet" href="combobox.css">
-
 <style>
     .combobox label {
         display: block;
@@ -20,30 +18,28 @@ title: Combobox
 <p>For combobox with typeahead / autocomplete behavior, please visit the <a href="../autocomplete">autocomplete</a> pattern.</p>
 <p>Please <a href={{ "input/combobox" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
-<h2>Examples</h2>
+<hr />
 
+<h2 class="clipped">Examples</h2>
+
+<h3>Example 1: Opens on Down Key</h3>
 <form>
-    <div class="row">
-        <div class="col-xs-12 col-md-6">
-            <h3>Opens on Down Key</h3>
-            <span class="combobox" id="combobox-0">
-                <label for="combobox-0-input">Sell your games console</label>
-                <input id="combobox-0-input" name="console0" type="text" placeholder="Playstation 4, Xbox One, etc." />
-            </span>
-        </div>
-        <div class="col-xs-12 col-md-6">
-            <h3>Opens On Focus</h3>
-            <form>
-                <span class="combobox" id="combobox-1">
-                    <label for="combobox-1-input">List your game console on eBay</label>
-                    <input id="combobox-1-input" name="console1" type="text" placeholder="Playstation 4, Xbox One, etc." />
-                </span>
-                <input class="button" type="submit" value="Submit" />
-            </form>
-        </div>
-    </div>
-    <hr />
-    <input class="button" type="submit" value="Submit" />
+    <span class="combobox" id="combobox-0">
+        <label for="combobox-0-input">Sell your games console</label>
+        <input id="combobox-0-input" name="console0" type="text" placeholder="Playstation 4, Xbox One, etc." />
+    </span>
+    <input class="button" type="submit" />
+</form>
+
+<hr />
+
+<h3>Example 2: Opens On Focus</h3>
+<form>
+    <span class="combobox" id="combobox-1">
+        <label for="combobox-1-input">List your game console on eBay</label>
+        <input id="combobox-1-input" name="console1" type="text" placeholder="Playstation 4, Xbox One, etc." />
+    </span>
+    <input class="button" type="submit" />
 </form>
 
 <hr />
