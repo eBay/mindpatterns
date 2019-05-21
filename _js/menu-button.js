@@ -28,9 +28,12 @@ function onMenuKeyDown(e) {
 }
 
 function onMenuItemSelect(e) {
-  this._expander.collapse();
+  var widget = this;
+  setTimeout(function (e) {
+    widget._expander.collapse();
 
-  this._buttonEl.focus();
+    widget._buttonEl.focus();
+  }, 150);
 }
 
 module.exports =
@@ -47,6 +50,7 @@ function () {
       collapseOnClickOut: true,
       collapseOnFocusOut: true,
       contentSelector: '.menu',
+      expandedClass: 'menu-button--expanded',
       expandOnClick: true,
       focusManagement: 'focusable',
       hostSelector: 'button'
@@ -70,6 +74,10 @@ function () {
       this._menuEl.removeEventListener('keydown', this._onMenuKeyDownListener);
 
       this._menuEl.removeEventListener('menu-select', this._onMenuItemSelectListener);
+
+      this._menuEl.removeEventListener('menu-toggle', this._onMenuItemSelectListener);
+
+      this._menuEl.removeEventListener('menu-change', this._onMenuItemSelectListener);
     }
   }, {
     key: "wake",
@@ -82,6 +90,10 @@ function () {
         this._menuEl.addEventListener('keydown', this._onMenuKeyDownListener);
 
         this._menuEl.addEventListener('menu-select', this._onMenuItemSelectListener);
+
+        this._menuEl.addEventListener('menu-toggle', this._onMenuItemSelectListener);
+
+        this._menuEl.addEventListener('menu-change', this._onMenuItemSelectListener);
       }
     }
   }, {

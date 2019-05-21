@@ -1,7 +1,7 @@
-.combobox > [role=combobox] {
-    display: inline;
+.combobox {
+    position: relative;
 }
-.combobox > button:after {
+.combobox__button::after {
     font-family: 'vq-icon-font';
     content: '\e606';
 }
@@ -19,23 +19,34 @@
     white-space: nowrap;
     width: 1px;
 }
-.combobox [role=combobox][aria-expanded=true] + button:after {
+.combobox--expanded .combobox__button::after,
+.combobox__textbox[aria-expanded=true] + .combobox__button::after {
     content: '\e609';
 }
-.combobox [role=listbox] {
+.combobox__listbox {
+    display: none;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+.combobox--expanded .combobox__listbox {
+    display: block;
+}
+
+.combobox__listbox [role=listbox] {
     background: LightYellow;
     border: 1px solid #eee;
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-.combobox li {
-    cursor: pointer;
+.combobox__listbox [role="option"] {
+    cursor: default;
     font-size: 1em;
     padding: 8px;
 }
-.combobox li[role=option]:hover,
-.combobox li.active-descendant[role=option] {
+.combobox [role=option]:hover,
+.combobox [role=option][aria-selected="true"] {
     background-color: #006699;
     color: white;
 }

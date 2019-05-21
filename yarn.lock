@@ -3423,34 +3423,34 @@ make-dir@^1.0.0:
   dependencies:
     pify "^3.0.0"
 
-makeup-active-descendant@~0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/makeup-active-descendant/-/makeup-active-descendant-0.1.1.tgz#f59b4abb5e5d6076abb16c4bcf92e7b568bc9c47"
-  integrity sha512-3uMy8IOZ85Xv+ljQI0YaIFuQ/9VkJ1dJSkEYWqB/dirPfxzLouTxKDX/aKNO9WjvN3b7+bNtAZy+wVv4zeS1qQ==
+makeup-active-descendant@~0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/makeup-active-descendant/-/makeup-active-descendant-0.1.4.tgz#35b88bfcc77156093ed489f3b73769df3d3f17b8"
+  integrity sha512-02NFymOgRy2WV+fj1KxUfSnZEwtAybcKZTsog1hEDIk3OHP5vvrqtP2pJC/6mEKOoHxAwdp0eJpFtXc0fIysLQ==
   dependencies:
     custom-event-polyfill "^1"
-    makeup-navigation-emitter "~0.2.0"
+    makeup-navigation-emitter "~0.2.2"
     nodelist-foreach-polyfill "^1"
 
-makeup-exit-emitter@~0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/makeup-exit-emitter/-/makeup-exit-emitter-0.1.0.tgz#cc2ef3583b859900372e9777fc83553761622ee4"
-  integrity sha512-cwtN+GL8ryAz527EccY71zzNk39mBee/hyk7b0nbmbSnXeWhDinctptcDMmRYXF1yrji+jpiUl7gpXBdUEHsnA==
+makeup-exit-emitter@~0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/makeup-exit-emitter/-/makeup-exit-emitter-0.1.1.tgz#4e5ab23cfc2c2d094784685673f8272d5dab1c85"
+  integrity sha512-6yAkYnvjj5aGLWHdjSNasF/tD6AlAgHEvNE0iwYhYAKwB2/YNR79NWLRri2qSXgRiF8AfM7p5pfKTlMCNxWRYA==
   dependencies:
     custom-event-polyfill "^1"
-    makeup-next-id "~0.0.2"
+    makeup-next-id "~0.0.3"
 
-makeup-expander@~0.7.2:
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/makeup-expander/-/makeup-expander-0.7.2.tgz#ada8a29bd9b1eeacdaed4df776bcd1bfc179b438"
-  integrity sha512-8naPI3nLbT1CygjzNWBc3znSiqcPucvR+yP9bUxLZp33NNj4kTKYLj2WBRfIW6odSttZqU2ZmDD5Rbd+b37kGQ==
+makeup-expander@~0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/makeup-expander/-/makeup-expander-0.7.3.tgz#5315769ea6ba6f0c14f5aa4f75a9348a8a0bbeeb"
+  integrity sha512-820XOxgUrzVOb4ieVBqOUWTIuRDFhbZI8A5toHdcNlO19rgUqH8pplZ1B2fvs+lqGCrEu6buf6egDqBZuyeA2g==
   dependencies:
     custom-event-polyfill "^1"
-    makeup-exit-emitter "~0.1.0"
-    makeup-focusables "~0.0.3"
-    makeup-next-id "~0.0.2"
+    makeup-exit-emitter "~0.1.1"
+    makeup-focusables "~0.0.4"
+    makeup-next-id "~0.0.3"
 
-makeup-focusables@^0.0.4, makeup-focusables@~0.0.3, makeup-focusables@~0.0.4:
+makeup-focusables@^0.0.4, makeup-focusables@~0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/makeup-focusables/-/makeup-focusables-0.0.4.tgz#1a324b1e7c026f2254dd599caa4099344f1c266c"
   integrity sha512-2yOaXhTnltA9Fb9+sSk2d2oS5150/qMhyjvFYUUWBxlnVpSR7H7cktH/WLgYl7Nab79W29pNUnAIHX9SpnWKKQ==
@@ -3505,20 +3505,15 @@ makeup-modal@~0.1.0:
     makeup-keyboard-trap "~0.2"
     makeup-screenreader-trap "~0.1"
 
-makeup-navigation-emitter@~0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/makeup-navigation-emitter/-/makeup-navigation-emitter-0.2.0.tgz#dd7c1f0d2c6e8abdcb8f17ba3d15e29aaca211a9"
-  integrity sha512-YIYGgVinq1ptEmJQknwLTGuWd1/Gyz1RMiv3xmTTDGcQDBfRvJsN/Jx6zCeMDVvhWdOBRY6RTC/QTZcr35quMA==
+makeup-navigation-emitter@~0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/makeup-navigation-emitter/-/makeup-navigation-emitter-0.2.2.tgz#84daca904a9d67d14a2a124221afbadff817076e"
+  integrity sha512-4FDLNiYl48dQ+IqZkh+XY39ZYG/iHbiO1xATVdBurCuNDoM5PrgwyiKRSOAkQ3nFZ2a193tCjtuWa2dApi+RBA==
   dependencies:
     custom-event-polyfill "^1"
-    makeup-exit-emitter "~0.1.0"
+    makeup-exit-emitter "~0.1.1"
     makeup-key-emitter "~0.1.0"
-    nodelist-foreach-polyfill "^1.2.0"
-
-makeup-next-id@~0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/makeup-next-id/-/makeup-next-id-0.0.2.tgz#70f19812b0b5cb8d5f0f7f78719179ea4b61a0ef"
-  integrity sha512-nAeDpu/X8Z978mvtj1GnalHNs3ulHOLIpEm2lLAM3SO8KdTDtl4uP3utfW8oYtOZIXaeMhR53JqxFDQ3ZYCZug==
+    nodelist-foreach-polyfill "^1"
 
 makeup-next-id@~0.0.3:
   version "0.0.3"
@@ -3530,13 +3525,13 @@ makeup-prevent-scroll-keys@~0.0.3:
   resolved "https://registry.yarnpkg.com/makeup-prevent-scroll-keys/-/makeup-prevent-scroll-keys-0.0.3.tgz#71eb9045f3ebe3cac17933c8222de69b7c4e6f56"
   integrity sha512-R3x0jd3/WkYzOlL6VzGhsTdmLLDvARtPNejaO4xKWUIzfaeDFMdpvtonNuoDqwi7KpKpm9cR9oNgYd9e0SCoGw==
 
-makeup-roving-tabindex@~0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/makeup-roving-tabindex/-/makeup-roving-tabindex-0.2.1.tgz#2ce869d9242801e3b2ed9059bb067c2ac0000fba"
-  integrity sha512-r2yQgcTb0UkKgxJySAms3q4d9Y/YJMBfsG0oDyWK8e4iZrbcW6mMFdQvL582DU5xYgM7BZ12cXEhpGU7a3MRKA==
+makeup-roving-tabindex@~0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/makeup-roving-tabindex/-/makeup-roving-tabindex-0.2.3.tgz#957b80b47c1c7a508956688dc09de2b045d0b82e"
+  integrity sha512-6IH1DPcgKyTUgi+SSf7288LmbEBOpfhbFt8FJ3HbmRnIfegsZxNCx5/2g9l9/6TrKSScSZaQ163C3dlJAz7T3A==
   dependencies:
     custom-event-polyfill "^1"
-    makeup-navigation-emitter "~0.2.0"
+    makeup-navigation-emitter "~0.2.2"
     nodelist-foreach-polyfill "^1"
 
 makeup-screenreader-trap@~0.1:
@@ -3809,7 +3804,7 @@ node-releases@^1.1.17:
   dependencies:
     semver "^5.3.0"
 
-nodelist-foreach-polyfill@^1, nodelist-foreach-polyfill@^1.2.0:
+nodelist-foreach-polyfill@^1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/nodelist-foreach-polyfill/-/nodelist-foreach-polyfill-1.2.0.tgz#92bca739959af68271734087e48474c2fef5152c"
   integrity sha512-hPW0tSoi1gJ3diSOyjFYOsYLZjnxF04psobzKA5GGGCz3fKHnLODwgdyXQq2cddYlvmT3q+ZNEBrfBdMkYPLaA==

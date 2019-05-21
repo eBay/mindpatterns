@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
   var AccordionLegacy = require('./accordion-legacy.js');
 
+  var Combobox = require('./combobox.js');
+
   var Expando = require('./expando.js');
 
   var Tabs = require('./tabs.js');
@@ -91,17 +93,32 @@ document.addEventListener("DOMContentLoaded", function (e) {
     pageWidgets.push(new DialogButton(widgetEl, pageWidgets[dialogWidgetIndex]));
   });
   document.querySelectorAll('.listbox-button').forEach(function (widgetEl) {
-    pageWidgets.push(new ListboxButton(widgetEl));
-    widgetEl.addEventListener('listbox-select', function (e, detail) {
-      console.log(e.type, detail.el.innerText);
+    pageWidgets.push(new ListboxButton(widgetEl, {
+      autoSelect: widgetEl.dataset.autoSelect === 'true' ? true : false
+    }));
+    widgetEl.addEventListener('listbox-change', function (e) {
+      console.log(e.type, e.detail);
+    });
+  });
+  document.querySelectorAll('.combobox').forEach(function (widgetEl) {
+    pageWidgets.push(new Combobox(widgetEl, {
+      autoSelect: widgetEl.dataset.autoSelect === 'true' ? true : false
+    }));
+    widgetEl.addEventListener('combobox-change', function (e) {
+      console.log(e.type, e.detail);
     });
   });
   document.querySelectorAll('.listbox').forEach(function (widgetEl) {
-    pageWidgets.push(new Listbox(widgetEl));
+    pageWidgets.push(new Listbox(widgetEl, {
+      autoSelect: widgetEl.dataset.autoSelect === 'true' ? true : false
+    }));
+    widgetEl.addEventListener('listbox-change', function (e) {
+      console.log(e.type, e.detail);
+    });
   });
   document.querySelectorAll('.menu-button').forEach(function (widgetEl) {
     pageWidgets.push(new MenuButton(widgetEl));
-    widgetEl.addEventListener('menuitem-select', function (e, detail) {
+    widgetEl.addEventListener('menuitem-select', function (e) {
       console.log(e.type, detail.el.innerText);
     });
   });

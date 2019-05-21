@@ -9,18 +9,20 @@
 const Expander = require('makeup-expander');
 const Listbox = require('./listbox.js');
 
-function onButtonFirstClick(e) {
-    this._listboxEl.hidden = false;
-}
-
-function onListboxKeyDown(e) {
-    if (e.keyCode === 13 || e.keyCode === 27 || e.keyCode === 32) {
-        const widget = this;
+function onTextboxKeyDown(e) {
+    // up and down keys should not move caret
+    if (e.keyCode === 38 || e.keyCode === 40) {
         e.preventDefault();
+    }
+
+    // for manual selection, ENTER and SPACEBAR should not submit form when listbox is open
+    if (this._expander.isExpanded() && !this._options.autoSelect && (e.keyCode === 13 || e.keyCode === 32)) {
+        e.preventDefault();
+        const widget = this;
+        this._inputEl.value = this._listboxWidget.items[this._listboxWidget._activeDescendant.index].innerText;
         setTimeout(function() {
             widget._expander.collapse();
-            widget._buttonEl.focus();
-        }, 100);
+        }, 150);
     }
 }
 
@@ -28,12 +30,14 @@ function onListboxClick(e) {
     const widget = this;
     setTimeout(function() {
         widget._expander.collapse();
-        widget._buttonEl.focus();
     }, 150);
 }
 
 function onListboxChange(e) {
-    this._buttonEl.innerText = e.detail.optionValue;
+    this._inputEl.value = e.detail.optionValue;
+    if (!this._options.autoSelect) {
+        this._listboxWidget.clear();
+    }
 }
 
 const defaultOptions = {
@@ -44,50 +48,51 @@ module.exports = class {
     constructor(widgetEl, selectedOptions) {
         this._options = Object.assign({}, defaultOptions, selectedOptions);
         this._el = widgetEl;
-        this._buttonEl = this._el.querySelector('button');
-        this._listboxEl = this._el.querySelector('.listbox-button__listbox');
+        this._inputEl = this._el.querySelector('input');
+        this._listboxEl = this._el.querySelector('.combobox__listbox');
+
+
+        this._inputEl.setAttribute('autocomplete', 'off');
+        this._listboxEl.hidden = false;
 
         this._listboxWidget = new Listbox(this._listboxEl, {
-            autoSelect: this._options.autoSelect
+            autoReset: -1,
+            autoSelect: this._options.autoSelect,
+            focusableElement: this._inputEl,
+            listboxOwnerElement: this._el
         });
 
         this._expander = new Expander(this._el,  {
-            alwaysDoFocusManagement: true,
-            collapseOnClick: true,
             collapseOnClickOut: true,
             collapseOnFocusOut: true,
-            contentSelector: '.listbox-button__listbox',
-            expandedClass: 'listbox-button--expanded',
-            expandOnClick: true,
-            focusManagement: 'focusable',
-            hostSelector: 'button'
+            contentSelector: '.combobox__listbox',
+            expandedClass: 'combobox--expanded',
+            expandOnFocus: true,
+            hostSelector: 'input'
         });
 
         this._destroyed = false;
 
-        this._onButtonFirstClickListener = onButtonFirstClick.bind(this);
         this._onListboxClickListener = onListboxClick.bind(this);
-        this._onListboxKeyDownListener = onListboxKeyDown.bind(this);
         this._onListboxChangeListener = onListboxChange.bind(this);
+        this._onTextboxKeyDownListener = onTextboxKeyDown.bind(this);
 
-        this._el.classList.add('listbox-button--js');
+        this._el.classList.add('combobox--js');
 
         this.wake();
     }
 
     sleep() {
-        this._buttonEl.removeEventListener('click', this._onButtonFirstClickListener);
         this._listboxEl.removeEventListener('click', this._onListboxClickListener);
-        this._listboxEl.removeEventListener('keydown', this._onListboxKeyDownListener);
         this._listboxEl.removeEventListener('listbox-change', this._onListboxChangeListener);
+        this._inputEl.removeEventListener('keydown', this._onTextboxKeyDownListener);
     }
 
     wake() {
         if (this._destroyed !== true) {
-            this._buttonEl.addEventListener('click', this._onButtonFirstClickListener, { once: true });
             this._listboxEl.addEventListener('click', this._onListboxClickListener);
-            this._listboxEl.addEventListener('keydown', this._onListboxKeyDownListener);
             this._listboxEl.addEventListener('listbox-change', this._onListboxChangeListener);
+            this._inputEl.addEventListener('keydown', this._onTextboxKeyDownListener);
         }
     }
 
@@ -96,9 +101,8 @@ module.exports = class {
 
         this.sleep();
 
-        this._onButtonFirstClickListener = null;
         this._onListboxClickListener = null;
-        this._onListboxKeyDownListener = null;
         this._onListboxChangeListener = null;
+        this._onTextboxKeyDownListener = null;
     }
 }

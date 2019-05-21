@@ -14,17 +14,17 @@ title: Listbox
 
 <h2 class="clipped">Readme</h2>
 
-<p>Listbox is a JavaScript alternative to HTML's built-in <a href="../select/index.html">select</a> control. It allows custom HTML.</p>
-<p><em>Keyboard users:</em> TAB to control then use ARROW keys to change selected option.</p>
+<p>Listbox is an ARIA and JavaScript alternative to HTML's built-in <a href="../select/index.html">select</a> control. It allows custom HTML. A listbox can also be opened from a <a href="../listbox-button">button</a> or <a href="../combobox">combobox</a>.</p>
+
 <p>Please <a href={{ "input/listbox" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <hr />
 
 <h2 class="clipped">Examples</h2>
 
-<h3>Example 1: Single-Select</h3>
-
-<div class="listbox">
+<h3>Example 1: Single-Select with Auto Keyboard Selection</h3>
+<p><em>Keyboard users:</em> TAB to control then use ARROW keys to change selected option.</p>
+<div class="listbox" data-auto-select="true">
     <div role="listbox" tabindex="0">
         <div role="option">Volvo</div>
         <div role="option">Saab</div>
@@ -35,4 +35,17 @@ title: Listbox
 
 <hr />
 
-<p><i>Updated</i>: May 14th, 2019</p>
+<h3>Example 2: Single-Select with Manual Keyboard Selection</h3>
+<p><em>Keyboard users:</em> TAB to control then use ARROW keys to highlight an option; ENTER or SPACEBAR to select.</p>
+<div class="listbox" data-auto-select="false">
+    <div role="listbox" tabindex="0">
+        <div role="option">Volvo</div>
+        <div role="option">Saab</div>
+        <div role="option">Opel</div>
+        <div role="option">Audi</div>
+    </div>
+</div>
+
+<hr />
+
+<p><i>Updated</i>: May 21st, 2019</p>

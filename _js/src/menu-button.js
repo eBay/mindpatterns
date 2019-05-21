@@ -20,8 +20,11 @@ function onMenuKeyDown(e) {
 }
 
 function onMenuItemSelect(e) {
-    this._expander.collapse();
-    this._buttonEl.focus();
+    const widget = this;
+    setTimeout(function(e) {
+        widget._expander.collapse();
+        widget._buttonEl.focus();
+    }, 150);
 }
 
 module.exports = class {
@@ -35,6 +38,7 @@ module.exports = class {
             collapseOnClickOut: true,
             collapseOnFocusOut: true,
             contentSelector: '.menu',
+            expandedClass: 'menu-button--expanded',
             expandOnClick: true,
             focusManagement: 'focusable',
             hostSelector: 'button'
@@ -57,6 +61,8 @@ module.exports = class {
         this._buttonEl.removeEventListener('click', this._onButtonFirstClickListener);
         this._menuEl.removeEventListener('keydown', this._onMenuKeyDownListener);
         this._menuEl.removeEventListener('menu-select', this._onMenuItemSelectListener);
+        this._menuEl.removeEventListener('menu-toggle', this._onMenuItemSelectListener);
+        this._menuEl.removeEventListener('menu-change', this._onMenuItemSelectListener);
     }
 
     wake() {
@@ -64,6 +70,8 @@ module.exports = class {
             this._buttonEl.addEventListener('click', this._onButtonFirstClickListener, { once: true });
             this._menuEl.addEventListener('keydown', this._onMenuKeyDownListener);
             this._menuEl.addEventListener('menu-select', this._onMenuItemSelectListener);
+            this._menuEl.addEventListener('menu-toggle', this._onMenuItemSelectListener);
+            this._menuEl.addEventListener('menu-change', this._onMenuItemSelectListener);
         }
     }
 

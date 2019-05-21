@@ -1,27 +1,32 @@
 span.listbox {
     display: inline-block;
 }
-.listbox [role="listbox"] {
+.listbox [role="listbox"],
+.listbox-button [role="listbox"] {
     background-color: LightYellow;
     border: 1px solid #eee;
     box-sizing: border-box;
     cursor: default;
     width: 100%;
 }
-.listbox [role="option"] {
+.listbox [role="option"],
+.listbox-button [role="option"] {
     box-sizing: border-box;
     padding: 5px 15px 5px 10px;
 }
-.listbox [role="option"]::after {
+.listbox [role="option"]::after,
+.listbox-button [role="option"]::after  {
     font-family: 'vq-icon-font';
     float: right;
 }
-.listbox [role="listbox"]:focus [role="option"][aria-selected="true"] {
+.listbox [role="listbox"]:focus [role="option"][aria-selected="true"],
+.listbox-button [role="listbox"]:focus [role="option"][aria-selected="true"]  {
     outline: 0;
     background-color: #006699;
     color: white;
 }
-.listbox [role="option"][aria-checked="true"]::after {
+.listbox [role="option"][aria-checked="true"]::after,
+.listbox-button [role="option"][aria-checked="true"]::after {
     content: '\2713';
 }
 
@@ -33,7 +38,8 @@ span.listbox-button {
     display: inline-block;
 }
 
-.listbox-button .listbox {
+.listbox-button .listbox-button__listbox {
+    display: none;
     left: 0;
     position: absolute;
     width: 100%;
@@ -43,9 +49,12 @@ span.listbox-button {
     text-align: left;
     width: 100%;
 }
-.listbox-button__button[aria-expanded="false"] ~ .listbox {
+.listbox-button--expanded .listbox-button__listbox {
+    display: block;
+}
+.listbox-button__button[aria-expanded="false"] ~ .listbox-button__listbox {
     display: none;
 }
-.listbox-button__button[aria-expanded="true"] ~ .listbox {
+.listbox-button__button[aria-expanded="true"] ~ .listbox-button__listbox {
     display: block;
 }

@@ -20,11 +20,29 @@ title: Listbox Button
 
 <h2 class="clipped">Examples</h2>
 
-<h3>Example 1: Single-Select</h3>
+<h3>Example 1: Single-Select with Auto Selection</h3>
+<p><em>Keyboard users:</em> Use ARROW keys to change selected option; then ESC, ENTER or SPACEBAR to dismiss.</p>
 
-<span class="listbox-button">
+<span class="listbox-button" data-auto-select="true">
     <button class="button listbox-button__button">Volvo</button>
-    <div class="listbox" hidden>
+    <div class="listbox-button__listbox" hidden>
+        <div role="listbox">
+            <div role="option">Volvo</div>
+            <div role="option">Saab</div>
+            <div role="option">Opel</div>
+            <div role="option">Audi</div>
+        </div>
+    </div>
+</span>
+
+<hr />
+
+<h3>Example 2: Single-Select with Manual Selection</h3>
+<p><em>Keyboard users:</em> Use ARROW keys to highlight an option; then ENTER or SPACEBAR to select.</p>
+
+<span class="listbox-button" data-auto-select="false">
+    <button class="button listbox-button__button">Volvo</button>
+    <div class="listbox-button__listbox" hidden>
         <div role="listbox">
             <div role="option">Volvo</div>
             <div role="option">Saab</div>

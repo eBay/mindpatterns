@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     const Util = require('./util.js');
     const Accordion = require('./accordion.js');
     const AccordionLegacy = require('./accordion-legacy.js');
+    const Combobox = require('./combobox.js');
     const Expando = require('./expando.js');
     const Tabs = require('./tabs.js');
     const Tooltip = require('./tooltip.js');
@@ -28,7 +29,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
     const StarRating = require('./star-rating.js');
 
     document.querySelectorAll('.accordion').forEach(function(widgetEl) {
-        pageWidgets.push(new Accordion(widgetEl, { autoCollapse: widgetEl.hasAttribute('data-makeup-accordion-auto-collapse')}));
+        pageWidgets.push(new Accordion(widgetEl, {
+            autoCollapse: widgetEl.hasAttribute('data-makeup-accordion-auto-collapse')
+        }));
     });
 
     document.querySelectorAll('.accordion-legacy').forEach(function(widgetEl) {
@@ -87,23 +90,35 @@ document.addEventListener("DOMContentLoaded", function(e) {
     });
 
     document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
-        pageWidgets.push(new ListboxButton(widgetEl));
+        pageWidgets.push(new ListboxButton(widgetEl, { autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false }));
+        widgetEl.addEventListener('listbox-change', function(e) {
+            console.log(e.type, e.detail);
+        });
+    });
 
-        widgetEl.addEventListener('listbox-select', function(e, detail) {
-            console.log(e.type, detail.el.innerText);
-        })
+    document.querySelectorAll('.combobox').forEach(function(widgetEl) {
+        pageWidgets.push(new Combobox(widgetEl, {
+            autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false
+        }));
+
+        widgetEl.addEventListener('combobox-change', function(e) {
+            console.log(e.type, e.detail);
+        });
     });
 
     document.querySelectorAll('.listbox').forEach(function(widgetEl) {
-        pageWidgets.push(new Listbox(widgetEl));
+        pageWidgets.push(new Listbox(widgetEl, { autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false }));
+        widgetEl.addEventListener('listbox-change', function(e) {
+            console.log(e.type, e.detail);
+        });
     });
 
     document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
         pageWidgets.push(new MenuButton(widgetEl));
 
-        widgetEl.addEventListener('menuitem-select', function(e, detail) {
+        widgetEl.addEventListener('menuitem-select', function(e) {
             console.log(e.type, detail.el.innerText);
-        })
+        });
     });
 
     document.querySelectorAll('.menu').forEach(function(widgetEl) {

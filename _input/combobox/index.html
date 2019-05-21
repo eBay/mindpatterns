@@ -4,9 +4,9 @@ title: Combobox
 ---
 
 <style>
-    .combobox label {
+    label {
         display: block;
-        margin-bottom: 8px;
+        margin: 8px 0;
     }
 </style>
 
@@ -14,7 +14,7 @@ title: Combobox
 
 <h2 class="clipped">Readme</h2>
 
-<p>Input your own text or use UP and DOWN ARROW keys then ENTER to select from list of options.</p>
+<p>A combobox allows the user to enter their own value <em>or</em> choose a value from a list of options.</p>
 <p>For combobox with typeahead / autocomplete behavior, please visit the <a href="../autocomplete">autocomplete</a> pattern.</p>
 <p>Please <a href={{ "input/combobox" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
@@ -22,30 +22,66 @@ title: Combobox
 
 <h2 class="clipped">Examples</h2>
 
-<h3>Example 1: Opens on Down Key</h3>
+<h3>Example 1: Auto-Selection</h3>
+<p>In this example, cycling through options with arrow keys will change the textbox value; ENTER key will submit.<p>
 <form>
-    <span class="combobox" id="combobox-0">
-        <label for="combobox-0-input">Sell your games console</label>
-        <input id="combobox-0-input" name="console0" type="text" placeholder="Playstation 4, Xbox One, etc." />
+    <label for="combobox-0">Sell your games console</label>
+    <span class="combobox" data-auto-select="true">
+        <span>
+            <input class="combobox__textbox" id="combobox-0" name="console" type="text" placeholder="Playstation, Xbox, etc." />
+            <span class="combobox__icon"></span>
+        </span>
+        <div class="combobox__listbox" hidden>
+            <div role="listbox">
+                <div role="option">Nintendo Switch</div>
+                <div role="option">Nintendo 3DS</div>
+                <div role="option">Playstation 3</div>
+                <div role="option">Playstation 4</div>
+                <div role="option">XBOX ONE</div>
+                <div role="option">XBOX 360</div>
+            </div>
+        </div>
     </span>
     <input class="button" type="submit" />
 </form>
 
 <hr />
 
-<h3>Example 2: Opens On Focus</h3>
+<h3>Example 2: Manual-Selection</h3>
+<p>In this example, cycling through options with arrow keys will only highlight the option; ENTER or SPACEBAR is required to select.<p>
 <form>
-    <span class="combobox" id="combobox-1">
-        <label for="combobox-1-input">List your game console on eBay</label>
-        <input id="combobox-1-input" name="console1" type="text" placeholder="Playstation 4, Xbox One, etc." />
+    <label for="combobox-1">Sell your games console</label>
+    <span class="combobox" data-auto-select="false">
+        <span>
+            <input class="combobox__textbox" id="combobox-1" name="console" type="text" placeholder="Playstation, Xbox, etc." />
+            <span class="combobox__icon"></span>
+        </span>
+        <div class="combobox__listbox" hidden>
+            <div role="listbox">
+                <div role="option">Nintendo Switch</div>
+                <div role="option">Nintendo 3DS</div>
+                <div role="option">Playstation 3</div>
+                <div role="option">Playstation 4</div>
+                <div role="option">XBOX ONE</div>
+                <div role="option">XBOX 360</div>
+            </div>
+        </div>
     </span>
     <input class="button" type="submit" />
 </form>
 
 <hr />
 
-<p><i>Updated</i>: Feb 12th, 2019</p>
+<!--
+<h3>Example 1: Manual-Selection</h3>
+<p>In this example, pressing the enter key is required to choose an option value.<p>
+<p>todo</p>
+<hr />
+-->
 
+<p><i>Updated</i>: May 21st, 2019</p>
+
+<!--
 <script src="jquery.combobox.js"></script>
 
 <script>
@@ -54,3 +90,4 @@ title: Combobox
         $('.combobox').last().combobox({autoExpand: true});
     });
 </script>
+-->
