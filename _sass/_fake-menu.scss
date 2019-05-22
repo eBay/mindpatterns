@@ -6,7 +6,7 @@
     display: block;
 }
 
-.fake-menu__host::after {
+.fake-menu__icon::after {
     content: ' \e601';
     font-family: 'vq-icon-font';
     font-size: 12px;
@@ -32,6 +32,14 @@
     padding: 8px;
     text-decoration: none;
     width: 100%;
+}
+
+.fake-menu__content a {
+
+}
+
+.fake-menu__content button {
+    margin: 0;
 }
 
 .fake-menu__content a:focus,

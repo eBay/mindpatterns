@@ -33,7 +33,7 @@ function onListboxClick(e) {
 }
 
 function onListboxChange(e) {
-    this._buttonEl.innerText = e.detail.optionValue;
+    this._buttonEl.children[0].innerText = e.detail.optionValue;
 }
 
 const defaultOptions = {

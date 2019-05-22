@@ -26,8 +26,12 @@ span.menu-button {
 .menu-button__button[aria-expanded=true] + .menu {
     display: block;
 }
-.menu-button button::after {
-    content: ' \e61c';
+.menu-button__icon {
+    float: right;
+    margin-left: 8px;
+}
+.menu-button__icon::after {
+    content: ' \e601';
     font-family: 'vq-icon-font';
     font-size: 12px;
 }

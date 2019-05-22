@@ -16,7 +16,10 @@ title: Menu Button
 
 <h3>Example 1: Stateless</h3>
 <span class="menu-button">
-    <button class="button menu-button__button" type="button">View Results</button>
+    <button class="button menu-button__button" type="button">
+        <span>View Results</span>
+        <span aria-hidden="true" class="menu-button__icon"></span>
+    </button>
     <div class="menu" hidden>
         <div role="menu">
             <div role="menuitem">Grid</div>
@@ -30,7 +33,10 @@ title: Menu Button
 <h3>Example 2: Single-Select</h3>
 
 <span class="menu-button">
-    <button class="button menu-button__button" type="button">Sort Results</button>
+    <button class="button menu-button__button" type="button">
+        <span>Sort Results</span>
+        <span aria-hidden="true" class="menu-button__icon"></span>
+    </button>
     <div class="menu" hidden>
         <div role="menu">
             <div role="menuitemradio" data-menuitemradio-name="sort" aria-checked="true">Name Sort</div>
@@ -45,7 +51,10 @@ title: Menu Button
 <h3>Example 3: Multi-Select</h3>
 
 <span class="menu-button">
-    <button class="button menu-button__button" type="button">Filter Results</button>
+    <button class="button menu-button__button" type="button">
+        <span>Filter Results</span>
+        <span aria-hidden="true" class="menu-button__icon"></span>
+    </button>
     <div class="menu" hidden>
         <div role="menu">
             <div role="menuitemcheckbox" aria-checked="true">Buy it Now</div>
@@ -59,7 +68,10 @@ title: Menu Button
 <h3>Example 4: Mixed</h3>
 
 <span class="menu-button">
-    <button class="button menu-button__button" type="button">Customise Results</button>
+    <button class="button menu-button__button" type="button">
+        <span>Customise Results</span>
+        <span aria-hidden="true" class="menu-button__icon"></span>
+    </button>
     <div class="menu" hidden>
         <div role="menu">
             <div role="presentation">
@@ -83,4 +95,4 @@ title: Menu Button
 
 <hr />
 
-<p><i>Updated</i>: May 12th, 2019</p>
+<p><i>Updated</i>: May 21st, 2019</p>

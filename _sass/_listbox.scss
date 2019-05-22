@@ -49,6 +49,15 @@ span.listbox-button {
     text-align: left;
     width: 100%;
 }
+.listbox-button__icon {
+    float: right;
+    margin-left: 8px;
+}
+.listbox-button__icon::after {
+    content: ' \e61c';
+    font-family: 'vq-icon-font';
+    font-size: 12px;
+}
 .listbox-button--expanded .listbox-button__listbox {
     display: block;
 }
