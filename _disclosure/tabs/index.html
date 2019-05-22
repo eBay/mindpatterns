@@ -20,15 +20,18 @@ title: Tabs
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
-<p>Use TAB key to enter &amp; exit tablist. Use ARROW keys to change tab selection.</p>
+<p>Tabs require ARIA and JavaScript. Selecting a tab should update the visible panel <em>without</em> a full page reload. If a full page load is required, please use fake tabs instead (i.e. a simple list of links <em>styled</em> to look like tabs).</p>
 <p>Please <a href={{ "disclosure/tabs" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <hr />
 
 <h2 class="clipped">Examples</h2>
 
-<h3>Example 1: Progressively Enhanced Links</h3>
-<div class="tabs">
+<h3>Example 1: Auto-Selected Tabs</h3>
+<p>Use auto-selected tabs when panel content is available in DOM.</p>
+<p><em>Keyboard Users</em>: Use arrow keys to move focus and change selection.</p>
+
+<div class="tabs" data-auto-select="true">
     <ul class="tabs__items">
         <li class="tabs__item"><a href="#usps">USPS</a></li>
         <li class="tabs__item"><a href="#ups">UPS</a></li>
@@ -56,4 +59,36 @@ title: Tabs
 
 <hr />
 
-<p><i>Updated</i>: May 12th, 2019</p>
+<h3>Example 2: Manual-Selected Tabs</h3>
+<p>Use manual-selected tabs when panel content is not available in DOM (i.e. it is fetched via AJAX).</p>
+<p><em>Keyboard Users</em>: Use arrow keys to move focus; ENTER or SPACEBAR to change selection.</p>
+
+<div class="tabs" data-auto-select="false">
+    <ul class="tabs__items">
+        <li class="tabs__item"><a href="#usps">USPS</a></li>
+        <li class="tabs__item"><a href="#ups">UPS</a></li>
+        <li class="tabs__item"><a href="#fedex">FedEx</a></li>
+    </ul>
+    <div class="tabs__content">
+        <div class="tabs__panel" id="usps">
+            <h4>USPS</h4>
+            <img alt="USPS" src="{{ '/images/usps.png' | relative_url }}" />
+            <p>The <a href="http://en.wikipedia.org/wiki/United_States_Postal_Service">United States Postal Service</a> (originally called the U.S. Post Office Department, when it was completely managed by the U.S. government before 1971) also known as the Post Office, U.S. Mail, or Postal Service, often abbreviated as USPS is an independent agency of the United States federal government responsible for providing postal service in the United States. It is one of the few government agencies explicitly authorized by the United States Constitution.</p>
+            <p>The USPS traces its roots to 1775 during the Second Continental Congress, where Benjamin Franklin was appointed the first postmaster general. The cabinet-level Post Office Department was created in 1792 from Franklin's operation and transformed into its current form in 1971 under the Postal Reorganization Act.</p>
+        </div>
+        <div class="tabs__panel" id="ups">
+            <h4>UPS</h4>
+            <img alt="UPS" src="{{ '/images/ups.png' | relative_url }}" />
+            <p><a href="http://en.wikipedia.org/wiki/United_Parcel_Service">United Parcel Service</a> of North America, Inc., typically referred to and branded as UPS (stylized as ups), is one of the largest shipment and logistics companies in the world. The American global package delivery company is headquartered in Sandy Springs, Georgia, which is part of the Greater Atlanta metropolitan area. UPS delivers more than 15 million packages a day to more than 6.1 million customers in more than 220 countries and territories around the world.[4][5][6]. UPS is known for its brown delivery trucks and uniforms, hence the company nickname "Brown". UPS also operates its own airline and air cargo delivery service (IATA: 5X, ICAO: UPS, Call sign: UPS) based in Louisville, Kentucky.</p>
+            </div>
+        <div class="tabs__panel" id="fedex">
+            <h4>FedEx</h4>
+            <img alt="FedEx Ground" src="{{ '/images/fedex.png' | relative_url }}" />
+            <p><a href="http://en.wikipedia.org/wiki/FedEx_Ground">FedEx Ground</a> is a shipping company that is a subsidiary of the FedEx Corporation. It is headquartered in Moon Township, Pennsylvania, a suburb of Pittsburgh. Originally conceived as a lower cost competitor to UPS, Roadway Package System (RPS) was created to take advantage of new barcode, material handling and computer technologies.After beginning service on March 11, 1985, the company grew, expanding service from its initial coverage of the Mid-Atlantic states, so much so that it eventually became the largest subsidiary of its parent company, Akron-based Roadway Services. By 1996, RPS had achieved 100% coverage of the United States and Canada. In addition, Roadway Services had been reformed as a new holding company called Caliber System, Inc.</p>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<p><i>Updated</i>: May 21st, 2019</p>

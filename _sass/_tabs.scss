@@ -7,7 +7,7 @@
 .tabs__content {
     border: 1px solid #aaa;
     box-sizing: border-box;
-    height: 375px;
+    height: 300px;
     overflow-y: auto;
     padding: 1em;
 }
@@ -29,9 +29,6 @@
 
 /* js enhanced tabs modifier */
 
-.tabs--js > .tabs__content {
-    height: auto;
-}
 .tabs--js [role=tab]:focus {
     background: #006699;
     outline: 0;
@@ -53,6 +50,6 @@
 .tabs--js [role=tabpanel][aria-hidden=true] {
     display: none;
 }
-.tabs--js [role=tab][aria-selected=true][tabindex="0"] {
+.tabs--js [role=tab][aria-selected=true] {
     text-decoration: underline;
 }

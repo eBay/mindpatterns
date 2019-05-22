@@ -6,6 +6,11 @@
 * https://opensource.org/licenses/MIT.
 */
 
+/*
+* This is quick, hacky "get the demo working" code
+* it is NOT yet suitable for production
+*/
+
 const Util = require('./util.js');
 const NextID = require('makeup-next-id');
 const RovingTabindex = require('makeup-roving-tabindex');
@@ -27,6 +32,15 @@ function disableLink(el) {
     el.removeAttribute('href');
 }
 
+function dispatchEvent(el, fromIndex, toIndex) {
+    el.dispatchEvent(new CustomEvent('tabs-change', {
+        detail: {
+            fromIndex: fromIndex,
+            toIndex: toIndex
+        }
+    }));
+}
+
 function onRovingTabindexChange(e) {
     this.tabs[e.detail.fromIndex].setAttribute('aria-selected', 'false');
     this.panels[e.detail.fromIndex].hidden = true;
@@ -34,15 +48,49 @@ function onRovingTabindexChange(e) {
     this.tabs[e.detail.toIndex].setAttribute('aria-selected', 'true');
     this.panels[e.detail.toIndex].hidden = false;
 
-    this._el.dispatchEvent(new CustomEvent('tabs-change', {
-        detail: {
-            fromIndex: e.detail.fromIndex,
-            toIndex: e.detail.toIndex
+    dispatchEvent(this._el, e.detail.fromIndex, e.detail.toIndex);
+}
+
+function onTabListKeyDown(e) {
+    if (e.keyCode === 13 || e.keyCode === 32) {
+        const fromIndex = this.index;
+        const toIndex = parseInt(e.target.dataset.makeupIndex);
+
+        if (fromIndex !== toIndex) {
+            this.tabs[fromIndex].setAttribute('aria-selected', 'false');
+            this.panels[fromIndex].hidden = true;
+
+            this.tabs[toIndex].setAttribute('aria-selected', 'true');
+            this.panels[toIndex].hidden = false;
+
+            dispatchEvent(this._el, fromIndex, toIndex);
         }
-    }));
+    }
+}
+
+function onTabListClick(e) {
+    // brittle hack (depends on DOM structure) to get correct node
+    const tabEl = e.target.getAttribute('role') === 'tab' ? e.target : e.target.parentNode;
+
+    // quick sanity check. again, hacky
+    if (tabEl.getAttribute('role') === 'tab') {
+        const fromIndex = this.index;
+        const toIndex = parseInt(tabEl.dataset.makeupIndex, 10);
+
+        if (fromIndex !== toIndex) {
+            this.tabs[fromIndex].setAttribute('aria-selected', 'false');
+            this.panels[fromIndex].hidden = true;
+
+            tabEl.setAttribute('aria-selected', 'true');
+            this.panels[toIndex].hidden = false;
+
+            dispatchEvent(this._el, fromIndex, toIndex);
+        }
+    }
 }
 
 const defaultOptions = {
+    autoSelect: true,
     initialIndex: 0
 };
 
@@ -51,6 +99,8 @@ module.exports = class {
         this._options = Object.assign({}, defaultOptions, selectedOptions);
 
         this._onRovingTabindexChangeListener = onRovingTabindexChange.bind(this);
+        this._onTabListKeyDownListener = onTabListKeyDown.bind(this);
+        this._onTabListClickListener = onTabListClick.bind(this);
 
         // cache the root element
         this._el = widgetEl;
@@ -60,6 +110,7 @@ module.exports = class {
         const panels = this._el.querySelectorAll('.tabs__panel');
         const links = tabList.querySelectorAll('a');
 
+        this.tabList = tabList;
         this.tabs = tabs;
         this.panels = panels;
 
@@ -98,9 +149,9 @@ module.exports = class {
         links.forEach(el => disableLink(el));
 
         // create a roving tab index
-        const rovingTabindex = RovingTabindex.createLinear(this._el, '[role=tab]', { wrap: true });
+        this._rovingTabindex = RovingTabindex.createLinear(this._el, '[role=tab]', { wrap: true });
 
-        this.enableEvents();
+        this.wake();
 
         // prevent page scroll when scroll keys are pressed
         ScrollKeyPreventer.add(tabList);
@@ -109,22 +160,37 @@ module.exports = class {
         this._el.classList.add('tabs--js');
     }
 
-    disableEvents() {
-        this._el.removeEventListener('rovingTabindexChange', this._onRovingTabindexChangeListener);
+    get index() {
+        return Array.prototype.slice.call(this.tabs).findIndex(function(el) {
+            return el.getAttribute('aria-selected') === 'true';
+        });
     }
 
-    enableEvents() {
+    sleep() {
+        this._el.removeEventListener('rovingTabindexChange', this._onRovingTabindexChangeListener);
+        this.tabList.removeEventListener('keydown', this._onTabListKeyDownListener);
+        this.tabList.removeEventListener('click', this._onTabListClickListener);
+    }
+
+    wake() {
         if (this._destroyed !== true) {
             // listen for changes to roving tab index
-            this._el.addEventListener('rovingTabindexChange', this._onRovingTabindexChangeListener);
+            if (this._options.autoSelect === true) {
+                this._el.addEventListener('rovingTabindexChange', this._onRovingTabindexChangeListener);
+            } else {
+                this.tabList.addEventListener('keydown', this._onTabListKeyDownListener);
+                this.tabList.addEventListener('click', this._onTabListClickListener);
+            }
         }
     }
 
     destroy() {
         this._destroyed = true;
 
-        this.disableEvents();
+        this.sleep();
 
         this._onRovingTabindexChangeListener = null;
+        this._onTabListKeyDownListener = null;
+        this._onTabListClickListener = null;
     }
 }

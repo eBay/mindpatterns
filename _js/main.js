@@ -13,17 +13,17 @@ const pageWidgets = [];
 document.addEventListener("DOMContentLoaded", function(e) {
     const Util = require('./util.js');
     const Accordion = require('./accordion.js');
-    const AccordionLegacy = require('./accordion-legacy.js');
+    // const AccordionLegacy = require('./accordion-legacy.js');
     const Combobox = require('./combobox.js');
     const Expando = require('./expando.js');
     const Tabs = require('./tabs.js');
     const Tooltip = require('./tooltip.js');
     const Dialog = require('./dialog.js');
     const DialogButton = require('./dialog-button.js');
-    const ListboxButton = require('./listbox-button.js');
     const Listbox = require('./listbox.js');
-    const MenuButton = require('./menu-button.js');
+    const ListboxButton = require('./listbox-button.js');
     const Menu = require('./menu.js');
+    const MenuButton = require('./menu-button.js');
     const AriaButton = require('./aria-button.js');
     const HijaxButton = require('./hijax-button.js');
     const StarRating = require('./star-rating.js');
@@ -75,7 +75,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
     document.querySelectorAll('.tabs').forEach(function(widgetEl) {
         widgetEl.addEventListener('tabs-change', Util.logEvent);
 
-        pageWidgets.push(new Tabs(widgetEl));
+        pageWidgets.push(new Tabs(widgetEl,  {
+            autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false
+        }));
     });
 
     document.querySelectorAll('.dialog').forEach(function(widgetEl) {
@@ -90,7 +92,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
     });
 
     document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
-        pageWidgets.push(new ListboxButton(widgetEl, { autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false }));
+        pageWidgets.push(new ListboxButton(widgetEl, {
+            autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false
+        }));
         widgetEl.addEventListener('listbox-change', function(e) {
             console.log(e.type, e.detail);
         });
@@ -107,7 +111,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
     });
 
     document.querySelectorAll('.listbox').forEach(function(widgetEl) {
-        pageWidgets.push(new Listbox(widgetEl, { autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false }));
+        pageWidgets.push(new Listbox(widgetEl, {
+            autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false
+        }));
         widgetEl.addEventListener('listbox-change', function(e) {
             console.log(e.type, e.detail);
         });
