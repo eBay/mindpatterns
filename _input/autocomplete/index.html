@@ -3,12 +3,10 @@ layout: page
 title: Autocomplete
 ---
 
-<link rel="stylesheet" href="autocomplete.css">
-
 <style>
     label {
         display: block;
-        margin-bottom: 8px;
+        margin: 8px 0;
     }
 </style>
 
@@ -17,30 +15,36 @@ title: Autocomplete
 
 <h2 class="clipped">Readme</h2>
 
-<p>Autocomplete is an enhancement of the <a href="../combobox">combobox</a> pattern. It provides tailored suggestions based on the current value of the textbox.</p>
+<p>Autocomplete is an enhancement of the <a href="../combobox">combobox</a> pattern.</p>
 <p>Please <a href={{ "input/autocomplete" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <hr />
 
 <h2 class="clipped">Examples</h2>
 
-<h3>Example 1: With Listbox</h3>
-<p>Enter text to update listbox options. Use ARROW keys and ENTER to select a value.</p>
+<h3>Example 1: List with Manual-Selection</h3>
+<p>Cycle through listbox options with arrow keys; use ENTER key to autofill textbox.<p>
 <form>
-    <span class="autocomplete">
-        <label for="autocomplete-example">Search animals beginning with 'A'</label>
-        <input id="autocomplete-example" name="animal" type="text" placeholder="Aardvark, Antelope, etc." />
+    <label for="combobox-1">Sell your games console</label>
+    <span class="combobox" data-auto-select="false">
+        <span>
+            <input autocomplete="off" aria-autocomplete="list" class="combobox__textbox" id="combobox-1" name="console" type="text" placeholder="Playstation, Xbox, etc." />
+            <span class="combobox__icon"></span>
+        </span>
+        <div class="combobox__listbox" hidden>
+            <div role="listbox">
+                <div role="option">Nintendo Switch</div>
+                <div role="option">Nintendo 3DS</div>
+                <div role="option">Playstation 3</div>
+                <div role="option">Playstation 4</div>
+                <div role="option">XBOX ONE</div>
+                <div role="option">XBOX 360</div>
+            </div>
+        </div>
     </span>
     <input class="button" type="submit" />
 </form>
 
 <hr />
 
-<p><i>Updated</i>: May 12th, 2019</p>
-
-<script src="jquery.autocomplete.js"></script>
-<script>
-    $(function() {
-        $('.autocomplete').autocomplete();
-    });
-</script>
+<p><i>Updated</i>: May 21st, 2019</p>

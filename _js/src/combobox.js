@@ -9,14 +9,18 @@
 const Expander = require('makeup-expander');
 const Listbox = require('./listbox.js');
 
+function nodeListToArray(nodeList) {
+    return Array.prototype.slice.call(nodeList);
+}
+
 function onTextboxKeyDown(e) {
     // up and down keys should not move caret
     if (e.keyCode === 38 || e.keyCode === 40) {
         e.preventDefault();
     }
 
-    // for manual selection, ENTER and SPACEBAR should not submit form when listbox is open
-    if (this._expander.isExpanded() && !this._options.autoSelect && (e.keyCode === 13 || e.keyCode === 32)) {
+    // for manual selection, ENTER should not submit form when listbox is open
+    if (this._expander.isExpanded() && !this._options.autoSelect && e.keyCode === 13) {
         e.preventDefault();
         const widget = this;
         this._inputEl.value = this._listboxWidget.items[this._listboxWidget._activeDescendant.index].innerText;
@@ -24,6 +28,23 @@ function onTextboxKeyDown(e) {
             widget._expander.collapse();
         }, 150);
     }
+}
+
+function onTextboxInput(e) {
+    const widget = this;
+    const numChars = widget._inputEl.value.length;
+    const currentValue = widget._inputEl.value.toLowerCase();
+
+    const matchedItems = nodeListToArray(widget._listboxWidget.items).filter((el) => {
+        return el.innerText.substring(0, numChars).toLowerCase() === currentValue;
+    });
+
+    const unmatchedItems = nodeListToArray(widget._listboxWidget.items).filter((el) => {
+        return el.innerText.substring(0, numChars).toLowerCase() !== currentValue;
+    });
+
+    matchedItems.forEach((el) => el.hidden = false);
+    unmatchedItems.forEach((el) => el.hidden = true);
 }
 
 function onListboxClick(e) {
@@ -50,9 +71,11 @@ module.exports = class {
         this._el = widgetEl;
         this._inputEl = this._el.querySelector('input');
         this._listboxEl = this._el.querySelector('.combobox__listbox');
-
+        this._autocompleteType = this._inputEl.getAttribute('aria-autocomplete');
 
         this._inputEl.setAttribute('autocomplete', 'off');
+        this._inputEl.setAttribute('role', 'combobox');
+
         this._listboxEl.hidden = false;
 
         this._listboxWidget = new Listbox(this._listboxEl, {
@@ -76,16 +99,22 @@ module.exports = class {
         this._onListboxClickListener = onListboxClick.bind(this);
         this._onListboxChangeListener = onListboxChange.bind(this);
         this._onTextboxKeyDownListener = onTextboxKeyDown.bind(this);
+        this._onTextboxInputListener = onTextboxInput.bind(this);
 
         this._el.classList.add('combobox--js');
 
         this.wake();
     }
 
+    get autocomplete() {
+        return this._inputEl.getAttribute('aria-autocomplete');
+    }
+
     sleep() {
         this._listboxEl.removeEventListener('click', this._onListboxClickListener);
         this._listboxEl.removeEventListener('listbox-change', this._onListboxChangeListener);
         this._inputEl.removeEventListener('keydown', this._onTextboxKeyDownListener);
+        this._inputEl.removeEventListener('input', this._onTextboxInputListener);
     }
 
     wake() {
@@ -93,6 +122,7 @@ module.exports = class {
             this._listboxEl.addEventListener('click', this._onListboxClickListener);
             this._listboxEl.addEventListener('listbox-change', this._onListboxChangeListener);
             this._inputEl.addEventListener('keydown', this._onTextboxKeyDownListener);
+            this._inputEl.addEventListener('input', this._onTextboxInputListener);
         }
     }
 
@@ -104,5 +134,6 @@ module.exports = class {
         this._onListboxClickListener = null;
         this._onListboxChangeListener = null;
         this._onTextboxKeyDownListener = null;
+        this._onTextboxInputsListener = null;
     }
 }
