@@ -1,9 +1,7 @@
-"use strict";
-
-var logEvent = function logEvent() {
-  return console.log(e);
-};
+const logEvent = () => console.log(e);
+const nodeListToArray = (nodeList) => Array.prototype.slice.call(nodeList);
 
 module.exports = {
-  logEvent: logEvent
+    logEvent,
+    nodeListToArray
 };

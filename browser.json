@@ -4,6 +4,6 @@
         "makeup-jquery",
         "require-run: nodelist-foreach-polyfill",
         "require-run: details-element-polyfill",
-        "require-run: ./_js/main.js"
+        "require-run: ./_babel/main.js"
     ]
 }

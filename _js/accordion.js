@@ -1,13 +1,3 @@
-"use strict";
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
 /**
 * Copyright 2019 eBay Inc.
 *
@@ -15,80 +5,72 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 * license that can be found in the LICENSE file or at
 * https://opensource.org/licenses/MIT.
 */
-var dataSetKey = 'data-makeup-accordion-index';
-var defaultOptions = {
-  autoCollapse: false
+
+const dataSetKey = 'data-makeup-accordion-index';
+
+const defaultOptions = {
+    autoCollapse: false
 };
 
 function onToggle(e) {
-  var itemIndex = e.target.getAttribute(dataSetKey);
-  var isOpen = this._detailsWidgets[itemIndex].open === true;
+    const itemIndex = e.target.getAttribute(dataSetKey);
+    const isOpen = this._detailsWidgets[itemIndex].open === true
 
-  if (this._options.autoCollapse === true && isOpen) {
-    var otherWidgets = this._detailsWidgets.filter(function (item, index) {
-      return index != itemIndex;
-    });
-
-    otherWidgets.forEach(function (widget) {
-      return widget.open = false;
-    });
-  }
+    if (this._options.autoCollapse === true && isOpen) {
+        const otherWidgets = this._detailsWidgets.filter((item, index) => index != itemIndex);
+        otherWidgets.forEach(widget => widget.open = false);
+    }
 }
 
 function addToggleListener(detailsEl, i) {
-  detailsEl.addEventListener('toggle', this._onToggleListener);
+    detailsEl.addEventListener('toggle', this._onToggleListener);
 }
 
 function removeToggleListener(detailsEl, i) {
-  detailsEl.removeEventListener('toggle', this._onToggleListener);
+    detailsEl.removeEventListener('toggle', this._onToggleListener);
 }
 
 function createDetailsWidget(el, i) {
-  el.setAttribute(dataSetKey, i);
-
-  this._detailsWidgets.push(el);
+    el.setAttribute(dataSetKey, i);
+    this._detailsWidgets.push(el);
 }
 
-module.exports =
-/*#__PURE__*/
-function () {
-  function _class(widgetEl, selectedOptions) {
-    _classCallCheck(this, _class);
+module.exports = class {
+    constructor(widgetEl, selectedOptions) {
+        this._options = Object.assign({}, defaultOptions, selectedOptions);
 
-    this._options = _extends({}, defaultOptions, selectedOptions); // cache the root element
+        // cache the root element
+        this._el = widgetEl;
 
-    this._el = widgetEl;
-    this._onToggleListener = onToggle.bind(this);
-    this._detailsWidgets = [];
+        this._onToggleListener = onToggle.bind(this);
 
-    var detailsEls = this._el.querySelectorAll('.accordion__details');
+        this._detailsWidgets = [];
 
-    detailsEls.forEach(createDetailsWidget.bind(this));
-    this.enableEvents(); // mark the widget as progressively enhanced
+        const detailsEls = this._el.querySelectorAll('.accordion__details');
 
-    this._el.classList.add('accordion--js');
-  }
+        detailsEls.forEach(createDetailsWidget.bind(this));
 
-  _createClass(_class, [{
-    key: "disableEvents",
-    value: function disableEvents() {
-      this._el.querySelectorAll('.accordion__details').forEach(removeToggleListener.bind(this));
+        this.enableEvents();
+
+        // mark the widget as progressively enhanced
+        this._el.classList.add('accordion--js');
     }
-  }, {
-    key: "enableEvents",
-    value: function enableEvents() {
-      if (this._destroyed !== true) {
-        this._el.querySelectorAll('.accordion__details').forEach(addToggleListener.bind(this));
-      }
-    }
-  }, {
-    key: "destroy",
-    value: function destroy() {
-      this._destroyed = true;
-      this.disableEvents();
-      this._onToggleListener = null;
-    }
-  }]);
 
-  return _class;
-}();
+    disableEvents() {
+        this._el.querySelectorAll('.accordion__details').forEach(removeToggleListener.bind(this));
+    }
+
+    enableEvents() {
+        if (this._destroyed !== true) {
+            this._el.querySelectorAll('.accordion__details').forEach(addToggleListener.bind(this));
+        }
+    }
+
+    destroy() {
+        this._destroyed = true;
+
+        this.disableEvents();
+
+        this._onToggleListener = null;
+    }
+}

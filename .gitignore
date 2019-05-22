@@ -4,6 +4,7 @@ _site/
 .jekyll-metadata
 node_modules
 build
-/static/browser.js.*
+static/browser.js.*
+_babel
 
 npm-debug.log
