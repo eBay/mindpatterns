@@ -12,6 +12,7 @@
 * @author Ian McBurnie <ianmcburnie@hotmail.com>
 */
 (function ( $ ) {
+    var widgetCount = 0;
 
     $.fn.inlinenotice = function inlinenotice() {
 
@@ -21,7 +22,7 @@
                 $interactiveElement = $this.children().first(),
                 $liveRegion = $('<span aria-live="polite" />');
 
-            $liveRegion.nextId('inline-notice');
+            $liveRegion.attr('id', 'inline-notice-' + widgetCount++);
             $interactiveElement.attr('aria-describedby', $liveRegion.attr('id'));
             $this.append($liveRegion);
         });

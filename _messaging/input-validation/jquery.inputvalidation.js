@@ -13,6 +13,8 @@
 */
 (function ($) {
 
+    var widgetCount = 0;
+
     // template for the error message that will be displayed
     var messageTemplate = '{0} entered is not a valid {1}!';
 
@@ -31,7 +33,7 @@
                 message,
                 validationType;
 
-            $this.nextId('input-validation');
+            $this.attr('id', 'input-validation' + widgetCount++);
 
             $status
                 .attr('aria-live', 'polite')

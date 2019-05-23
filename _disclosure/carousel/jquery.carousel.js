@@ -12,6 +12,8 @@
 * @author Ian McBurnie (imcburnie@ebay.com)
 */
 (function($) {
+    var widgetCount = 0;
+
     $.fn.carousel = function carousel() {
         return this.each(function onEach() {
             var $widget = $(this),
@@ -115,7 +117,7 @@
             };
 
             // ensure widget has a unique id
-            $widget.nextId('carousel');
+            $widget.attr('id', 'carousel-' + widgetCount++);
 
             // add status message container to DOM
             $widget
