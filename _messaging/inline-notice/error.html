@@ -4,7 +4,6 @@ layout: page
 ---
 
 <style>
-
     .page-notice {
         margin-top: 2em;
         border: 1px solid #ccc;
@@ -26,23 +25,12 @@ layout: page
     .page-notice p {
         margin-left: 2.25em;
     }
-    .page-notice--error {
+    .page-notice--attention {
         color: rgb(223, 37, 57);
     }
 </style>
 
-<section role="region" aria-labelledby="like_error" class="page-notice page-notice--error" id="pagenotice">
+<section role="region" aria-labelledby="like_error" class="page-notice page-notice--attention" id="pagenotice">
     <h2 id="like_error">Error! Your like was not successful.</h2>
     <p>Please try again.</p>
 </section>
-
-<script src="../../pagenotice/jquery.pagenotice.js"></script>
-
-<script>
-    $(function() {
-
-        $('.page-notice').pagenotice();
-
-
-    });
-</script>
