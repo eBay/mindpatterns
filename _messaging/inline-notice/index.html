@@ -4,9 +4,14 @@ title: Inline Notice
 ---
 
 <style>
-    #likeform .inline-notice [aria-live] {
-        color: #cc3300;
-        margin-left: 0.5em;
+    .notice--confirmation {
+        color: green;
+    }
+    .notice--information {
+        color: blue;
+    }
+    .notice--attention {
+        color: red;
     }
     .card {
         border: 1px solid #eee;
@@ -31,51 +36,66 @@ title: Inline Notice
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
-<p>Click the "like" button to receive a hard-coded error in an inline notice. Subsequent clicks will be successful and notice will be removed.</p>
-<p>Disable JavaScript in your browser and click button to see server-side fallback.</p>
+<p>All notices should be discoverable via screen reader landmark navigation. Client side notices must be announced when rendered or made visible.</p>
 <p>Please <a href={{ "messaging/inline-notice" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
+<hr />
 
-<h2>Examples</h2>
+<h2 class="clipped">Examples</h2>
+
+<h3>Example 1: Server Side Confirmation</h3>
+<p><em>This confirmation notice is discoverable via list of landmarks</em>.</p>
+
 <div class="card">
     <img src="{{ '/images/lumia635.jpg' | relative_url }}" />
     <h3>Nokia Lumia 635</h3>
     <p>$44.99</p>
-    <form action="error.html" id="likeform">
-        <input name="like" type="hidden" value="iphone12345" />
-        <span class="inline-notice">
-            <input class="button" id="likebtn" type="submit" value="Like" />
+    <input name="like" type="hidden" value="iphone12345" />
+    <span aria-label="Confirmation" class="notice notice--confirmation" id="notice-1" role="region">
+        <span class="notice__text">Item removed from cart</span>
+    </span>
+</div>
+
+<hr />
+
+<h3>Example 2: Server Side Information</h3>
+<p><em>This information notice is discoverable via list of landmarks</em>.</p>
+
+<div class="card">
+    <img src="{{ '/images/lumia635.jpg' | relative_url }}" />
+    <h3>Nokia Lumia 635</h3>
+    <p>$44.99</p>
+    <input name="like" type="hidden" value="iphone12345" />
+    <span aria-label="Information" class="notice notice--information" id="notice-2" role="region">
+        <span class="notice__text">You have been outbid on this item.</span>
+    </span>
+</div>
+
+<hr />
+
+<h3>Example 3: Client Side Attention</h3>
+<p><em>Click "Add to Cart" button to display and announce notice.</em></p>
+
+<div class="card">
+    <img src="{{ '/images/lumia635.jpg' | relative_url }}" />
+    <h3>Nokia Lumia 635</h3>
+    <p>$44.99</p>
+    <form action="error.html">
+        <input name="item" type="hidden" value="lumia-635" />
+        <input class="button" id="cart-btn" type="submit" value="Add to Cart" />
+        <span aria-label="Attention" class="notice notice--attention" id="notice-3" role="region" hidden>
+            <span role="alert">
+                <span class="notice__text">Unable to add to cart. Please try again later.</span>
+            </span>
         </span>
     </form>
 </div>
 
-<script src="jquery.inlinenotice.js"></script>
+<hr />
+
 <script>
-    $(function() {
-
-        // initialise element notice plugin
-        $('.inline-notice').inlinenotice();
-
-        var $notice = $('#likeform .inline-notice [aria-live]');
-
-        // application page logic
-        // trigger a dummy error message first time button is pressed
-        $("#likeform").one('submit', function(e) {
-            // prevent form submit
-            e.preventDefault();
-
-            // trigger hardcoded dummy error first time button is pressed
-            $notice.append('Your like was unsuccessful. Please try again.');
-
-            // no hardcoded errors on subsequent presses
-            $("#likeform").on('submit', function(e) {
-                // prevent form submit
-                e.preventDefault();
-                // remove the message
-                $notice.empty();
-                // flip button state
-                $('#likebtn').val($('#likebtn').val() == 'Like' ? 'Unlike' : 'Like');
-            });
-        });
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('notice-3').hidden = false;
     });
 </script>
