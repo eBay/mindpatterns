@@ -14,19 +14,20 @@ document.addEventListener("DOMContentLoaded", function(e) {
     const Util = require('./util.js');
     const Accordion = require('./accordion.js');
     // const AccordionLegacy = require('./accordion-legacy.js');
+    const AriaButton = require('./aria-button.js');
     const Combobox = require('./combobox.js');
-    const Expando = require('./expando.js');
-    const Tabs = require('./tabs.js');
-    const Tooltip = require('./tooltip.js');
     const Dialog = require('./dialog.js');
     const DialogButton = require('./dialog-button.js');
+    // const Expando = require('./expando.js');
+    const HijaxButton = require('./hijax-button.js');
+    const InputMeter = require('./input-meter.js');
     const Listbox = require('./listbox.js');
     const ListboxButton = require('./listbox-button.js');
     const Menu = require('./menu.js');
     const MenuButton = require('./menu-button.js');
-    const AriaButton = require('./aria-button.js');
-    const HijaxButton = require('./hijax-button.js');
     const StarRating = require('./star-rating.js');
+    const Tabs = require('./tabs.js');
+    const Tooltip = require('./tooltip.js');
 
     document.querySelectorAll('.accordion').forEach(function(widgetEl) {
         pageWidgets.push(new Accordion(widgetEl, {
@@ -34,69 +35,17 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }));
     });
 
+    /*
     document.querySelectorAll('.accordion-legacy').forEach(function(widgetEl) {
         pageWidgets.push(new AccordionLegacy(widgetEl));
     });
-
-    document.querySelectorAll('.native-button, .stealth-button').forEach(function(widgetEl) {
-        pageWidgets.push(widgetEl);
-        widgetEl.addEventListener('click', function() {
-            console.log(this);
-        });
-    });
+    */
 
     document.querySelectorAll('.aria-button').forEach(function(widgetEl) {
         pageWidgets.push(new AriaButton(widgetEl));
 
         widgetEl.addEventListener('aria-button-click', function(e) {
             console.log(this);
-        });
-    });
-
-    document.querySelectorAll('.fake-menu').forEach(function(widgetEl) {
-        pageWidgets.push(new Expander(widgetEl, {
-            expandOnClick: true,
-            collapseOnFocusOut: true,
-            collapseOnClickOut: true,
-            contentSelector: '.fake-menu__content',
-            focusManagement: 'focusable',
-            hostSelector: '.fake-menu__host'
-        }));
-    });
-
-    document.querySelectorAll('.hijax-button').forEach(function(widgetEl) {
-        pageWidgets.push(new HijaxButton(widgetEl));
-
-        widgetEl.addEventListener('hijax-button-click', function(e) {
-            console.log(this);
-        });
-    });
-
-    document.querySelectorAll('.tabs').forEach(function(widgetEl) {
-        widgetEl.addEventListener('tabs-change', Util.logEvent);
-
-        pageWidgets.push(new Tabs(widgetEl,  {
-            autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false
-        }));
-    });
-
-    document.querySelectorAll('.dialog').forEach(function(widgetEl) {
-        pageWidgets.push(new Dialog(widgetEl));
-    });
-
-    document.querySelectorAll('.dialog-button').forEach(function(widgetEl) {
-        const dialogWidgetIndex = pageWidgets.findIndex(function(widget) {
-            return widget._el.id === widgetEl.dataset.makeupDialog;
-        });
-        pageWidgets.push(new DialogButton(widgetEl, pageWidgets[dialogWidgetIndex]));
-    });
-
-    document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
-        pageWidgets.push(new ListboxButton(widgetEl, {
-            autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false
-        }));
-        widgetEl.addEventListener('listbox-change', function(e) {
-            console.log(e.type, e.detail);
         });
     });
 
@@ -110,61 +59,24 @@ document.addEventListener("DOMContentLoaded", function(e) {
         });
     });
 
-    document.querySelectorAll('.listbox').forEach(function(widgetEl) {
-        pageWidgets.push(new Listbox(widgetEl, {
-            autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false
-        }));
-        widgetEl.addEventListener('listbox-change', function(e) {
-            console.log(e.type, e.detail);
+    document.querySelectorAll('.dialog').forEach(function(widgetEl) {
+        pageWidgets.push(new Dialog(widgetEl));
+    });
+
+    document.querySelectorAll('.dialog-button').forEach(function(widgetEl) {
+        const dialogWidgetIndex = pageWidgets.findIndex(function(widget) {
+            return widget._el.id === widgetEl.dataset.makeupDialog;
         });
+        pageWidgets.push(new DialogButton(widgetEl, pageWidgets[dialogWidgetIndex]));
     });
 
-    document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
-        pageWidgets.push(new MenuButton(widgetEl));
-
-        widgetEl.addEventListener('menuitem-select', function(e) {
-            console.log(e.type, detail.el.innerText);
-        });
-    });
-
-    document.querySelectorAll('.menu').forEach(function(widgetEl) {
-        pageWidgets.push(new Menu(widgetEl));
-
-        widgetEl.addEventListener('menu-select', (e) => console.log(e.type, e.detail));
-        widgetEl.addEventListener('menu-change', (e) => console.log(e.type, e.detail));
-        widgetEl.addEventListener('menu-toggle', (e) => console.log(e.type, e.detail));
-    });
-
+    /*
     document.querySelectorAll('.expando').forEach(function(widgetEl) {
         widgetEl.addEventListener('expando-toggle', Util.logEvent);
 
         pageWidgets.push(new Expando(widgetEl));
     });
-
-    document.querySelectorAll('.page-notice--attention').forEach(function(widgetEl) {
-        widgetEl.setAttribute('tabindex', '-1');
-
-        setTimeout(function onTimeout() {
-            widgetEl.focus();
-        }, 250);
-    });
-
-    document.querySelectorAll('.star-rating').forEach(function(widgetEl) {
-        pageWidgets.push(new StarRating(widgetEl));
-    });
-
-    document.querySelectorAll('.tooltip').forEach(function(widgetEl) {
-        pageWidgets.push(new Tooltip(widgetEl));
-    });
-
-    document.querySelectorAll('.infotip').forEach(function(widgetEl) {
-        pageWidgets.push(new Expander(widgetEl, {
-            contentSelector: '.infotip__content',
-            expandOnClick: true,
-            collapseOnClick: true,
-            hostSelector: '.infotip__host'
-        }));
-    });
+    */
 
     document.querySelectorAll('.flyout--click').forEach(function(widgetEl) {
         pageWidgets.push(new Expander(widgetEl, {
@@ -194,6 +106,64 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }));
     });
 
+    document.querySelectorAll('.fake-menu').forEach(function(widgetEl) {
+        pageWidgets.push(new Expander(widgetEl, {
+            expandOnClick: true,
+            collapseOnFocusOut: true,
+            collapseOnClickOut: true,
+            contentSelector: '.fake-menu__content',
+            focusManagement: 'focusable',
+            hostSelector: '.fake-menu__host'
+        }));
+    });
+
+    document.querySelectorAll('.hijax-button').forEach(function(widgetEl) {
+        pageWidgets.push(new HijaxButton(widgetEl));
+
+        widgetEl.addEventListener('hijax-button-click', function(e) {
+            console.log(this);
+        });
+    });
+
+    document.querySelectorAll('.infotip').forEach(function(widgetEl) {
+        pageWidgets.push(new Expander(widgetEl, {
+            contentSelector: '.infotip__content',
+            expandOnClick: true,
+            collapseOnClick: true,
+            hostSelector: '.infotip__host'
+        }));
+    });
+
+    document.querySelectorAll('.input-meter').forEach(function(widgetEl) {
+        pageWidgets.push(new InputMeter(widgetEl));
+    });
+
+    document.querySelectorAll('.listbox').forEach(function(widgetEl) {
+        pageWidgets.push(new Listbox(widgetEl, {
+            autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false
+        }));
+        widgetEl.addEventListener('listbox-change', function(e) {
+            console.log(e.type, e.detail);
+        });
+    });
+
+    document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
+        pageWidgets.push(new ListboxButton(widgetEl, {
+            autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false
+        }));
+        widgetEl.addEventListener('listbox-change', function(e) {
+            console.log(e.type, e.detail);
+        });
+    });
+
+    document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
+        pageWidgets.push(new MenuButton(widgetEl));
+
+        widgetEl.addEventListener('menuitem-select', function(e) {
+            console.log(e.type, detail.el.innerText);
+        });
+    });
+
     document.querySelectorAll('.menu').forEach(function(widgetEl, i) {
         // check this isn't a buttonless menu
         if (widgetEl.querySelector('.expand-btn')) {
@@ -212,5 +182,44 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 ScrollKeyPreventer.add(el);
             });
         }
+    });
+
+    document.querySelectorAll('.menu').forEach(function(widgetEl) {
+        pageWidgets.push(new Menu(widgetEl));
+
+        widgetEl.addEventListener('menu-select', (e) => console.log(e.type, e.detail));
+        widgetEl.addEventListener('menu-change', (e) => console.log(e.type, e.detail));
+        widgetEl.addEventListener('menu-toggle', (e) => console.log(e.type, e.detail));
+    });
+
+    document.querySelectorAll('.native-button, .stealth-button').forEach(function(widgetEl) {
+        pageWidgets.push(widgetEl);
+        widgetEl.addEventListener('click', function() {
+            console.log(this);
+        });
+    });
+
+    document.querySelectorAll('.page-notice--attention').forEach(function(widgetEl) {
+        widgetEl.setAttribute('tabindex', '-1');
+
+        setTimeout(function onTimeout() {
+            widgetEl.focus();
+        }, 250);
+    });
+
+    document.querySelectorAll('.star-rating').forEach(function(widgetEl) {
+        pageWidgets.push(new StarRating(widgetEl));
+    });
+
+    document.querySelectorAll('.tabs').forEach(function(widgetEl) {
+        widgetEl.addEventListener('tabs-change', Util.logEvent);
+
+        pageWidgets.push(new Tabs(widgetEl,  {
+            autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false
+        }));
+    });
+
+    document.querySelectorAll('.tooltip').forEach(function(widgetEl) {
+        pageWidgets.push(new Tooltip(widgetEl));
     });
 });

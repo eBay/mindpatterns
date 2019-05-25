@@ -3,29 +3,48 @@ layout: page
 title: Input Meter
 ---
 
-<link rel="stylesheet" href="passwordstrength.css">
-
+<style>
+    .field {
+        margin: 16px 0;
+    }
+    label {
+        display: block;
+        margin: 8px 0;
+    }
+    .input-meter {
+        font-size: 12px;
+    }
+</style>
 
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
-<p>Start typing a new password to display a strength meter (actual meter level is generated randomly).</p>
+<p>Start typing in the textbox and the meter will update. Enable your screen reader to hear live updates.</p>
+<p><strong>NOTE</strong>: the meter tag is not supported in Internet Explorer. A simple textual fallback would be required (but is not demonstrated here).</p>
+
 <p>Please <a href={{ "messaging/input-meter" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
-<h2>Examples</h2>
+<h2 class="clipped">Examples</h2>
+
+<hr />
+
+<h3>Example 1: Password Strength</h3>
+<p><em>NOTE: This example uses a very simplisistic model to determine strength.</em></p>
 
 <div>
     <form>
-        <span class="passwordstrength">
-            <label for="password1">Password</label>
-            <input id="password1" type="password" name="p1" />
-        </span>
+        <div class="field">
+            <label for="password-1">Password</label>
+            <input id="password-1" type="password" name="password" maxlength="16" />
+
+            <span class="input-meter" data-for="password-1" role="status">
+                <meter aria-label="Password Strength" class="input-meter__meter" id="password-strength-1" low="8" high="12" optimum="14" max="16"></meter>
+                <span class="input-meter__value"><span>
+            </span>
+        </div>
     </form>
 </div>
 
-<script src="jquery.passwordstrength.js"></script>
-<script>
-    $(function() {
-        $('.passwordstrength').passwordstrength();
-    });
-</script>
+<hr />
+
+<p><i>Updated</i>: May 25th, 2019</p>
