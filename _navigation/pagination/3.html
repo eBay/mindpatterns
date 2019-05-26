@@ -3,8 +3,6 @@ hidden: true
 layout: page
 ---
 
-<link rel="stylesheet" href="pagination.css">
-
 <svg hidden>
     <symbol id="svg-icon-chevron-light-left" viewBox="0 0 24 32">
         <path d="M28.176 1.327c-0.468-0.468-1.249-0.468-1.717 0l-14.049 14.049c-0.234 0.234-0.39 0.546-0.39 0.859s0.156 0.624 0.39 0.859l13.581 13.581c0.234 0.234 0.546 0.39 0.859 0.39s0.624-0.156 0.859-0.39c0.468-0.468 0.468-1.249 0-1.717l-12.722-12.722 13.19-13.19c0.468-0.468 0.468-1.249 0-1.717z"></path>
@@ -20,72 +18,74 @@ layout: page
 <p>Use TAB and ENTER keys to navigate and activate pagination links.</p>
 <p>Please <a href={{ "/navigation/pagination.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
-<h2>Examples</h2>
-<div class="row">
-    <div class="col-xs-12 col-md-6">
-        <h3>Server-Side Pagination</h3>
-        <nav class="pagination" aria-labelledby="pagination_heading" role="navigation">
-            <span aria-live="off">
-                <h2 id="pagination_heading" class="clipped">Results Pagination - Page 3</h2>
-            </span>
-            <a aria-disabled="true" class="pagination__previous" href="2.html">
-                <svg aria-labelledby="pagination-previous-title" role="img">
-                    <title id="pagination-previous-title">Previous Page</title>
-                    <use xlink:href="#svg-icon-chevron-light-left"></use>
-                </svg>
-            </a>
-            <ol class="pagination__list">
-                <li>
-                    <a class="pagination__item" href="index.html">1</a>
-                </li>
-                <li>
-                    <a class="pagination__item" href="2.html">2</a>
-                </li>
-                <li>
-                    <a class="pagination__item" aria-current="page" href="2.html">3<span class="clipped"> - Current Page</span></a>
-                </li>
-            </ol>
-            <a aria-disabled="true" class="pagination__next" href="3.html">
-                <svg aria-labelledby="pagination-next-title" role="img">
-                    <title id="pagination-next-title">Next Page</title>
-                    <use xlink:href="#svg-icon-chevron-light-right"></use>
-                </svg>
-            </a>
-        </nav>
-    </div>
+<hr />
 
-    <div class="col-xs-12 col-md-6">
-        <h3>Client-Side Pagination</h3>
-        <nav class="pagination pagination--ajax" aria-labelledby="pagination_heading" role="navigation">
-            <span aria-live="polite" role="status">
-                <h2 id="pagination_heading" class="clipped">Results Pagination - Page <span class="pagination__index">1</span></a></h2>
-            </span>
-            <a aria-disabled="true" class="pagination__previous" href="index.html">
-                <svg aria-labelledby="pagination-previous-title" role="img">
-                    <title id="pagination-previous-title">Previous Page</title>
-                    <use xlink:href="#svg-icon-chevron-light-left"></use>
-                </svg>
-            </a>
-            <ol class="pagination__list">
-                <li>
-                    <a class="pagination__item" aria-current="page" href="index.html">1</a>
-                </li>
-                <li>
-                    <a class="pagination__item" href="2.html">2</a>
-                </li>
-                <li>
-                    <a class="pagination__item" href="3.html">3</a>
-                </li>
-            </ol>
-            <a aria-disabled="true" class="pagination__next" href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2">
-                <svg aria-labelledby="pagination-next-title" role="img">
-                    <title id="pagination-next-title">Next Page</title>
-                    <use xlink:href="#svg-icon-chevron-light-right"></use>
-                </svg>
-            </a>
-        </nav>
-    </div>
-</div>
+<h2 class="clipped">Examples</h2>
+
+<h3>Example 1: Server-Side Pagination</h3>
+<nav class="pagination" aria-labelledby="pagination_heading" role="navigation">
+    <span aria-live="off">
+        <h2 id="pagination_heading" class="clipped">Results Pagination - Page 3</h2>
+    </span>
+    <a aria-disabled="true" class="pagination__previous" href="2.html">
+        <svg aria-labelledby="pagination-previous-title" role="img">
+            <title id="pagination-previous-title">Previous Page</title>
+            <use xlink:href="#svg-icon-chevron-light-left"></use>
+        </svg>
+    </a>
+    <ol class="pagination__list">
+        <li>
+            <a class="pagination__item" href="index.html">1</a>
+        </li>
+        <li>
+            <a class="pagination__item" href="2.html">2</a>
+        </li>
+        <li>
+            <a class="pagination__item" aria-current="page" href="2.html">3<span class="clipped"> - Current Page</span></a>
+        </li>
+    </ol>
+    <a aria-disabled="true" class="pagination__next" href="3.html">
+        <svg aria-labelledby="pagination-next-title" role="img">
+            <title id="pagination-next-title">Next Page</title>
+            <use xlink:href="#svg-icon-chevron-light-right"></use>
+        </svg>
+    </a>
+</nav>
+
+<hr />
+
+<h3>Example 2: Client-Side Pagination</h3>
+<nav class="pagination pagination--ajax" aria-labelledby="pagination_heading" role="navigation">
+    <span aria-live="polite" role="status">
+        <h2 id="pagination_heading" class="clipped">Results Pagination - Page <span class="pagination__index">1</span></a></h2>
+    </span>
+    <a aria-disabled="true" class="pagination__previous" href="index.html">
+        <svg aria-labelledby="pagination-previous-title" role="img">
+            <title id="pagination-previous-title">Previous Page</title>
+            <use xlink:href="#svg-icon-chevron-light-left"></use>
+        </svg>
+    </a>
+    <ol class="pagination__list">
+        <li>
+            <a class="pagination__item" aria-current="page" href="index.html">1</a>
+        </li>
+        <li>
+            <a class="pagination__item" href="2.html">2</a>
+        </li>
+        <li>
+            <a class="pagination__item" href="3.html">3</a>
+        </li>
+    </ol>
+    <a aria-disabled="true" class="pagination__next" href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2">
+        <svg aria-labelledby="pagination-next-title" role="img">
+            <title id="pagination-next-title">Next Page</title>
+            <use xlink:href="#svg-icon-chevron-light-right"></use>
+        </svg>
+    </a>
+</nav>
+
+<hr />
+
 
 <script src="jquery.pagination.js"></script>
 <script>

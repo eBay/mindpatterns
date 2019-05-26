@@ -5,12 +5,10 @@
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-    "grid",
     "base",
     "icon",
     "util",
     "accordion",
-    "accordion-legacy",
     "breadcrumbs",
     "carousel",
     "checkbox",
@@ -24,6 +22,7 @@
     "input-validation",
     "listbox",
     "menu",
+    "pagination",
     "radio",
     "star-rating",
     "tabs",
