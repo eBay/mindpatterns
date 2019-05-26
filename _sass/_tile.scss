@@ -1,0 +1,14 @@
+.tile {
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 8px 32px 16px 16px;
+    text-decoration: none;
+    width: 100%;
+}
+
+.tile:hover,
+.tile:focus,
+.tile:focus-within {
+    border-color: #999;
+}

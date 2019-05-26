@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     const MenuButton = require('./menu-button.js');
     const StarRating = require('./star-rating.js');
     const Tabs = require('./tabs.js');
+    const Tile = require('./tile.js');
     const Tooltip = require('./tooltip.js');
 
     document.querySelectorAll('.accordion').forEach(function(widgetEl) {
@@ -217,6 +218,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
         pageWidgets.push(new Tabs(widgetEl,  {
             autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false
         }));
+    });
+
+    document.querySelectorAll('.tile').forEach(function(widgetEl) {
+        pageWidgets.push(new Tile(widgetEl));
     });
 
     document.querySelectorAll('.tooltip').forEach(function(widgetEl) {
