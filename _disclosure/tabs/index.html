@@ -21,6 +21,8 @@ title: Tabs
 
 <h2 class="clipped">Readme</h2>
 <p>Tabs require ARIA and JavaScript. Selecting a tab should update the visible panel <em>without</em> a full page reload. If a full page load is required, please use fake tabs instead (i.e. a simple list of links <em>styled</em> to look like tabs).</p>
+<p>Use auto-selected tabs when panel content is available in DOM. Use manual-selected tabs when panel content is not available in DOM (i.e. it is fetched via AJAX).</p>
+
 <p>Please <a href={{ "disclosure/tabs" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <hr />
@@ -28,7 +30,7 @@ title: Tabs
 <h2 class="clipped">Examples</h2>
 
 <h3>Example 1: Auto-Selected Tabs</h3>
-<p>Use auto-selected tabs when panel content is available in DOM.</p>
+
 <p><em>Keyboard Users</em>: Use arrow keys to move focus and change selection.</p>
 
 <div class="tabs" data-auto-select="true">
@@ -60,7 +62,6 @@ title: Tabs
 <hr />
 
 <h3>Example 2: Manual-Selected Tabs</h3>
-<p>Use manual-selected tabs when panel content is not available in DOM (i.e. it is fetched via AJAX).</p>
 <p><em>Keyboard Users</em>: Use arrow keys to move focus; ENTER or SPACEBAR to change selection.</p>
 
 <div class="tabs" data-auto-select="false">
