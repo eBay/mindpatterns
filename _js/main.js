@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     const ListboxButton = require('./listbox-button.js');
     const Menu = require('./menu.js');
     const MenuButton = require('./menu-button.js');
+    const Pagination = require('./pagination.js');
     const StarRating = require('./star-rating.js');
     const Tabs = require('./tabs.js');
     const Tile = require('./tile.js');
@@ -198,6 +199,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
         widgetEl.addEventListener('click', function() {
             console.log(this);
         });
+    });
+
+    document.querySelectorAll('.pagination').forEach(function(widgetEl) {
+        pageWidgets.push(new Pagination(widgetEl));
     });
 
     document.querySelectorAll('.star-rating').forEach(function(widgetEl) {
