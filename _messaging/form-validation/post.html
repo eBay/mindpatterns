@@ -1,71 +1,84 @@
 ---
 hidden: true
 layout: page
-title: Form Validation (without JavaScript)
+title: Form Validation (Server-Side)
 ---
 
-<link rel="stylesheet" href="formvalidation.css">
 <style>
+    label {
+        display: inline-block;
+        margin: 4px 0;
+    }
     input {
         display: block;
-        margin: 0.25em 0;
+        margin: 4px 0;
     }
-    #pagenotice {
+    .field {
+        margin: 8px 0;
+    }
+    .page-notice {
         border: 2px solid #cc3300;
         color: #cc3300;
-        margin: 1em 0;
-        padding: 0 1em;
+        margin-bottom: 32px;
+        padding: 32px;
     }
-    #pagenotice h2 {
-        margin-top: 1em;
+    .page-notice h2 {
+        margin-top: 0;
     }
-    #pagenotice a {
+    .page-notice ol {
+        margin-bottom: 0;
+    }
+    .page-notice a {
         color: #cc3300;
         text-decoration: underline;
     }
-    .elementnotice {
+    .page-notice {
         color: #cc3300;
-        font-size: small;
         margin-top: 0;
     }
-    input[type=text][aria-invalid=true] {
+    input[aria-invalid=true] {
         border: 1px solid #cc3300;
+    }
+    .input-validation__description {
+        margin: 4px 0;
     }
 </style>
 
-<div id="pagenotice">
-    <h2>Error! The form could not be submitted due to invalid entries.</h2>
-    <p>Please correct the following fields:</p>
-    <ol>
-        <li><a href="#age">Age - please enter a valid age (for example, 35)</a></li>
-        <li><a href="#shoesize">Shoe-size - please enter a valid shoe size (for example, 8.5)</a></li>
-    </ol>
-</div>
-
 <h1>{{ page.title }}</h1>
 
-<h2 class="clipped">Readme</h2>
-<p>With JavaScript disabled, a page notice is displayed instead of a region notice.</p>
-<p>Please <a href={{ "/messaging/formvalidation.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+<section aria-label="Attention" class="page-notice page-notice--attention" id="page-notice" role="region" tabindex="-1">
+    <h2 >Error! The form could not be submitted due to invalid entries.</h2>
+    <p>Please correct the following fields:</p>
+    <ol>
+        <li><a href="#age-2">Age - please enter a valid age (for example, 35)</a></li>
+        <li><a href="#shoesize-2">Shoe-size - please enter a valid shoe size (for example, 8.5)</a></li>
+    </ol>
+</section>
 
-<h2>Examples</h2>
-    <div>
-        <form action="post.html#pagenotice" class="formvalidation">
-            <fieldset>
-                <legend>Your Details</legend>
-                <div id="age_field">
-                    <label for="age">Age</label>
-                    <input aria-describedby="age_error" aria-invalid="true" id="age" type="text" name="age" />
-                    <p class="elementnotice" id="age_error">Please enter a valid age (for example, 35)</p>
+<div>
+    <form action="post.html#pagenotice" class="formvalidation">
+        <fieldset>
+            <legend>Your Details</legend>
+            <div class="field">
+                <label for="age">Age</label>
+                <input autocomplete="false" id="age-2" type="text" name="age" aria-describedby="age-1-error" aria-invalid="true" />
+                <div class="input-validation__status">
+                    <p class="input-validation__description" id="age-2-error">Attention! Please enter a valid age.</p>
                 </div>
-                <div id="shoesize_field">
-                    <label for="shoesize">Shoe-Size</label>
-                    <input aria-describedby="shoesize_error" aria-invalid="true" id="shoesize" type="text" name="shoesize" />
-                    <p class="elementnotice" id="shoesize_error">Please enter a valid shoe size (for example, 8.5)</p>
+            </div>
+            <div class="field">
+                <label for="shoesize">Shoe-Size</label>
+                <input autocomplete="false" id="shoesize-2" type="text" name="shoesize" aria-describedby="shoesize-2-error" aria-invalid="true" />
+                <div class="input-validation__status">
+                    <p class="input-validation__description" id="shoesize-2-error">Attention! Please enter a valid shoe size.</p>
                 </div>
-            </fieldset>
-            <input class="button" type="submit" />
-        </form>
-    </div>
-
+            </div>
+        </fieldset>
+    </form>
 </div>
+
+<script>
+    window.addEventListener('load', function(e) {
+        document.getElementById('page-notice').focus();
+    });
+</script>

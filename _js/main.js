@@ -200,14 +200,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
         });
     });
 
-    document.querySelectorAll('.page-notice--attention').forEach(function(widgetEl) {
-        widgetEl.setAttribute('tabindex', '-1');
-
-        setTimeout(function onTimeout() {
-            widgetEl.focus();
-        }, 250);
-    });
-
     document.querySelectorAll('.star-rating').forEach(function(widgetEl) {
         pageWidgets.push(new StarRating(widgetEl));
     });
