@@ -1,6 +1,5 @@
 {
     "dependencies": [
-        "jquery/dist/jquery.min.js",
         "require-run: nodelist-foreach-polyfill",
         "require-run: details-element-polyfill",
         "require-run: ./_babel/main.js"
