@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     const Accordion = require('./accordion.js');
     // const AccordionLegacy = require('./accordion-legacy.js');
     const AriaButton = require('./aria-button.js');
+    const Carousel = require('./carousel.js');
     const Combobox = require('./combobox.js');
     const Dialog = require('./dialog.js');
     const DialogButton = require('./dialog-button.js');
@@ -48,6 +49,14 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
         widgetEl.addEventListener('aria-button-click', function(e) {
             console.log(this);
+        });
+    });
+
+    document.querySelectorAll('.carousel').forEach(function(widgetEl) {
+        pageWidgets.push(new Carousel(widgetEl));
+
+        widgetEl.addEventListener('carousel-pagination', function(e) {
+            console.log(e);
         });
     });
 

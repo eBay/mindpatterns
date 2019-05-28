@@ -14,7 +14,6 @@ title: Carousel
     }
 
     .carousel--slideshow li {
-        display: flex;
         padding: 0 1em;
         width: 400px;
     }
@@ -62,17 +61,21 @@ title: Carousel
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
-<p>Use left &amp; right button controls to paginate the carousel slides. Use TAB key to navigate through focusable elements in the slide. Activate screen reader to hear carousel status updates (e.g. 'Showing slide 2 of 8 - Video Game Slideshow').</p>
+<p>Use left &amp; right button controls to paginate the carousel slides. Use TAB key to navigate through focusable elements in the slide. Activate screen reader to hear carousel status updates (e.g. 'Video Games Carousel - Slide 2').</p>
 <p>For simplicity sake we have omitted any kind of animation when paginating slides, but most likely a real carousel would utilise some kind of scroll effect. Again, this is a timely reminder that our emphasis with these examples is accessibility concepts only.</p>
 <p>Please <a href={{ "disclosure/carousel" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <hr />
 
 <h2 class="clipped">Examples</h2>
+<h3>Example 1: Slideshow</h3>
 
-<div class="carousel carousel--slideshow" data-carousel-size="1">
-    <h3 class="carousel__title">Example 1: Slideshow <span class="clipped"> - Carousel</span></h3>
+<div class="carousel carousel--slideshow" data-items-per-slide="1" aria-roledescription="carousel">
+    <span aria-live="polite" role="status">
+        <h4 class="clipped">Video Games Carousel - Slide <span class="carousel__index">1</span></h4>
+    </span>
     <span class="carousel__main">
+        <button class="carousel__previous" aria-disabled="true" aria-label="Previous Slide"></button>
         <ul class="carousel__list">
             <li>
                 <div>
@@ -155,14 +158,20 @@ title: Carousel
                 </div>
             </li>
         </ul>
+        <button class="carousel__next" aria-label="Next Slide"></button>
     </span>
 </div>
 
 <hr />
 
-<div class="carousel carousel--filmstrip carousel--4" data-carousel-size="4">
-    <h3 class="carousel__title">Example 2: Filmstrip <span class="clipped"> - Carousel</span></h3>
+<h3>Example 2: Filmstrip</h3>
+
+<div class="carousel carousel--filmstrip " data-items-per-slide="4" aria-roledescription="carousel">
+    <span aria-live="polite" role="status">
+        <h4 class="clipped">Video Games Carousel - Slide <span class="carousel__index">1</span></h4>
+    </span>
     <div class="carousel__main">
+        <button  class="carousel__previous" aria-disabled="true" aria-label="Previous Slide"></button>
         <ul class="carousel__list">
             <li>
                 <a href="http://www.ebay.com/sch/i.html?_nkw=Horace+%26+the+Spiders">
@@ -212,15 +221,9 @@ title: Carousel
                     <h4>Yie Ar<br/>Kung Fu</h4>
                 </a>
             </li>
+            <button class="carousel__next" aria-label="Next Slide" class="carousel__next"></button>
         </ul>
     </div>
 </div>
 
 <hr />
-
-<script src="jquery.carousel.js"></script>
-<script>
-    $(function() {
-        $('.carousel').carousel();
-    });
-</script>
