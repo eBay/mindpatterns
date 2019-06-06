@@ -34,6 +34,7 @@ module.exports = class {
         this._menuEl = this._el.querySelector('.menu');
 
         this._expander = new Expander(this._el,  {
+            alwaysDoFocusManagement: true,
             collapseOnClick: true,
             collapseOnClickOut: true,
             collapseOnFocusOut: true,
