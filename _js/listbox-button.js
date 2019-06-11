@@ -10,7 +10,7 @@ const Expander = require('makeup-expander');
 const Listbox = require('./listbox.js');
 
 function onButtonFirstClick(e) {
-    this._listboxEl.hidden = false;
+    this.listbox.el.hidden = false;
 }
 
 function onListboxKeyDown(e) {
@@ -33,7 +33,15 @@ function onListboxClick(e) {
 }
 
 function onListboxChange(e) {
-    this._buttonEl.children[0].innerText = e.detail.optionValue;
+    const fromValue = this._buttonEl.children[0].innerText;
+    const toValue = e.detail.optionValue;
+    this._buttonEl.children[0].innerText = toValue;
+    this.el.dispatchEvent(new CustomEvent('listbox-button-change', {
+        detail: {
+            fromValue: fromValue,
+            toValue: toValue
+        }
+    }));
 }
 
 const defaultOptions = {
@@ -43,15 +51,14 @@ const defaultOptions = {
 module.exports = class {
     constructor(widgetEl, selectedOptions) {
         this._options = Object.assign({}, defaultOptions, selectedOptions);
-        this._el = widgetEl;
-        this._buttonEl = this._el.querySelector('button');
-        this._listboxEl = this._el.querySelector('.listbox-button__listbox');
+        this.el = widgetEl;
+        this._buttonEl = this.el.querySelector('button');
 
-        this._listboxWidget = new Listbox(this._listboxEl, {
+        this.listbox = new Listbox(this.el.querySelector('.listbox-button__listbox'), {
             autoSelect: this._options.autoSelect
         });
 
-        this._expander = new Expander(this._el,  {
+        this._expander = new Expander(this.el,  {
             alwaysDoFocusManagement: true,
             collapseOnClick: true,
             collapseOnClickOut: true,
@@ -70,24 +77,24 @@ module.exports = class {
         this._onListboxKeyDownListener = onListboxKeyDown.bind(this);
         this._onListboxChangeListener = onListboxChange.bind(this);
 
-        this._el.classList.add('listbox-button--js');
+        this.el.classList.add('listbox-button--js');
 
         this.wake();
     }
 
     sleep() {
         this._buttonEl.removeEventListener('click', this._onButtonFirstClickListener);
-        this._listboxEl.removeEventListener('click', this._onListboxClickListener);
-        this._listboxEl.removeEventListener('keydown', this._onListboxKeyDownListener);
-        this._listboxEl.removeEventListener('listbox-change', this._onListboxChangeListener);
+        this.listbox.el.removeEventListener('click', this._onListboxClickListener);
+        this.listbox.el.removeEventListener('keydown', this._onListboxKeyDownListener);
+        this.listbox.el.removeEventListener('listbox-change', this._onListboxChangeListener);
     }
 
     wake() {
         if (this._destroyed !== true) {
             this._buttonEl.addEventListener('click', this._onButtonFirstClickListener, { once: true });
-            this._listboxEl.addEventListener('click', this._onListboxClickListener);
-            this._listboxEl.addEventListener('keydown', this._onListboxKeyDownListener);
-            this._listboxEl.addEventListener('listbox-change', this._onListboxChangeListener);
+            this.listbox.el.addEventListener('click', this._onListboxClickListener);
+            this.listbox.el.addEventListener('keydown', this._onListboxKeyDownListener);
+            this.listbox.el.addEventListener('listbox-change', this._onListboxChangeListener);
         }
     }
 

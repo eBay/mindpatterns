@@ -7,9 +7,10 @@
 */
 
 const Expander = require('makeup-expander');
+const Menu = require('./menu.js');
 
 function onButtonFirstClick(e) {
-    this._menuEl.hidden = false;
+    this.menu.el.hidden = false;
 }
 
 function onMenuKeyDown(e) {
@@ -29,50 +30,46 @@ function onMenuItemSelect(e) {
 
 module.exports = class {
     constructor(widgetEl) {
-        this._el = widgetEl;
-        this._buttonEl = this._el.querySelector('button');
-        this._menuEl = this._el.querySelector('.menu');
+        this.el = widgetEl;
+        this._buttonEl = widgetEl.querySelector('button');
+        this.menu = new Menu(widgetEl.querySelector('.menu-button__menu'));
 
-        this._expander = new Expander(this._el,  {
+        this._expander = new Expander(widgetEl,  {
             alwaysDoFocusManagement: true,
             collapseOnClick: true,
             collapseOnClickOut: true,
             collapseOnFocusOut: true,
-            contentSelector: '.menu',
+            contentSelector: '[role=menu]',
             expandedClass: 'menu-button--expanded',
             expandOnClick: true,
             focusManagement: 'focusable',
             hostSelector: 'button'
         });
 
-        this._menuEl = this._el.querySelector('.menu');
-
-        this._destroyed = false;
-
         this._onButtonFirstClickListener = onButtonFirstClick.bind(this);
         this._onMenuKeyDownListener = onMenuKeyDown.bind(this);
         this._onMenuItemSelectListener = onMenuItemSelect.bind(this);
 
-        this._el.classList.add('menu-button--js');
+        this.el.classList.add('menu-button--js');
 
         this.wake();
     }
 
     sleep() {
         this._buttonEl.removeEventListener('click', this._onButtonFirstClickListener);
-        this._menuEl.removeEventListener('keydown', this._onMenuKeyDownListener);
-        this._menuEl.removeEventListener('menu-select', this._onMenuItemSelectListener);
-        this._menuEl.removeEventListener('menu-toggle', this._onMenuItemSelectListener);
-        this._menuEl.removeEventListener('menu-change', this._onMenuItemSelectListener);
+        this.menu.el.removeEventListener('keydown', this._onMenuKeyDownListener);
+        this.menu.el.removeEventListener('menu-select', this._onMenuItemSelectListener);
+        this.menu.el.removeEventListener('menu-toggle', this._onMenuItemSelectListener);
+        this.menu.el.removeEventListener('menu-change', this._onMenuItemSelectListener);
     }
 
     wake() {
         if (this._destroyed !== true) {
             this._buttonEl.addEventListener('click', this._onButtonFirstClickListener, { once: true });
-            this._menuEl.addEventListener('keydown', this._onMenuKeyDownListener);
-            this._menuEl.addEventListener('menu-select', this._onMenuItemSelectListener);
-            this._menuEl.addEventListener('menu-toggle', this._onMenuItemSelectListener);
-            this._menuEl.addEventListener('menu-change', this._onMenuItemSelectListener);
+            this.menu.el.addEventListener('keydown', this._onMenuKeyDownListener);
+            this.menu.el.addEventListener('menu-select', this._onMenuItemSelectListener);
+            this.menu.el.addEventListener('menu-toggle', this._onMenuItemSelectListener);
+            this.menu.el.addEventListener('menu-change', this._onMenuItemSelectListener);
         }
     }
 

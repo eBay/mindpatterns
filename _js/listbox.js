@@ -43,7 +43,7 @@ function onKeyDown(e) {
             this.uncheck(this.index);
             this.check(toElIndex);
 
-            this._el.dispatchEvent(new CustomEvent('listbox-change', {
+            this.el.dispatchEvent(new CustomEvent('listbox-change', {
                 detail: {
                     optionIndex: toElIndex,
                     optionValue: toEl.innerText
@@ -65,7 +65,7 @@ function onClick(e) {
         this.uncheck(this.index);
         this.check(toElIndex);
 
-        this._el.dispatchEvent(new CustomEvent('listbox-change', {
+        this.el.dispatchEvent(new CustomEvent('listbox-change', {
             detail: {
                 optionIndex: toElIndex,
                 optionValue: toEl.innerText
@@ -86,7 +86,7 @@ function _onActiveDescendantChange(e) {
     if (toEl) {
         toEl.setAttribute('aria-checked', 'true');
 
-        this._el.dispatchEvent(new CustomEvent('listbox-change', {
+        this.el.dispatchEvent(new CustomEvent('listbox-change', {
             detail: {
                 optionValue: toEl.innerText
             }
@@ -106,12 +106,12 @@ module.exports = class {
     constructor(widgetEl, selectedOptions) {
         this._options = Object.assign({}, defaultOptions, selectedOptions);
 
-        this._el = widgetEl;
+        this.el = widgetEl;
 
         // in cases such as comboboc, the active-descendant logic is controlled by a parent widget
-        this._activeDescendantRootEl = this._options.listboxOwnerElement || this._el;
+        this._activeDescendantRootEl = this._options.listboxOwnerElement || this.el;
 
-        this._listboxEl = this._el.querySelector('[role=listbox]');
+        this._listboxEl = this.el.querySelector('[role=listbox]');
 
         if (!this._options.focusableElement) {
             this._listboxEl.setAttribute('tabindex', '0');
@@ -128,7 +128,7 @@ module.exports = class {
             }
         );
 
-        PreventScrollKeys.add(this._el);
+        PreventScrollKeys.add(this.el);
 
         this._onFocusListener = onFocus.bind(this);
         this._onMouseDownListener = onMouseDown.bind(this);
@@ -136,7 +136,7 @@ module.exports = class {
         this._onClickListener = onClick.bind(this);
         this._onActiveDescendantChangeListener = _onActiveDescendantChange.bind(this);
 
-        this._el.classList.add('listbox--js');
+        this.el.classList.add('listbox--js');
 
         this.wake();
     }

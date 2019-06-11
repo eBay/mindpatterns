@@ -159,19 +159,24 @@ document.addEventListener("DOMContentLoaded", function(e) {
     });
 
     document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
-        pageWidgets.push(new ListboxButton(widgetEl, {
+        const widget = new ListboxButton(widgetEl, {
             autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false
-        }));
-        widgetEl.addEventListener('listbox-change', function(e) {
+        });
+
+        pageWidgets.push(widget);
+
+        widgetEl.addEventListener('listbox-button-change', function(e) {
             console.log(e.type, e.detail);
         });
     });
 
     document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
-        pageWidgets.push(new MenuButton(widgetEl));
+        const widget = new MenuButton(widgetEl);
 
-        widgetEl.addEventListener('menuitem-select', function(e) {
-            console.log(e.type, detail.el.innerText);
+        pageWidgets.push(widget);
+
+        widget.menu.el.addEventListener('menu-select', function(e) {
+            console.log(e.type, e.detail.el.innerText);
         });
     });
 

@@ -6,7 +6,8 @@ span.menu-button {
     display: inline-block;
 }
 
-.menu [role=menu] {
+.menu [role=menu],
+.menu-button [role=menu] {
     background-color: LightYellow;
     border: 1px solid #aaa;
     box-sizing: border-box;
@@ -20,10 +21,10 @@ span.menu-button {
     position: absolute;
     z-index: 1;
 }
-.menu-button__button[aria-expanded=false] + .menu {
+.menu-button__button[aria-expanded=false] + .menu-button__menu {
     display: none;
 }
-.menu-button__button[aria-expanded=true] + .menu {
+.menu-button__button[aria-expanded=true] + .menu-button__menu {
     display: block;
 }
 .menu-button__icon {
@@ -35,41 +36,41 @@ span.menu-button {
     font-family: 'vq-icon-font';
     font-size: 12px;
 }
-.menu [role=menu] hr {
+.menu [role=menu] hr,
+.menu-button [role=menu] hr {
     border: 0;
     background-color: #ccc;
     height: 1px;
-    margin: 1px 0;
-}
-.menu [role=menu] hr {
     margin: 0;
 }
-.menu [role^=menuitem] {
+.menu [role^=menuitem],
+.menu-button [role^=menuitem] {
     cursor: default;
     display: inline-block;
     box-sizing: border-box;
     padding: 8px 16px 4px 16px;
     width: 100%;
 }
-.menu [role^=menuitem]::first-letter {
-    /* the following rule causes an odd bug in VoiceOver */
-    /* text-decoration: underline; */
-}
-.menu [role^=menuitem]:focus {
+.menu [role^=menuitem]:focus,
+.menu-button [role^=menuitem]:focus {
     background-color: #006699;
     color: white;
     outline: 0 none;
 }
 .menu [role=menuitemcheckbox][aria-checked=true]::before,
-.menu [role=menuitemradio][aria-checked=true]::before {
+.menu [role=menuitemradio][aria-checked=true]::before,
+.menu-button [role=menuitemcheckbox][aria-checked=true]::before,
+.menu-button [role=menuitemradio][aria-checked=true]::before {
     display: inline-block;
     width: 16px;
     margin-left: -16px;
 }
-.menu [role=menuitemcheckbox][aria-checked=true]::after {
+.menu [role=menuitemcheckbox][aria-checked=true]::after,
+.menu-button [role=menuitemcheckbox][aria-checked=true]::after {
     content: '\2713';
     float: right;
 }
-.menu [role=menuitemradio][aria-checked=true]::before {
+.menu [role=menuitemradio][aria-checked=true]::before,
+.menu-button [role=menuitemradio][aria-checked=true]::before {
     content: '\00a0\2022';
 }
