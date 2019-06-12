@@ -28,19 +28,25 @@ function onMenuItemSelect(e) {
     }, 150);
 }
 
+const defaultOptions = {
+    expandedClass: 'menu-button--expanded',
+    menuSelector: '.menu-button__menu'
+};
+
 module.exports = class {
-    constructor(widgetEl) {
+    constructor(widgetEl, selectedOptions) {
+        this._options = Object.assign({}, defaultOptions, selectedOptions);
         this.el = widgetEl;
         this._buttonEl = widgetEl.querySelector('button');
-        this.menu = new Menu(widgetEl.querySelector('.menu-button__menu'));
+        this.menu = new Menu(widgetEl.querySelector(this._options.menuSelector));
 
         this._expander = new Expander(widgetEl,  {
             alwaysDoFocusManagement: true,
             collapseOnClick: true,
             collapseOnClickOut: true,
             collapseOnFocusOut: true,
-            contentSelector: '[role=menu]',
-            expandedClass: 'menu-button--expanded',
+            contentSelector: this._options.menuSelector,
+            expandedClass: this._options.expandedClass,
             expandOnClick: true,
             focusManagement: 'focusable',
             hostSelector: 'button'
@@ -49,8 +55,6 @@ module.exports = class {
         this._onButtonFirstClickListener = onButtonFirstClick.bind(this);
         this._onMenuKeyDownListener = onMenuKeyDown.bind(this);
         this._onMenuItemSelectListener = onMenuItemSelect.bind(this);
-
-        this.el.classList.add('menu-button--js');
 
         this.wake();
     }

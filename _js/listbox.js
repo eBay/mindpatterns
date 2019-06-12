@@ -81,10 +81,14 @@ function _onActiveDescendantChange(e) {
     const fromEl = this.items[e.detail.fromIndex];
     const toEl =  this.items[e.detail.toIndex];
 
-    if (fromEl) fromEl.setAttribute('aria-checked', 'false');
+    if (fromEl) {
+        fromEl.setAttribute('aria-checked', 'false');
+        fromEl.classList.remove(this._options.activeDescendantClassName);
+    }
 
     if (toEl) {
         toEl.setAttribute('aria-checked', 'true');
+        toEl.classList.add(this._options.activeDescendantClassName);
 
         this.el.dispatchEvent(new CustomEvent('listbox-change', {
             detail: {
@@ -95,6 +99,7 @@ function _onActiveDescendantChange(e) {
 }
 
 const defaultOptions = {
+    activeDescendantClassName: 'listbox__option--active', // the classname applied to the current active desdcendant
     autoReset: null, // passed to makeup-active-descendant
     autoSelect: true, // when true, aria-checked state matches active-descendant
     focusableElement: null, // used in a combobox/datepicker scenario
@@ -111,7 +116,7 @@ module.exports = class {
         // in cases such as comboboc, the active-descendant logic is controlled by a parent widget
         this._activeDescendantRootEl = this._options.listboxOwnerElement || this.el;
 
-        this._listboxEl = this.el.querySelector('[role=listbox]');
+        this._listboxEl = (widgetEl.getAttribute('role') === 'listbox') ? widgetEl : this.el.querySelector('[role=listbox]');
 
         if (!this._options.focusableElement) {
             this._listboxEl.setAttribute('tabindex', '0');
@@ -141,10 +146,6 @@ module.exports = class {
         this.wake();
     }
 
-    set focusable(bool) {
-        this._listboxEl.setAttribute('tabindex', bool === true ? '0' : '-1');
-    }
-
     get index() {
         return Array.prototype.slice.call(this.items).findIndex(function(el) {
             return el.getAttribute('aria-checked') === 'true';
@@ -153,10 +154,6 @@ module.exports = class {
 
     get items() {
         return this._listboxEl.querySelectorAll('[role=option]');
-    }
-
-    clear() {
-        this.uncheck(this.index);
     }
 
     check(index) {

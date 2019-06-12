@@ -35,7 +35,7 @@ function onListboxClick(e) {
 function onListboxChange(e) {
     const fromValue = this._buttonEl.children[0].innerText;
     const toValue = e.detail.optionValue;
-    this._buttonEl.children[0].innerText = toValue;
+    this._buttonLabelEl.innerText = toValue;
     this.el.dispatchEvent(new CustomEvent('listbox-button-change', {
         detail: {
             fromValue: fromValue,
@@ -45,7 +45,9 @@ function onListboxChange(e) {
 }
 
 const defaultOptions = {
-    autoSelect: true
+    autoSelect: true,
+    labelSelector: '.listbox-button__label',
+    listboxSelector: '.listbox-button__listbox'
 };
 
 module.exports = class {
@@ -53,8 +55,9 @@ module.exports = class {
         this._options = Object.assign({}, defaultOptions, selectedOptions);
         this.el = widgetEl;
         this._buttonEl = this.el.querySelector('button');
+        this._buttonLabelEl = widgetEl.querySelector(this._options.labelSelector);
 
-        this.listbox = new Listbox(this.el.querySelector('.listbox-button__listbox'), {
+        this.listbox = new Listbox(this.el.querySelector(this._options.listboxSelector), {
             autoSelect: this._options.autoSelect
         });
 
@@ -63,21 +66,17 @@ module.exports = class {
             collapseOnClick: true,
             collapseOnClickOut: true,
             collapseOnFocusOut: true,
-            contentSelector: '.listbox-button__listbox',
+            contentSelector: this._options.listboxSelector,
             expandedClass: 'listbox-button--expanded',
             expandOnClick: true,
             focusManagement: 'focusable',
             hostSelector: 'button'
         });
 
-        this._destroyed = false;
-
         this._onButtonFirstClickListener = onButtonFirstClick.bind(this);
         this._onListboxClickListener = onListboxClick.bind(this);
         this._onListboxKeyDownListener = onListboxKeyDown.bind(this);
         this._onListboxChangeListener = onListboxChange.bind(this);
-
-        this.el.classList.add('listbox-button--js');
 
         this.wake();
     }
