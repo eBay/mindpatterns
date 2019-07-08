@@ -19,25 +19,22 @@ span.listbox {
     font-family: 'vq-icon-font';
     float: right;
 }
-.listbox [role="listbox"]:focus [role="option"][aria-selected="true"],
-.listbox-button [role="listbox"]:focus [role="option"][aria-selected="true"]  {
+.listbox__option--active,
+.listbox-button__option--active {
     outline: 0;
     background-color: #006699;
     color: white;
 }
-.listbox [role="option"][aria-checked="true"]::after,
-.listbox-button [role="option"][aria-checked="true"]::after {
+.listbox [role="option"][aria-selected="true"]::after,
+.listbox-button [role="option"][aria-selected="true"]::after {
     content: '\2713';
 }
-
 .listbox-button {
     position: relative;
 }
-
 span.listbox-button {
     display: inline-block;
 }
-
 .listbox-button .listbox-button__listbox {
     display: none;
     left: 0;

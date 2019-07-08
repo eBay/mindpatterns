@@ -79,7 +79,8 @@ module.exports = class {
             autoReset: -1,
             autoSelect: this._options.autoSelect,
             focusableElement: this._inputEl,
-            listboxOwnerElement: this._el
+            listboxOwnerElement: this._el,
+            useAriaChecked: false
         });
 
         this._expander = new Expander(this._el,  {

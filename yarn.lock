@@ -3483,10 +3483,10 @@ make-dir@^1.0.0:
   dependencies:
     pify "^3.0.0"
 
-makeup-active-descendant@~0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/makeup-active-descendant/-/makeup-active-descendant-0.1.4.tgz#35b88bfcc77156093ed489f3b73769df3d3f17b8"
-  integrity sha512-02NFymOgRy2WV+fj1KxUfSnZEwtAybcKZTsog1hEDIk3OHP5vvrqtP2pJC/6mEKOoHxAwdp0eJpFtXc0fIysLQ==
+makeup-active-descendant@~0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/makeup-active-descendant/-/makeup-active-descendant-0.1.6.tgz#eb5cb9b839f2740b043bd0e58fe3491f35f83abd"
+  integrity sha512-ctNkKODFJTIdn2ZQVqah3fzNDOsDPJ49Si1ROY0lbs+I6chNxnh61eK+kf4kSTIAoTBumeDfdXwRX+uZt+tlQQ==
   dependencies:
     custom-event-polyfill "^1"
     makeup-navigation-emitter "~0.2.2"
