@@ -35,7 +35,7 @@ function onMouseDown(e) {
 }
 
 /*
-*   A keydown only happens on a listbox with manual selection
+*   We are only listening to keydown on a listbox with manual selection
 */
 function onKeyDown(e) {
     if (e.keyCode === 13 || e.keyCode === 32) { // enter key or spacebar key
@@ -58,7 +58,7 @@ function onKeyDown(e) {
 }
 
 /*
-*   A click only happens on a listbox with manual selection
+*   We are only listening to click on a listbox with manual selection
 */
 function onClick(e) {
     const toEl = e.target;
@@ -79,19 +79,21 @@ function onClick(e) {
 }
 
 /*
-*   The maekeup-active-descendant does all of the heavy lifting for managing aria-activedescendant state
+*   We are only listening to activeDescendantChange on a listbox with auto selection
 */
 function _onActiveDescendantChange(e) {
     const fromEl = this.items[e.detail.fromIndex];
     const toEl =  this.items[e.detail.toIndex];
 
     if (fromEl) {
+        fromEl.setAttribute('aria-selected', 'false');
         if (this._options.useAriaChecked === true) {
             fromEl.setAttribute('aria-checked', 'false');
         }
     }
 
     if (toEl) {
+        toEl.setAttribute('aria-selected', 'true');
         if (this._options.useAriaChecked === true) {
             toEl.setAttribute('aria-checked', 'true');
         }
@@ -138,7 +140,7 @@ module.exports = class {
                 activeDescendantClassName: this._options.activeDescendantClassName,
                 autoReset: this._options.autoReset,
                 axis: 'y',
-                useAriaSelected: this._options.autoSelect
+                useAriaSelected: this._options.useAriaSelected
             }
         );
 

@@ -16,11 +16,28 @@ function onTextboxKeyDown(e) {
         e.preventDefault();
     }
 
-    // for manual selection, ENTER should not submit form when listbox is open
-    if (this._expander.isExpanded() && !this._options.autoSelect && e.keyCode === 13) {
+    // down arrow key should always expand listbox
+    if (e.keyCode === 40) {
+        if (this._expander.expanded === false) {
+            this._expander.expanded = true;
+        }
+    }
+
+    // escape key should always collapse listbox
+    if (e.keyCode === 27) {
+        if (this._expander.expanded === true) {
+            this._expander.expanded = false;
+            this._listboxWidget._activeDescendant.reset();
+        }
+    }
+
+    // for manual selection, ENTER should not submit form when there is an active descendant
+    if (this._options.autoSelect === false && e.keyCode === 13 && this._inputEl.getAttribute('aria-activedescendant')) {
         e.preventDefault();
         const widget = this;
         this._inputEl.value = this._listboxWidget.items[this._listboxWidget._activeDescendant.index].innerText;
+        this._listboxWidget._activeDescendant.reset();
+
         setTimeout(function() {
             widget._expander.collapse();
         }, 150);
@@ -80,7 +97,8 @@ module.exports = class {
             autoSelect: this._options.autoSelect,
             focusableElement: this._inputEl,
             listboxOwnerElement: this._el,
-            useAriaChecked: false
+            useAriaChecked: false,
+            useAriaSelected: false
         });
 
         this._expander = new Expander(this._el,  {

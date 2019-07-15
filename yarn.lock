@@ -3483,13 +3483,13 @@ make-dir@^1.0.0:
   dependencies:
     pify "^3.0.0"
 
-makeup-active-descendant@~0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/makeup-active-descendant/-/makeup-active-descendant-0.1.6.tgz#eb5cb9b839f2740b043bd0e58fe3491f35f83abd"
-  integrity sha512-ctNkKODFJTIdn2ZQVqah3fzNDOsDPJ49Si1ROY0lbs+I6chNxnh61eK+kf4kSTIAoTBumeDfdXwRX+uZt+tlQQ==
+makeup-active-descendant@~0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/makeup-active-descendant/-/makeup-active-descendant-0.2.1.tgz#d21d6160d2a6a5140006667595e0925af8759011"
+  integrity sha512-+WasVWH/7B6BP4DinnZO8zR6Rx5aIcT9MJla+6UlNj9ibdv66817rRzYqEvH5Dz+1XnfS66w+s0hnvAySSyFLQ==
   dependencies:
     custom-event-polyfill "^1"
-    makeup-navigation-emitter "~0.2.2"
+    makeup-navigation-emitter "~0.2.3"
     nodelist-foreach-polyfill "^1"
 
 makeup-exit-emitter@~0.1.1:
@@ -3550,6 +3550,16 @@ makeup-navigation-emitter@~0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/makeup-navigation-emitter/-/makeup-navigation-emitter-0.2.2.tgz#84daca904a9d67d14a2a124221afbadff817076e"
   integrity sha512-4FDLNiYl48dQ+IqZkh+XY39ZYG/iHbiO1xATVdBurCuNDoM5PrgwyiKRSOAkQ3nFZ2a193tCjtuWa2dApi+RBA==
+  dependencies:
+    custom-event-polyfill "^1"
+    makeup-exit-emitter "~0.1.1"
+    makeup-key-emitter "~0.1.0"
+    nodelist-foreach-polyfill "^1"
+
+makeup-navigation-emitter@~0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/makeup-navigation-emitter/-/makeup-navigation-emitter-0.2.3.tgz#23a952514385991b205f9ad33d3e76564d8d8015"
+  integrity sha512-Td7l87zhvLOjyE39bkTozXpSuDZDdxTLZ4aA1m2YhKUp0y3z810o4mIJAx/zsXDWpvkCgNCNoAgQqWL7lSVGYw==
   dependencies:
     custom-event-polyfill "^1"
     makeup-exit-emitter "~0.1.1"
