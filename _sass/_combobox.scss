@@ -45,8 +45,8 @@
     font-size: 1em;
     padding: 8px;
 }
-.combobox [role=option]:hover,
-.combobox [role=option][aria-selected="true"] {
+.combobox__option:hover,
+.combobox__option--active {
     background-color: #006699;
     color: white;
 }

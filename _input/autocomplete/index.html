@@ -23,7 +23,7 @@ title: Autocomplete
 <h2 class="clipped">Examples</h2>
 
 <h3>Example 1: List with Manual-Selection</h3>
-<p>Cycle through listbox options with arrow keys; use ENTER key to autofill textbox.<p>
+<p>Enter text to filter options. Cycle through listbox options with arrow keys; use ENTER key to autofill textbox.<p>
 <form>
     <label for="combobox-1">Sell your games console</label>
     <span class="combobox" data-auto-select="false">
@@ -47,4 +47,29 @@ title: Autocomplete
 
 <hr />
 
-<p><i>Updated</i>: May 21st, 2019</p>
+<h3>Example 2: List with Auto-Selection</h3>
+<p>Enter text to filter options. Cycling through options will automatically change the textbox value; ENTER key will submit.<p>
+<form>
+    <label for="combobox-2">Sell your games console</label>
+    <span class="combobox" data-auto-select="true">
+        <span>
+            <input autocomplete="off" aria-autocomplete="list" class="combobox__textbox" id="combobox-2" name="console" type="text" placeholder="Playstation, Xbox, etc." />
+            <span class="combobox__icon"></span>
+        </span>
+        <div class="combobox__listbox" hidden>
+            <div role="listbox">
+                <div role="option">Nintendo Switch</div>
+                <div role="option">Nintendo 3DS</div>
+                <div role="option">Playstation 3</div>
+                <div role="option">Playstation 4</div>
+                <div role="option">XBOX ONE</div>
+                <div role="option">XBOX 360</div>
+            </div>
+        </div>
+    </span>
+    <input class="button" type="submit" />
+</form>
+
+<hr />
+
+<p><i>Updated</i>: July 15th, 2019</p>

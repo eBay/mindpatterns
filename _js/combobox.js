@@ -35,7 +35,9 @@ function onTextboxKeyDown(e) {
     if (this._options.autoSelect === false && e.keyCode === 13 && this._inputEl.getAttribute('aria-activedescendant')) {
         e.preventDefault();
         const widget = this;
-        this._inputEl.value = this._listboxWidget.items[this._listboxWidget._activeDescendant.index].innerText;
+        this._inputEl.value = Util.nodeListToArray(this._listboxWidget.items).filter(
+            el => !el.hidden
+        )[this._listboxWidget._activeDescendant.index].innerText;
         this._listboxWidget._activeDescendant.reset();
 
         setTimeout(function() {
@@ -45,20 +47,31 @@ function onTextboxKeyDown(e) {
 }
 
 function onTextboxInput(e) {
-    const widget = this;
-    const numChars = widget._inputEl.value.length;
-    const currentValue = widget._inputEl.value.toLowerCase();
+    if (this._expander.expanded === false) {
+        this._expander.expanded = true;
+    }
 
-    const matchedItems = Util.nodeListToArray(widget._listboxWidget.items).filter((el) => {
-        return el.innerText.substring(0, numChars).toLowerCase() === currentValue;
-    });
+    if (this._autocompleteType === 'list') {
+        const widget = this;
+        const numChars = widget._inputEl.value.length;
+        const currentValue = widget._inputEl.value.toLowerCase();
 
-    const unmatchedItems = Util.nodeListToArray(widget._listboxWidget.items).filter((el) => {
-        return el.innerText.substring(0, numChars).toLowerCase() !== currentValue;
-    });
+        if (numChars === 0) {
+            this._listboxWidget._activeDescendant.reset();
+            widget._listboxWidget.items.forEach(el => el.hidden = false);
+        } else {
+            const matchedItems = Util.nodeListToArray(widget._listboxWidget.items).filter((el) => {
+                return el.innerText.substring(0, numChars).toLowerCase() === currentValue;
+            });
 
-    matchedItems.forEach((el) => el.hidden = false);
-    unmatchedItems.forEach((el) => el.hidden = true);
+            const unmatchedItems = Util.nodeListToArray(widget._listboxWidget.items).filter((el) => {
+                return el.innerText.substring(0, numChars).toLowerCase() !== currentValue;
+            });
+
+            matchedItems.forEach((el) => el.hidden = false);
+            unmatchedItems.forEach((el) => el.hidden = true);
+        }
+    }
 }
 
 function onListboxClick(e) {
@@ -68,10 +81,11 @@ function onListboxClick(e) {
     }, 150);
 }
 
-function onListboxChange(e) {
-    this._inputEl.value = e.detail.optionValue;
-    if (!this._options.autoSelect) {
-        this._listboxWidget.clear();
+function onListboxActiveDescendantChange(e) {
+    if (this._options.autoSelect === true) {
+        this._inputEl.value = Util.nodeListToArray(this._listboxWidget.items).filter(
+            el => !el.hidden
+        )[e.detail.toIndex].innerText;
     }
 }
 
@@ -93,8 +107,9 @@ module.exports = class {
         this._listboxEl.hidden = false;
 
         this._listboxWidget = new Listbox(this._listboxEl, {
+            activeDescendantClassName: 'combobox__option--active',
             autoReset: -1,
-            autoSelect: this._options.autoSelect,
+            autoSelect: false,
             focusableElement: this._inputEl,
             listboxOwnerElement: this._el,
             useAriaChecked: false,
@@ -113,7 +128,7 @@ module.exports = class {
         this._destroyed = false;
 
         this._onListboxClickListener = onListboxClick.bind(this);
-        this._onListboxChangeListener = onListboxChange.bind(this);
+        this._onListboxActiveDescendantChangeListener = onListboxActiveDescendantChange.bind(this);
         this._onTextboxKeyDownListener = onTextboxKeyDown.bind(this);
         this._onTextboxInputListener = onTextboxInput.bind(this);
 
@@ -128,7 +143,7 @@ module.exports = class {
 
     sleep() {
         this._listboxEl.removeEventListener('click', this._onListboxClickListener);
-        this._listboxEl.removeEventListener('listbox-change', this._onListboxChangeListener);
+        this._listboxEl.removeEventListener('listbox-active-descendant-change', this._onListboxActiveDescendantChangeListener);
         this._inputEl.removeEventListener('keydown', this._onTextboxKeyDownListener);
         this._inputEl.removeEventListener('input', this._onTextboxInputListener);
     }
@@ -136,7 +151,7 @@ module.exports = class {
     wake() {
         if (this._destroyed !== true) {
             this._listboxEl.addEventListener('click', this._onListboxClickListener);
-            this._listboxEl.addEventListener('listbox-change', this._onListboxChangeListener);
+            this._listboxEl.addEventListener('listbox-active-descendant-change', this._onListboxActiveDescendantChangeListener);
             this._inputEl.addEventListener('keydown', this._onTextboxKeyDownListener);
             this._inputEl.addEventListener('input', this._onTextboxInputListener);
         }
@@ -148,7 +163,7 @@ module.exports = class {
         this.sleep();
 
         this._onListboxClickListener = null;
-        this._onListboxChangeListener = null;
+        this._onListboxActiveDesendanctChangeListener = null;
         this._onTextboxKeyDownListener = null;
         this._onTextboxInputsListener = null;
     }
