@@ -19,7 +19,7 @@ span.listbox {
     font-family: 'vq-icon-font';
     float: right;
 }
-.listbox__option--active,
+.listbox [role="listbox"]:focus .listbox__option--active,
 .listbox-button__option--active {
     outline: 0;
     background-color: #006699;

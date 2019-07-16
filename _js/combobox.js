@@ -76,16 +76,24 @@ function onTextboxInput(e) {
 
 function onListboxClick(e) {
     const widget = this;
-    const el = e.target;
-    const elIndex = el.dataset.makeupIndex;
+    let element = e.target;
+    let indexData = element.dataset.makeupIndex;
 
-    this._inputEl.value = Util.nodeListToArray(this._listboxWidget.items).filter(
-        el => !el.hidden
-    )[elIndex].innerText;
+    // traverse widget ancestors until interactive element is found
+    while (element !== this._el && !indexData) {
+        element = element.parentNode;
+        indexData = element.dataset.makeupIndex;
+    }
 
-    setTimeout(function() {
-        widget._expander.collapse();
-    }, 150);
+    if (indexData !== undefined) {
+        this._inputEl.value = Util.nodeListToArray(this._listboxWidget.items).filter(
+            el => !el.hidden
+        )[indexData].innerText;
+
+        setTimeout(function() {
+            widget._expander.collapse();
+        }, 150);
+    }
 }
 
 function onListboxActiveDescendantChange(e) {

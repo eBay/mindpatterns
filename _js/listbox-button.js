@@ -58,6 +58,7 @@ module.exports = class {
         this._buttonLabelEl = widgetEl.querySelector(this._options.labelSelector);
 
         this.listbox = new Listbox(this.el.querySelector(this._options.listboxSelector), {
+            activeDescendantClassName: 'listbox-button__option--active',
             autoSelect: this._options.autoSelect
         });
 
