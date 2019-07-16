@@ -76,6 +76,13 @@ function onTextboxInput(e) {
 
 function onListboxClick(e) {
     const widget = this;
+    const el = e.target;
+    const elIndex = el.dataset.makeupIndex;
+
+    this._inputEl.value = Util.nodeListToArray(this._listboxWidget.items).filter(
+        el => !el.hidden
+    )[elIndex].innerText;
+
     setTimeout(function() {
         widget._expander.collapse();
     }, 150);
