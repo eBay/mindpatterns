@@ -112,6 +112,7 @@ module.exports = class {
             '[role=option]',
             {
                 activeDescendantClassName: this._options.activeDescendantClassName,
+                autoInit: this.index,
                 autoReset: this._options.autoReset,
                 axis: 'y',
                 useAriaSelected: this._options.useAriaSelected
