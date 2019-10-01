@@ -35,11 +35,11 @@
     "makeup-modal": "~0.1.0",
     "makeup-next-id": "~0.1.1",
     "makeup-prevent-scroll-keys": "~0.0.3",
-    "makeup-roving-tabindex": "~0.3.0",
+    "makeup-roving-tabindex": "~0.3.1",
     "nodelist-foreach-polyfill": "^1",
     "nodemon": "^1",
     "onchange": "^6",
     "parallelshell": "^3",
-    "rimraf": "^2"
+    "rimraf": "^3"
   }
 }
