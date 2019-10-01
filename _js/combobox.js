@@ -93,7 +93,7 @@ function onListboxClick(e) {
 }
 
 function onListboxActiveDescendantChange(e) {
-    if (this._options.autoSelect === true) {
+    if (this._options.autoSelect === true || this._readOnly === true) {
         this._inputEl.value = Util.nodeListToArray(this._listboxWidget.items).filter(
             el => !el.hidden
         )[e.detail.toIndex].innerText;
@@ -121,9 +121,7 @@ function filter(widget) {
     }
 }
 
-const defaultOptions = {
-    autoSelect: true
-};
+const defaultOptions = {};
 
 module.exports = class {
     constructor(widgetEl, selectedOptions) {
@@ -132,6 +130,7 @@ module.exports = class {
         this._inputEl = this._el.querySelector('input');
         this._listboxEl = this._el.querySelector('.combobox__listbox');
         this._autocompleteType = this._inputEl.getAttribute('aria-autocomplete');
+        this._readOnly = this._inputEl.readOnly;
 
         this._inputEl.setAttribute('autocomplete', 'off');
         this._inputEl.setAttribute('role', 'combobox');
@@ -140,12 +139,11 @@ module.exports = class {
 
         this._listboxWidget = new Listbox(this._listboxEl, {
             activeDescendantClassName: 'combobox__option--active',
-            autoReset: -1,
-            autoSelect: false,
+            autoReset: this._readOnly ? null : -1,
+            autoSelect: this._readOnly,
             focusableElement: this._inputEl,
             listboxOwnerElement: this._el,
-            useAriaChecked: false,
-            useAriaSelected: false
+            useAriaChecked: this._readOnly
         });
 
         this._expander = new Expander(this._el,  {

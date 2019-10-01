@@ -114,8 +114,7 @@ module.exports = class {
                 activeDescendantClassName: this._options.activeDescendantClassName,
                 autoInit: this.index,
                 autoReset: this._options.autoReset,
-                axis: 'y',
-                useAriaSelected: this._options.useAriaSelected
+                axis: 'y'
             }
         );
 
