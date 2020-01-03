@@ -6,7 +6,7 @@ title: Dialog Button
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
-<p>Activate the button to open dialog. Or view the standalone <a href="../dialog/index.html">dialog</a> example to see a dialog that opens on page load.</p>
+<p>Activate button to open the dialog. Or view the standalone <a href="../dialog/index.html">dialog</a> example to see a dialog that opens on page load.</p>
 <p>Please <a href={{ "disclosure/dialog" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <h2 class="clipped">Examples</h2>
@@ -17,7 +17,7 @@ title: Dialog Button
 
 <button data-makeup-dialog="dialog" class="button dialog-button" type="button">Dialog</button>
 
-<div role="dialog" class="dialog" id="dialog" aria-labelledby="dialog-title" hidden>
+<div role="dialog" class="dialog" id="dialog" aria-labelledby="dialog-title"  aria-modal="true" hidden>
     <div class="dialog__window" role="document">
         <header class="dialog__header">
             <h2 class="dialog__title" id="dialog-title">Dialog Title</h2>
@@ -32,4 +32,4 @@ title: Dialog Button
 
 <hr />
 
-<p><i>Updated</i>: May 12th, 2019</p>
+<p><i>Updated</i>: Jan 3rd, 2020</p>
