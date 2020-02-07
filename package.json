@@ -1,5 +1,8 @@
 {
   "author": "Ian McBurnie <ianmcburnie@hotmail.com>",
+  "maintainers": [
+    "Ian McBurnie <ianmcburnie@hotmail.com>"
+  ],
   "scripts": {
     "start": "npm run build && parallelshell 'npm run browser-sync' 'npm run nodemon' 'npm run onchange'",
     "build": "npm run transpile && npm run lasso && npm run jekyll",
@@ -22,24 +25,28 @@
     "@babel/cli": "^7",
     "@babel/core": "^7",
     "@babel/preset-env": "^7",
+    "@ebay/browserslist-config": "^1.0.1",
     "babel-plugin-transform-object-assign": "^6",
     "browser-sync": "^2",
     "core-js-pure": "^3",
     "custom-event-polyfill": "^1",
     "details-element-polyfill": "^2",
     "lasso-cli": "^2",
-    "makeup-active-descendant": "~0.3.0",
-    "makeup-expander": "~0.8.0",
+    "makeup-active-descendant": "~0.3.6",
+    "makeup-expander": "~0.8.4",
     "makeup-focusables": "^0.0.4",
-    "makeup-key-emitter": "~0.1.0",
-    "makeup-modal": "~0.1.0",
-    "makeup-next-id": "~0.1.1",
+    "makeup-key-emitter": "~0.1.2",
+    "makeup-modal": "~0.1.2",
+    "makeup-next-id": "~0.1.2",
     "makeup-prevent-scroll-keys": "~0.0.3",
-    "makeup-roving-tabindex": "~0.3.1",
+    "makeup-roving-tabindex": "~0.3.5",
     "nodelist-foreach-polyfill": "^1",
     "nodemon": "^2",
     "onchange": "^6",
     "parallelshell": "3.0.1",
     "rimraf": "^3"
-  }
+  },
+  "browserslist": [
+    "extends @ebay/browserslist-config"
+  ]
 }

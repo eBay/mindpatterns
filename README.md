@@ -16,6 +16,10 @@ This project uses [Bundler](http://bundler.io) to ensure our local [Jekyll](http
 1. Browser will automatically open at [localhost:3000](http://localhost:3000)
 1. Browser will automatically reload when local HTML, JS or CSS assets are modified
 
+## People
+
+The original author and current lead maintainer of MIND Patterns is [Ian McBurnie](https://github.com/ianmcburnie).
+
 ## License
 
 Copyright (c) 2015 eBay Inc.

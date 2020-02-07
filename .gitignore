@@ -6,5 +6,5 @@ node_modules
 build
 static/browser.js.*
 _babel
-
+*.log
 npm-debug.log
