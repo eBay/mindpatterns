@@ -23,7 +23,7 @@ function getDisplayValue(level) {
         } else if (level >= 8) {
             label = "weak";
         } else {
-            label = "critical";
+            label = "dangerous";
         }
 
         return label;
@@ -34,7 +34,7 @@ module.exports = class {
         this._el = widgetEl;
         this._meterEl = widgetEl.querySelector('meter');
         this._inputEl = document.getElementById(widgetEl.dataset.for);
-        this._valueEl = widgetEl.querySelector('.input-meter__value');
+        this._valueEl = widgetEl.querySelector('.password-meter__value');
 
         this._destroyed = false;
 

@@ -16,12 +16,13 @@ document.addEventListener("DOMContentLoaded", function(e) {
     // const AccordionLegacy = require('./accordion-legacy.js');
     const AriaButton = require('./aria-button.js');
     const Carousel = require('./carousel.js');
+    const CharacterMeter = require('./character-meter.js');
     const Combobox = require('./combobox.js');
     const Dialog = require('./dialog.js');
     const DialogButton = require('./dialog-button.js');
     // const Expando = require('./expando.js');
     const HijaxButton = require('./hijax-button.js');
-    const InputMeter = require('./input-meter.js');
+    const PasswordMeter = require('./password-meter.js');
     const Listbox = require('./listbox.js');
     const ListboxButton = require('./listbox-button.js');
     const Menu = require('./menu.js');
@@ -58,6 +59,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
         widgetEl.addEventListener('carousel-pagination', function(e) {
             console.log(e);
         });
+    });
+
+    document.querySelectorAll('.character-meter').forEach(function(widgetEl) {
+        pageWidgets.push(new CharacterMeter(widgetEl));
     });
 
     document.querySelectorAll('.combobox').forEach(function(widgetEl) {
@@ -145,8 +150,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }));
     });
 
-    document.querySelectorAll('.input-meter').forEach(function(widgetEl) {
-        pageWidgets.push(new InputMeter(widgetEl));
+    document.querySelectorAll('.password-meter').forEach(function(widgetEl) {
+        pageWidgets.push(new PasswordMeter(widgetEl));
     });
 
     document.querySelectorAll('.listbox').forEach(function(widgetEl) {
