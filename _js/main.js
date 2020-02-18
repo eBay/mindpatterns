@@ -6,7 +6,11 @@
 * https://opensource.org/licenses/MIT.
 */
 
-const Expander = require('makeup-expander');
+// requires NodeList.forEach polyfill for IE
+// conditional check due to https://github.com/imagitama/nodelist-foreach-polyfill/issues/7
+if (typeof window !== 'undefined') {
+    require('nodelist-foreach-polyfill');
+}
 
 const pageWidgets = [];
 
@@ -21,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     const Dialog = require('./dialog.js');
     const DialogButton = require('./dialog-button.js');
     // const Expando = require('./expando.js');
+    const Expander = require('makeup-expander');
     const HijaxButton = require('./hijax-button.js');
     const PasswordMeter = require('./password-meter.js');
     const Listbox = require('./listbox.js');

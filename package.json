@@ -5,15 +5,15 @@
   ],
   "scripts": {
     "start": "npm run build && parallelshell 'npm run browser-sync' 'npm run nodemon' 'npm run onchange'",
-    "build": "npm run transpile && npm run lasso && npm run jekyll",
+    "build": "npm run transpile && npm run bundle && npm run jekyll",
     "jekyll": "bundler exec jekyll build --incremental --config _config.yml,_config.localhost.yml",
     "browser-sync": "browser-sync start -s --ss _site --index _site/index.html --files '_site'",
-    "lasso": "lasso browser.json --output-dir static --minify && rimraf build",
-    "clean": "rimraf _babel _site .cache .sass-cache build static/browser.js.*",
-    "nodemon": "nodemon --exec 'npm run lasso && npm run jekyll' -e html,css,scss,js --ignore 'static' --ignore '_site'",
+    "bundle": "webpack",
+    "clean": "rimraf _transpiled _site .sass-cache",
+    "nodemon": "nodemon --exec 'npm run bundle && npm run jekyll' -e html,css,scss,js --ignore 'static' --ignore '_site'",
     "prepublishOnly": "npm run build",
     "prep": "npm run prepublishOnly",
-    "transpile": "babel _js --out-dir _babel",
+    "transpile": "babel _js --out-dir _transpiled",
     "onchange": "onchange _js -- npm run transpile"
   },
   "license": "MIT",
@@ -31,7 +31,6 @@
     "core-js-pure": "^3",
     "custom-event-polyfill": "^1",
     "details-element-polyfill": "^2",
-    "lasso-cli": "^2",
     "makeup-active-descendant": "~0.3.6",
     "makeup-expander": "~0.8.4",
     "makeup-focusables": "^0.0.4",
@@ -44,7 +43,9 @@
     "nodemon": "^2",
     "onchange": "^6",
     "parallelshell": "3.0.1",
-    "rimraf": "^3"
+    "rimraf": "^3",
+    "webpack": "^4",
+    "webpack-cli": "^3"
   },
   "browserslist": [
     "extends @ebay/browserslist-config"
