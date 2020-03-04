@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     const Util = require('./util.js');
     const Accordion = require('./accordion.js');
     // const AccordionLegacy = require('./accordion-legacy.js');
+    const AlertDialog = require('./alert-dialog.js');
     const AriaButton = require('./aria-button.js');
     const Carousel = require('./carousel.js');
     const CharacterMeter = require('./character-meter.js');
@@ -49,6 +50,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
         pageWidgets.push(new AccordionLegacy(widgetEl));
     });
     */
+
+    document.querySelectorAll('.alert-dialog').forEach(function(widgetEl) {
+        pageWidgets.push(new AlertDialog(widgetEl));
+    });
 
     document.querySelectorAll('.aria-button').forEach(function(widgetEl) {
         pageWidgets.push(new AriaButton(widgetEl));
