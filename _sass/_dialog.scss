@@ -3,7 +3,9 @@ body.has-modal {
 }
 
 .dialog,
-.alert-dialog {
+.alert-dialog,
+.confirm-dialog,
+.input-dialog {
     background-color: rgba(51,51,51,.7);
     bottom: 0;
     box-sizing: border-box;
@@ -16,7 +18,9 @@ body.has-modal {
 }
 
 .dialog__window,
-.alert-dialog__window {
+.alert-dialog__window,
+.confirm-dialog__window,
+.input-dialog__window {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     box-sizing: border-box;
@@ -36,7 +40,9 @@ body.has-modal {
 }
 
 .dialog__header,
-.alert-dialog__header {
+.alert-dialog__header,
+.confirm-dialog__header,
+.input-dialog__header {
     background-color: #fafafa;
     border-bottom: 1px solid #ccc;
     box-sizing: border-box;
@@ -47,7 +53,9 @@ body.has-modal {
 }
 
 .dialog__title,
-.alert-dialog__title {
+.alert-dialog__title,
+.confirm-dialog__title,
+.input-dialog__title {
     font-size: 28px;
     align-self: center;
     margin: 0;
@@ -56,14 +64,18 @@ body.has-modal {
     width: 100%;
 }
 
-.dialog__close::after {
+.dialog__close::after,
+.confirm-dialog__close::after,
+.input-dialog__close::after {
     content: '\e60a';
     font-family: 'vq-icon-font';
     font-size: 14px;
 }
 
 .dialog__body,
-.alert-dialog__body {
+.alert-dialog__body,
+.confirm-dialog__body,
+.input-dialog__body {
     background-color: #fafafa;
     box-sizing: border-box;
     padding: 8px 16px 16px 16px;

@@ -1,0 +1,45 @@
+---
+layout: page
+title: Input Dialog
+---
+
+<h1>{{ page.title }}</h1>
+
+<h2 class="clipped">Readme</h2>
+<p>Activate button to open the input dialog.</p>
+<p>Please <a href={{ "messaging/input-dialog" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+<h2 class="clipped">Examples</h2>
+
+<hr />
+
+<h3>Example 1: Modal Lightbox</h3>
+
+<button data-makeup-dialog="input-dialog" class="button dialog-button" type="button">Open Dialog</button>
+
+<div role="dialog" class="input-dialog" aria-labelledby="input-dialog-title" aria-modal="true" hidden id="input-dialog">
+    <div class="input-dialog__window">
+        <header class="input-dialog__header">
+            <h2 class="input-dialog__title" id="input-dialog-title">Enter Your Bid</h2>
+            <button aria-label="Close Dialog" class="input-dialog__close button" type="button"></button>
+        </header>
+        <div class="input-dialog__body">
+            <form>
+                <div class="input-dialog__main">
+                    <p>
+                        <label>Bid Amount<label>
+                        <input class="input-dialog__input" type="text" name="bid" />
+                    </p>
+                </div>
+                <div class="input-dialog__footer">
+                    <button class="input-dialog__cancel" type="button">Cancel</button>
+                    <button class="input-dialog__submit" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<p><i>Updated</i>: March 4th, 2020</p>

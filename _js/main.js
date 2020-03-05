@@ -23,11 +23,13 @@ document.addEventListener("DOMContentLoaded", function(e) {
     const Carousel = require('./carousel.js');
     const CharacterMeter = require('./character-meter.js');
     const Combobox = require('./combobox.js');
+    const ConfirmDialog = require('./confirm-dialog.js');
     const Dialog = require('./dialog.js');
     const DialogButton = require('./dialog-button.js');
     // const Expando = require('./expando.js');
     const Expander = require('makeup-expander');
     const HijaxButton = require('./hijax-button.js');
+    const InputDialog = require('./input-dialog.js');
     const PasswordMeter = require('./password-meter.js');
     const Listbox = require('./listbox.js');
     const ListboxButton = require('./listbox-button.js');
@@ -85,24 +87,13 @@ document.addEventListener("DOMContentLoaded", function(e) {
         });
     });
 
+    document.querySelectorAll('.confirm-dialog').forEach(function(widgetEl) {
+        pageWidgets.push(new ConfirmDialog(widgetEl));
+    });
+
     document.querySelectorAll('.dialog').forEach(function(widgetEl) {
         pageWidgets.push(new Dialog(widgetEl));
     });
-
-    document.querySelectorAll('.dialog-button').forEach(function(widgetEl) {
-        const dialogWidgetIndex = pageWidgets.findIndex(function(widget) {
-            return widget._el.id === widgetEl.dataset.makeupDialog;
-        });
-        pageWidgets.push(new DialogButton(widgetEl, pageWidgets[dialogWidgetIndex]));
-    });
-
-    /*
-    document.querySelectorAll('.expando').forEach(function(widgetEl) {
-        widgetEl.addEventListener('expando-toggle', Util.logEvent);
-
-        pageWidgets.push(new Expando(widgetEl));
-    });
-    */
 
     document.querySelectorAll('.flyout--click').forEach(function(widgetEl) {
         pageWidgets.push(new Expander(widgetEl, {
@@ -158,6 +149,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
             collapseOnClick: true,
             hostSelector: '.infotip__host'
         }));
+    });
+
+    document.querySelectorAll('.input-dialog').forEach(function(widgetEl) {
+        pageWidgets.push(new InputDialog(widgetEl));
     });
 
     document.querySelectorAll('.password-meter').forEach(function(widgetEl) {
@@ -252,5 +247,12 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
     document.querySelectorAll('.tooltip').forEach(function(widgetEl) {
         pageWidgets.push(new Tooltip(widgetEl));
+    });
+
+    document.querySelectorAll('.dialog-button').forEach(function(widgetEl) {
+        const dialogWidgetIndex = pageWidgets.findIndex(function(widget) {
+            return widget._el.id === widgetEl.dataset.makeupDialog;
+        });
+        pageWidgets.push(new DialogButton(widgetEl, pageWidgets[dialogWidgetIndex]));
     });
 });

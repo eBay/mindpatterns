@@ -22,19 +22,21 @@ module.exports = class {
     constructor(widgetEl) {
         this._el = widgetEl;
 
-        this._windowEl = this._el.querySelector('.alert-dialog__window');
-        this._closeButtonEl = this._el.querySelector('.alert-dialog__close');
+        this._windowEl = this._el.querySelector('.confirm-dialog__window');
+        this._closeButtonEl = this._el.querySelector('.confirm-dialog__close');
+        this._declineButtonEl = this._el.querySelector('.confirm-dialog__decline');
+        this._acceptButtonEl = this._el.querySelector('.confirm-dialog__accept');
 
         this._onCloseButtonClickListener = onCloseButtonClick.bind(this);
         this._onKeyDownListener = onKeyDown.bind(this);
 
-        this._el.classList.add('alert-dialog--js');
+        this._el.classList.add('confirm-dialog--js');
 
         this.wake();
 
         if (this._el.hidden !== true) {
             document.body.classList.add('has-modal');
-            this._closeButtonEl.focus();
+            this._acceptButtonEl.focus();
             Modal.modal(this._el);
         }
     }
@@ -48,7 +50,7 @@ module.exports = class {
 
         if (bool === true) {
             document.body.classList.add('has-modal');
-            this._closeButtonEl.focus();
+            this._acceptButtonEl.focus();
             Modal.modal(this._el);
         } else {
             Modal.unmodal();
@@ -59,12 +61,16 @@ module.exports = class {
 
     sleep() {
         this._closeButtonEl.removeEventListener('click', this._onCloseButtonClickListener);
+        this._declineButtonEl.removeEventListener('click', this._onCloseButtonClickListener);
+        this._acceptButtonEl.removeEventListener('click', this._onCloseButtonClickListener);
         this._windowEl.removeEventListener('keydown', this._onKeyDownListener);
     }
 
     wake() {
         if (this._destroyed !== true) {
             this._closeButtonEl.addEventListener('click', this._onCloseButtonClickListener);
+            this._declineButtonEl.addEventListener('click', this._onCloseButtonClickListener);
+            this._acceptButtonEl.addEventListener('click', this._onCloseButtonClickListener);
             this._windowEl.addEventListener('keydown', this._onKeyDownListener);
         }
     }

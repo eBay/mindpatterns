@@ -6,25 +6,29 @@ title: Dialog (custom)
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
-<p>After dialog has closed, keyboard focus returns to the beginning of the parent window.</p>
-<p><a href="index.html">Reload page</a> to trigger dialog, or view <a href="../dialog-button/index.html">Dialog Button</a> pattern to open a dialog with a button.</p>
+<p>Activate button to open the custom dialog.</p>
 <p>Please <a href={{ "disclosure/dialog" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <h2 class="clipped">Examples</h2>
 
-<div role="dialog" class="dialog" aria-labelledby="dialog-title" aria-modal="true">
+<hr />
+
+<h3>Example 1: Modal Lightbox</h3>
+
+<button data-makeup-dialog="custom-dialog" class="button dialog-button" type="button">Open Dialog</button>
+
+<div role="dialog" class="dialog" aria-labelledby="dialog-title" aria-modal="true" hidden id="custom-dialog">
     <div class="dialog__window">
         <header class="dialog__header">
             <h2 class="dialog__title" id="dialog-title">This is a Custom Dialog</h2>
             <button aria-label="Close Dialog" class="dialog__close button" type="button"></button>
         </header>
         <div class="dialog__body">
-            <p>This modal dialog just opened on page load, preventing access to the main page underneath. Probably not what you were expecting, right? Right. This intrusive interaction should be avoided if at all possible.</p>
-            <p>Typically, a dialog should only be opened after an explicit user action, such as clicking a <a href="../dialog-button/index.html">Dialog Button</a>.</p>
+            <p>A custom dialog is any dialog that does not exactly match an alert, confirm or input dialog.</p>
         </div>
     </div>
 </div>
 
 <hr />
 
-<p><i>Updated</i>: Jan 3rd, 2020</p>
+<p><i>Updated</i>: March 4th, 2020</p>
