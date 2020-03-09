@@ -70,9 +70,9 @@ title: Carousel
 <h2 class="clipped">Examples</h2>
 <h3>Example 1: Slideshow</h3>
 
-<div class="carousel carousel--slideshow" data-items-per-slide="1" aria-roledescription="carousel">
+<div aria-labelledby="carousel-1-title" aria-roledescription="carousel" class="carousel carousel--slideshow" data-items-per-slide="1" role="group">
     <span aria-live="polite" role="status">
-        <h4 class="clipped">Video Games Carousel - Slide <span class="carousel__index">1</span></h4>
+        <h4 class="clipped" id="carousel-1-title">Video Games - Slide <span class="carousel__index">1</span></h4>
     </span>
     <span class="carousel__main">
         <button class="carousel__previous" aria-disabled="true" aria-label="Previous Slide"></button>
@@ -166,9 +166,9 @@ title: Carousel
 
 <h3>Example 2: Filmstrip</h3>
 
-<div class="carousel carousel--filmstrip " data-items-per-slide="4" aria-roledescription="carousel">
+<div aria-labelledby="carousel-2-title" aria-roledescription="carousel" class="carousel carousel--filmstrip " data-items-per-slide="4" role="group">
     <span aria-live="polite" role="status">
-        <h4 class="clipped">Video Games Carousel - Slide <span class="carousel__index">1</span></h4>
+        <h4 class="clipped" id="carousel-2-title">Video Games - Slide <span class="carousel__index">1</span></h4>
     </span>
     <div class="carousel__main">
         <button  class="carousel__previous" aria-disabled="true" aria-label="Previous Slide"></button>
