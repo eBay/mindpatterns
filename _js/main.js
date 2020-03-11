@@ -14,6 +14,8 @@ if (typeof window !== 'undefined') {
 
 const pageWidgets = [];
 
+const findIndex = require('core-js-pure/features/array/find-index');
+
 document.addEventListener("DOMContentLoaded", function(e) {
     const Util = require('./util.js');
     const Accordion = require('./accordion.js');
@@ -250,7 +252,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     });
 
     document.querySelectorAll('.dialog-button').forEach(function(widgetEl) {
-        const dialogWidgetIndex = pageWidgets.findIndex(function(widget) {
+        const dialogWidgetIndex = findIndex(pageWidgets, function(widget) {
             return widget._el.id === widgetEl.dataset.makeupDialog;
         });
         pageWidgets.push(new DialogButton(widgetEl, pageWidgets[dialogWidgetIndex]));

@@ -11,11 +11,16 @@
 * it is NOT yet suitable for production
 */
 
+// requires CustomEvent polyfill for IE
+// https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
+const CustomEvent = require('custom-event');
+
 const Util = require('./util.js');
 const NextID = require('makeup-next-id');
 const RovingTabindex = require('makeup-roving-tabindex');
 const ScrollKeyPreventer = require('makeup-prevent-scroll-keys');
 const KeyEmitter = require('makeup-key-emitter');
+const findIndex = require('core-js-pure/features/array/find-index');
 
 function linkTabToPanel(widgetID, el, i) {
     el.setAttribute('id', widgetID + '-tab-' + i);
@@ -161,7 +166,7 @@ module.exports = class {
     }
 
     get index() {
-        return Array.prototype.slice.call(this.tabs).findIndex(function(el) {
+        return findIndex(Array.prototype.slice.call(this.tabs), function(el) {
             return el.getAttribute('aria-selected') === 'true';
         });
     }

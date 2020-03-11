@@ -7,6 +7,7 @@
 */
 
 const Util = require('./util.js');
+const findIndex = require('core-js-pure/features/array/find-index');
 
 function onClick(e) {
     if (this.items[this.index] !== e.target) {
@@ -42,7 +43,7 @@ module.exports = class {
     }
 
     get index() {
-        return Util.nodeListToArray(this.items).findIndex(function(el) {
+        return findIndex(Util.nodeListToArray(this.items), function(el) {
             return el.getAttribute('aria-current') === 'page';
         });
     }
