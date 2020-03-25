@@ -15,7 +15,7 @@ title: Flyout
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
-<p>Flyout is a standalone pattern, but also forms the basis of many composite patterns such as infotip, combobox, date picker &amp; menu.</p>
+<p>Flyout is a standalone pattern, but also forms the basis of many composite patterns such as infotip, combobox, &amp; menu button.</p>
 <p>Please <a href={{ "disclosure/flyout" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <hr />
@@ -38,7 +38,8 @@ title: Flyout
 
 <hr />
 
-<h3>Example 2: Focus Activated</h3>
+<h3>Example 2: Focus Activated (discouraged)</h3>
+<p>This pattern is discouraged because it <em>forces</em> a keyboard user to navigate through all interactive items of the flyout.</p>
 <div class="flyout flyout--focus">
     <input type="text" class="flyout__host" aria-label="dummy textbox" placeholder="input" />
     <div class="flyout__live-region" aria-live="off">
@@ -54,7 +55,8 @@ title: Flyout
 
 <hr />
 
-<h3>Example 3: Hover and Focus Activated</h3>
+<h3>Example 3: Hover and Focus Activated (discouraged)</h3>
+<p>This pattern is discouraged because it <em>forces</em> a keyboard user to navigate through all interactive items of the flyout.</p>
 <div class="flyout flyout--hover">
     <a class="flyout__host" href="http://www.ebay.com">Link</a>
     <div class="flyout__live-region" aria-live="off">
@@ -70,7 +72,7 @@ title: Flyout
 
 <hr />
 
-<p><i>Updated</i>: May 12th, 2019</p>
+<p><i>Updated</i>: March 24th, 2020</p>
 
 <!--
 <h3>Example 4: Hover Activated (with Stealth Button)</h3>
