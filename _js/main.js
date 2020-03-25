@@ -103,6 +103,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
             contentSelector: '.flyout__content',
             expandOnClick: true,
             collapseOnClick: true,
+            collapseOnClickOut: true,
+            collapseOnFocusOut: true,
             hostSelector: '.flyout__host'
         }));
     });
@@ -120,6 +122,15 @@ document.addEventListener("DOMContentLoaded", function(e) {
         pageWidgets.push(new Expander(widgetEl, {
             contentSelector: '.flyout__content',
             expandOnFocus: true,
+            expandOnHover: true,
+            autoCollapse: true,
+            hostSelector: '.flyout__host'
+        }));
+    });
+
+    document.querySelectorAll('.flyout--hover-only').forEach(function(widgetEl) {
+        pageWidgets.push(new Expander(widgetEl, {
+            contentSelector: '.flyout__content',
             expandOnHover: true,
             autoCollapse: true,
             hostSelector: '.flyout__host'
