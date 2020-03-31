@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     const MenuButton = require('./menu-button.js');
     const Pagination = require('./pagination.js');
     const StarRating = require('./star-rating.js');
-    const Switch = require('./switch.js');
+    const Switch = require('makeup-switch-class');
     const Tabs = require('./tabs.js');
     const Tile = require('./tile.js');
     const Tooltip = require('./tooltip.js');
@@ -248,11 +248,15 @@ document.addEventListener("DOMContentLoaded", function(e) {
     });
 
     document.querySelectorAll('.switch').forEach(function(widgetEl) {
-        pageWidgets.push(new Switch(widgetEl));
+        pageWidgets.push(new Switch(widgetEl, {
+            bem: {
+                control: '.switch__control'
+            }
+        }));
 
-        widgetEl.addEventListener('switch-toggle', function(e) {
+        widgetEl.addEventListener('makeup-switch-toggle', function(e) {
             console.log(e.type, e.detail);
-            if (e.detail.value === 'on') {
+            if (e.detail.on) {
                 document.body.classList.add('lights-on');
             } else {
                 document.body.classList.remove('lights-on');
