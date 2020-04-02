@@ -29,7 +29,7 @@
     "babel-plugin-transform-object-assign": "^6",
     "browser-sync": "^2",
     "core-js-pure": "^3",
-    "custom-event-polyfill": "^1",
+    "custom-event": "^1",
     "details-element-polyfill": "^2",
     "makeup-active-descendant": "~0.3.9",
     "makeup-expander": "~0.8.5",
@@ -49,8 +49,7 @@
     "webpack-cli": "^3"
   },
   "dependencies": {
-    "core-js-pure": "^3.4.1",
-    "custom-event": "^1"
+    "core-js-pure": "^3.4.1"
   },
   "browserslist": [
     "extends @ebay/browserslist-config"

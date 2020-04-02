@@ -6,6 +6,10 @@
 * https://opensource.org/licenses/MIT.
 */
 
+// requires CustomEvent polyfill for IE
+// https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
+const CustomEvent = require('custom-event');
+
 // requires NodeList.forEach polyfill for IE
 // conditional check due to https://github.com/imagitama/nodelist-foreach-polyfill/issues/7
 if (typeof window !== 'undefined') {
@@ -38,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     const Menu = require('./menu.js');
     const MenuButton = require('./menu-button.js');
     const Pagination = require('./pagination.js');
+    const Pulldown = require('./pulldown.js');
     const StarRating = require('./star-rating.js');
     const Switch = require('makeup-switch-class');
     const Tabs = require('./tabs.js');
@@ -241,6 +246,14 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
     document.querySelectorAll('.pagination').forEach(function(widgetEl) {
         pageWidgets.push(new Pagination(widgetEl));
+    });
+
+    document.querySelectorAll('.pulldown').forEach(function(widgetEl) {
+        pageWidgets.push(new Pulldown(widgetEl));
+
+        widgetEl.addEventListener('makeup-pulldown-toggle', function(e) {
+            console.log(e.type, e.detail);
+        });
     });
 
     document.querySelectorAll('.star-rating').forEach(function(widgetEl) {
