@@ -4,7 +4,7 @@
     "Ian McBurnie <ianmcburnie@hotmail.com>"
   ],
   "scripts": {
-    "start": "npm run build && parallelshell 'npm run browser-sync' 'npm run nodemon' 'npm run onchange'",
+    "start": "npm run build && run-p browser-sync nodemon onchange",
     "build": "npm run transpile && npm run bundle && npm run jekyll",
     "jekyll": "bundler exec jekyll build --incremental --config _config.yml,_config.localhost.yml",
     "browser-sync": "browser-sync start -s --ss _site --index _site/index.html --files '_site'",
@@ -43,7 +43,7 @@
     "nodelist-foreach-polyfill": "^1",
     "nodemon": "^2",
     "onchange": "^6",
-    "parallelshell": "3.0.1",
+    "npm-run-all": "^4",
     "rimraf": "^3",
     "webpack": "^4",
     "webpack-cli": "^3"
