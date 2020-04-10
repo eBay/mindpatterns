@@ -6,12 +6,6 @@
     display: block;
 }
 
-.fake-menu__icon::after {
-    content: ' \e601';
-    font-family: 'vq-icon-font';
-    font-size: 12px;
-}
-
 .fake-menu__content {
     background-color: LightYellow;
     border: 1px solid #aaa;
@@ -32,10 +26,6 @@
     padding: 8px;
     text-decoration: none;
     width: 100%;
-}
-
-.fake-menu__content a {
-
 }
 
 .fake-menu__content button {

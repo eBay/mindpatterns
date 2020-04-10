@@ -3,6 +3,14 @@ layout: page
 title: Fake Menu
 ---
 
+<div hidden>
+    <svg>
+        <symbol id="icon-chevron-down" viewBox="0 0 18 10">
+            <path d="M9 10a.999.999 0 01-.71-.29L.294 1.714a1.003 1.003 0 111.42-1.42L9 7.591 16.287.294a1.004 1.004 0 011.42 1.42L9.71 9.71A.999.999 0 019 10z"/>
+        </symbol>
+    </svg>
+</div>
+
 <style>
     .fake-menu button {
         text-align: left;
@@ -24,7 +32,9 @@ title: Fake Menu
 <div class="fake-menu">
     <button class="button fake-menu__host">
         <span>My eBay</span>
-        <span aria-hidden="true" class="fake-menu__icon"></span>
+        <svg focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-chevron-down"></use>
+        </svg>
     </button>
     <ul class="fake-menu__content">
         <li><a href="http://www.ebay.com">Visit Seller</a></li>
@@ -39,7 +49,9 @@ title: Fake Menu
 <div class="fake-menu">
     <button class="button fake-menu__host">
         <span>My eBay</span>
-        <span aria-hidden="true" class="fake-menu__icon"></span>
+        <svg focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-chevron-down"></use>
+        </svg>
     </button>
     <ul class="fake-menu__content">
         <li><button class="button" type="button">Visit Seller</button></li>
@@ -54,7 +66,9 @@ title: Fake Menu
 <div class="fake-menu">
     <button class="button fake-menu__host">
         <span>My eBay</span>
-        <span aria-hidden="true" class="fake-menu__icon"></span>
+        <svg focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-chevron-down"></use>
+        </svg>
     </button>
     <ul class="fake-menu__content">
         <li><button class="button" type="button">Visit Seller</button></li>
@@ -80,4 +94,4 @@ title: Fake Menu
 -->
 <hr />
 
-<p><i>Updated</i>: May 12th, 2019</p>
+<p><i>Updated</i>: Apr 9th, 2020</p>
