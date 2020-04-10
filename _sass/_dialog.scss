@@ -64,18 +64,10 @@ body.has-modal {
     width: 100%;
 }
 
-.dialog__close::after,
-.confirm-dialog__close::after,
-.input-dialog__close::after {
-    content: '\e60a';
-    font-family: 'vq-icon-font';
-    font-size: 14px;
-}
-
-.dialog__body,
-.alert-dialog__body,
-.confirm-dialog__body,
-.input-dialog__body {
+.dialog__main,
+.alert-dialog__main,
+.confirm-dialog__main,
+.input-dialog__main {
     background-color: #fafafa;
     box-sizing: border-box;
     padding: 8px 16px 16px 16px;

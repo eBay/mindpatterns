@@ -3,6 +3,14 @@ layout: page
 title: Dialog (custom)
 ---
 
+<div hidden>
+    <svg>
+        <symbol id="icon-close" viewBox="0 0 18 18">
+            <path d="M10.41 9l7.294-7.287A1.004 1.004 0 0016.285.294L9 7.59 1.715.294a1.002 1.002 0 10-1.42 1.42l7.296 7.285-7.295 7.286a1 1 0 000 1.42 1 1 0 001.419 0L9 10.407l7.285 7.296a1 1 0 001.42 0 1 1 0 000-1.419l-7.296-7.286z"/>
+        </symbol>
+    </svg>
+</div>
+
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
@@ -21,9 +29,13 @@ title: Dialog (custom)
     <div class="dialog__window">
         <header class="dialog__header">
             <h2 class="dialog__title" id="dialog-title">This is a Custom Dialog</h2>
-            <button aria-label="Close Dialog" class="dialog__close button" type="button"></button>
+            <button aria-label="Close Dialog" class="dialog__close button" type="button">
+                <svg aria-hidden="true" focusable="false" height="16" width="16">
+                    <use xlink:href="#icon-close"></use>
+                </svg>
+            </button>
         </header>
-        <div class="dialog__body">
+        <div class="dialog__main">
             <p>A custom dialog is any dialog that does not exactly match an alert, confirm or input dialog.</p>
         </div>
     </div>
