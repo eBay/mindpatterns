@@ -1,10 +1,6 @@
 .combobox {
     position: relative;
 }
-.combobox__button::after {
-    font-family: 'vq-icon-font';
-    content: '\e606';
-}
 .combobox__description {
     display: none;
 }
@@ -18,10 +14,6 @@
     position: absolute;
     white-space: nowrap;
     width: 1px;
-}
-.combobox--expanded .combobox__button::after,
-.combobox__textbox[aria-expanded=true] + .combobox__button::after {
-    content: '\e609';
 }
 .combobox__listbox {
     display: none;

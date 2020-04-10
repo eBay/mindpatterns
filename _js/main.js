@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     document.querySelectorAll('.switch').forEach(function(widgetEl) {
         pageWidgets.push(new Switch(widgetEl, {
             bem: {
-                control: '.switch__control'
+                control: 'switch__control'
             }
         }));
 
