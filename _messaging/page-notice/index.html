@@ -3,47 +3,39 @@ layout: page
 title: Page Notice
 ---
 
+<div hidden>
+    <svg>
+        <symbol id="icon-attention-filled" viewBox="0 0 24 24">
+            <path fill="#e62048" fill-rule="evenodd" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12C23.994 5.375 18.625.006 12 0zm0 18a1 1 0 110-2 1 1 0 010 2zm1-5V7a1 1 0 00-2 0v6a1 1 0 002 0z"/>
+        </symbol>
+        <symbol id="icon-confirmation-filled" viewBox="0 0 24 24">
+            <path fill="#36CF57" d="M0 12C0 5.373 5.373 0 12 0c3.183 0 6.235 1.264 8.485 3.515A11.996 11.996 0 0124 12c0 6.627-5.373 12-12 12S0 18.627 0 12zm10.71 4.71l8-8h-.01a1 1 0 00-1.41-1.41L10 14.59 6.71 11.3a1 1 0 00-1.41 1.41l4 4a1 1 0 001.41 0z"/>
+        </symbol>
+        <symbol id="icon-information-filled" viewBox="0 0 24 24">
+            <path fill="#3665f3" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12C23.994 5.375 18.625.006 12 0zm0 10a1 1 0 011 1v6a1 1 0 01-2 0v-6a1 1 0 011-1zm0-4a1 1 0 110 2 1 1 0 010-2z"/>
+        </symbol>
+    </svg>
+</div>
+
 <style>
     .page-notice {
         border: 1px solid #ccc;
-        border-top: 3px solid currentColor;
         padding: 16px;
     }
     .page-notice h3 {
         margin-top: 0;
     }
-    .page-notice h3:before {
-        background: url({{ '/images/skin_sprite3.png' | relative_url }}) no-repeat;
-        content: '';
-        width: 30px;
-        height: 25px;
-        display: inline-block;
-        margin-right: 16px;
-        vertical-align: top;
-    }
-    .page-notice--attention h3:before {
-        background-position: -140px -100px;
-    }
-    .page-notice--confirmation h3:before {
-        background-position: -341px -100px;
-    }
-    .page-notice--information h3:before {
-        background-position: -45px -100px;
-    }
-    .page-notice p {
-        margin-left: 46px;
-    }
     .page-notice p:last-child {
         margin-bottom: 0;
     }
     .page-notice--attention {
-        color: rgb(223, 37, 57);
+        border-top: 3px solid red;
     }
     .page-notice--information {
-        color: purple;
+        border-top: 3px solid blue;
     }
     .page-notice--confirmation {
-        color: green;
+        border-top: 3px solid green;
     }
 </style>
 
@@ -59,9 +51,14 @@ title: Page Notice
 <h2 class="clipped">Examples</h2>
 
 <h3>Example 1: Attention</h3>
-<div aria-labelledby="alert-label" role="alert">
+<div aria-labelledby="alert-label" role="status">
     <section aria-labelledby="alert-label" class="page-notice page-notice--attention" id="page-alert" role="region" tabindex="-1">
-        <h3 id="alert-label">Attention!</h3>
+        <h3 id="alert-label">
+            <svg focusable="false" height="16" width="16" aria-hidden="true">
+                <use xlink:href="#icon-attention-filled"></use>
+            </svg>
+            <span>Attention!</span>
+        </h3>
         <p>We had trouble connecting to PayPal. Please make your payment later.</p>
     </section>
 </div>
@@ -70,8 +67,13 @@ title: Page Notice
 
 <h3>Example 2: Confirmation</h3>
 <div aria-labelledby="confirmation-label" role="status">
-    <section aria-labelledby="confirmation-label" class="page-notice page-notice--confirmation" role="region" tabindex="-1">
-        <h3 id="confirmation-label">Congrats!</h3>
+    <section aria-labelledby="confirmation-label" class="page-notice page-notice--confirmation" role="region">
+        <h3 id="confirmation-label">
+            <svg focusable="false" height="16" width="16" aria-hidden="true">
+                <use xlink:href="#icon-confirmation-filled"></use>
+            </svg>
+            <span>Congrats!</span>
+        </h3>
         <p>You just listed <a href="#">"Spam and Eggs From the Cow's Perspective</a> (paperback)."</p>
     </section>
 </div>
@@ -79,13 +81,18 @@ title: Page Notice
 <hr />
 
 <h3>Example 3: Information</h3>
-<div aria-labelledby="information-label" aria-live="polite">
-    <section aria-labelledby="information-label" class="page-notice page-notice--information" role="region" tabindex="-1">
-        <h3 id="information-label">Good news!</h3>
-        <p>Good news! You get free shipping on your next pair of shoes! <a href="http://www.ebay.com"> Learn more</a>.</p>
+<div aria-labelledby="information-label" role="status">
+    <section aria-labelledby="information-label" class="page-notice page-notice--information" role="region">
+        <h3 id="information-label">
+            <svg focusable="false" height="16" width="16" aria-hidden="true">
+                <use xlink:href="#icon-information-filled"></use>
+            </svg>
+            <span>Good news!</span>
+        </h3>
+        <p>You get free shipping on your next pair of shoes! <a href="http://www.ebay.com"> Learn more</a>.</p>
     </section>
 </div>
 
 <hr />
 
-<p><i>Updated</i>: May 12th, 2019</p>
+<p><i>Updated</i>: April 9th, 2020</p>
