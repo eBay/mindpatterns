@@ -3,6 +3,14 @@ layout: page
 title: Listbox
 ---
 
+<div hidden>
+    <svg>
+        <symbol id="icon-tick" viewBox="0 0 14 10">
+            <path d="M4.99 10a1.008 1.008 0 01-.716-.292L.243 5.684a1.005 1.005 0 01.052-1.366 1.01 1.01 0 011.369-.052l3.325 3.31L12.336.242a1.01 1.01 0 011.37.052c.371.373.394.967.051 1.366L5.695 9.708a1.01 1.01 0 01-.706.292z"/>
+        </symbol>
+    </svg>
+</div>
+
 <style>
     .listbox [role="listbox"] {
         width: 250px;
@@ -26,10 +34,30 @@ title: Listbox
 <p><em>Keyboard users:</em> TAB to control then use ARROW keys to change selected option.</p>
 <div class="listbox" data-auto-select="true">
     <div role="listbox" tabindex="0">
-        <div class="listbox__option" role="option">Volvo</div>
-        <div class="listbox__option" role="option">Saab</div>
-        <div class="listbox__option" role="option">Opel</div>
-        <div class="listbox__option" role="option">Audi</div>
+        <div class="listbox__option" role="option">
+            <span>Volvo</span>
+            <svg focusable="false" height="12" width="12" aria-hidden="true">
+                <use xlink:href="#icon-tick"></use>
+            </svg>
+        </div>
+        <div class="listbox__option" role="option">
+            <span>Saab</span>
+            <svg focusable="false" height="12" width="12" aria-hidden="true">
+                <use xlink:href="#icon-tick"></use>
+            </svg>
+        </div>
+        <div class="listbox__option" role="option">
+            <span>Opel</span>
+            <svg focusable="false" height="12" width="12" aria-hidden="true">
+                <use xlink:href="#icon-tick"></use>
+            </svg>
+        </div>
+        <div class="listbox__option" role="option">
+            <span>Audi</span>
+            <svg focusable="false" height="12" width="12" aria-hidden="true">
+                <use xlink:href="#icon-tick"></use>
+            </svg>
+        </div>
     </div>
 </div>
 
@@ -39,13 +67,33 @@ title: Listbox
 <p><em>Keyboard users:</em> TAB to control then use ARROW keys to highlight an option; ENTER or SPACEBAR to select.</p>
 <div class="listbox" data-auto-select="false">
     <div role="listbox" tabindex="0">
-        <div class="listbox__option" role="option">Volvo</div>
-        <div class="listbox__option" role="option">Saab</div>
-        <div class="listbox__option" role="option">Opel</div>
-        <div class="listbox__option" role="option">Audi</div>
+        <div class="listbox__option" role="option">
+            <span>Volvo</span>
+            <svg focusable="false" height="12" width="12" aria-hidden="true">
+                <use xlink:href="#icon-tick"></use>
+            </svg>
+        </div>
+        <div class="listbox__option" role="option">
+            <span>Saab</span>
+            <svg focusable="false" height="12" width="12" aria-hidden="true">
+                <use xlink:href="#icon-tick"></use>
+            </svg>
+        </div>
+        <div class="listbox__option" role="option">
+            <span>Opel</span>
+            <svg focusable="false" height="12" width="12" aria-hidden="true">
+                <use xlink:href="#icon-tick"></use>
+            </svg>
+        </div>
+        <div class="listbox__option" role="option">
+            <span>Audi</span>
+            <svg focusable="false" height="12" width="12" aria-hidden="true">
+                <use xlink:href="#icon-tick"></use>
+            </svg>
+        </div>
     </div>
 </div>
 
 <hr />
 
-<p><i>Updated</i>: July 15th, 2019</p>
+<p><i>Updated</i>: April 10th, 2020</p>

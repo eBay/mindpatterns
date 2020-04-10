@@ -12,22 +12,28 @@ span.listbox {
 .listbox [role="option"],
 .listbox-button [role="option"] {
     box-sizing: border-box;
-    padding: 5px 15px 5px 10px;
-}
-.listbox [role="option"]::after,
-.listbox-button [role="option"]::after  {
-    font-family: 'vq-icon-font';
-    float: right;
+    display: flex;
+    padding: 4px 8px 4px 8px;
 }
 .listbox [role="listbox"]:focus .listbox__option--active,
 .listbox-button__option--active {
     outline: 0;
     background-color: #006699;
     color: white;
+
+    svg {
+        fill: white;
+    }
 }
-.listbox [role="option"][aria-selected="true"]::after,
-.listbox-button [role="option"][aria-selected="true"]::after {
-    content: '\2713';
+.listbox [role="option"] svg,
+.listbox-button [role="option"] svg {
+    align-self: center;
+    margin-left: auto;
+    opacity: 0;
+}
+.listbox [role="option"][aria-selected="true"] svg,
+.listbox-button [role="option"][aria-selected="true"] svg {
+    opacity: 1;
 }
 .listbox-button {
     position: relative;
@@ -43,17 +49,13 @@ span.listbox-button {
     z-index: 1;
 }
 .listbox-button__button {
+    display: flex;
     text-align: left;
     width: 100%;
 }
-.listbox-button__icon {
-    float: right;
-    margin-left: 8px;
-}
-.listbox-button__icon::after {
-    content: ' \e61c';
-    font-family: 'vq-icon-font';
-    font-size: 12px;
+.listbox-button__button svg {
+    align-self: center;
+    margin-left: auto;
 }
 .listbox-button--expanded .listbox-button__listbox {
     display: block;

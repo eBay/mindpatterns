@@ -6,6 +6,20 @@ span.menu-button {
     display: inline-block;
 }
 
+.menu-button__button[aria-expanded=false] + .menu-button__menu {
+    display: none;
+}
+.menu-button__button[aria-expanded=true] + .menu-button__menu {
+    display: block;
+}
+.menu-button__button {
+    display: flex;
+}
+.menu-button__button svg {
+    align-self: center;
+    margin-left: 8px;
+}
+
 .menu-button__menu {
     min-width: 100%;
     position: absolute;
@@ -22,39 +36,22 @@ span.menu-button {
     padding: 0;
     width: 100%;
 }
+
 .menu-button [role=menu] {
     box-shadow: 1px 2px 2.5px #ccc;
     position: relative;
     z-index: 1;
 }
-.menu-button__button[aria-expanded=false] + .menu-button__menu {
-    display: none;
-}
-.menu-button__button[aria-expanded=true] + .menu-button__menu {
-    display: block;
-}
-.menu-button__icon {
-    float: right;
-    margin-left: 8px;
-}
-.menu [role=menu] hr,
-.menu-button [role=menu] hr {
-    border: 0;
-    background-color: #ccc;
-    height: 1px;
-    margin: 0;
-}
+
 .menu [role^=menuitem],
 .menu-button [role^=menuitem] {
     cursor: default;
-    display: inline-flex;
-    box-sizing: border-box;
-    justify-content: space-between;
-    padding: 8px 16px 4px 16px;
-    width: 100%;
+    display: flex;
+    padding: 8px 8px 4px 8px;
 
-    span {
-        white-space: nowrap;
+    svg {
+        align-self: center;
+        margin-left: auto;
     }
 }
 .menu [role^=menuitem]:focus,
@@ -62,16 +59,10 @@ span.menu-button {
     background-color: #006699;
     color: white;
     outline: 0 none;
-}
 
-.menu [role=menuitemcheckbox] svg,
-.menu [role=menuitemradio] svg {
-    margin-left: auto;
-}
-
-.menu-button [role=menuitemcheckbox] svg,
-.menu-button [role=menuitemradio] svg {
-    margin-left: 16px;
+    svg {
+        fill: white;
+    }
 }
 
 .menu [role=menuitemcheckbox][aria-checked=false] svg,
@@ -86,4 +77,12 @@ span.menu-button {
 .menu [role=menuitemradio][aria-checked=true] svg,
 .menu-button [role=menuitemradio][aria-checked=true] svg {
     opacity: 1;
+}
+
+.menu [role=menu] hr,
+.menu-button [role=menu] hr {
+    border: 0;
+    background-color: #ccc;
+    height: 1px;
+    margin: 0;
 }
