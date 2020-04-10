@@ -3,6 +3,23 @@ layout: page
 title: Carousel
 ---
 
+<span hidden>
+    <svg>
+        <symbol id="icon-chevron-left" viewBox="0 0 10 18">
+            <path d="M8.995 18a1.002 1.002 0 01-.709-.29L.296 9.712a1.002 1.002 0 010-1.42L8.286.294a1.002 1.002 0 111.418 1.42l-7.29 7.288 7.29 7.288A1.002 1.002 0 018.995 18z"/>
+        </symbol>
+        <symbol id="icon-chevron-left-small" viewBox="0 0 8 14">
+            <path d="M7.004 14a.999.999 0 01-.71-.291L.29 7.683a1.007 1.007 0 010-1.416L6.293.241a.998.998 0 011.359.053c.37.371.392.965.052 1.364L2.412 6.97l5.292 5.313c.287.286.375.717.221 1.093a1 1 0 01-.921.624z"/>
+        </symbol>
+        <symbol id="icon-chevron-right" viewBox="0 0 10 18">
+            <path d="M1.005 18A.997.997 0 010 17c0-.267.107-.522.296-.71l7.29-7.288-7.29-7.288A1.003 1.003 0 011.714.294l7.99 7.998a1.002 1.002 0 010 1.42l-7.99 7.998a.997.997 0 01-.71.29z"/>
+        </symbol>
+        <symbol id="icon-chevron-right-small" viewBox="0 0 8 14">
+            <path d="M1.005 14a1 1 0 01-.71-1.71l5.296-5.288L.296 1.714A1.004 1.004 0 011.714.294L7.71 6.292a1 1 0 010 1.41L1.714 13.7a.999.999 0 01-.709.3z"/>
+        </symbol>
+    </svg>
+</span>
+
 <style>
     .carousel__list {
         height: 100%;
@@ -38,11 +55,6 @@ title: Carousel
         text-decoration: underline;
     }
 
-    .carousel__previous,
-    .carousel__next {
-        font-size: 24px;
-    }
-
     .carousel h4 {
         margin-top: 0;
     }
@@ -68,14 +80,18 @@ title: Carousel
 <hr />
 
 <h2 class="clipped">Examples</h2>
-<h3>Example 1: Slideshow</h3>
+<h3>Example 1: Discrete Carousel with One Item</h3>
 
 <div aria-labelledby="carousel-1-title" aria-roledescription="carousel" class="carousel carousel--slideshow" data-items-per-slide="1" role="group">
     <span aria-live="polite" role="status">
         <h4 class="clipped" id="carousel-1-title">Video Games - Slide <span class="carousel__index">1</span></h4>
     </span>
     <span class="carousel__main">
-        <button class="carousel__previous" aria-disabled="true" aria-label="Previous Slide"></button>
+        <button class="carousel__previous" aria-disabled="true" aria-label="Previous Slide">
+            <svg aria-hidden="true" focusable="false" height="24" width="24">
+                <use xlink:href="#icon-chevron-left"></use>
+            </svg>
+        </button>
         <ul class="carousel__list">
             <li>
                 <div>
@@ -158,20 +174,28 @@ title: Carousel
                 </div>
             </li>
         </ul>
-        <button class="carousel__next" aria-label="Next Slide"></button>
+        <button class="carousel__next" aria-label="Next Slide">
+            <svg aria-hidden="true" focusable="false" height="24" width="24">
+                <use xlink:href="#icon-chevron-right"></use>
+            </svg>
+        </button>
     </span>
 </div>
 
 <hr />
 
-<h3>Example 2: Filmstrip</h3>
+<h3>Example 2: Discrete Carousel with Multiple Items</h3>
 
 <div aria-labelledby="carousel-2-title" aria-roledescription="carousel" class="carousel carousel--filmstrip " data-items-per-slide="4" role="group">
     <span aria-live="polite" role="status">
         <h4 class="clipped" id="carousel-2-title">Video Games - Slide <span class="carousel__index">1</span></h4>
     </span>
     <div class="carousel__main">
-        <button  class="carousel__previous" aria-disabled="true" aria-label="Previous Slide"></button>
+        <button  class="carousel__previous" aria-disabled="true" aria-label="Previous Slide">
+            <svg aria-hidden="true" focusable="false" height="24" width="24">
+                <use xlink:href="#icon-chevron-left"></use>
+            </svg>
+        </button>
         <ul class="carousel__list">
             <li>
                 <a href="http://www.ebay.com/sch/i.html?_nkw=Horace+%26+the+Spiders">
@@ -221,9 +245,20 @@ title: Carousel
                     <h4>Yie Ar<br/>Kung Fu</h4>
                 </a>
             </li>
-            <button class="carousel__next" aria-label="Next Slide" class="carousel__next"></button>
         </ul>
+        <button class="carousel__next" aria-label="Next Slide" class="carousel__next">
+            <svg aria-hidden="true" focusable="false" height="24" width="24">
+                <use xlink:href="#icon-chevron-right"></use>
+            </svg>
+        </button>
     </div>
 </div>
 
 <hr />
+
+<h3>Example 3: Continuous Carousel</h3>
+<p>Under development.</p>
+
+<hr />
+
+<p><i>Updated</i>: April 9th, 2020</p>

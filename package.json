@@ -39,11 +39,11 @@
     "makeup-next-id": "~0.1.3",
     "makeup-prevent-scroll-keys": "~0.0.4",
     "makeup-roving-tabindex": "~0.3.7",
-    "makeup-switch-class": "~0.0.1",
+    "makeup-switch-class": "~0.0.4",
     "nodelist-foreach-polyfill": "^1",
     "nodemon": "^2",
-    "onchange": "^6",
     "npm-run-all": "^4",
+    "onchange": "^6",
     "rimraf": "^3",
     "webpack": "^4",
     "webpack-cli": "^3"

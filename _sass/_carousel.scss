@@ -26,29 +26,11 @@ div.carousel__main {
 
 .carousel__previous[aria-disabled=true],
 .carousel__next[aria-disabled=true] {
-    color: #ccc;
     cursor: default;
-}
 
-.carousel__previous::after,
-.carousel__next::after {
-    font-family: 'vq-icon-font';
-}
-
-.carousel__previous {
-    left: 0;
-}
-
-.carousel__next {
-    right: 0;
-}
-
-.carousel__previous::after {
-    content: '\e607';
-}
-
-.carousel__next::after {
-    content: '\e608';
+    svg {
+        fill: #ccc;
+    }
 }
 
 .carousel__list {
