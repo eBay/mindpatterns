@@ -2,10 +2,8 @@ body.has-modal {
     overflow: hidden;
 }
 
-.dialog,
-.alert-dialog,
-.confirm-dialog,
-.input-dialog {
+.dialog[role="dialog"],
+.dialog[role="alertdialog"] {
     background-color: rgba(51,51,51,.7);
     bottom: 0;
     box-sizing: border-box;
@@ -15,12 +13,10 @@ body.has-modal {
     top: 0;
     padding: 8px;
     z-index: 1000;
+    will-change: background-color;
 }
 
-.dialog__window,
-.alert-dialog__window,
-.confirm-dialog__window,
-.input-dialog__window {
+.dialog__window {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     box-sizing: border-box;
@@ -30,19 +26,16 @@ body.has-modal {
     justify-content: center;
     margin: 0 auto;
     max-width: 980px;
-    position: fixed;
     overflow: auto;
     overflow-x: hidden;
     padding: 8px 0;
     position: relative;
     -webkit-overflow-scrolling: touch;
+    will-change: opacity, transform;
     z-index: 1;
 }
 
-.dialog__header,
-.alert-dialog__header,
-.confirm-dialog__header,
-.input-dialog__header {
+.dialog__header {
     background-color: #fafafa;
     border-bottom: 1px solid #ccc;
     box-sizing: border-box;
@@ -52,10 +45,7 @@ body.has-modal {
     padding: 8px;
 }
 
-.dialog__title,
-.alert-dialog__title,
-.confirm-dialog__title,
-.input-dialog__title {
+.dialog__title {
     font-size: 28px;
     align-self: center;
     margin: 0;
@@ -64,17 +54,32 @@ body.has-modal {
     width: 100%;
 }
 
-.dialog__main,
-.alert-dialog__main,
-.confirm-dialog__main,
-.input-dialog__main {
+.dialog__main {
     background-color: #fafafa;
     box-sizing: border-box;
     padding: 8px 16px 16px 16px;
     overflow-y: scroll;
 }
 
-.alert-dialog__main,
-.alert-dialog__footer {
-    text-align: center;
+/* CSS transitions */
+
+.dialog--show .dialog__window--fade,
+.dialog--hide .dialog__window--fade {
+  -webkit-transition: opacity 0.16s ease-out;
+  transition: opacity 0.16s ease-out;
+}
+
+.dialog--show-init,
+.dialog--show {
+  display: block;
+}
+
+.dialog--show-init .dialog__window--fade,
+.dialog--hide .dialog__window--fade {
+  opacity: 0;
+}
+
+.dialog--show .dialog__window--fade,
+.dialog--hide-init .dialog__window--fade {
+  opacity: 1;
 }

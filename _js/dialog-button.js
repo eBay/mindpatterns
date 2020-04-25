@@ -6,48 +6,60 @@
 * https://opensource.org/licenses/MIT.
 */
 
+const Dialog = require('./dialog.js');
 
 function onClick() {
-    this._dialogWidget.open = true;
+    this.dialog.open = true;
 }
 
-function onClose() {
+function onClose(e) {
+    console.log(e);
     this._el.focus();
 }
 
 module.exports = class {
-    constructor(widgetEl, dialogWidget) {
+    constructor(widgetEl) {
         this._el = widgetEl;
 
-        this._dialogWidget = dialogWidget;
-        this._dialogEl = dialogWidget._el;
+        const dialogId = this._el.dataset.makeupDialogButtonFor;
+        const dialogEl = document.getElementById(dialogId);
 
-        this._destroyed = false;
+        this.dialog = new Dialog(dialogEl);
 
         this._onClickListener = onClick.bind(this);
         this._onDialogCloseListener = onClose.bind(this);
 
         this._el.classList.add('dialog-button--js');
 
-        this.wake();
+        this._destroyed = false;
+
+        this.observeEvents();
     }
 
-    sleep() {
-        this._el.removeEventListener('click');
-        this._dialogEl.removeEventListener('dialog-close', this._onDialogCloseListener);
+    get dialog() {
+        return this._dialog;
     }
 
-    wake() {
+    set dialog(dialogWidget) {
+        this._dialog = dialogWidget;
+    }
+
+    observeEvents() {
         if (this._destroyed !== true) {
             this._el.addEventListener('click', this._onClickListener);
-            this._dialogEl.addEventListener('dialog-close', this._onDialogCloseListener);
+            this.dialog._el.addEventListener('dialog-close', this._onDialogCloseListener);
         }
+    }
+
+    unobserveEvents() {
+        this._el.removeEventListener('click');
+        this.dialog._el.removeEventListener('dialog-close', this._onDialogCloseListener);
     }
 
     destroy() {
         this._destroyed = true;
 
-        this.sleep();
+        this.unobserveEvents();
 
         this._onClickListener = null;
         this._onDialogCloseListener = null;

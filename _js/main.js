@@ -17,25 +17,20 @@ if (typeof window !== 'undefined') {
 }
 
 const pageWidgets = [];
+const dialogWidgets = [];
 
 const findIndex = require('core-js-pure/features/array/find-index');
 
 document.addEventListener("DOMContentLoaded", function(e) {
     const Util = require('./util.js');
     const Accordion = require('./accordion.js');
-    // const AccordionLegacy = require('./accordion-legacy.js');
-    const AlertDialog = require('./alert-dialog.js');
     const AriaButton = require('./aria-button.js');
     const Carousel = require('./carousel.js');
     const CharacterMeter = require('./character-meter.js');
     const Combobox = require('./combobox.js');
-    const ConfirmDialog = require('./confirm-dialog.js');
-    const Dialog = require('./dialog.js');
     const DialogButton = require('./dialog-button.js');
-    // const Expando = require('./expando.js');
     const Expander = require('makeup-expander');
     const HijaxButton = require('./hijax-button.js');
-    const InputDialog = require('./input-dialog.js');
     const PasswordMeter = require('./password-meter.js');
     const Listbox = require('./listbox.js');
     const ListboxButton = require('./listbox-button.js');
@@ -60,10 +55,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
         pageWidgets.push(new AccordionLegacy(widgetEl));
     });
     */
-
-    document.querySelectorAll('.alert-dialog').forEach(function(widgetEl) {
-        pageWidgets.push(new AlertDialog(widgetEl));
-    });
 
     document.querySelectorAll('.aria-button').forEach(function(widgetEl) {
         pageWidgets.push(new AriaButton(widgetEl));
@@ -95,12 +86,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
         });
     });
 
-    document.querySelectorAll('.confirm-dialog').forEach(function(widgetEl) {
-        pageWidgets.push(new ConfirmDialog(widgetEl));
-    });
-
-    document.querySelectorAll('.dialog').forEach(function(widgetEl) {
-        pageWidgets.push(new Dialog(widgetEl));
+    document.querySelectorAll('.dialog-button').forEach(function(widgetEl) {
+        pageWidgets.push(new DialogButton(widgetEl));
     });
 
     document.querySelectorAll('.flyout--click').forEach(function(widgetEl) {
@@ -168,10 +155,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
             collapseOnClick: true,
             hostSelector: '.infotip__host'
         }));
-    });
-
-    document.querySelectorAll('.input-dialog').forEach(function(widgetEl) {
-        pageWidgets.push(new InputDialog(widgetEl));
     });
 
     document.querySelectorAll('.password-meter').forEach(function(widgetEl) {
@@ -291,12 +274,5 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
     document.querySelectorAll('.tooltip').forEach(function(widgetEl) {
         pageWidgets.push(new Tooltip(widgetEl));
-    });
-
-    document.querySelectorAll('.dialog-button').forEach(function(widgetEl) {
-        const dialogWidgetIndex = findIndex(pageWidgets, function(widget) {
-            return widget._el.id === widgetEl.dataset.makeupDialog;
-        });
-        pageWidgets.push(new DialogButton(widgetEl, pageWidgets[dialogWidgetIndex]));
     });
 });
