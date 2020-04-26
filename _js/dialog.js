@@ -67,6 +67,8 @@ module.exports = class {
     constructor(widgetEl) {
         this._el = widgetEl;
 
+        this._hasTransitions = this._el.dataset.makeupDialogHasTransitions === "true";
+
         this._windowEl = this._el.querySelector('.dialog__window');
         this._closeButtonEl = this._el.querySelector('.dialog__close');
         this._confirmButtonEl = this._el.querySelector('.dialog__confirm');
@@ -99,16 +101,24 @@ module.exports = class {
     }
 
     set open(bool) {
-        this.unobserveEvents();
+        if (this._hasTransitions) {
+            this.unobserveEvents();
 
-        if (this._cancelTransition) {
-            this._cancelTransition();
-        }
+            if (this._cancelTransition) {
+                this._cancelTransition();
+            }
 
-        if (bool === true) {
-            this._cancelTransition = transition(this._el, 'dialog--show', this._onOpenTransitionEndListener);
+            if (bool === true) {
+                this._cancelTransition = transition(this._el, 'dialog--show', this._onOpenTransitionEndListener);
+            } else {
+                this._cancelTransition = transition(this._el, 'dialog--hide', this._onCloseTransitionEndListener);
+            }
         } else {
-            this._cancelTransition = transition(this._el, 'dialog--hide', this._onCloseTransitionEndListener);
+            const eventType = (bool === true) ? 'dialog-open' : 'dialog-close';
+
+            this._el.hidden = !bool;
+            doFocusManagement(this);
+            this._el.dispatchEvent(new CustomEvent(eventType));
         }
     }
 

@@ -16,19 +16,23 @@ body.has-modal {
     will-change: background-color;
 }
 
+.dialog[role="dialog"]:not([hidden]),
+.dialog[role="alertdialog"]:not([hidden]) {
+    display: flex;
+}
+
 .dialog__window {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    background-color: #fff;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: center;
-    margin: 0 auto;
+    height: auto;
+    margin: auto;
     max-width: 980px;
+    min-width: 320px;
     overflow: auto;
     overflow-x: hidden;
-    padding: 8px 0;
+    padding: 16px;
     position: relative;
     -webkit-overflow-scrolling: touch;
     will-change: opacity, transform;
@@ -36,32 +40,41 @@ body.has-modal {
 }
 
 .dialog__header {
-    background-color: #fafafa;
-    border-bottom: 1px solid #ccc;
+    align-items: center;
     box-sizing: border-box;
     display: flex;
-    flex-shrink: 0;
     font-size: 16px;
-    padding: 8px;
+    padding: 8px 16px;
+}
+
+.dialog__close {
+    display: inline-block;
+    margin-right: 8px;
 }
 
 .dialog__title {
-    font-size: 28px;
-    align-self: center;
     margin: 0;
     padding: 0;
-    text-align: center;
-    width: 100%;
 }
 
 .dialog__main {
-    background-color: #fafafa;
-    box-sizing: border-box;
-    padding: 8px 16px 16px 16px;
+    margin: 8px 0;
     overflow-y: scroll;
 }
 
+.dialog__main,
+.dialog__footer {
+    box-sizing: border-box;
+    padding: 0 16px;
+}
+
 /* CSS transitions */
+
+.dialog--show.dialog--mask-fade,
+.dialog--hide.dialog--mask-fade {
+  -webkit-transition: background-color 0.16s ease-out;
+  transition: background-color 0.16s ease-out;
+}
 
 .dialog--show .dialog__window--fade,
 .dialog--hide .dialog__window--fade {
@@ -71,7 +84,17 @@ body.has-modal {
 
 .dialog--show-init,
 .dialog--show {
-  display: block;
+  display: flex;
+}
+
+.dialog--hide.dialog--mask-fade,
+.dialog--show-init.dialog--mask-fade {
+  background-color: rgba(17, 24, 32, 0);
+}
+
+.dialog--show.dialog--mask-fade,
+.dialog--hide-init.dialog--mask-fade {
+  background-color: rgba(17, 24, 32, 0.7);
 }
 
 .dialog--show-init .dialog__window--fade,
