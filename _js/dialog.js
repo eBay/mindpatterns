@@ -26,12 +26,14 @@ function onOpenTransitionEnd() {
     console.log('onOpenTransitionEnd');
     this._el.hidden = false;
     this._cancelTransition = undefined;
-    document.body.classList.add('has-modal');
 
-    doFocusManagement(this);
+    if (this._isModal) {
+        document.body.classList.add('has-modal');
+        doFocusManagement(this);
+        Modal.modal(this._el);
+    }
 
-    Modal.modal(this._el);
-    this._el.dispatchEvent(new CustomEvent('dialog-open'));
+    this._el.dispatchEvent(new CustomEvent(`${this._options.dialogBaseClass}-open`));
     this.observeEvents();
 }
 
@@ -40,7 +42,7 @@ function onCloseTransitionEnd() {
     Modal.unmodal();
     document.body.classList.remove('has-modal');
     this._el.hidden = true;
-    this._el.dispatchEvent(new CustomEvent('dialog-close'));
+    this._el.dispatchEvent(new CustomEvent(`${this._options.dialogBaseClass}-close`));
     this._cancelTransition = undefined;
     this.observeEvents();
 }
@@ -63,16 +65,25 @@ function onKeyDown(e) {
     }
 }
 
+const defaultOptions = {
+    dialogBaseClass: 'dialog'
+};
+
 module.exports = class {
-    constructor(widgetEl) {
+    constructor(widgetEl, selectedOptions) {
+        this._options = Object.assign({}, defaultOptions, selectedOptions);
+
+        const baseClass = this._options.dialogBaseClass;
+
         this._el = widgetEl;
 
-        this._hasTransitions = this._el.dataset.makeupDialogHasTransitions === "true";
+        this._isModal = this._el.getAttribute('aria-modal') === 'true';
+        this._hasTransitions = (this._el.dataset) ? this._el.dataset.makeupDialogHasTransitions === "true" : false;
 
-        this._windowEl = this._el.querySelector('.dialog__window');
-        this._closeButtonEl = this._el.querySelector('.dialog__close');
-        this._confirmButtonEl = this._el.querySelector('.dialog__confirm');
-        this._rejectButtonEl = this._el.querySelector('.dialog__reject');
+        this._windowEl = this._el.querySelector(`.${baseClass}__window`);
+        this._closeButtonEl = this._el.querySelector(`.${baseClass}__close`);
+        this._confirmButtonEl = this._el.querySelector(`.${baseClass}__confirm`);
+        this._rejectButtonEl = this._el.querySelector(`.${baseClass}__reject`);
 
         this._onCloseButtonClickListener = onCloseButtonClick.bind(this);
         this._onConfirmButtonClickListener = onConfirmButtonClick.bind(this);
@@ -81,9 +92,9 @@ module.exports = class {
         this._onOpenTransitionEndListener = onOpenTransitionEnd.bind(this);
         this._onCloseTransitionEndListener = onCloseTransitionEnd.bind(this);
 
-        this._el.classList.add('dialog--js');
+        this._el.classList.add(`${baseClass}--js`);
 
-        if (this.open) {
+        if (this._isModal && this.open) {
             document.body.classList.add('has-modal');
             doFocusManagement(this);
             Modal.modal(this._el);
@@ -109,16 +120,18 @@ module.exports = class {
             }
 
             if (bool === true) {
-                this._cancelTransition = transition(this._el, 'dialog--show', this._onOpenTransitionEndListener);
+                this._cancelTransition = transition(this._el, `${this._options.dialogBaseClass}--show`, this._onOpenTransitionEndListener);
             } else {
-                this._cancelTransition = transition(this._el, 'dialog--hide', this._onCloseTransitionEndListener);
+                this._cancelTransition = transition(this._el, `${this._options.dialogBaseClass}--hide`, this._onCloseTransitionEndListener);
             }
         } else {
-            const eventType = (bool === true) ? 'dialog-open' : 'dialog-close';
+            const eventType = (bool === true) ? 'open' : 'close';
 
             this._el.hidden = !bool;
-            doFocusManagement(this);
-            this._el.dispatchEvent(new CustomEvent(eventType));
+            if (this._isModal) {
+                doFocusManagement(this);
+            }
+            this._el.dispatchEvent(new CustomEvent(`${this._options.dialogBaseClass}-${eventType}`));
         }
     }
 
@@ -137,8 +150,11 @@ module.exports = class {
 
     observeEvents() {
         if (this._destroyed !== true) {
-            this._closeButtonEl.addEventListener('click', this._onCloseButtonClickListener);
-            this._windowEl.addEventListener('keydown', this._onKeyDownListener);
+            document.addEventListener('keydown', this._onKeyDownListener);
+
+            if (this._closeButtonEl) {
+                this._closeButtonEl.addEventListener('click', this._onCloseButtonClickListener);
+            }
 
             if (this._confirmButtonEl) {
                 this._confirmButtonEl.addEventListener('click', this._onConfirmButtonClickListener);

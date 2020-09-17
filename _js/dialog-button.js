@@ -13,23 +13,32 @@ function onClick() {
 }
 
 function onClose(e) {
-    console.log(e);
-    this._el.focus();
+    if (this.dialog._isModal) {
+        this._el.focus();
+    }
 }
 
+const defaultOptions = {
+    dialogBaseClass: 'dialog'
+};
+
 module.exports = class {
-    constructor(widgetEl) {
+    constructor(widgetEl, selectedOptions) {
+        this._options = Object.assign({}, defaultOptions, selectedOptions);
+
         this._el = widgetEl;
 
         const dialogId = this._el.dataset.makeupDialogButtonFor;
         const dialogEl = document.getElementById(dialogId);
 
-        this.dialog = new Dialog(dialogEl);
+        this.dialog = new Dialog(dialogEl, {
+            dialogBaseClass: this._options.dialogBaseClass
+        });
 
         this._onClickListener = onClick.bind(this);
         this._onDialogCloseListener = onClose.bind(this);
 
-        this._el.classList.add('dialog-button--js');
+        this._el.classList.add(`${this._options.dialogBaseClass}-button--js`);
 
         this._destroyed = false;
 
@@ -47,13 +56,13 @@ module.exports = class {
     observeEvents() {
         if (this._destroyed !== true) {
             this._el.addEventListener('click', this._onClickListener);
-            this.dialog._el.addEventListener('dialog-close', this._onDialogCloseListener);
+            this.dialog._el.addEventListener(`${this._options.dialogBaseClass}-close`, this._onDialogCloseListener);
         }
     }
 
     unobserveEvents() {
         this._el.removeEventListener('click');
-        this.dialog._el.removeEventListener('dialog-close', this._onDialogCloseListener);
+        this.dialog._el.removeEventListener(`${this._options.dialogBaseClass}-close`, this._onDialogCloseListener);
     }
 
     destroy() {
