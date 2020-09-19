@@ -3,6 +3,23 @@ layout: page
 title: Checkbox
 ---
 
+<div hidden>
+    <svg>
+        <symbol id="icon-checkbox-checked" viewBox="0 0 18 18">
+            <path d="M0 0h18v18H0V0zm14.71 4.29a1 1 0 00-1.41 0L7 10.59l-2.29-2.3a1.004 1.004 0 00-1.42 1.42l3 3a1 1 0 001.41 0l7-7a1 1 0 00.01-1.42z"></path>
+        </symbol>
+        <symbol id="icon-checkbox-unchecked" viewBox="0 0 18 18">
+            <path d="M18 0v18H0V0h18zm-1 1H1v16h16V1z"></path>
+        </symbol>
+    </svg>
+</div>
+
+<style>
+    .checkbox-group > div {
+        margin: 8px 0;
+    }
+</style>
+
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
@@ -36,28 +53,49 @@ title: Checkbox
 
 <hr />
 
-<h3>Example 2: Native HTML Checkbox with Background SVG Icon</h3>
+<h3>Example 2: Native HTML Checkbox with SVG</h3>
 <form>
-    <fieldset>
+    <fieldset class="checkbox-group">
         <legend>Auction Type</legend>
         <div>
             <span class="checkbox">
-                <input class="checkbox__control" id="checkbox1_freeshipping2" type="checkbox" name="freeshipping2" />
-                <span class="checkbox__icon"></span>
+                <input class="checkbox__control" id="checkbox1_freeshipping2" name="freeshipping2" type="checkbox" checked />
+                <span class="checkbox__icon" hidden>
+                    <svg class="checkbox__unchecked" focusable="false" height="18" width="18">
+                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                    </svg>
+                    <svg class="checkbox__checked" focusable="false" height="18" width="18">
+                        <use xlink:href="#icon-checkbox-checked"></use>
+                    </svg>
+                </span>
             </span>
             <label for="checkbox1_freeshipping2">Free Shipping</label>
         </div>
         <div>
             <span class="checkbox">
-                <input class="checkbox__control" id="checkbox2_endssoon2" type="checkbox" name="endssoon2" />
-                <span class="checkbox__icon"></span>
+                <input class="checkbox__control" id="checkbox2_endsoon2" name="endssoon2" type="checkbox" checked />
+                <span class="checkbox__icon" hidden>
+                    <svg class="checkbox__unchecked" focusable="false" height="18" width="18">
+                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                    </svg>
+                    <svg class="checkbox__checked" focusable="false" height="18" width="18">
+                        <use xlink:href="#icon-checkbox-checked"></use>
+                    </svg>
+                </span>
             </span>
             <label for="checkbox2_endssoon2">Ends soon</label>
         </div>
         <div>
             <span class="checkbox">
-                <input class="checkbox__control" id="checkbox3_zerobids2" type="checkbox" name="zerobids2" />
-                <span class="checkbox__icon"></span>
+                <input class="checkbox__control" id="checkbox3_zerobids2" name="zerobids2" type="checkbox" checked />
+                <span class="checkbox__icon" hidden>
+                    <svg class="checkbox__unchecked" focusable="false" height="18" width="18">
+                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                    </svg>
+                    <svg class="checkbox__checked" focusable="false" height="18" width="18">
+                        <use xlink:href="#icon-checkbox-checked"></use>
+                    </svg>
+                </span>
             </span>
             <label for="checkbox3_zerobids2">Zero bids</label>
         </div>
@@ -67,4 +105,4 @@ title: Checkbox
 
 <hr />
 
-<p><i>Updated</i>: May 12th, 2019</p>
+<p><i>Updated</i>: Sep 18th, 2020</p>

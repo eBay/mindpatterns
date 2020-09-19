@@ -3,6 +3,23 @@ layout: page
 title: Radio
 ---
 
+<div hidden>
+    <svg>
+        <symbol id="icon-radio-checked" viewBox="0 0 18 18">
+            <path d="M9 0a9 9 0 110 18A9 9 0 019 0zm0 1a8 8 0 100 16A8 8 0 009 1zm0 3a5 5 0 110 10A5 5 0 019 4z"></path>
+        </symbol>
+        <symbol id="icon-radio-unchecked" viewBox="0 0 18 18">
+            <path d="M9 18A9 9 0 119 0a9 9 0 010 18zM9 1a8 8 0 100 16A8 8 0 009 1z"></path>
+        </symbol>
+    </svg>
+</div>
+
+<style>
+    .radio-group > div {
+        margin: 8px 0;
+    }
+</style>
+
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
@@ -38,29 +55,50 @@ title: Radio
 
 <hr />
 
-<h3>Example 2: Native HTML Radios with Background SVG Icon</h3>
+<h3>Example 2: Native HTML Radios with SVG</h3>
 <div>
     <form>
-        <fieldset>
+        <fieldset class="radio-group">
             <legend>Auction Type</legend>
             <div>
                 <span class="radio">
-                    <input class="radio__control" id="listingformat2_all" type="radio" name="listingformat2" value="all" />
-                    <span class="radio__icon"></span>
+                    <input class="radio__control" id="listingformat2_all" name="listingformat2" type="radio" value="all" />
+                    <span class="radio__icon" hidden>
+                        <svg class="radio__unchecked" focusable="false" height="18" width="18">
+                            <use xlink:href="#icon-radio-unchecked"></use>
+                        </svg>
+                        <svg class="radio__checked" focusable="false" height="18" width="18">
+                            <use xlink:href="#icon-radio-checked"></use>
+                        </svg>
+                    </span>
                 </span>
                 <label for="listingformat2_all">All Listings</label>
             </div>
             <div>
                 <span class="radio">
-                    <input class="radio__control" id="listingformat2_auction" type="radio" name="listingformat2" value="auction" />
-                    <span class="radio__icon"></span>
+                    <input class="radio__control" id="listingformat2_auction" name="listingformat2" type="radio" value="auction" />
+                    <span class="radio__icon" hidden>
+                        <svg class="radio__unchecked" focusable="false" height="18" width="18">
+                            <use xlink:href="#icon-radio-unchecked"></use>
+                        </svg>
+                        <svg class="radio__checked" focusable="false" height="18" width="18">
+                            <use xlink:href="#icon-radio-checked"></use>
+                        </svg>
+                    </span>
                 </span>
                 <label for="listingformat2_auction">Auction</label>
             </div>
             <div>
                 <span class="radio">
-                    <input class="radio__control" id="listingformat2_bin" type="radio" name="listingformat2" value="bin" />
-                    <span class="radio__icon"></span>
+                    <input class="radio__control" id="listingformat2_bin" name="listingformat2" type="radio" value="bin" />
+                    <span class="radio__icon" hidden>
+                        <svg class="radio__unchecked" focusable="false" height="18" width="18">
+                            <use xlink:href="#icon-radio-unchecked"></use>
+                        </svg>
+                        <svg class="radio__checked" focusable="false" height="18" width="18">
+                            <use xlink:href="#icon-radio-checked"></use>
+                        </svg>
+                    </span>
                 </span>
                 <label for="listingformat2_bin">Buy it Now</label>
             </div>
@@ -71,4 +109,4 @@ title: Radio
 
 <hr />
 
-<p><i>Updated</i>: May 12th, 2019</p>
+<p><i>Updated</i>: Sep 18th, 2020</p>
