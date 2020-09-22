@@ -7,40 +7,52 @@
 */
 
 function onClick(e) {
-    this._el.classList.remove('star-rating--unselected');
+    if (e.target.tagName.toLowerCase() === 'input') {
+        this.index = Array.prototype.indexOf.call(this._items, e.target.parentNode);
+    }
 }
 
 module.exports = class {
     constructor(widgetEl) {
         this._el = widgetEl;
-        this._stars = widgetEl.querySelectorAll('input');
+        this._items = widgetEl.querySelectorAll('.radio');
 
-        const isChecked = widgetEl.querySelectorAll('input:checked').length > 0;
+        const checkedItem = widgetEl.querySelector('input:checked');
 
-        if (isChecked === false) {
-            widgetEl.classList.add('star-rating--unselected');
+        if (checkedItem) {
+            this.index = Array.prototype.indexOf.call(this._items, checkedItem.parentNode);
         }
 
         this._onClickListener = onClick.bind(this);
 
         this._el.classList.add('star-rating--js');
 
-        this.wake();
+        this.observe();
     }
 
-    sleep() {
-        this._el.removeEventListener('click', this._onClickListener, {once: true});
+    set index(newIndex) {
+        this._items.forEach(function(el, i) {
+            if (i <= newIndex) {
+                el.classList.add('radio--checked');
+            } else {
+                el.classList.remove('radio--checked');
+            }
+        });
     }
 
-    wake() {
+    unobserve() {
+        this._el.removeEventListener('click', this._onClickListener);
+    }
+
+    observe() {
         if (this._destroyed !== true) {
-            this._el.addEventListener('click', this._onClickListener, {once: true});
+            this._el.addEventListener('click', this._onClickListener);
         }
     }
 
     destroy() {
         this._destroyed = true;
-        this.sleep();
+        this.unobserve();
         this._onClickListener = null;
     }
 }
