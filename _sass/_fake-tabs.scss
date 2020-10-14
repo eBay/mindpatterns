@@ -1,0 +1,36 @@
+.fake-tabs__items {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.fake-tabs__content {
+    border: 1px solid #aaa;
+    box-sizing: border-box;
+    height: 300px;
+    overflow-y: auto;
+    padding: 1em;
+}
+
+.fake-tabs__item {
+    background-color: LightYellow;
+    border: 1px solid #aaa;
+    border-bottom: 0;
+    display: inline-block;
+    font-weight: bold;
+    padding: 5px 1em;
+}
+
+.fake-tabs__item a {
+    color: black;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.fake-tabs__item a[aria-current="page"] {
+    text-decoration: underline;
+}
+
+.fake-tabs__panel h4:first-child {
+    display: none;
+}

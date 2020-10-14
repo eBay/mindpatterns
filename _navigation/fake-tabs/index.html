@@ -1,0 +1,49 @@
+---
+layout: page
+title: Fake Tabs
+---
+
+<!-- example specific styles -->
+<style>
+    .fake-tabs__panel {
+        padding-top: 1em;
+    }
+    .fake-tabs__panel p:first-of-type {
+        margin-top: 0;
+    }
+    .fake-tabs__panel img {
+        float: right;
+        margin: 0 0 1em 1em;
+    }
+</style>
+
+<h1>{{ page.title }}</h1>
+
+<h2 class="clipped">Readme</h2>
+<p>Fake tabs do not require JavaScript; they are simply a list of hyperlinks styled to look like tabs.</p>
+
+<p>Please <a href={{ "navigation/fake-tabs" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+<hr />
+
+<h2 class="clipped">Examples</h2>
+
+<h3>Example 1: Horizontal Tabs</h3>
+
+<p><em>Keyboard Users</em>: Use TAB key to navigate fake tabs (links).</p>
+
+<div class="fake tabs">
+    <ul class="fake-tabs__items">
+        <li class="fake-tabs__item"><a href="http://www.ebay.com" aria-current="page">USPS</a></li>
+        <li class="fake-tabs__item"><a href="http://www.ebay.com">UPS</a></li>
+        <li class="fake-tabs__item"><a href="http://www.ebay.com">FedEx</a></li>
+    </ul>
+    <div class="fake-tabs__content">
+        <div class="fake-tabs__panel">
+            <h4>USPS</h4>
+            <img alt="USPS" src="{{ '/images/usps.png' | relative_url }}" />
+            <p>The <a href="http://en.wikipedia.org/wiki/United_States_Postal_Service">United States Postal Service</a> (originally called the U.S. Post Office Department, when it was completely managed by the U.S. government before 1971) also known as the Post Office, U.S. Mail, or Postal Service, often abbreviated as USPS is an independent agency of the United States federal government responsible for providing postal service in the United States. It is one of the few government agencies explicitly authorized by the United States Constitution.</p>
+            <p>The USPS traces its roots to 1775 during the Second Continental Congress, where Benjamin Franklin was appointed the first postmaster general. The cabinet-level Post Office Department was created in 1792 from Franklin's operation and transformed into its current form in 1971 under the Postal Reorganization Act.</p>
+        </div>
+    </div>
+</div>
