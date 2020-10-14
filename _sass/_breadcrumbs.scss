@@ -1,24 +1,14 @@
-.breadcrumbs h3:after {
-    content: ': ';
-}
 .breadcrumbs ol {
-    display: inline;
+    display: flex;
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-.breadcrumbs li {
-    display: inline;
-}
-.breadcrumbs li:after {
-    content: '>';
-}
-.breadcrumbs li:last-child::after {
-    content: '';
-}
+
 .breadcrumbs li a {
     text-decoration: none;
 }
+
 .breadcrumbs li a:hover,
 .breadcrumbs li a:focus {
     text-decoration: underline;

@@ -3,6 +3,14 @@ layout: page
 title: Breadcrumbs
 ---
 
+<div hidden>
+    <svg>
+        <symbol viewBox="0 0 14 14" id="icon-breadcrumb">
+            <path d="M1.005 14a1 1 0 01-.71-1.71l5.296-5.288L.296 1.714A1.004 1.004 0 011.714.294L7.71 6.292a1 1 0 010 1.41L1.714 13.7a.999.999 0 01-.709.3z"></path>
+        </symbol>
+    </svg>
+</div>
+
 <h1 class="post-title">{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
@@ -19,19 +27,28 @@ title: Breadcrumbs
     <ol>
         <li>
             <a href="http://www.ebay.com">Home</a>
+            <svg focusable="false" height="10" width="10">
+                <use xlink:href="#icon-breadcrumb"></use>
+            </svg>
         </li>
         <li>
             <a href="http://www.ebay.com">Clothing, Shoes &amp; Accessories</a>
+            <svg focusable="false" height="10" width="10">
+                <use xlink:href="#icon-breadcrumb"></use>
+            </svg>
         </li>
         <li>
             <a href="http://www.ebay.com">Men's Shoes</a>
+            <svg focusable="false" height="10" width="10">
+                <use xlink:href="#icon-breadcrumb"></use>
+            </svg>
         </li>
         <li>
-            <a aria-current="page">Boots</a>
+            <a aria-current="location">Boots</a>
         </li>
     </ol>
 </nav>
 
 <hr />
 
-<p><i>Updated</i>: May 12th, 2019</p>
+<p><i>Updated</i>: October 14th, 2020</p>
