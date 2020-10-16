@@ -1,0 +1,72 @@
+.toast-dialog {
+  --toast-dialog-background-color: #ffffe0;
+  --toast-dialog-foreground-color: black;
+}
+.toast-dialog {
+  background-color: #3665f3;
+  background-color: var(--toast-dialog-background-color, #3665f3);
+  color: #fff;
+  color: var(--toast-dialog-foreground-color, #fff);
+  border-radius: 0;
+  border-radius: var(--toast-dialog-border-radius, 0);
+  bottom: 0;
+  left: 0;
+  max-height: 40vh;
+  min-width: 320px;
+  position: fixed;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  width: 100vw;
+  will-change: opacity, transform;
+  z-index: 2;
+}
+.toast-dialog a {
+  color: #fff;
+  color: var(--toast-dialog-foreground-color, #fff);
+}
+.toast-dialog__window {
+  margin: 8px 16px 16px;
+}
+.toast-dialog__header {
+  -webkit-box-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: flex;
+}
+.toast-dialog__header h2,
+.toast-dialog__title {
+  margin: 0;
+}
+button.toast-dialog__close {
+  align-self: center;
+  border: 0;
+  margin: 0 0 0 auto;
+  padding: 0;
+}
+button.toast-dialog__close > svg,
+button.toast-dialog__close:hover > svg,
+button.toast-dialog__close:focus > svg {
+  fill: #fff;
+  fill: var(--toast-dialog-foreground-color, #fff);
+}
+.toast-dialog__footer {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: end;
+          justify-content: flex-end;
+}
+.toast-dialog__footer button::first-letter {
+  text-decoration: underline;
+}
+
+@media (min-width: 601px) {
+  .toast-dialog {
+    bottom: 16px;
+    left: 16px;
+    max-width: 480px;
+    width: auto;
+  }
+  .toast-dialog__window {
+    margin: 16px 24px 24px;
+  }
+}

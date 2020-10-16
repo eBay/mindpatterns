@@ -44,7 +44,6 @@ body.has-modal {
     box-sizing: border-box;
     display: flex;
     font-size: 16px;
-    padding: 8px 16px;
 }
 
 .dialog__close {
@@ -65,7 +64,6 @@ body.has-modal {
 .dialog__main,
 .dialog__footer {
     box-sizing: border-box;
-    padding: 0 16px;
 }
 
 /* CSS transitions */

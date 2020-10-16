@@ -272,6 +272,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
         pageWidgets.push(new Tile(widgetEl));
     });
 
+    document.querySelectorAll('.toast-dialog-button').forEach(function(widgetEl) {
+        pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'toast-dialog' }));
+    });
+
     document.querySelectorAll('.tooltip').forEach(function(widgetEl) {
         pageWidgets.push(new Tooltip(widgetEl));
     });

@@ -7,7 +7,7 @@
 */
 
 const Modal = require('makeup-modal');
-const Focusables = require('makeup-focusables');
+const focusables = require('makeup-focusables');
 const transition = require('./transition');
 
 function doFocusManagement(dialogWidget) {
@@ -23,7 +23,6 @@ function doFocusManagement(dialogWidget) {
 }
 
 function onOpenTransitionEnd() {
-    console.log('onOpenTransitionEnd');
     this._el.hidden = false;
     this._cancelTransition = undefined;
 
@@ -38,7 +37,6 @@ function onOpenTransitionEnd() {
 }
 
 function onCloseTransitionEnd() {
-    console.log('onCloseTransitionEnd');
     Modal.unmodal();
     document.body.classList.remove('has-modal');
     this._el.hidden = true;
@@ -47,15 +45,28 @@ function onCloseTransitionEnd() {
     this.observeEvents();
 }
 
-function onRejectButtonClick(e) {
+// toast-dialog
+function onCtaButtonClick() {
     this.open = false;
 }
 
-function onConfirmButtonClick(e) {
+function onResetButtonClick() {
     this.open = false;
 }
 
-function onCloseButtonClick(e) {
+function onDoneButtonClick() {
+    this.open = false;
+}
+
+function onRejectButtonClick() {
+    this.open = false;
+}
+
+function onConfirmButtonClick() {
+    this.open = false;
+}
+
+function onCloseButtonClick() {
     this.open = false;
 }
 
@@ -78,14 +89,20 @@ module.exports = class {
         this._el = widgetEl;
 
         this._isModal = this._el.getAttribute('aria-modal') === 'true';
-        this._hasTransitions = (this._el.dataset) ? this._el.dataset.makeupDialogHasTransitions === "true" : false;
+        this._hasTransitions = (this._el.dataset) ? this._el.dataset.makeupDialogHasTransitions === 'true' : false;
 
         this._windowEl = this._el.querySelector(`.${baseClass}__window`);
         this._closeButtonEl = this._el.querySelector(`.${baseClass}__close`);
+        this._ctaButtonEl = this._el.querySelector(`.${baseClass}__cta`);
+        this._resetButtonEl = this._el.querySelector(`.${baseClass}__reset`);
+        this._doneButtonEl = this._el.querySelector(`.${baseClass}__done`);
         this._confirmButtonEl = this._el.querySelector(`.${baseClass}__confirm`);
         this._rejectButtonEl = this._el.querySelector(`.${baseClass}__reject`);
 
         this._onCloseButtonClickListener = onCloseButtonClick.bind(this);
+        this._onCtaButtonClickListener = onCtaButtonClick.bind(this);
+        this._onResetButtonClickListener = onResetButtonClick.bind(this);
+        this._onDoneButtonClickListener = onDoneButtonClick.bind(this);
         this._onConfirmButtonClickListener = onConfirmButtonClick.bind(this);
         this._onRejectButtonClickListener = onRejectButtonClick.bind(this);
         this._onKeyDownListener = onKeyDown.bind(this);
@@ -104,7 +121,7 @@ module.exports = class {
     }
 
     get focusables() {
-        return Focusables(this._windowEl);
+        return focusables(this._windowEl);
     }
 
     get open() {
@@ -112,32 +129,65 @@ module.exports = class {
     }
 
     set open(bool) {
-        if (this._hasTransitions) {
-            this.unobserveEvents();
+        if (bool === true && this.open !== true) {
+            if (this._hasTransitions) {
+                this.unobserveEvents();
 
-            if (this._cancelTransition) {
-                this._cancelTransition();
-            }
+                if (this._cancelTransition) {
+                    this._cancelTransition();
+                }
 
-            if (bool === true) {
-                this._cancelTransition = transition(this._el, `${this._options.dialogBaseClass}--show`, this._onOpenTransitionEndListener);
+                this._cancelTransition = transition(
+                    this._el,
+                    `${this._options.dialogBaseClass}--show`,
+                    this._onOpenTransitionEndListener
+                );
             } else {
-                this._cancelTransition = transition(this._el, `${this._options.dialogBaseClass}--hide`, this._onCloseTransitionEndListener);
-            }
-        } else {
-            const eventType = (bool === true) ? 'open' : 'close';
+                this._el.hidden = false;
 
-            this._el.hidden = !bool;
-            if (this._isModal) {
-                doFocusManagement(this);
+                if (this._isModal) {
+                    doFocusManagement(this);
+                    Modal.modal(this._el);
+                }
+
+                this._el.dispatchEvent(new CustomEvent(`${this._options.dialogBaseClass}-open`));
             }
-            this._el.dispatchEvent(new CustomEvent(`${this._options.dialogBaseClass}-${eventType}`));
+        } else if (bool === false && this.open !== false) {
+            if (this._hasTransitions) {
+                this.unobserveEvents();
+
+                if (this._cancelTransition) {
+                    this._cancelTransition();
+                }
+
+                this._cancelTransition = transition(
+                    this._el,
+                    `${this._options.dialogBaseClass}--hide`,
+                    this._onCloseTransitionEndListener
+                );
+            } else {
+                Modal.unmodal();
+                this._el.hidden = true;
+                this._el.dispatchEvent(new CustomEvent(`${this._options.dialogBaseClass}-close`));
+            }
         }
     }
 
     unobserveEvents() {
         this._el.removeEventListener('click', this._onCloseButtonClickListener);
-        this._el.removeEventListener('keydown', this._onKeyDownListener);
+        document.removeEventListener('keydown', this._onKeyDownListener);
+
+        if (this._ctaButtonEl) {
+            this._ctaButtonEl.removeEventListener('click', this._onCtaButtonClickListener);
+        }
+
+        if (this._resetButtonEl) {
+            this._resetButtonEl.removeEventListener('click', this._onResetButtonClickListener);
+        }
+
+        if (this._doneButtonEl) {
+            this._doneButtonEl.removeEventListener('click', this._onDoneButtonClickListener);
+        }
 
         if (this._confirmButtonEl) {
             this._confirmButtonEl.removeEventListener('click', this._onConfirmButtonClickListener);
@@ -156,6 +206,18 @@ module.exports = class {
                 this._closeButtonEl.addEventListener('click', this._onCloseButtonClickListener);
             }
 
+            if (this._ctaButtonEl) {
+                this._ctaButtonEl.addEventListener('click', this._onCtaButtonClickListener);
+            }
+
+            if (this._resetButtonEl) {
+                this._resetButtonEl.addEventListener('click', this._onResetButtonClickListener);
+            }
+
+            if (this._doneButtonEl) {
+                this._doneButtonEl.addEventListener('click', this._onDoneButtonClickListener);
+            }
+
             if (this._confirmButtonEl) {
                 this._confirmButtonEl.addEventListener('click', this._onConfirmButtonClickListener);
             }
@@ -171,10 +233,13 @@ module.exports = class {
         this.unobserveEvents();
 
         this._onCloseButtonClickListener = null;
+        this._onCtaButtonClickListener = null;
+        this._onResetButtonClickListener = null;
+        this._onDoneButtonClickListener = null;
         this._onConfirmButtonClickListener = null;
         this._onRejectButtonClickListener = null;
         this._onKeyDownListener = null;
         this._onOpenTransitionEndListener = null;
         this._onCloseTransitionEndListener = null;
     }
-}
+};

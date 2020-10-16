@@ -5,6 +5,16 @@ title: Alert Dialog
 
 <h1>{{ page.title }}</h1>
 
+<style>
+    .dialog {
+        text-align: center;
+    }
+
+    .dialog__title {
+        width: 100%;
+    }
+</style>
+
 <h2 class="clipped">Readme</h2>
 <p>Activate button to open the alert dialog.</p>
 <p>Please <a href={{ "messaging/alert-dialog" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
@@ -13,9 +23,9 @@ title: Alert Dialog
 
 <hr />
 
-<h3>Example 1: Modal Lightbox</h3>
+<h3>Example 1: Lightbox</h3>
 
-<button data-makeup-dialog-button-for="alert-dialog" class="button dialog-button" type="button">Open Dialog</button>
+<button data-makeup-dialog-button-for="alert-dialog" class="button dialog-button" type="button">Open Alert Dialog</button>
 
 <div aria-labelledby="alert-dialog-title" aria-modal="true" class="dialog" data-makeup-dialog-has-transitions="true" hidden id="alert-dialog" role="alertdialog">
     <div class="dialog__window dialog__window--fade">

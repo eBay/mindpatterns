@@ -62,6 +62,13 @@ a.button[role=button] {
     text-decoration: none;
 }
 
+button.icon-btn,
+a.icon-link {
+  background-color: transparent;
+  height: 40px;
+  width: 40px;
+}
+
 [role=button] {
     cursor: default;
 }

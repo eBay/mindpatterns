@@ -12,7 +12,7 @@ function onClick() {
     this.dialog.open = true;
 }
 
-function onClose(e) {
+function onClose() {
     if (this.dialog._isModal) {
         this._el.focus();
     }
@@ -73,4 +73,4 @@ module.exports = class {
         this._onClickListener = null;
         this._onDialogCloseListener = null;
     }
-}
+};

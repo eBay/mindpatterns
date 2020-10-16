@@ -1,0 +1,50 @@
+---
+layout: page
+title: Toast Dialog
+---
+
+<div hidden>
+    <svg>
+        <symbol id="icon-close" viewBox="0 0 18 18">
+            <path d="M10.41 9l7.294-7.287A1.004 1.004 0 0016.285.294L9 7.59 1.715.294a1.002 1.002 0 10-1.42 1.42l7.296 7.285-7.295 7.286a1 1 0 000 1.42 1 1 0 001.419 0L9 10.407l7.285 7.296a1 1 0 001.42 0 1 1 0 000-1.419l-7.296-7.286z"/>
+        </symbol>
+    </svg>
+</div>
+
+<h1>{{ page.title }}</h1>
+
+<h2 class="clipped">Readme</h2>
+<p>Activate button to trigger a toast dialog. Toast dialog does <strong>not</strong> steal focus.<p>
+<p>Toast dialog can be dissmissed with ESC key. Call to action can be triggered via <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey">keyboard shortcut</a>.</p>
+<p>Please <a href={{ "messaging/toast-dialog" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+
+<h2 class="clipped">Examples</h2>
+
+<hr />
+
+<h3>Example 1: Nontransient</h3>
+
+<button data-makeup-dialog-button-for="toast-dialog" class="button toast-dialog-button" type="button">Trigger Toast Dialog</button>
+
+<aside id="toast-dialog" aria-label="Notification" aria-live="polite" aria-modal="false" class="toast-dialog" hidden role="dialog">
+    <div class="toast-dialog__window">
+        <div class="toast-dialog__header">
+            <h2 class="toast__title">User Privacy Preferences</h2>
+            <button class="toast-dialog__close icon-btn" type="button" aria-label="Close notification dialog">
+                <svg class="icon icon--close" focusable="false" height="24" width="24">
+                    <use xlink:href="#icon-close"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="toast-dialog__main">
+            <p>We detected something unusual about a recent sign-in to your account. To help keep you safe, we recommend you change the password.</p>
+        </div>
+        <div class="toast-dialog__footer">
+            <a accesskey="v" class="toast-dialog__cta button" href="http://www.ebay.com">View Account</a>
+        </div>
+    </div>
+</aside>
+
+<hr />
+
+<p><i>Added</i>: October 15th, 2020</p>
