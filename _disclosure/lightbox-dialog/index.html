@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Dialog (custom)
+title: Lightbox Dialog
 ---
 
 <div hidden>
@@ -14,16 +14,16 @@ title: Dialog (custom)
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
-<p>Activate button to open the custom dialog.</p>
-<p>Please <a href={{ "disclosure/dialog" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+<p>Activate button to open the lightbox dialog.</p>
+<p>Please <a href={{ "disclosure/lightbox-dialog" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <h2 class="clipped">Examples</h2>
 
 <hr />
 
-<h3>Example 1: Modal Lightbox</h3>
+<h3>Example 1: Custom</h3>
 
-<button data-makeup-dialog-button-for="custom-dialog" class="button dialog-button" type="button">Open Dialog</button>
+<button data-makeup-dialog-button-for="custom-dialog" class="button dialog-button" type="button">Open Lightbox Dialog</button>
 
 <div aria-labelledby="dialog-title" aria-modal="true" class="dialog dialog--mask-fade" data-makeup-dialog-has-transitions="true" hidden id="custom-dialog" role="dialog">
     <div class="dialog__window dialog__window--fade">
@@ -33,10 +33,10 @@ title: Dialog (custom)
                     <use xlink:href="#icon-close"></use>
                 </svg>
             </button>
-            <h2 class="dialog__title" id="dialog-title">Dialog (custom)</h2>
+            <h2 class="dialog__title" id="dialog-title">Lightbox Dialog</h2>
         </div>
         <div class="dialog__main">
-            <p>A custom dialog is any dialog that does not exactly match an alert, confirm or input dialog.</p>
+            <p>A custom lightbox dialog is any lightbox dialog that does not exactly match an alert, confirm or input dialog.</p>
             <p><a href="https://www.ebay.com">www.ebay.com</a></p>
         </div>
     </div>
@@ -44,4 +44,4 @@ title: Dialog (custom)
 
 <hr />
 
-<p><i>Updated</i>: April 24th, 2020</p>
+<p><i>Updated</i>: October 21st, 2020</p>
