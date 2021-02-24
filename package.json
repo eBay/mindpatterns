@@ -45,8 +45,8 @@
     "npm-run-all": "^4",
     "onchange": "^7",
     "rimraf": "^3",
-    "webpack": "^4",
-    "webpack-cli": "^3"
+    "webpack": "^5",
+    "webpack-cli": "^4"
   },
   "dependencies": {
     "core-js-pure": "^3.4.1"
