@@ -55,7 +55,10 @@ button.toast-dialog__close:focus > svg {
   -webkit-box-pack: end;
           justify-content: flex-end;
 }
-.toast-dialog__footer button::first-letter {
+.toast-dialog__cta {
+    text-decoration: none;
+}
+.toast-dialog__cta::first-letter {
   text-decoration: underline;
 }
 
