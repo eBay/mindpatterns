@@ -15,9 +15,14 @@ span.menu-button {
 .menu-button__button {
     display: flex;
 }
+
+.menu-button__text {
+    margin-right: 8px;
+}
+
 .menu-button__button svg {
     align-self: center;
-    margin-left: 8px;
+    margin-left: auto;
 }
 
 .menu-button__menu {
