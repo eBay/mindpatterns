@@ -31,6 +31,7 @@
     "core-js-pure": "^3",
     "custom-event": "^1",
     "details-element-polyfill": "^2",
+    "element-closest": "^3",
     "makeup-active-descendant": "~0.3.9",
     "makeup-expander": "~0.8.5",
     "makeup-focusables": "~0.1",

@@ -11,6 +11,10 @@
 * This listbox code currently supports single-selct only!
 */
 
+// requires CustomEvent polyfill for IE
+// https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
+const CustomEvent = require('custom-event');
+
 const findIndex = require('core-js-pure/features/array/find-index');
 const ActiveDescendant = require('makeup-active-descendant');
 const PreventScrollKeys = require('makeup-prevent-scroll-keys');
