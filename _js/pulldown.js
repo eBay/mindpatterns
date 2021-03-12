@@ -57,11 +57,11 @@ module.exports = class {
         this._buttonEl.removeEventListener('click', this._onClickListener);
     }
 
-    _onClick(e) {
+    _onClick() {
         this.toggle();
     }
 
-    _onMutation(mutationsList, observer) {
+    _onMutation(mutationsList) {
         for (const mutation of mutationsList) {
             if (mutation.type === 'attributes') {
                 // console.log(mutation);

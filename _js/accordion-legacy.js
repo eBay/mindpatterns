@@ -21,7 +21,7 @@ function toggle(clickedTab) {
     clickedTab.setAttribute('aria-expanded', !isSelected);
 }
 
-const NextID = require('makeup-next-id');
+const nextID = require('makeup-next-id');
 const RovingTabindex = require('makeup-roving-tabindex');
 const scrollKeyPreventer = require('makeup-prevent-scroll-keys');
 const keyEmitter = require('makeup-key-emitter');
@@ -29,12 +29,11 @@ const keyEmitter = require('makeup-key-emitter');
 module.exports = class {
     constructor(widgetEl) {
         this._el = widgetEl;
-        const items = document.querySelectorAll('.accordion-legacy__item');
         const tabs = document.querySelectorAll('.accordion-legacy__tab');
         const panels = document.querySelectorAll('.accordion-legacy__panel');
 
         // ensure the widget has an ID
-        NextID(widgetEl, 'accordion-legacy');
+        nextID(widgetEl, 'accordion-legacy');
 
         // add appropriate ARIA roles
         widgetEl.setAttribute('role', 'tablist');

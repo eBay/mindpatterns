@@ -15,11 +15,11 @@ function onClick(e) {
     }
 }
 
-function onPrevClick(e) {
+function onPrevClick() {
     this.index = this.index - 1;
 }
 
-function onNextClick(e) {
+function onNextClick() {
     this.index = this.index + 1;
 }
 

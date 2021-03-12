@@ -6,7 +6,7 @@
 * https://opensource.org/licenses/MIT.
 */
 
-function onInput(e) {
+function onInput() {
     this._meterEl.value = this._inputEl.value.length;
     const displayValue = getDisplayValue(this._meterEl.value);
     if (this._valueEl.innerText !== displayValue) {

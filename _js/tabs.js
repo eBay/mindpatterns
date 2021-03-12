@@ -16,10 +16,9 @@
 const CustomEvent = require('custom-event');
 
 const Util = require('./util.js');
-const NextID = require('makeup-next-id');
+const nextID = require('makeup-next-id');
 const RovingTabindex = require('makeup-roving-tabindex');
 const ScrollKeyPreventer = require('makeup-prevent-scroll-keys');
-const KeyEmitter = require('makeup-key-emitter');
 const findIndex = require('core-js-pure/features/array/find-index');
 
 function linkTabToPanel(widgetID, el, i) {
@@ -128,7 +127,7 @@ module.exports = class {
         }
 
         // ensure the widget has an ID
-        NextID(widgetEl, 'tabs');
+        nextID(widgetEl, 'tabs');
 
         // add static roles
         tabList.setAttribute('role', 'tablist');
@@ -139,10 +138,12 @@ module.exports = class {
         tabs[initialIndex].setAttribute('aria-selected', 'true');
 
         // set all unselected tabs to false
-        Util.nodeListToArray(tabs).filter((el, i) => i !== initialIndex).forEach(el => el.setAttribute('aria-selected', 'false'));
+        Util.nodeListToArray(tabs).filter((el, i) => i !== initialIndex).forEach(
+            el => el.setAttribute('aria-selected', 'false')
+        );
 
         // hide all unselected panels
-        Util.nodeListToArray(panels).filter((el, i) => i !== initialIndex).forEach(el => el.hidden = true);
+        Util.nodeListToArray(panels).filter((el, i) => i !== initialIndex).forEach(el => (el.hidden = true));
 
         // all tabs control their respective panel
         tabs.forEach((el, i) => linkTabToPanel(this._el.id, el, i));

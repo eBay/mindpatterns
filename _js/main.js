@@ -6,10 +6,6 @@
 * https://opensource.org/licenses/MIT.
 */
 
-// requires CustomEvent polyfill for IE
-// https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
-const CustomEvent = require('custom-event');
-
 // requires NodeList.forEach polyfill for IE
 // conditional check due to https://github.com/imagitama/nodelist-foreach-polyfill/issues/7
 if (typeof window !== 'undefined') {
@@ -17,11 +13,10 @@ if (typeof window !== 'undefined') {
 }
 
 const pageWidgets = [];
-const dialogWidgets = [];
 
-const findIndex = require('core-js-pure/features/array/find-index');
+// const findIndex = require('core-js-pure/features/array/find-index');
 
-document.addEventListener('DOMContentLoaded', function(e) {
+document.addEventListener('DOMContentLoaded', function() {
     const Util = require('./util.js');
     const Accordion = require('./accordion.js');
     const AriaButton = require('./aria-button.js');
@@ -50,16 +45,10 @@ document.addEventListener('DOMContentLoaded', function(e) {
         }));
     });
 
-    /*
-    document.querySelectorAll('.accordion-legacy').forEach(function(widgetEl) {
-        pageWidgets.push(new AccordionLegacy(widgetEl));
-    });
-    */
-
     document.querySelectorAll('.aria-button').forEach(function(widgetEl) {
         pageWidgets.push(new AriaButton(widgetEl));
 
-        widgetEl.addEventListener('aria-button-click', function(e) {
+        widgetEl.addEventListener('aria-button-click', function() {
             console.log(this);
         });
     });
@@ -67,9 +56,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
     document.querySelectorAll('.carousel').forEach(function(widgetEl) {
         pageWidgets.push(new Carousel(widgetEl));
 
-        widgetEl.addEventListener('carousel-pagination', function(e) {
-            console.log(e);
-        });
+        widgetEl.addEventListener('carousel-pagination', Util.logEvent);
     });
 
     document.querySelectorAll('.character-meter').forEach(function(widgetEl) {
@@ -143,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
     document.querySelectorAll('.hijax-button').forEach(function(widgetEl) {
         pageWidgets.push(new HijaxButton(widgetEl));
 
-        widgetEl.addEventListener('hijax-button-click', function(e) {
+        widgetEl.addEventListener('hijax-button-click', function() {
             console.log(this);
         });
     });
@@ -171,11 +158,9 @@ document.addEventListener('DOMContentLoaded', function(e) {
     });
 
     document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
-        const widget = new ListboxButton(widgetEl, {
+        pageWidgets.push(new ListboxButton(widgetEl, {
             autoSelect: (widgetEl.dataset.autoSelect === 'true')
-        });
-
-        pageWidgets.push(widget);
+        }));
 
         widgetEl.addEventListener('listbox-button-change', function(e) {
             console.log(e.type, e.detail);
@@ -190,26 +175,6 @@ document.addEventListener('DOMContentLoaded', function(e) {
         widget.menu.el.addEventListener('menu-select', function(e) {
             console.log(e.type, e.detail.el.innerText);
         });
-    });
-
-    document.querySelectorAll('.menu').forEach(function(widgetEl, i) {
-        // check this isn't a buttonless menu
-        if (widgetEl.querySelector('.expand-btn')) {
-            const widget = new Expander(widgetEl, {
-                autoCollapse: true,
-                contentSelector: '[role=menu]',
-                expandOnClick: true,
-                focusManagement: 'focusable',
-                hostSelector: '.expand-btn'
-            });
-
-            const contentEl = widgetEl.querySelector('[role=menu]');
-            const rovingTabindexState = RovingTabindex.createLinear(contentEl, '.menu__item');
-
-            querySelectorAllToArray('.menu__item', contentEl).forEach(function(el) {
-                ScrollKeyPreventer.add(el);
-            });
-        }
     });
 
     document.querySelectorAll('.menu').forEach(function(widgetEl) {

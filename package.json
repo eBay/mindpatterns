@@ -5,7 +5,7 @@
   ],
   "scripts": {
     "start": "npm run build && run-p browser-sync nodemon onchange",
-    "build": "npm run transpile && npm run bundle && npm run jekyll",
+    "build": "npm run lint && npm run transpile && npm run bundle && npm run jekyll",
     "jekyll": "bundler exec jekyll build --incremental --config _config.yml,_config.localhost.yml",
     "browser-sync": "browser-sync start -s --ss _site --index _site/index.html --files '_site'",
     "bundle": "webpack",

@@ -13,20 +13,20 @@ const defaultOptions = {
 };
 
 function onToggle(e) {
-    const itemIndex = e.target.getAttribute(dataSetKey);
+    const itemIndex = parseInt(e.target.getAttribute(dataSetKey), 10);
     const isOpen = this._detailsWidgets[itemIndex].open === true;
 
     if (this._options.autoCollapse === true && isOpen) {
-        const otherWidgets = this._detailsWidgets.filter((item, index) => index != itemIndex);
-        otherWidgets.forEach(widget => widget.open = false);
+        const otherWidgets = this._detailsWidgets.filter((item, index) => index !== itemIndex);
+        otherWidgets.forEach(widget => (widget.open = false));
     }
 }
 
-function addToggleListener(detailsEl, i) {
+function addToggleListener(detailsEl) {
     detailsEl.addEventListener('toggle', this._onToggleListener);
 }
 
-function removeToggleListener(detailsEl, i) {
+function removeToggleListener(detailsEl) {
     detailsEl.removeEventListener('toggle', this._onToggleListener);
 }
 

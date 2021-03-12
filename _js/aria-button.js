@@ -6,7 +6,7 @@
 * https://opensource.org/licenses/MIT.
 */
 
-function onClick(e) {
+function onClick() {
     this._el.dispatchEvent(new CustomEvent('aria-button-click'));
 }
 

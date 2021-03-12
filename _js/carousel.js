@@ -6,13 +6,11 @@
 * https://opensource.org/licenses/MIT.
 */
 
-const Util = require('./util.js');
-
-function onPrevClick(e) {
+function onPrevClick() {
     this.index--;
 }
 
-function onNextClick(e) {
+function onNextClick() {
     this.index++;
 }
 
@@ -80,10 +78,10 @@ module.exports = class {
             }, this);
 
             // unhide new slide items
-            newItemsInViewport.forEach((el) => el.hidden = false);
+            newItemsInViewport.forEach((el) => (el.hidden = false));
 
             // hide old slide items
-            oldItemsInViewport.forEach((el) => el.hidden = true);
+            oldItemsInViewport.forEach((el) => (el.hidden = true));
 
             // update model
             this._indexesInViewport = newIndexesInViewport;

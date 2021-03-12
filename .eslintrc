@@ -5,7 +5,8 @@
     },
     "rules": {
         "arrow-body-style": 0,
-        "prefer-arrow-callback": 0
+        "prefer-arrow-callback": 0,
+        "no-console": 0
     },
     "parserOptions": {
         "sourceType": "module",

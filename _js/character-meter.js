@@ -6,7 +6,7 @@
 * https://opensource.org/licenses/MIT.
 */
 
-function onInput(e) {
+function onInput() {
     const charCount = this._inputEl.value.length;
 
     if (charCount === this._lowValue || charCount === this._highValue) {

@@ -8,7 +8,7 @@
 
 const Util = require('./util.js');
 
-function onClick(e) {
+function onClick() {
     this.expanded = !this.expanded;
 }
 
@@ -27,7 +27,9 @@ module.exports = class {
         this._destroyed = false;
         this._buttonEl = widgetEl.querySelector('.expando__button');
         this._onClickListener = onClick.bind(this);
-        this._childElements = Util.nodeListToArray(this._el.children).filter(el => el.tagName.toUpperCase() !== 'BUTTON');
+        this._childElements = Util.nodeListToArray(this._el.children).filter(
+            el => el.tagName.toUpperCase() !== 'BUTTON'
+        );
 
         if (this._buttonEl.getAttribute('aria-expanded') !== 'true') {
             hideElements(this._childElements);

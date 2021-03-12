@@ -6,7 +6,7 @@
 * https://opensource.org/licenses/MIT.
 */
 
-function onClick(e) {
+function onClick() {
     window.location = this._anchorEl.getAttribute('href');
 }
 
