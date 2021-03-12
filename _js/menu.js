@@ -12,8 +12,8 @@ const CustomEvent = require('custom-event');
 
 // requires closest polyfill for IE
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
-const elementClosest = require('element-closest');
-elementClosest(window); // this is used to reference window.Element
+// const elementClosest = require('element-closest');
+// elementClosest(window); // this is used to reference window.Element
 
 const RovingTabIndex = require('makeup-roving-tabindex');
 const PreventScrollKeys = require('makeup-prevent-scroll-keys');
