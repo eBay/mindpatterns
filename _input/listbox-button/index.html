@@ -31,12 +31,13 @@ title: Listbox Button
 
 <h2 class="clipped">Examples</h2>
 
-<h3>Example 1: Single-Select with Auto Selection</h3>
+<h3>Example 1A: Single-Select with Auto Selection &amp; Outer Label</h3>
 <p><em>Keyboard users:</em> Use ARROW keys to change selected option; then ESC, ENTER or SPACEBAR to dismiss.</p>
 
+<span id="listbox-1-outer-label">Car:</span>
 <span class="listbox-button" data-auto-select="true">
-    <button class="button listbox-button__button">
-        <span class="listbox-button__label">Volvo</span>
+    <button class="button listbox-button__button" aria-labelledby="listbox-1-outer-label listbox-1-inner-label">
+        <span class="listbox-button__label" id="listbox-1-inner-label">Volvo</span>
         <svg focusable="false" height="12" width="12" aria-hidden="true">
             <use xlink:href="#icon-chevron-down"></use>
         </svg>
@@ -73,12 +74,97 @@ title: Listbox Button
 
 <hr />
 
-<h3>Example 2: Single-Select with Manual Selection</h3>
+<h3>Example 1B: Single-Select with Auto Selection &amp; Compact Label</h3>
+<p><em>Keyboard users:</em> Use ARROW keys to change selected option; then ESC, ENTER or SPACEBAR to dismiss.</p>
+
+<span class="listbox-button" data-auto-select="true">
+    <button class="button listbox-button__button" data-listbox-button-prefix="Car: ">
+        <span class="listbox-button__label">Car: Volvo</span>
+        <svg focusable="false" height="12" width="12" aria-hidden="true">
+            <use xlink:href="#icon-chevron-down"></use>
+        </svg>
+    </button>
+    <div class="listbox-button__listbox" hidden>
+        <div role="listbox">
+            <div class="listbox__option" role="option">
+                <span>Volvo</span>
+                <svg focusable="false" height="12" width="12" aria-hidden="true">
+                    <use xlink:href="#icon-tick"></use>
+                </svg>
+            </div>
+            <div class="listbox__option" role="option">
+                <span>Saab</span>
+                <svg focusable="false" height="12" width="12" aria-hidden="true">
+                    <use xlink:href="#icon-tick"></use>
+                </svg>
+            </div>
+            <div class="listbox__option" role="option">
+                <span>Opel</span>
+                <svg focusable="false" height="12" width="12" aria-hidden="true">
+                    <use xlink:href="#icon-tick"></use>
+                </svg>
+            </div>
+            <div class="listbox__option" role="option">
+                <span>Audi</span>
+                <svg focusable="false" height="12" width="12" aria-hidden="true">
+                    <use xlink:href="#icon-tick"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</span>
+
+<hr />
+
+<h3>Example 2A: Single-Select with Manual Selection &amp; Outer Label</h3>
+<p><em>Keyboard users:</em> Use ARROW keys to highlight an option; then ENTER or SPACEBAR to select.</p>
+
+<span id="listbox-2-outer-label">Car:</span>
+<span class="listbox-button" data-auto-select="false">
+    <button class="button listbox-button__button" aria-labelledby="listbox-2-outer-label listbox-2-inner-label">
+        <span class="listbox-button__label" id="listbox-2-inner-label">Volvo</span>
+        <svg focusable="false" height="12" width="12" aria-hidden="true">
+            <use xlink:href="#icon-chevron-down"></use>
+        </svg>
+    </button>
+    <div class="listbox-button__listbox" hidden>
+        <div role="listbox">
+            <div class="listbox__option" role="option">
+                <span>Volvo</span>
+                <svg focusable="false" height="12" width="12" aria-hidden="true">
+                    <use xlink:href="#icon-tick"></use>
+                </svg>
+            </div>
+            <div class="listbox__option" role="option">
+                <span>Saab</span>
+                <svg focusable="false" height="12" width="12" aria-hidden="true">
+                    <use xlink:href="#icon-tick"></use>
+                </svg>
+            </div>
+            <div class="listbox__option" role="option">
+                <span>Opel</span>
+                <svg focusable="false" height="12" width="12" aria-hidden="true">
+                    <use xlink:href="#icon-tick"></use>
+                </svg>
+            </div>
+            <div class="listbox__option" role="option">
+                <span>Audi</span>
+                <svg focusable="false" height="12" width="12" aria-hidden="true">
+                    <use xlink:href="#icon-tick"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</span>
+
+<hr />
+
+<h3>Example 2B: Single-Select with Manual Selection &amp; Compact Label</h3>
 <p><em>Keyboard users:</em> Use ARROW keys to highlight an option; then ENTER or SPACEBAR to select.</p>
 
 <span class="listbox-button" data-auto-select="false">
-    <button class="button listbox-button__button">
-        <span class="listbox-button__label">Volvo</span>
+    <button class="button listbox-button__button" data-listbox-button-prefix="Car: ">
+        <span class="listbox-button__label">Car: Volvo</span>
         <svg focusable="false" height="12" width="12" aria-hidden="true">
             <use xlink:href="#icon-chevron-down"></use>
         </svg>
