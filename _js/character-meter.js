@@ -6,7 +6,6 @@
 * https://opensource.org/licenses/MIT.
 */
 
-
 function onInput(e) {
     const charCount = this._inputEl.value.length;
 
@@ -28,10 +27,10 @@ function onInput(e) {
 }
 
 function getDisplayValue(count, limit) {
-    let remainder = limit - count;
+    const remainder = limit - count;
 
     return `${remainder} / ${limit}`;
-};
+}
 
 module.exports = class {
     constructor(widgetEl) {
@@ -66,4 +65,4 @@ module.exports = class {
         this.sleep();
         this._onInputListener = null;
     }
-}
+};

@@ -142,4 +142,4 @@ module.exports = class {
         this._onPrevClickListener = null;
         this._onNextClickListener = null;
     }
-}
+};

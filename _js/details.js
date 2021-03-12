@@ -4,7 +4,7 @@
 * https://github.com/javan/details-element-polyfill
 */
 
-const Util = require('./util.js')
+const Util = require('./util.js');
 
 function onClick(e) {
     this.open = !(this.open === true);
@@ -48,7 +48,7 @@ module.exports = class {
             this._childElements = Util.nodeListToArray(this._el.children).filter(el => el.tagName.toUpperCase() !== 'SUMMARY');
 
             if (this._el.hasAttribute('open')) {
-                this._el.setAttribute('data-makeup-open','');
+                this._el.setAttribute('data-makeup-open', '');
                 this._el.removeAttribute('open');
             } else {
                 this._childElements.forEach(function(el, i) {
@@ -67,15 +67,14 @@ module.exports = class {
     get open() {
         if (this._isPolyfill) {
             return this._el.hasAttribute('data-makeup-open');
-        } else {
-            return this._el.open;
         }
+        return this._el.open;
     }
 
     set open(bool) {
         if (this._isPolyfill) {
             if (bool === true) {
-                this._el.setAttribute('data-makeup-open','');
+                this._el.setAttribute('data-makeup-open', '');
                 showElements(this._childElements);
             } else {
                 this._el.removeAttribute('data-makeup-open');
@@ -114,4 +113,4 @@ module.exports = class {
             this._onKeyupListener = null;
         }
     }
-}
+};

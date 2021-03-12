@@ -15,7 +15,7 @@ function onKeyboardToggle(e) {
 }
 
 function toggle(clickedTab) {
-    var isSelected = clickedTab.getAttribute('aria-selected') === 'true';
+    const isSelected = clickedTab.getAttribute('aria-selected') === 'true';
 
     clickedTab.setAttribute('aria-selected', !isSelected);
     clickedTab.setAttribute('aria-expanded', !isSelected);
@@ -45,14 +45,14 @@ module.exports = class {
         });
 
         panels.forEach(function(el) {
-            el.setAttribute('role', 'tabpanel')
+            el.setAttribute('role', 'tabpanel');
             el.setAttribute('aria-hidden', 'true');
         });
 
         // all panels are labelled and controlled by their respective tab
         tabs.forEach(function(el, idx) {
-            const tabId = widgetEl.id + '-tab-' + idx;
-            const panelId = widgetEl.id + '-panel-' + idx;
+            const tabId = `${widgetEl.id }-tab-${ idx}`;
+            const panelId = `${widgetEl.id }-panel-${ idx}`;
             const panelEl = panels[idx];
 
             el.id = tabId;
@@ -85,4 +85,4 @@ module.exports = class {
         this._el.removeEventListener('spacebarKeyDown', onKeyboardToggle);
         this._el.removeEventListener('enterKeyDown', onKeyboardToggle);
     }
-}
+};

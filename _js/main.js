@@ -21,7 +21,7 @@ const dialogWidgets = [];
 
 const findIndex = require('core-js-pure/features/array/find-index');
 
-document.addEventListener("DOMContentLoaded", function(e) {
+document.addEventListener('DOMContentLoaded', function(e) {
     const Util = require('./util.js');
     const Accordion = require('./accordion.js');
     const AriaButton = require('./aria-button.js');
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
     document.querySelectorAll('.combobox').forEach(function(widgetEl) {
         pageWidgets.push(new Combobox(widgetEl, {
-            autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false
+            autoSelect: (widgetEl.dataset.autoSelect === 'true')
         }));
 
         widgetEl.addEventListener('combobox-change', function(e) {
@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
     document.querySelectorAll('.listbox').forEach(function(widgetEl) {
         pageWidgets.push(new Listbox(widgetEl, {
-            autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false
+            autoSelect: (widgetEl.dataset.autoSelect === 'true')
         }));
         widgetEl.addEventListener('listbox-change', function(e) {
             console.log(e.type, e.detail);
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
     document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
         const widget = new ListboxButton(widgetEl, {
-            autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false
+            autoSelect: (widgetEl.dataset.autoSelect === 'true')
         });
 
         pageWidgets.push(widget);
@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     document.querySelectorAll('.menu').forEach(function(widgetEl, i) {
         // check this isn't a buttonless menu
         if (widgetEl.querySelector('.expand-btn')) {
-            var widget = new Expander(widgetEl, {
+            const widget = new Expander(widgetEl, {
                 autoCollapse: true,
                 contentSelector: '[role=menu]',
                 expandOnClick: true,
@@ -203,8 +203,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 hostSelector: '.expand-btn'
             });
 
-            var contentEl = widgetEl.querySelector('[role=menu]');
-            var rovingTabindexState = RovingTabindex.createLinear(contentEl, '.menu__item');
+            const contentEl = widgetEl.querySelector('[role=menu]');
+            const rovingTabindexState = RovingTabindex.createLinear(contentEl, '.menu__item');
 
             querySelectorAllToArray('.menu__item', contentEl).forEach(function(el) {
                 ScrollKeyPreventer.add(el);
@@ -263,8 +263,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
     document.querySelectorAll('.tabs').forEach(function(widgetEl) {
         widgetEl.addEventListener('tabs-change', Util.logEvent);
 
-        pageWidgets.push(new Tabs(widgetEl,  {
-            autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false
+        pageWidgets.push(new Tabs(widgetEl, {
+            autoSelect: (widgetEl.dataset.autoSelect === 'true')
         }));
     });
 

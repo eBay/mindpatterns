@@ -55,4 +55,4 @@ module.exports = class {
         this.unobserve();
         this._onClickListener = null;
     }
-}
+};

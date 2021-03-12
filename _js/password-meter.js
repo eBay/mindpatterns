@@ -6,7 +6,6 @@
 * https://opensource.org/licenses/MIT.
 */
 
-
 function onInput(e) {
     this._meterEl.value = this._inputEl.value.length;
     const displayValue = getDisplayValue(this._meterEl.value);
@@ -16,18 +15,18 @@ function onInput(e) {
 }
 
 function getDisplayValue(level) {
-        var label;
+    let label;
 
-        if (level >= 12) {
-            label = "strong";
-        } else if (level >= 8) {
-            label = "weak";
-        } else {
-            label = "dangerous";
-        }
+    if (level >= 12) {
+        label = 'strong';
+    } else if (level >= 8) {
+        label = 'weak';
+    } else {
+        label = 'dangerous';
+    }
 
-        return label;
-};
+    return label;
+}
 
 module.exports = class {
     constructor(widgetEl) {
@@ -58,4 +57,4 @@ module.exports = class {
         this.sleep();
         this._onInputListener = null;
     }
-}
+};

@@ -23,17 +23,17 @@ const KeyEmitter = require('makeup-key-emitter');
 const findIndex = require('core-js-pure/features/array/find-index');
 
 function linkTabToPanel(widgetID, el, i) {
-    el.setAttribute('id', widgetID + '-tab-' + i);
-    el.setAttribute('aria-controls', widgetID + '-panel-' + i);
+    el.setAttribute('id', `${widgetID }-tab-${ i}`);
+    el.setAttribute('aria-controls', `${widgetID }-panel-${ i}`);
 }
 
 function linkPanelToTab(widgetID, el, i) {
-    el.setAttribute('id', widgetID + '-panel-' + i);
-    el.setAttribute('aria-labelledby', widgetID + '-tab-' + i);
+    el.setAttribute('id', `${widgetID }-panel-${ i}`);
+    el.setAttribute('aria-labelledby', `${widgetID }-tab-${ i}`);
 }
 
 function disableLink(el) {
-    el.setAttribute('role', 'presentation')
+    el.setAttribute('role', 'presentation');
     el.removeAttribute('href');
 }
 
@@ -198,4 +198,4 @@ module.exports = class {
         this._onTabListKeyDownListener = null;
         this._onTabListClickListener = null;
     }
-}
+};

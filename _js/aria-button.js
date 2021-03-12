@@ -54,4 +54,4 @@ module.exports = class {
         this._onKeyDownListener = null;
         this._onClickListener = null;
     }
-}
+};

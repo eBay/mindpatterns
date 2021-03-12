@@ -10,6 +10,7 @@
     "browser-sync": "browser-sync start -s --ss _site --index _site/index.html --files '_site'",
     "bundle": "webpack",
     "clean": "rimraf _transpiled _site .sass-cache",
+    "fix": "eslint '_js/*.js' --fix",
     "lint": "eslint '_js/*.js' > lint.log",
     "nodemon": "nodemon --exec 'npm run bundle && npm run jekyll' -e html,css,scss,js --ignore 'static' --ignore '_site'",
     "prepublishOnly": "npm run build",

@@ -50,4 +50,4 @@ module.exports = class {
         this._destroyed = true;
         this.sleep();
     }
-}
+};

@@ -14,7 +14,7 @@ const defaultOptions = {
 
 function onToggle(e) {
     const itemIndex = e.target.getAttribute(dataSetKey);
-    const isOpen = this._detailsWidgets[itemIndex].open === true
+    const isOpen = this._detailsWidgets[itemIndex].open === true;
 
     if (this._options.autoCollapse === true && isOpen) {
         const otherWidgets = this._detailsWidgets.filter((item, index) => index != itemIndex);
@@ -73,4 +73,4 @@ module.exports = class {
 
         this._onToggleListener = null;
     }
-}
+};

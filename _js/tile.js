@@ -36,4 +36,4 @@ module.exports = class {
         this.sleep();
         this._onClickListener = null;
     }
-}
+};
