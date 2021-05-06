@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const Pagination = require('./pagination.js');
     const Pulldown = require('./pulldown.js');
     const StarRating = require('./star-rating.js');
-    const Switch = require('makeup-switch-class');
+    const Switch = require('makeup-switch');
     const Tabs = require('./tabs.js');
     const Tile = require('./tile.js');
     const Tooltip = require('./tooltip.js');
