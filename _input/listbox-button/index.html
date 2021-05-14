@@ -36,11 +36,13 @@ title: Listbox Button
 
 <span id="listbox-1-outer-label">Car:</span>
 <span class="listbox-button" data-auto-select="true">
-    <button class="button listbox-button__button" aria-labelledby="listbox-1-outer-label listbox-1-inner-label">
-        <span class="listbox-button__label" id="listbox-1-inner-label">Volvo</span>
-        <svg focusable="false" height="12" width="12" aria-hidden="true">
-            <use xlink:href="#icon-chevron-down"></use>
-        </svg>
+    <button class="button expand-btn" aria-labelledby="listbox-1-outer-label listbox-1-inner-label">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text" id="listbox-1-inner-label">Volvo</span>
+            <svg class="icon" focusable="false" height="12" width="12" aria-hidden="true">
+                <use xlink:href="#icon-chevron-down"></use>
+            </svg>
+        </span>
     </button>
     <div class="listbox-button__listbox" hidden>
         <div role="listbox">
@@ -79,11 +81,13 @@ title: Listbox Button
 
 <span id="listbox-2-outer-label">Car:</span>
 <span class="listbox-button" data-auto-select="false">
-    <button class="button listbox-button__button" aria-labelledby="listbox-2-outer-label listbox-2-inner-label">
-        <span class="listbox-button__label" id="listbox-2-inner-label">Volvo</span>
-        <svg focusable="false" height="12" width="12" aria-hidden="true">
-            <use xlink:href="#icon-chevron-down"></use>
-        </svg>
+    <button class="button expand-btn" aria-labelledby="listbox-2-outer-label listbox-2-inner-label">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text" id="listbox-2-inner-label">Volvo</span>
+            <svg class="icon" focusable="false" height="12" width="12" aria-hidden="true">
+                <use xlink:href="#icon-chevron-down"></use>
+            </svg>
+        </span>
     </button>
     <div class="listbox-button__listbox" hidden>
         <div role="listbox">
@@ -120,11 +124,13 @@ title: Listbox Button
 <h3>Example 3: Compact Label</h3>
 
 <span class="listbox-button" data-auto-select="true">
-    <button class="button listbox-button__button" data-listbox-button-prefix="Car: ">
-        <span class="listbox-button__label">Car: Volvo</span>
-        <svg focusable="false" height="12" width="12" aria-hidden="true">
-            <use xlink:href="#icon-chevron-down"></use>
-        </svg>
+    <button class="button expand-btn" data-listbox-button-prefix="Car: ">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Car: Volvo</span>
+            <svg class="icon" focusable="false" height="12" width="12" aria-hidden="true">
+                <use xlink:href="#icon-chevron-down"></use>
+            </svg>
+        </span>
     </button>
     <div class="listbox-button__listbox" hidden>
         <div role="listbox">

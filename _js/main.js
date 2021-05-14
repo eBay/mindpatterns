@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const HijaxButton = require('./hijax-button.js');
     const PasswordMeter = require('./password-meter.js');
     const Listbox = require('makeup-listbox');
-    const ListboxButton = require('./listbox-button.js');
+    const ListboxButton = require('makeup-listbox-button');
     const Menu = require('./menu.js');
     const MenuButton = require('./menu-button.js');
     const Pagination = require('./pagination.js');
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
             autoSelect: (widgetEl.dataset.autoSelect === 'true')
         }));
 
-        widgetEl.addEventListener('listbox-button-change', function(e) {
+        widgetEl.addEventListener('makeup-listbox-button-change', function(e) {
             console.log(e.type, e.detail);
         });
     });
