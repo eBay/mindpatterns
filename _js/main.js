@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const AriaButton = require('./aria-button.js');
     const Carousel = require('./carousel.js');
     const CharacterMeter = require('./character-meter.js');
-    const Combobox = require('./combobox.js');
+    const Combobox = require('makeup-combobox');
     const DialogButton = require('./dialog-button.js');
     const Expander = require('makeup-expander');
     const HijaxButton = require('./hijax-button.js');
@@ -65,10 +65,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelectorAll('.combobox').forEach(function(widgetEl) {
         pageWidgets.push(new Combobox(widgetEl, {
-            autoSelect: (widgetEl.dataset.autoSelect === 'true')
+            autoSelect: !(widgetEl.dataset.makeupAutoSelect === 'false')
         }));
 
-        widgetEl.addEventListener('combobox-change', function(e) {
+        widgetEl.addEventListener('makeup-combobox-change', function(e) {
             console.log(e.type, e.detail);
         });
     });

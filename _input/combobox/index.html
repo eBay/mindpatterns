@@ -14,8 +14,8 @@ title: Combobox
 
 <h2 class="clipped">Readme</h2>
 
-<p>A combobox allows the user to enter their own value into the textbox <em>or</em> choose a value for the texbox from a list of options.</p>
-<p>For combobox with typeahead / autocomplete behavior, please visit the <a href="../autocomplete">autocomplete</a> pattern.</p>
+<p>A combobox allows the user to type their own value into the textbox <em>or</em> select a value for the texbox from a list of options.</p>
+<p>This example uses the <a href="https://github.com/makeup/makeup-js/tree/master/packages/makeup-combobox">makeup-combobox</a> class.</p>
 <p>Please <a href={{ "input/combobox" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <hr />
@@ -23,13 +23,13 @@ title: Combobox
 <h2 class="clipped">Examples</h2>
 
 <h3>Example 1: Manual Selection</h3>
-<p>List expands on focus. Cycle through options with ARROW keys; press ENTER to select & dismiss.<p>
+<p>With manual selection, ENTER key is required to manually update the textbox with the value of the current active descendant (controlled via arrow keys). This means that an <em>additional</em> ENTER key press is required to submit any associated form.</p>
+
 <form>
     <label for="combobox-1">Sell your games console</label>
-    <span class="combobox" data-auto-select="false">
+    <span class="combobox" data-makeup-auto-select="false">
         <span>
             <input class="combobox__textbox" id="combobox-1" name="console" type="text" placeholder="Playstation, Xbox, etc." />
-            <span class="combobox__icon"></span>
         </span>
         <div class="combobox__listbox" hidden>
             <div role="listbox">
@@ -47,4 +47,77 @@ title: Combobox
 
 <hr />
 
-<p><i>Updated</i>: July 15th, 2019</p>
+<h3>Example 2: Automatic Selection</h3>
+<p>With automatic selection, ENTER key is not required, the textbox value is automatically updated to match the current active descendant option. ENTER key will submit any associated form.</p>
+
+<form>
+    <label for="combobox-2">Sell your games console</label>
+    <span class="combobox">
+        <span>
+            <input class="combobox__textbox" id="combobox-2" name="console" type="text" placeholder="Playstation, Xbox, etc." />
+        </span>
+        <div class="combobox__listbox" hidden>
+            <div role="listbox">
+                <div role="option">Nintendo Switch</div>
+                <div role="option">Nintendo 3DS</div>
+                <div role="option">Playstation 3</div>
+                <div role="option">Playstation 4</div>
+                <div role="option">XBOX ONE</div>
+                <div role="option">XBOX 360</div>
+            </div>
+        </div>
+    </span>
+    <input class="button" type="submit" />
+</form>
+
+<hr />
+
+<h3>Example 3: Manual-Selection with Autocompleting List</h3>
+<p>With an autocomplete list, the list of suggestions is filtered based on the current textbox value.</p>
+<form>
+    <label for="combobox-3">Sell your games console</label>
+    <span class="combobox" data-makeup-auto-select="false">
+        <span>
+            <input autocomplete="off" aria-autocomplete="list" class="combobox__textbox" id="combobox-3" name="console" type="text" placeholder="Playstation, Xbox, etc." />
+        </span>
+        <div class="combobox__listbox" hidden>
+            <div role="listbox">
+                <div role="option">Nintendo Switch</div>
+                <div role="option">Nintendo 3DS</div>
+                <div role="option">Playstation 3</div>
+                <div role="option">Playstation 4</div>
+                <div role="option">XBOX ONE</div>
+                <div role="option">XBOX 360</div>
+            </div>
+        </div>
+    </span>
+    <input class="button" type="submit" />
+</form>
+
+<hr />
+
+<h3>Example 4: Auto-Selection with Autocompleting List</h3>
+<p>With an autocomplete list, the list of suggestions is filtered based on the current textbox value.</p>
+<form>
+    <label for="combobox-4">Sell your games console</label>
+    <span class="combobox">
+        <span>
+            <input autocomplete="off" aria-autocomplete="list" class="combobox__textbox" id="combobox-4" name="console" type="text" placeholder="Playstation, Xbox, etc." />
+        </span>
+        <div class="combobox__listbox" hidden>
+            <div role="listbox">
+                <div role="option">Nintendo Switch</div>
+                <div role="option">Nintendo 3DS</div>
+                <div role="option">Playstation 3</div>
+                <div role="option">Playstation 4</div>
+                <div role="option">XBOX ONE</div>
+                <div role="option">XBOX 360</div>
+            </div>
+        </div>
+    </span>
+    <input class="button" type="submit" />
+</form>
+
+<hr />
+
+<p><i>Updated</i>: May 15th, 2021</p>
