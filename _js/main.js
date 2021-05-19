@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const PasswordMeter = require('./password-meter.js');
     const Listbox = require('makeup-listbox');
     const ListboxButton = require('makeup-listbox-button');
-    const Menu = require('./menu.js');
+    const Menu = require('makeup-menu');
     const MenuButton = require('./menu-button.js');
     const Pagination = require('./pagination.js');
     const Pulldown = require('./pulldown.js');
@@ -180,9 +180,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.menu').forEach(function(widgetEl) {
         pageWidgets.push(new Menu(widgetEl));
 
-        widgetEl.addEventListener('menu-select', (e) => console.log(e.type, e.detail));
-        widgetEl.addEventListener('menu-change', (e) => console.log(e.type, e.detail));
-        widgetEl.addEventListener('menu-toggle', (e) => console.log(e.type, e.detail));
+        widgetEl.addEventListener('makeup-menu-select', (e) => console.log(e.type, e.detail));
+        widgetEl.addEventListener('makeup-menu-change', (e) => console.log(e.type, e.detail));
     });
 
     document.querySelectorAll('.native-button, .stealth-button').forEach(function(widgetEl) {

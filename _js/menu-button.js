@@ -7,7 +7,7 @@
 */
 
 const Expander = require('makeup-expander');
-const Menu = require('./menu.js');
+const Menu = require('makeup-menu');
 
 function onButtonFirstClick() {
     this.menu.el.hidden = false;
@@ -70,18 +70,16 @@ module.exports = class {
     sleep() {
         this._buttonEl.removeEventListener('click', this._onButtonFirstClickListener);
         this.menu.el.removeEventListener('keydown', this._onMenuKeyDownListener);
-        this.menu.el.removeEventListener('menu-select', this._onMenuItemSelectListener);
-        this.menu.el.removeEventListener('menu-toggle', this._onMenuItemSelectListener);
-        this.menu.el.removeEventListener('menu-change', this._onMenuItemSelectListener);
+        this.menu.el.removeEventListener('makeup-menu-select', this._onMenuItemSelectListener);
+        this.menu.el.removeEventListener('makeup-menu-change', this._onMenuItemSelectListener);
     }
 
     wake() {
         if (this._destroyed !== true) {
             this._buttonEl.addEventListener('click', this._onButtonFirstClickListener, { once: true });
             this.menu.el.addEventListener('keydown', this._onMenuKeyDownListener);
-            this.menu.el.addEventListener('menu-select', this._onMenuItemSelectListener);
-            this.menu.el.addEventListener('menu-toggle', this._onMenuItemSelectListener);
-            this.menu.el.addEventListener('menu-change', this._onMenuItemSelectListener);
+            this.menu.el.addEventListener('makeup-menu-select', this._onMenuItemSelectListener);
+            this.menu.el.addEventListener('makeup-menu-change', this._onMenuItemSelectListener);
         }
     }
 
