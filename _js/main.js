@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const Listbox = require('makeup-listbox');
     const ListboxButton = require('makeup-listbox-button');
     const Menu = require('makeup-menu');
-    const MenuButton = require('./menu-button.js');
+    const MenuButton = require('makeup-menu-button');
     const Pagination = require('./pagination.js');
     const Pulldown = require('./pulldown.js');
     const StarRating = require('./star-rating.js');
@@ -68,9 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
             autoSelect: !(widgetEl.dataset.makeupAutoSelect === 'false')
         }));
 
-        widgetEl.addEventListener('makeup-combobox-change', function(e) {
-            console.log(e.type, e.detail);
-        });
+        widgetEl.addEventListener('makeup-combobox-change', (e) => console.log(e.type, e.detail));
     });
 
     document.querySelectorAll('.dialog-button').forEach(function(widgetEl) {
@@ -152,9 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
         pageWidgets.push(new Listbox(widgetEl, {
             autoSelect: (widgetEl.dataset.autoSelect === 'true')
         }));
-        widgetEl.addEventListener('makeup-listbox-change', function(e) {
-            console.log(e.type, e.detail);
-        });
+        widgetEl.addEventListener('makeup-listbox-change', (e) => console.log(e.type, e.detail));
     });
 
     document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
@@ -162,9 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
             autoSelect: (widgetEl.dataset.autoSelect === 'true')
         }));
 
-        widgetEl.addEventListener('makeup-listbox-button-change', function(e) {
-            console.log(e.type, e.detail);
-        });
+        widgetEl.addEventListener('makeup-listbox-button-change', (e) => console.log(e.type, e.detail));
     });
 
     document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
@@ -172,9 +166,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         pageWidgets.push(widget);
 
-        widget.menu.el.addEventListener('menu-select', function(e) {
-            console.log(e.type, e.detail.el.innerText);
-        });
+        widget.menu.el.addEventListener('makeup-menu-select', (e) => console.log(e.type, e.detail));
+        widget.menu.el.addEventListener('makeup-menu-change', (e) => console.log(e.type, e.detail));
     });
 
     document.querySelectorAll('.menu').forEach(function(widgetEl) {
@@ -198,9 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.pulldown').forEach(function(widgetEl) {
         pageWidgets.push(new Pulldown(widgetEl));
 
-        widgetEl.addEventListener('makeup-pulldown-toggle', function(e) {
-            console.log(e.type, e.detail);
-        });
+        widgetEl.addEventListener('makeup-pulldown-toggle', (e) => console.log(e.type, e.detail));
     });
 
     document.querySelectorAll('.star-rating').forEach(function(widgetEl) {
