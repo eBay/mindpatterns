@@ -5,16 +5,6 @@ title: Alert Dialog
 
 <h1>{{ page.title }}</h1>
 
-<style>
-    .dialog {
-        text-align: center;
-    }
-
-    .dialog__title {
-        width: 100%;
-    }
-</style>
-
 <h2 class="clipped">Readme</h2>
 <p>Activate button to open the alert dialog.</p>
 <p>Please <a href={{ "messaging/alert-dialog" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
@@ -23,24 +13,22 @@ title: Alert Dialog
 
 <hr />
 
-<h3>Example 1: Lightbox</h3>
+<button data-makeup-for="alert-dialog" class="button dialog-button" type="button">Open Alert Dialog</button>
 
-<button data-makeup-dialog-button-for="alert-dialog" class="button dialog-button" type="button">Open Alert Dialog</button>
-
-<div aria-labelledby="alert-dialog-title" aria-modal="true" class="dialog" data-makeup-dialog-has-transitions="true" hidden id="alert-dialog" role="alertdialog">
-    <div class="dialog__window dialog__window--fade">
-        <div class="dialog__header">
-            <h2 class="dialog__title" id="alert-dialog-title">Alert!</h2>
+<div class="lightbox-dialog lightbox-dialog--alert" id="alert-dialog" role="alertdialog" aria-labelledby="alert-dialog-title" aria-modal="true" hidden>
+    <div class="lightbox-dialog__compact-window lightbox-dialog__compact-window--fade">
+        <div class="lightbox-dialog__header">
+            <h2 class="lightbox-dialog__title" id="alert-dialog-title">Alert!</h2>
         </div>
-        <div class="dialog__main">
+        <div class="lightbox-dialog__main">
             <p id="alert-dialog-description">This is the alert description.</p>
         </div>
-        <div class="dialog__footer">
-            <button aria-describedby="alert-dialog-description" class="dialog__close button" type="button">Close</button>
+        <div class="lightbox-dialog__footer">
+            <button aria-describedby="alert-dialog-description" class="lightbox-dialog__acknowledge btn" type="button">OK</button>
         </div>
     </div>
 </div>
 
 <hr />
 
-<p><i>Updated</i>: April 24th, 2020</p>
+<p><i>Updated</i>: May 26th, 2021</p>

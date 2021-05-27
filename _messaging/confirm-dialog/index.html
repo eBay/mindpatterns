@@ -21,30 +21,23 @@ title: Confirm Dialog
 
 <hr />
 
-<h3>Example 1: Lightbox</h3>
+<button data-makeup-for="confirm-dialog" class="button dialog-button" type="button">Open Confirm Dialog</button>
 
-<button data-makeup-dialog-button-for="confirm-dialog" class="button dialog-button" type="button">Open Confirm Dialog</button>
-
-<div aria-labelledby="confirm-dialog-title" aria-modal="true" class="dialog" data-makeup-dialog-has-transitions="true" hidden id="confirm-dialog" role="dialog">
-    <div class="dialog__window dialog__window--fade">
-        <div class="dialog__header">
-            <button aria-label="Close Dialog" class="dialog__close button" type="button">
-                <svg aria-hidden="true" focusable="false" height="16" width="16">
-                    <use xlink:href="#icon-close"></use>
-                </svg>
-            </button>
-            <h2 class="dialog__title" id="confirm-dialog-title">Are you sure?</h2>
+<div class="lightbox-dialog lightbox-dialog--confirm" id="confirm-dialog" role="dialog" aria-labelledby="confirm-dialog-title" aria-modal="true" hidden>
+    <div class="lightbox-dialog__compact-window lightbox-dialog__compact-window--fade">
+        <div class="lightbox-dialog__header">
+            <h2 class="lightbox-dialog__title" id="confirm-dialog-title">Are you sure?</h2>
         </div>
-        <div class="dialog__main" id="confirm-dialog-description">
+        <div class="lightbox-dialog__main" id="confirm-dialog-description">
             <p>This is the confirmation description.</p>
         </div>
-        <div class="dialog__footer">
-            <button aria-describedby="confirm-dialog-description" class="button dialog__reject" type="button">Reject</button>
-            <button aria-describedby="confirm-dialog-description" class="button dialog__confirm" type="button">Confirm</button>
+        <div class="lightbox-dialog__footer">
+            <button aria-describedby="confirm-dialog-description" class="btn lightbox-dialog__reject" type="button">Reject</button>
+            <button aria-describedby="confirm-dialog-description" class="btn lightbox-dialog__confirm" type="button">Confirm</button>
         </div>
     </div>
 </div>
 
 <hr />
 
-<p><i>Updated</i>: April 24th, 2020</p>
+<p><i>Updated</i>: May 26th, 2021</p>

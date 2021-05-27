@@ -21,21 +21,19 @@ title: Lightbox Dialog
 
 <hr />
 
-<h3>Example 1: Custom</h3>
+<button data-makeup-for="lightbox-dialog" class="button dialog-button" type="button" aria-haspopup="dialog">Open Lightbox Dialog</button>
 
-<button data-makeup-dialog-button-for="custom-dialog" class="button dialog-button" type="button">Open Lightbox Dialog</button>
-
-<div aria-labelledby="dialog-title" aria-modal="true" class="dialog dialog--mask-fade" data-makeup-dialog-has-transitions="true" hidden id="custom-dialog" role="dialog">
-    <div class="dialog__window dialog__window--fade">
-        <div class="dialog__header">
-            <button aria-label="Close Dialog" class="dialog__close button" type="button">
+<div class="lightbox-dialog lightbox-dialog--mask-fade" id="lightbox-dialog" role="dialog" hidden aria-labelledby="dialog-title" aria-modal="true">
+    <div class="lightbox-dialog__window lightbox-dialog__window--fade">
+        <div class="lightbox-dialog__header">
+            <button aria-label="Close Dialog" class="lightbox-dialog__close icon-btn" type="button">
                 <svg aria-hidden="true" focusable="false" height="16" width="16">
                     <use xlink:href="#icon-close"></use>
                 </svg>
             </button>
-            <h2 class="dialog__title" id="dialog-title">Lightbox Dialog</h2>
+            <h2 class="lightbox-dialog__title" id="dialog-title">Lightbox Dialog</h2>
         </div>
-        <div class="dialog__main">
+        <div class="lightbox-dialog__main">
             <p>A custom lightbox dialog is any lightbox dialog that does not exactly match an alert, confirm or input dialog.</p>
             <p><a href="https://www.ebay.com">www.ebay.com</a></p>
         </div>
@@ -44,4 +42,4 @@ title: Lightbox Dialog
 
 <hr />
 
-<p><i>Updated</i>: October 21st, 2020</p>
+<p><i>Updated</i>: May 26th, 2021</p>

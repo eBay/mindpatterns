@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const Carousel = require('./carousel.js');
     const CharacterMeter = require('./character-meter.js');
     const Combobox = require('makeup-combobox');
-    const DialogButton = require('./dialog-button.js');
+    const DialogButton = require('makeup-dialog-button');
     const Expander = require('makeup-expander');
     const HijaxButton = require('./hijax-button.js');
     const PasswordMeter = require('./password-meter.js');
@@ -225,10 +225,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelectorAll('.tile').forEach(function(widgetEl) {
         pageWidgets.push(new Tile(widgetEl));
-    });
-
-    document.querySelectorAll('.toast-dialog-button').forEach(function(widgetEl) {
-        pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'toast-dialog' }));
     });
 
     document.querySelectorAll('.tooltip').forEach(function(widgetEl) {
