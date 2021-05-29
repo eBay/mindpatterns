@@ -9,8 +9,8 @@ This project uses [Bundler](http://bundler.io) to ensure our local [Jekyll](http
 1. In your terminal window, change into the project directory you just cloned
 1. Notice the project directory contains a Gemfile. It will be used by Bundler in the next step.
 1. Run `bundle install` this will install Jekyll and other [dependencies](https://pages.github.com/versions/) from the GitHub Pages gem
-1. Run `yarn install` to install all devDependencies
-1. Run `yarn start` to build and run site
+1. Run `npm install` to install all devDependencies
+1. Run `npm start` to build and run site
 1. Browser will automatically open at [localhost:3000](http://localhost:3000)
 1. Browser will automatically reload when local HTML, JS or CSS assets are modified
 
