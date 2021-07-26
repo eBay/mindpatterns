@@ -20,22 +20,22 @@ title: Page Notice
 <style>
     .page-notice {
         border: 1px solid #ccc;
+        border-top: 3px solid currentColor;
         padding: 16px;
     }
-    .page-notice h3 {
-        margin-top: 0;
-    }
-    .page-notice p:last-child {
-        margin-bottom: 0;
+    .page-notice h4 {
+        display: inline-block;
+        font-weight: normal;
+        margin: 0 0 0 8px;
     }
     .page-notice--attention {
-        border-top: 3px solid red;
+        border-top-color: red;
     }
     .page-notice--information {
-        border-top: 3px solid blue;
+        border-top-color: blue;
     }
     .page-notice--confirmation {
-        border-top: 3px solid green;
+        border-top-color: green;
     }
 </style>
 
@@ -51,48 +51,33 @@ title: Page Notice
 <h2 class="clipped">Examples</h2>
 
 <h3>Example 1: Attention</h3>
-<div aria-labelledby="alert-label" role="status">
-    <section aria-labelledby="alert-label" class="page-notice page-notice--attention" id="page-alert" role="region" tabindex="-1">
-        <h3 id="alert-label">
-            <svg focusable="false" height="16" width="16" aria-hidden="true">
-                <use xlink:href="#icon-attention-filled"></use>
-            </svg>
-            <span>Attention!</span>
-        </h3>
-        <p>We had trouble connecting to PayPal. Please make your payment later.</p>
-    </section>
-</div>
+<section aria-label="Attention" class="page-notice page-notice--attention" id="page-alert" role="region" tabindex="-1">
+    <svg focusable="false" height="16" width="16" role="img" aria-label="Attention">
+        <use xlink:href="#icon-attention-filled"></use>
+    </svg>
+    <h4>We had trouble connecting to PayPal. Please make your payment later.</h4>
+</section>
 
 <hr />
 
 <h3>Example 2: Confirmation</h3>
-<div aria-labelledby="confirmation-label" role="status">
-    <section aria-labelledby="confirmation-label" class="page-notice page-notice--confirmation" role="region">
-        <h3 id="confirmation-label">
-            <svg focusable="false" height="16" width="16" aria-hidden="true">
-                <use xlink:href="#icon-confirmation-filled"></use>
-            </svg>
-            <span>Congrats!</span>
-        </h3>
-        <p>You just listed <a href="#">"Spam and Eggs From the Cow's Perspective</a> (paperback)."</p>
-    </section>
-</div>
+<section aria-label="Confirmation" class="page-notice page-notice--confirmation" role="region">
+    <svg focusable="false" height="16" width="16" role="img" aria-label="Confirmation">
+        <use xlink:href="#icon-confirmation-filled"></use>
+    </svg>
+    <h4>You just listed <a href="#">"Spam and Eggs From the Cow's Perspective</a> (paperback)."</h4>
+</section>
 
 <hr />
 
 <h3>Example 3: Information</h3>
-<div aria-labelledby="information-label" role="status">
-    <section aria-labelledby="information-label" class="page-notice page-notice--information" role="region">
-        <h3 id="information-label">
-            <svg focusable="false" height="16" width="16" aria-hidden="true">
-                <use xlink:href="#icon-information-filled"></use>
-            </svg>
-            <span>Good news!</span>
-        </h3>
-        <p>You get free shipping on your next pair of shoes! <a href="http://www.ebay.com"> Learn more</a>.</p>
-    </section>
-</div>
+<section aria-label="Information" class="page-notice page-notice--information" role="region">
+    <svg focusable="false" height="16" width="16" role="img" aria-label="Information">
+        <use xlink:href="#icon-information-filled"></use>
+    </svg>
+    <h4>You get free shipping on your next pair of shoes! <a href="http://www.ebay.com"> Learn more</a>.</h4>
+</section>
 
 <hr />
 
-<p><i>Updated</i>: April 9th, 2020</p>
+<p><i>Updated</i>: July 26th, 2021</p>
