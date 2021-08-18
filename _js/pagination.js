@@ -6,9 +6,6 @@
 * https://opensource.org/licenses/MIT.
 */
 
-const Util = require('./util.js');
-const findIndex = require('core-js-pure/features/array/find-index');
-
 function onClick(e) {
     if (this.items[this.index] !== e.target) {
         this.index = e.target.dataset.paginationIndex;
@@ -43,7 +40,7 @@ module.exports = class {
     }
 
     get index() {
-        return findIndex(Util.nodeListToArray(this.items), function(el) {
+        return [...this.items].findIndex(function(el) {
             return el.getAttribute('aria-current') === 'page';
         });
     }

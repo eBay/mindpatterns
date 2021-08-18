@@ -6,18 +6,11 @@
 * https://opensource.org/licenses/MIT.
 */
 
-// requires NodeList.forEach polyfill for IE
-// conditional check due to https://github.com/imagitama/nodelist-foreach-polyfill/issues/7
-if (typeof window !== 'undefined') {
-    require('nodelist-foreach-polyfill');
-}
-
 const pageWidgets = [];
 
-// const findIndex = require('core-js-pure/features/array/find-index');
+const logEvent = (e) => console.log(e); // eslint-disable-line no-console
 
 document.addEventListener('DOMContentLoaded', function() {
-    const Util = require('./util.js');
     const Accordion = require('./accordion.js');
     const AriaButton = require('./aria-button.js');
     const Carousel = require('./carousel.js');
@@ -56,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.carousel').forEach(function(widgetEl) {
         pageWidgets.push(new Carousel(widgetEl));
 
-        widgetEl.addEventListener('carousel-pagination', Util.logEvent);
+        widgetEl.addEventListener('carousel-pagination', logEvent);
     });
 
     document.querySelectorAll('.character-meter').forEach(function(widgetEl) {
@@ -216,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.querySelectorAll('.tabs').forEach(function(widgetEl) {
-        widgetEl.addEventListener('tabs-change', Util.logEvent);
+        widgetEl.addEventListener('tabs-change', logEvent);
 
         pageWidgets.push(new Tabs(widgetEl, {
             autoSelect: (widgetEl.dataset.autoSelect === 'true')

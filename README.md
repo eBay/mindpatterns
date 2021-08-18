@@ -1,5 +1,7 @@
 # eBay MIND Patterns - Accessibility Patterns for the Web
 
+*NOTE*: Internet Explorer is no longer supported.
+
 ## Local Development
 
 This project uses [Bundler](http://bundler.io) to ensure our local [Jekyll](http://jekyllrb.com) environment matches the GitHub Pages Jekyll environment.

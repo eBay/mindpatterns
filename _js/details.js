@@ -4,8 +4,6 @@
 * https://github.com/javan/details-element-polyfill
 */
 
-const Util = require('./util.js');
-
 function onClick() {
     this.open = !(this.open === true);
 }
@@ -45,7 +43,7 @@ module.exports = class {
             this._onClickListener = onClick.bind(this);
             this._onKeydownListener = onKeydown.bind(this);
             this._onKeyupListener = onKeyup.bind(this);
-            this._childElements = Util.nodeListToArray(this._el.children).filter(
+            this._childElements = [...this._el.children].filter(
                 el => el.tagName.toUpperCase() !== 'SUMMARY'
             );
 

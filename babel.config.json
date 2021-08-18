@@ -4,5 +4,4 @@
       "@babel/preset-env"
     ]
   ],
-  "plugins": ["transform-object-assign"]
 }
