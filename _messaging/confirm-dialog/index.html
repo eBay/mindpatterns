@@ -3,19 +3,11 @@ layout: page
 title: Confirm Dialog
 ---
 
-<div hidden>
-    <svg>
-        <symbol id="icon-close" viewBox="0 0 18 18">
-            <path d="M10.41 9l7.294-7.287A1.004 1.004 0 0016.285.294L9 7.59 1.715.294a1.002 1.002 0 10-1.42 1.42l7.296 7.285-7.295 7.286a1 1 0 000 1.42 1 1 0 001.419 0L9 10.407l7.285 7.296a1 1 0 001.42 0 1 1 0 000-1.419l-7.296-7.286z"/>
-        </symbol>
-    </svg>
-</div>
-
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
 <p>Activate button to open the confirm dialog.</p>
-<p>Please <a href={{ "messaging/confirm-dialog" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+<p>This example imports <a href="https://ebay.github.io/skin/#confirm-dialog">skin</a> and <a href="https://github.com/makeup/makeup-js/tree/master/packages/confirm-dialog">makeup</a> for base styles and behaviour respectively. Please <a href={{ "messaging/confirm-dialog" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> for further developer guidance.</p>
 
 <h2 class="clipped">Examples</h2>
 
@@ -23,21 +15,21 @@ title: Confirm Dialog
 
 <button data-makeup-for="confirm-dialog" class="button dialog-button" type="button">Open Confirm Dialog</button>
 
-<div class="confirm-dialog" id="confirm-dialog" role="dialog" aria-labelledby="confirm-dialog-title" aria-modal="true" hidden>
+<div class="confirm-dialog confirm-dialog--mask-fade" role="dialog" id="confirm-dialog" hidden aria-labelledby="confirm-dialog-title" aria-modal="true">
     <div class="confirm-dialog__window confirm-dialog__window--fade">
         <div class="confirm-dialog__header">
-            <h2 class="confirm-dialog__title" id="confirm-dialog-title">Are you sure?</h2>
+            <h2 class="confirm-dialog__title" id="confirm-dialog-title">Delete Address?</h2>
         </div>
-        <div class="confirm-dialog__main" id="confirm-dialog-description">
-            <p>This is the confirmation description.</p>
+        <div class="confirm-dialog__main">
+            <p id="confirm-dialog-description-0">You will permanently lose this address.</p>
         </div>
         <div class="confirm-dialog__footer">
-            <button aria-describedby="confirm-dialog-description" class="btn confirm-dialog__reject" type="button">Reject</button>
-            <button aria-describedby="confirm-dialog-description" class="btn confirm-dialog__confirm" type="button">Confirm</button>
+            <button class="btn confirm-dialog__reject">Cancel</button>
+            <button class="btn btn--primary confirm-dialog__confirm" aria-describedby="confirm-dialog-description">Delete</button>
         </div>
     </div>
 </div>
 
 <hr />
 
-<p><i>Updated</i>: May 26th, 2021</p>
+<p><i>Updated: Aug 20th, 2021</i></p>

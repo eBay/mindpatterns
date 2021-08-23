@@ -21,17 +21,15 @@ sass:
 exclude: ["node_modules", "_js", ".cache", ".sass-cache", ".git"]
 
 collections:
-- messaging
-- input
-- navigation
-- disclosure
-
-collections:
     messaging:
         output: true
+        sequence: 1
     input:
         output: true
+        sequence: 2
     navigation:
         output: true
+        sequence: 3
     disclosure:
         output: true
+        sequence: 4

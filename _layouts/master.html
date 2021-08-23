@@ -9,11 +9,13 @@
         <header class="header-large" role="banner">
             <nav role="navigation">
                 <h2><a class="header-large__home" href="{{ '/index.html' | relative_url }}">eBay MIND Patterns</a></h2>
-                {% for collection in site.collections %}
+                {% assign collections = site.collections | sort: "sequence" %}
+                {% for collection in collections %}
                     {% if collection.label != "posts" %}
                     <h3>{{ collection.label }}</h3>
                     <ul>
-                        {% for document in collection.docs %}
+                        {% assign documents = collection.docs | sort: "title" %}
+                        {% for document in documents %}
                             {% if document.hidden != true and document.development != true %}
                             <li><a href="{{ document.url | relative_url }}">{{ document.title }}</a></li>
                             {% endif %}
@@ -34,9 +36,9 @@
                 <li><a href="{{ '/disclosure' | relative_url }}">disclosure</a></li>
             </ul>
         </header>
-        <div id="main" role="main">
+        <main id="main" role="main">
             <div id="logo"><a href="http://www.ebay.com"><span role="img" aria-label="eBay"></span></a></div>
             {{ content }}
-        </div>
+        </main>
     </body>
 </html>

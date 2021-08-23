@@ -3,22 +3,25 @@ layout: page
 title: Menu
 ---
 
-<div hidden>
-    <svg>
-        <symbol id="icon-tick" viewBox="0 0 14 10">
-            <path d="M4.99 10a1.008 1.008 0 01-.716-.292L.243 5.684a1.005 1.005 0 01.052-1.366 1.01 1.01 0 011.369-.052l3.325 3.31L12.336.242a1.01 1.01 0 011.37.052c.371.373.394.967.051 1.366L5.695 9.708a1.01 1.01 0 01-.706.292z"/>
-        </symbol>
-    </svg>
-</div>
+<style>
+    .menu {
+        --menu-background-color: LightYellow;
+        --menu-menuitem-border-color: LightYellow;
+        --menu-menuitem-hover-background-color: black;
+        --menu-menuitem-hover-foreground-color: white;
+
+        border: 1px solid black;
+        width: 200px;
+    }
+</style>
 
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
 
-<p>Use ARROW keys to navigate menu items. ENTER or SPACEBAR to select an item.</p>
 <p>A menu contains commands (menuitem, menuitemradio, or menuitemcheckbox) that execute JavaScript. If you require non-JavaScript fallbacks, consider using native form controls.</p>
-<p>This example uses the <a href="https://github.com/makeup/makeup-js/tree/master/packages/makeup-menu">makeup-menu</a> class.</p>
-<p>Please <a href={{ "input/menu" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+<p>Use ARROW keys to navigate menu items. ENTER or SPACEBAR to select an item.</p>
+<p>This example imports <a href="https://ebay.github.io/skin/#menu-button">skin</a> and <a href="https://github.com/makeup/makeup-js/tree/master/packages/makeup-menu">makeup</a> for base styles and behaviour respectively. Please <a href={{ "input/menu" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> for further developer guidance.</p>
 
 <h2 class="clipped">Examples</h2>
 
@@ -26,11 +29,11 @@ title: Menu
 
 <h3>Example 1: Stateless (menuitem)</h3>
 <span class="menu">
-    <div role="menu">
-        <div role="menuitem">
+    <div class="menu__items" role="menu">
+        <div class="menu__item" role="menuitem">
             <span>Grid</span>
         </div>
-        <div role="menuitem">
+        <div class="menu__item" role="menuitem">
             <span>List</span>
         </div>
     </div>
@@ -41,23 +44,23 @@ title: Menu
 <h3>Example 2: Single-Select (menuitemradio)</h3>
 
 <span class="menu">
-    <div role="menu">
-        <div role="menuitemradio" data-makeup-group="sort" aria-checked="true">
+    <div class="menu__items" role="menu">
+        <div class="menu__item" role="menuitemradio" data-makeup-group="sort" aria-checked="true">
             <span>Name Sort</span>
-            <svg focusable="false" height="12" width="12" aria-hidden="true">
-                <use xlink:href="#icon-tick"></use>
+            <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
             </svg>
         </div>
-        <div role="menuitemradio" data-makeup-group="sort" aria-checked="false">
+        <div class="menu__item" role="menuitemradio" data-makeup-group="sort" aria-checked="false">
             <span>Date Sort</span>
-            <svg focusable="false" height="12" width="12" aria-hidden="true">
-                <use xlink:href="#icon-tick"></use>
+            <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
             </svg>
         </div>
-        <div role="menuitemradio" data-makeup-group="sort" aria-checked="false">
+        <div class="menu__item" role="menuitemradio" data-makeup-group="sort" aria-checked="false">
             <span>Price Sort</span>
-            <svg focusable="false" height="12" width="12" aria-hidden="true">
-                <use xlink:href="#icon-tick"></use>
+            <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
             </svg>
         </div>
     </div>
@@ -68,17 +71,17 @@ title: Menu
 <h3>Example 3: Multi-Select (menuitemcheckbox)</h3>
 
 <span class="menu">
-    <div role="menu">
-        <div role="menuitemcheckbox" data-makeup-group="filter" aria-checked="true">
+    <div class="menu__items" role="menu">
+        <div class="menu__item" role="menuitemcheckbox" data-makeup-group="filter" aria-checked="true">
             <span>Buy it Now</span>
-            <svg focusable="false" height="12" width="12" aria-hidden="true">
-                <use xlink:href="#icon-tick"></use>
+            <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
             </svg>
         </div>
-        <div role="menuitemcheckbox" data-makeup-group="filter" aria-checked="false">
+        <div class="menu__item" role="menuitemcheckbox" data-makeup-group="filter" aria-checked="false">
             <span>Auction</span>
-            <svg focusable="false" height="12" width="12" aria-hidden="true">
-                <use xlink:href="#icon-tick"></use>
+            <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
             </svg>
         </div>
     </div>
@@ -89,54 +92,48 @@ title: Menu
 <h3>Example 4: Groups</h3>
 
 <span class="menu">
-    <div role="menu">
-        <div role="presentation">
-            <div role="menuitem">
-                <span>Grid View</span>
-            </div>
-            <div role="menuitem">
-                <span>List View</span>
-            </div>
+    <div class="menu__items" role="menu">
+        <div class="menu__item" role="menuitem">
+            <span>Grid View</span>
         </div>
-        <hr />
-        <div role="presentation">
-            <div role="menuitemradio" data-makeup-group="sort" aria-checked="true">
-                <span>Name Sort</span>
-                <svg focusable="false" height="12" width="12" aria-hidden="true">
-                    <use xlink:href="#icon-tick"></use>
-                </svg>
-            </div>
-            <div role="menuitemradio" data-makeup-group="sort" aria-checked="false">
-                <span>Date Sort</span>
-                <svg focusable="false" height="12" width="12" aria-hidden="true">
-                    <use xlink:href="#icon-tick"></use>
-                </svg>
-            </div>
-            <div role="menuitemradio" data-makeup-group="sort" aria-checked="false">
-                <span>Price Sort</span>
-                <svg focusable="false" height="12" width="12" aria-hidden="true">
-                    <use xlink:href="#icon-tick"></use>
-                </svg>
-            </div>
+        <div class="menu__item" role="menuitem">
+            <span>List View</span>
         </div>
-        <hr />
-        <div role="presentation">
-            <div role="menuitemcheckbox" data-makeup-group="filter" aria-checked="true">
-                <span>Buy it Now</span>
-                <svg focusable="false" height="12" width="12" aria-hidden="true">
-                    <use xlink:href="#icon-tick"></use>
-                </svg>
-            </div>
-            <div role="menuitemcheckbox" data-makeup-group="filter" aria-checked="false">
-                <span>Auction</span>
-                <svg focusable="false" height="12" width="12" aria-hidden="true">
-                    <use xlink:href="#icon-tick"></use>
-                </svg>
-            </div>
+        <hr class="menu__separator" role="separator" />
+        <div class="menu__item" role="menuitemradio" data-makeup-group="sort" aria-checked="true">
+            <span>Name Sort</span>
+            <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
+            </svg>
+        </div>
+        <div class="menu__item" role="menuitemradio" data-makeup-group="sort" aria-checked="false">
+            <span>Date Sort</span>
+            <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
+            </svg>
+        </div>
+        <div class="menu__item" role="menuitemradio" data-makeup-group="sort" aria-checked="false">
+            <span>Price Sort</span>
+            <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
+            </svg>
+        </div>
+        <hr class="menu__separator" role="separator" />
+        <div class="menu__item" role="menuitemcheckbox" data-makeup-group="filter" aria-checked="true">
+            <span>Buy it Now</span>
+            <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
+            </svg>
+        </div>
+        <div class="menu__item" role="menuitemcheckbox" data-makeup-group="filter" aria-checked="false">
+            <span>Auction</span>
+            <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
+            </svg>
         </div>
     </div>
 </span>
 
 <hr />
 
-<p><i>Updated</i>: May 18th, 2021</p>
+<p><i>Updated: May 18th, 2021</i></p>

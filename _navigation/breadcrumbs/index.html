@@ -3,52 +3,44 @@ layout: page
 title: Breadcrumbs
 ---
 
-<div hidden>
-    <svg>
-        <symbol viewBox="0 0 14 14" id="icon-breadcrumb">
-            <path d="M1.005 14a1 1 0 01-.71-1.71l5.296-5.288L.296 1.714A1.004 1.004 0 011.714.294L7.71 6.292a1 1 0 010 1.41L1.714 13.7a.999.999 0 01-.709.3z"></path>
-        </symbol>
-    </svg>
-</div>
-
 <h1 class="post-title">{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
 <p>Use TAB and ENTER keys to navigate breadcrumb links.</p>
-<p>Please <a href={{ "/navigation/breadcrumbs.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+<p>This example imports <a href="https://ebay.github.io/skin/#breadcrumbs">skin</a> for base styles. Please <a href={{ "navigation/breadcrumbs" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> for further developer guidance.</p>
 
 <hr />
 
 <h2 class="clipped">Examples</h2>
 
 <h3>Example 1: Site Breadcrumbs</h3>
-<nav class="breadcrumbs" aria-labelledby="breadcrumb_heading" role="navigation">
-    <h3 id="breadcrumb_heading" class="clipped">You are here</h3>
-    <ol>
+<nav aria-labelledby="breadcrumbs-heading" class="breadcrumbs" role="navigation">
+    <h2 id="breadcrumbs-heading" class="clipped">You are here</h2>
+    <ul>
         <li>
-            <a href="http://www.ebay.com">Home</a>
-            <svg focusable="false" height="10" width="10">
-                <use xlink:href="#icon-breadcrumb"></use>
+            <a href="https://www.ebay.com/">ebay</a>
+            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="../../svg/icons.svg#icon-breadcrumb"></use>
             </svg>
         </li>
         <li>
-            <a href="http://www.ebay.com">Clothing, Shoes &amp; Accessories</a>
-            <svg focusable="false" height="10" width="10">
-                <use xlink:href="#icon-breadcrumb"></use>
+            <a href="https://www.ebay.com/rpp/cell-phone-pda">Cell Phones, Smart Watches &amp; Accessories</a>
+            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="../../svg/icons.svg#icon-breadcrumb"></use>
             </svg>
         </li>
         <li>
-            <a href="http://www.ebay.com">Men's Shoes</a>
-            <svg focusable="false" height="10" width="10">
-                <use xlink:href="#icon-breadcrumb"></use>
+            <a href="https://www.ebay.com/b/Smart-Watch-Accessories/182064/bn_16565905">Smart Watch Accessories</a>
+            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="../../svg/icons.svg#icon-breadcrumb"></use>
             </svg>
         </li>
         <li>
-            <a aria-current="location">Boots</a>
+            <a aria-current="location">Smart Watch Bands</a>
         </li>
-    </ol>
+    </ul>
 </nav>
 
 <hr />
 
-<p><i>Updated</i>: October 14th, 2020</p>
+<p><i>Updated: October 14th, 2020</i></p>

@@ -3,17 +3,6 @@ layout: page
 title: Checkbox
 ---
 
-<div hidden>
-    <svg>
-        <symbol id="icon-checkbox-checked" viewBox="0 0 18 18">
-            <path d="M0 0h18v18H0V0zm14.71 4.29a1 1 0 00-1.41 0L7 10.59l-2.29-2.3a1.004 1.004 0 00-1.42 1.42l3 3a1 1 0 001.41 0l7-7a1 1 0 00.01-1.42z"></path>
-        </symbol>
-        <symbol id="icon-checkbox-unchecked" viewBox="0 0 18 18">
-            <path d="M18 0v18H0V0h18zm-1 1H1v16h16V1z"></path>
-        </symbol>
-    </svg>
-</div>
-
 <style>
     .checkbox-group > div {
         margin: 8px 0;
@@ -25,7 +14,7 @@ title: Checkbox
 <h2 class="clipped">Readme</h2>
 
 <p>Use TAB key to navigate checkboxes, SPACEBAR to toggle selection, ENTER key submits form.</p>
-<p>Please <a href={{ "input/checkbox" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+<p>This example imports <a href="https://ebay.github.io/skin/#checkbox">skin</a> for base styles. Please <a href={{ "input/checkbox" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> for further developer guidance.</p>
 
 <h2 class="clipped">Examples</h2>
 
@@ -62,10 +51,10 @@ title: Checkbox
                 <input class="checkbox__control" id="checkbox1_freeshipping2" name="freeshipping2" type="checkbox" />
                 <span class="checkbox__icon" hidden>
                     <svg class="checkbox__unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use xlink:href="../../svg/icons.svg#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="checkbox__checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use xlink:href="../../svg/icons.svg#icon-checkbox-checked"></use>
                     </svg>
                 </span>
             </span>
@@ -76,10 +65,10 @@ title: Checkbox
                 <input class="checkbox__control" id="checkbox2_endssoon2" name="endssoon2" type="checkbox" />
                 <span class="checkbox__icon" hidden>
                     <svg class="checkbox__unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use xlink:href="../../svg/icons.svg#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="checkbox__checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use xlink:href="../../svg/icons.svg#icon-checkbox-checked"></use>
                     </svg>
                 </span>
             </span>
@@ -90,10 +79,10 @@ title: Checkbox
                 <input class="checkbox__control" id="checkbox3_zerobids2" name="zerobids2" type="checkbox" />
                 <span class="checkbox__icon" hidden>
                     <svg class="checkbox__unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use xlink:href="../../svg/icons.svg#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="checkbox__checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use xlink:href="../../svg/icons.svg#icon-checkbox-checked"></use>
                     </svg>
                 </span>
             </span>
@@ -105,4 +94,4 @@ title: Checkbox
 
 <hr />
 
-<p><i>Updated</i>: Sep 18th, 2020</p>
+<p><i>Updated: Sep 18th, 2020</i></p>

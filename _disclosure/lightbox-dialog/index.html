@@ -3,14 +3,6 @@ layout: page
 title: Lightbox Dialog
 ---
 
-<div hidden>
-    <svg>
-        <symbol id="icon-close" viewBox="0 0 18 18">
-            <path d="M10.41 9l7.294-7.287A1.004 1.004 0 0016.285.294L9 7.59 1.715.294a1.002 1.002 0 10-1.42 1.42l7.296 7.285-7.295 7.286a1 1 0 000 1.42 1 1 0 001.419 0L9 10.407l7.285 7.296a1 1 0 001.42 0 1 1 0 000-1.419l-7.296-7.286z"/>
-        </symbol>
-    </svg>
-</div>
-
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
@@ -26,20 +18,19 @@ title: Lightbox Dialog
 <div class="lightbox-dialog lightbox-dialog--mask-fade" id="lightbox-dialog" role="dialog" hidden aria-labelledby="dialog-title" aria-modal="true">
     <div class="lightbox-dialog__window lightbox-dialog__window--fade">
         <div class="lightbox-dialog__header">
-            <button aria-label="Close Dialog" class="lightbox-dialog__close icon-btn" type="button">
-                <svg aria-hidden="true" focusable="false" height="16" width="16">
-                    <use xlink:href="#icon-close"></use>
+            <h2 id="dialog-title" class="large-text-1 bold-text">makeup-dialog</h2>
+            <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
+                <svg aria-hidden="true" class="icon icon--close" focusable="false" height="16" width="16">
+                    <use xlink:href="../../svg/icons.svg#icon-close"></use>
                 </svg>
             </button>
-            <h2 class="lightbox-dialog__title" id="dialog-title">Lightbox Dialog</h2>
         </div>
         <div class="lightbox-dialog__main">
-            <p>A custom lightbox dialog is any lightbox dialog that does not exactly match an alert, confirm or input dialog.</p>
-            <p><a href="https://www.ebay.com">www.ebay.com</a></p>
+            <p>This page was loaded with a lightbox-dialog in an "open" state. To see examples of dialogs opened by button click, visit the  <a href="../makeup-dialog-button">makeup-dialog-button</a> page.</p>
         </div>
     </div>
 </div>
 
 <hr />
 
-<p><i>Updated</i>: May 26th, 2021</p>
+<p><i>Updated: Aug 20th, 2021</i></p>

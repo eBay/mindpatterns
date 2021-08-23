@@ -71,7 +71,7 @@ eval("\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance insta
 /***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
-eval("\n\n/**\n* Copyright 2019 eBay Inc.\n*\n* Use of this source code is governed by a MIT-style\n* license that can be found in the LICENSE file or at\n* https://opensource.org/licenses/MIT.\n*/\nvar pageWidgets = [];\n\nvar logEvent = function logEvent(e) {\n  return console.log(e);\n}; // eslint-disable-line no-console\n\n\ndocument.addEventListener('DOMContentLoaded', function () {\n  var Accordion = __webpack_require__(/*! ./accordion.js */ \"./_transpiled/accordion.js\");\n\n  var AriaButton = __webpack_require__(/*! ./aria-button.js */ \"./_transpiled/aria-button.js\");\n\n  var Carousel = __webpack_require__(/*! ./carousel.js */ \"./_transpiled/carousel.js\");\n\n  var CharacterMeter = __webpack_require__(/*! ./character-meter.js */ \"./_transpiled/character-meter.js\");\n\n  var Combobox = __webpack_require__(/*! makeup-combobox */ \"./node_modules/makeup-combobox/dist/index.js\");\n\n  var DialogButton = __webpack_require__(/*! makeup-dialog-button */ \"./node_modules/makeup-dialog-button/dist/index.js\");\n\n  var Expander = __webpack_require__(/*! makeup-expander */ \"./node_modules/makeup-expander/dist/index.js\");\n\n  var HijaxButton = __webpack_require__(/*! ./hijax-button.js */ \"./_transpiled/hijax-button.js\");\n\n  var PasswordMeter = __webpack_require__(/*! ./password-meter.js */ \"./_transpiled/password-meter.js\");\n\n  var Listbox = __webpack_require__(/*! makeup-listbox */ \"./node_modules/makeup-listbox/dist/index.js\");\n\n  var ListboxButton = __webpack_require__(/*! makeup-listbox-button */ \"./node_modules/makeup-listbox-button/dist/index.js\");\n\n  var Menu = __webpack_require__(/*! makeup-menu */ \"./node_modules/makeup-menu/dist/index.js\");\n\n  var MenuButton = __webpack_require__(/*! makeup-menu-button */ \"./node_modules/makeup-menu-button/dist/index.js\");\n\n  var Pagination = __webpack_require__(/*! ./pagination.js */ \"./_transpiled/pagination.js\");\n\n  var Pulldown = __webpack_require__(/*! ./pulldown.js */ \"./_transpiled/pulldown.js\");\n\n  var StarRating = __webpack_require__(/*! ./star-rating.js */ \"./_transpiled/star-rating.js\");\n\n  var Switch = __webpack_require__(/*! makeup-switch */ \"./node_modules/makeup-switch/dist/index.js\");\n\n  var Tabs = __webpack_require__(/*! ./tabs.js */ \"./_transpiled/tabs.js\");\n\n  var Tile = __webpack_require__(/*! ./tile.js */ \"./_transpiled/tile.js\");\n\n  var Tooltip = __webpack_require__(/*! ./tooltip.js */ \"./_transpiled/tooltip.js\");\n\n  document.querySelectorAll('.accordion').forEach(function (widgetEl) {\n    pageWidgets.push(new Accordion(widgetEl, {\n      autoCollapse: widgetEl.hasAttribute('data-makeup-accordion-auto-collapse')\n    }));\n  });\n  document.querySelectorAll('.aria-button').forEach(function (widgetEl) {\n    pageWidgets.push(new AriaButton(widgetEl));\n    widgetEl.addEventListener('aria-button-click', function () {\n      console.log(this);\n    });\n  });\n  document.querySelectorAll('.carousel').forEach(function (widgetEl) {\n    pageWidgets.push(new Carousel(widgetEl));\n    widgetEl.addEventListener('carousel-pagination', logEvent);\n  });\n  document.querySelectorAll('.character-meter').forEach(function (widgetEl) {\n    pageWidgets.push(new CharacterMeter(widgetEl));\n  });\n  document.querySelectorAll('.combobox').forEach(function (widgetEl) {\n    pageWidgets.push(new Combobox(widgetEl, {\n      autoSelect: !(widgetEl.dataset.makeupAutoSelect === 'false')\n    }));\n    widgetEl.addEventListener('makeup-combobox-change', function (e) {\n      return console.log(e.type, e.detail);\n    });\n  });\n  document.querySelectorAll('.dialog-button').forEach(function (widgetEl) {\n    pageWidgets.push(new DialogButton(widgetEl));\n  });\n  document.querySelectorAll('.flyout--click').forEach(function (widgetEl) {\n    pageWidgets.push(new Expander(widgetEl, {\n      contentSelector: '.flyout__content',\n      expandOnClick: true,\n      collapseOnClick: true,\n      collapseOnClickOut: true,\n      collapseOnFocusOut: true,\n      hostSelector: '.flyout__host'\n    }));\n  });\n  document.querySelectorAll('.flyout--focus').forEach(function (widgetEl) {\n    pageWidgets.push(new Expander(widgetEl, {\n      contentSelector: '.flyout__content',\n      expandOnFocus: true,\n      autoCollapse: true,\n      hostSelector: '.flyout__host'\n    }));\n  });\n  document.querySelectorAll('.flyout--hover').forEach(function (widgetEl) {\n    pageWidgets.push(new Expander(widgetEl, {\n      contentSelector: '.flyout__content',\n      expandOnFocus: true,\n      expandOnHover: true,\n      autoCollapse: true,\n      hostSelector: '.flyout__host'\n    }));\n  });\n  document.querySelectorAll('.flyout--hover-only').forEach(function (widgetEl) {\n    pageWidgets.push(new Expander(widgetEl, {\n      contentSelector: '.flyout__content',\n      expandOnHover: true,\n      autoCollapse: true,\n      hostSelector: '.flyout__host'\n    }));\n  });\n  document.querySelectorAll('.fake-menu').forEach(function (widgetEl) {\n    pageWidgets.push(new Expander(widgetEl, {\n      expandOnClick: true,\n      collapseOnFocusOut: true,\n      collapseOnClickOut: true,\n      contentSelector: '.fake-menu__content',\n      focusManagement: 'focusable',\n      hostSelector: '.fake-menu__host'\n    }));\n  });\n  document.querySelectorAll('.hijax-button').forEach(function (widgetEl) {\n    pageWidgets.push(new HijaxButton(widgetEl));\n    widgetEl.addEventListener('hijax-button-click', function () {\n      console.log(this);\n    });\n  });\n  document.querySelectorAll('.infotip').forEach(function (widgetEl) {\n    pageWidgets.push(new Expander(widgetEl, {\n      contentSelector: '.infotip__content',\n      expandOnClick: true,\n      collapseOnClick: true,\n      hostSelector: '.infotip__host'\n    }));\n  });\n  document.querySelectorAll('.password-meter').forEach(function (widgetEl) {\n    pageWidgets.push(new PasswordMeter(widgetEl));\n  });\n  document.querySelectorAll('.listbox').forEach(function (widgetEl) {\n    pageWidgets.push(new Listbox(widgetEl, {\n      autoSelect: widgetEl.dataset.autoSelect === 'true'\n    }));\n    widgetEl.addEventListener('makeup-listbox-change', function (e) {\n      return console.log(e.type, e.detail);\n    });\n  });\n  document.querySelectorAll('.listbox-button').forEach(function (widgetEl) {\n    pageWidgets.push(new ListboxButton(widgetEl, {\n      autoSelect: widgetEl.dataset.autoSelect === 'true'\n    }));\n    widgetEl.addEventListener('makeup-listbox-button-change', function (e) {\n      return console.log(e.type, e.detail);\n    });\n  });\n  document.querySelectorAll('.menu-button').forEach(function (widgetEl) {\n    var widget = new MenuButton(widgetEl);\n    pageWidgets.push(widget);\n    widget.menu.el.addEventListener('makeup-menu-select', function (e) {\n      return console.log(e.type, e.detail);\n    });\n    widget.menu.el.addEventListener('makeup-menu-change', function (e) {\n      return console.log(e.type, e.detail);\n    });\n  });\n  document.querySelectorAll('.menu').forEach(function (widgetEl) {\n    pageWidgets.push(new Menu(widgetEl));\n    widgetEl.addEventListener('makeup-menu-select', function (e) {\n      return console.log(e.type, e.detail);\n    });\n    widgetEl.addEventListener('makeup-menu-change', function (e) {\n      return console.log(e.type, e.detail);\n    });\n  });\n  document.querySelectorAll('.native-button, .stealth-button').forEach(function (widgetEl) {\n    pageWidgets.push(widgetEl);\n    widgetEl.addEventListener('click', function () {\n      console.log(this);\n    });\n  });\n  document.querySelectorAll('.pagination').forEach(function (widgetEl) {\n    pageWidgets.push(new Pagination(widgetEl));\n  });\n  document.querySelectorAll('.pulldown').forEach(function (widgetEl) {\n    pageWidgets.push(new Pulldown(widgetEl));\n    widgetEl.addEventListener('makeup-pulldown-toggle', function (e) {\n      return console.log(e.type, e.detail);\n    });\n  });\n  document.querySelectorAll('.star-rating').forEach(function (widgetEl) {\n    pageWidgets.push(new StarRating(widgetEl));\n  });\n  document.querySelectorAll('.switch').forEach(function (widgetEl) {\n    pageWidgets.push(new Switch(widgetEl, {\n      bem: {\n        control: 'switch__control'\n      }\n    }));\n    widgetEl.addEventListener('makeup-switch-toggle', function (e) {\n      console.log(e.type, e.detail);\n\n      if (e.detail.on) {\n        document.body.classList.add('lights-on');\n      } else {\n        document.body.classList.remove('lights-on');\n      }\n    });\n  });\n  document.querySelectorAll('.tabs').forEach(function (widgetEl) {\n    widgetEl.addEventListener('tabs-change', logEvent);\n    pageWidgets.push(new Tabs(widgetEl, {\n      autoSelect: widgetEl.dataset.autoSelect === 'true'\n    }));\n  });\n  document.querySelectorAll('.tile').forEach(function (widgetEl) {\n    pageWidgets.push(new Tile(widgetEl));\n  });\n  document.querySelectorAll('.tooltip').forEach(function (widgetEl) {\n    pageWidgets.push(new Tooltip(widgetEl));\n  });\n});\n\n//# sourceURL=webpack:///./_transpiled/main.js?");
+eval("\n\n__webpack_require__(/*! @ebay/skin/utility */ \"./node_modules/@ebay/skin/utility.js\");\n\n__webpack_require__(/*! @ebay/skin/alert-dialog */ \"./node_modules/@ebay/skin/alert-dialog.js\");\n\n__webpack_require__(/*! @ebay/skin/breadcrumbs */ \"./node_modules/@ebay/skin/breadcrumbs.js\");\n\n__webpack_require__(/*! @ebay/skin/checkbox */ \"./node_modules/@ebay/skin/checkbox.js\");\n\n__webpack_require__(/*! @ebay/skin/icon */ \"./node_modules/@ebay/skin/icon.js\");\n\n__webpack_require__(/*! @ebay/skin/icon-button */ \"./node_modules/@ebay/skin/icon-button.js\");\n\n__webpack_require__(/*! @ebay/skin/button */ \"./node_modules/@ebay/skin/button.js\");\n\n__webpack_require__(/*! @ebay/skin/combobox */ \"./node_modules/@ebay/skin/combobox.js\");\n\n__webpack_require__(/*! @ebay/skin/confirm-dialog */ \"./node_modules/@ebay/skin/confirm-dialog.js\");\n\n__webpack_require__(/*! @ebay/skin/lightbox-dialog */ \"./node_modules/@ebay/skin/lightbox-dialog.js\");\n\n__webpack_require__(/*! @ebay/skin/listbox */ \"./node_modules/@ebay/skin/listbox.js\");\n\n__webpack_require__(/*! @ebay/skin/listbox-button */ \"./node_modules/@ebay/skin/listbox-button.js\");\n\n__webpack_require__(/*! @ebay/skin/menu */ \"./node_modules/@ebay/skin/menu.js\");\n\n__webpack_require__(/*! @ebay/skin/menu-button */ \"./node_modules/@ebay/skin/menu-button.js\");\n\n__webpack_require__(/*! @ebay/skin/radio */ \"./node_modules/@ebay/skin/radio.js\");\n\n__webpack_require__(/*! @ebay/skin/switch */ \"./node_modules/@ebay/skin/switch.js\");\n\n__webpack_require__(/*! @ebay/skin/toast-dialog */ \"./node_modules/@ebay/skin/toast-dialog.js\");\n\n/**\n* Copyright 2019 eBay Inc.\n*\n* Use of this source code is governed by a MIT-style\n* license that can be found in the LICENSE file or at\n* https://opensource.org/licenses/MIT.\n*/\nvar pageWidgets = [];\n\nvar logEvent = function logEvent(e) {\n  return console.log(e);\n}; // eslint-disable-line no-console\n\n\ndocument.addEventListener('DOMContentLoaded', function () {\n  var Accordion = __webpack_require__(/*! ./accordion.js */ \"./_transpiled/accordion.js\");\n\n  var AriaButton = __webpack_require__(/*! ./aria-button.js */ \"./_transpiled/aria-button.js\");\n\n  var Carousel = __webpack_require__(/*! ./carousel.js */ \"./_transpiled/carousel.js\");\n\n  var CharacterMeter = __webpack_require__(/*! ./character-meter.js */ \"./_transpiled/character-meter.js\");\n\n  var Combobox = __webpack_require__(/*! makeup-combobox */ \"./node_modules/makeup-combobox/dist/index.js\");\n\n  var DialogButton = __webpack_require__(/*! makeup-dialog-button */ \"./node_modules/makeup-dialog-button/dist/index.js\");\n\n  var Expander = __webpack_require__(/*! makeup-expander */ \"./node_modules/makeup-expander/dist/index.js\");\n\n  var HijaxButton = __webpack_require__(/*! ./hijax-button.js */ \"./_transpiled/hijax-button.js\");\n\n  var PasswordMeter = __webpack_require__(/*! ./password-meter.js */ \"./_transpiled/password-meter.js\");\n\n  var Listbox = __webpack_require__(/*! makeup-listbox */ \"./node_modules/makeup-listbox/dist/index.js\");\n\n  var ListboxButton = __webpack_require__(/*! makeup-listbox-button */ \"./node_modules/makeup-listbox-button/dist/index.js\");\n\n  var Menu = __webpack_require__(/*! makeup-menu */ \"./node_modules/makeup-menu/dist/index.js\");\n\n  var MenuButton = __webpack_require__(/*! makeup-menu-button */ \"./node_modules/makeup-menu-button/dist/index.js\");\n\n  var Pagination = __webpack_require__(/*! ./pagination.js */ \"./_transpiled/pagination.js\");\n\n  var Pulldown = __webpack_require__(/*! ./pulldown.js */ \"./_transpiled/pulldown.js\");\n\n  var StarRating = __webpack_require__(/*! ./star-rating.js */ \"./_transpiled/star-rating.js\");\n\n  var Switch = __webpack_require__(/*! makeup-switch */ \"./node_modules/makeup-switch/dist/index.js\");\n\n  var Tabs = __webpack_require__(/*! ./tabs.js */ \"./_transpiled/tabs.js\");\n\n  var Tile = __webpack_require__(/*! ./tile.js */ \"./_transpiled/tile.js\");\n\n  var Tooltip = __webpack_require__(/*! ./tooltip.js */ \"./_transpiled/tooltip.js\");\n\n  document.querySelectorAll('.accordion').forEach(function (widgetEl) {\n    pageWidgets.push(new Accordion(widgetEl, {\n      autoCollapse: widgetEl.hasAttribute('data-makeup-accordion-auto-collapse')\n    }));\n  });\n  document.querySelectorAll('.aria-button').forEach(function (widgetEl) {\n    pageWidgets.push(new AriaButton(widgetEl));\n    widgetEl.addEventListener('aria-button-click', function () {\n      console.log(this);\n    });\n  });\n  document.querySelectorAll('.carousel').forEach(function (widgetEl) {\n    pageWidgets.push(new Carousel(widgetEl));\n    widgetEl.addEventListener('carousel-pagination', logEvent);\n  });\n  document.querySelectorAll('.character-meter').forEach(function (widgetEl) {\n    pageWidgets.push(new CharacterMeter(widgetEl));\n  });\n  document.querySelectorAll('.combobox').forEach(function (widgetEl) {\n    pageWidgets.push(new Combobox(widgetEl, {\n      autoSelect: !(widgetEl.dataset.makeupAutoSelect === 'false')\n    }));\n    widgetEl.addEventListener('makeup-combobox-change', function (e) {\n      return console.log(e.type, e.detail);\n    });\n  });\n  document.querySelectorAll('.dialog-button').forEach(function (widgetEl) {\n    var widget = new DialogButton(widgetEl);\n    pageWidgets.push(widget);\n\n    widget.dialog._el.addEventListener('dialog-open', logEvent);\n\n    widget.dialog._el.addEventListener('dialog-close', logEvent);\n\n    widget.dialog._el.addEventListener('dialog-confirm', logEvent);\n\n    widget.dialog._el.addEventListener('dialog-reject', logEvent);\n\n    widget.dialog._el.addEventListener('dialog-reset', logEvent);\n\n    widget.dialog._el.addEventListener('dialog-done', logEvent);\n\n    widget.dialog._el.addEventListener('dialog-acknowledge', logEvent);\n\n    widget.dialog._el.addEventListener('dialog-cta', logEvent);\n\n    widget.dialog._el.addEventListener('dialog-submit', logEvent);\n\n    widget.dialog._el.addEventListener('dialog-cancel', logEvent);\n  });\n  document.querySelectorAll('.flyout--click').forEach(function (widgetEl) {\n    pageWidgets.push(new Expander(widgetEl, {\n      contentSelector: '.flyout__content',\n      expandOnClick: true,\n      collapseOnClick: true,\n      collapseOnClickOut: true,\n      collapseOnFocusOut: true,\n      hostSelector: '.flyout__host'\n    }));\n  });\n  document.querySelectorAll('.flyout--focus').forEach(function (widgetEl) {\n    pageWidgets.push(new Expander(widgetEl, {\n      contentSelector: '.flyout__content',\n      expandOnFocus: true,\n      autoCollapse: true,\n      hostSelector: '.flyout__host'\n    }));\n  });\n  document.querySelectorAll('.flyout--hover').forEach(function (widgetEl) {\n    pageWidgets.push(new Expander(widgetEl, {\n      contentSelector: '.flyout__content',\n      expandOnFocus: true,\n      expandOnHover: true,\n      autoCollapse: true,\n      hostSelector: '.flyout__host'\n    }));\n  });\n  document.querySelectorAll('.flyout--hover-only').forEach(function (widgetEl) {\n    pageWidgets.push(new Expander(widgetEl, {\n      contentSelector: '.flyout__content',\n      expandOnHover: true,\n      autoCollapse: true,\n      hostSelector: '.flyout__host'\n    }));\n  });\n  document.querySelectorAll('.fake-menu').forEach(function (widgetEl) {\n    pageWidgets.push(new Expander(widgetEl, {\n      expandOnClick: true,\n      collapseOnFocusOut: true,\n      collapseOnClickOut: true,\n      contentSelector: '.fake-menu__content',\n      focusManagement: 'focusable',\n      hostSelector: '.fake-menu__host'\n    }));\n  });\n  document.querySelectorAll('.hijax-button').forEach(function (widgetEl) {\n    pageWidgets.push(new HijaxButton(widgetEl));\n    widgetEl.addEventListener('hijax-button-click', function () {\n      console.log(this);\n    });\n  });\n  document.querySelectorAll('.infotip').forEach(function (widgetEl) {\n    pageWidgets.push(new Expander(widgetEl, {\n      contentSelector: '.infotip__content',\n      expandOnClick: true,\n      collapseOnClick: true,\n      hostSelector: '.infotip__host'\n    }));\n  });\n  document.querySelectorAll('.password-meter').forEach(function (widgetEl) {\n    pageWidgets.push(new PasswordMeter(widgetEl));\n  });\n  document.querySelectorAll('.listbox').forEach(function (widgetEl) {\n    pageWidgets.push(new Listbox(widgetEl, {\n      autoSelect: widgetEl.dataset.makeupAutoSelect === 'true'\n    }));\n    widgetEl.addEventListener('makeup-listbox-change', function (e) {\n      return console.log(e.type, e.detail);\n    });\n  });\n  document.querySelectorAll('.listbox-button').forEach(function (widgetEl) {\n    pageWidgets.push(new ListboxButton(widgetEl, {\n      autoSelect: widgetEl.dataset.makeupAutoSelect === 'true'\n    }));\n    widgetEl.addEventListener('makeup-listbox-button-change', function (e) {\n      return console.log(e.type, e.detail);\n    });\n  });\n  document.querySelectorAll('.menu-button').forEach(function (widgetEl) {\n    var widget = new MenuButton(widgetEl);\n    pageWidgets.push(widget);\n    widget.menu.el.addEventListener('makeup-menu-select', function (e) {\n      return console.log(e.type, e.detail);\n    });\n    widget.menu.el.addEventListener('makeup-menu-change', function (e) {\n      return console.log(e.type, e.detail);\n    });\n  });\n  document.querySelectorAll('.menu').forEach(function (widgetEl) {\n    pageWidgets.push(new Menu(widgetEl));\n    widgetEl.addEventListener('makeup-menu-select', function (e) {\n      return console.log(e.type, e.detail);\n    });\n    widgetEl.addEventListener('makeup-menu-change', function (e) {\n      return console.log(e.type, e.detail);\n    });\n  });\n  document.querySelectorAll('.native-button, .stealth-button').forEach(function (widgetEl) {\n    pageWidgets.push(widgetEl);\n    widgetEl.addEventListener('click', function () {\n      console.log(this);\n    });\n  });\n  document.querySelectorAll('.pagination').forEach(function (widgetEl) {\n    pageWidgets.push(new Pagination(widgetEl));\n  });\n  document.querySelectorAll('.pulldown').forEach(function (widgetEl) {\n    pageWidgets.push(new Pulldown(widgetEl));\n    widgetEl.addEventListener('makeup-pulldown-toggle', function (e) {\n      return console.log(e.type, e.detail);\n    });\n  });\n  document.querySelectorAll('.star-rating').forEach(function (widgetEl) {\n    pageWidgets.push(new StarRating(widgetEl));\n  });\n  document.querySelectorAll('.switch').forEach(function (widgetEl) {\n    pageWidgets.push(new Switch(widgetEl, {\n      bem: {\n        control: 'switch__control'\n      }\n    }));\n    widgetEl.addEventListener('makeup-switch-toggle', function (e) {\n      console.log(e.type, e.detail);\n\n      if (e.detail.on) {\n        document.body.classList.add('lights-on');\n      } else {\n        document.body.classList.remove('lights-on');\n      }\n    });\n  });\n  document.querySelectorAll('.tabs').forEach(function (widgetEl) {\n    widgetEl.addEventListener('tabs-change', logEvent);\n    pageWidgets.push(new Tabs(widgetEl, {\n      autoSelect: widgetEl.dataset.autoSelect === 'true'\n    }));\n  });\n  document.querySelectorAll('.tile').forEach(function (widgetEl) {\n    pageWidgets.push(new Tile(widgetEl));\n  });\n  document.querySelectorAll('.tooltip').forEach(function (widgetEl) {\n    pageWidgets.push(new Tooltip(widgetEl));\n  });\n});\n\n//# sourceURL=webpack:///./_transpiled/main.js?");
 
 /***/ }),
 
@@ -149,6 +149,193 @@ eval("\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance insta
 
 "use strict";
 eval("\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\n/**\n* Copyright 2019 eBay Inc.\n*\n* Use of this source code is governed by a MIT-style\n* license that can be found in the LICENSE file or at\n* https://opensource.org/licenses/MIT.\n*/\nvar Expander = __webpack_require__(/*! makeup-expander */ \"./node_modules/makeup-expander/dist/index.js\");\n\nvar defaultOptions = {\n  contentSelector: '.tooltip__content, [role=tooltip]',\n  hostSelector: '.tooltip__host, [aria-describedby]'\n};\n\nmodule.exports = /*#__PURE__*/function () {\n  function _class(widgetEl, selectedOptions) {\n    _classCallCheck(this, _class);\n\n    this._options = Object.assign({}, defaultOptions, selectedOptions);\n    this._el = widgetEl;\n    this.expander = new Expander(widgetEl, {\n      autoCollapse: true,\n      contentSelector: this._options.contentSelector,\n      hostSelector: this._options.hostSelector,\n      expandOnFocus: true,\n      expandOnHover: true\n    });\n    this._destroyed = false;\n    this.wake();\n\n    this._el.classList.add('tooltip--js');\n  }\n\n  _createClass(_class, [{\n    key: \"sleep\",\n    value: function sleep() {\n      this.expander.expandOnFocus = false;\n      this.expander.expandOnHover = false;\n    }\n  }, {\n    key: \"wake\",\n    value: function wake() {\n      if (this._destroyed !== true) {\n        this.expander.expandOnFocus = true;\n        this.expander.expandOnHover = true;\n      }\n    }\n  }, {\n    key: \"destroy\",\n    value: function destroy() {\n      this._destroyed = true;\n      this.sleep();\n    }\n  }]);\n\n  return _class;\n}();\n\n//# sourceURL=webpack:///./_transpiled/tooltip.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/alert-dialog.js":
+/*!*************************************************!*\
+  !*** ./node_modules/@ebay/skin/alert-dialog.js ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _alert_dialog_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./alert-dialog.css */ \"./node_modules/@ebay/skin/alert-dialog.css\");\n\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/alert-dialog.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/breadcrumbs.js":
+/*!************************************************!*\
+  !*** ./node_modules/@ebay/skin/breadcrumbs.js ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _breadcrumbs_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./breadcrumbs.css */ \"./node_modules/@ebay/skin/breadcrumbs.css\");\n\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/breadcrumbs.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/button.js":
+/*!*******************************************!*\
+  !*** ./node_modules/@ebay/skin/button.js ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _button_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./button.css */ \"./node_modules/@ebay/skin/button.css\");\n\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/button.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/checkbox.js":
+/*!*********************************************!*\
+  !*** ./node_modules/@ebay/skin/checkbox.js ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _checkbox_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./checkbox.css */ \"./node_modules/@ebay/skin/checkbox.css\");\n\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/checkbox.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/combobox.js":
+/*!*********************************************!*\
+  !*** ./node_modules/@ebay/skin/combobox.js ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _combobox_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./combobox.css */ \"./node_modules/@ebay/skin/combobox.css\");\n\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/combobox.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/confirm-dialog.js":
+/*!***************************************************!*\
+  !*** ./node_modules/@ebay/skin/confirm-dialog.js ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _confirm_dialog_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./confirm-dialog.css */ \"./node_modules/@ebay/skin/confirm-dialog.css\");\n\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/confirm-dialog.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/icon-button.js":
+/*!************************************************!*\
+  !*** ./node_modules/@ebay/skin/icon-button.js ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _icon_button_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icon-button.css */ \"./node_modules/@ebay/skin/icon-button.css\");\n\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/icon-button.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/icon.js":
+/*!*****************************************!*\
+  !*** ./node_modules/@ebay/skin/icon.js ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _icon_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icon.css */ \"./node_modules/@ebay/skin/icon.css\");\n\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/icon.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/lightbox-dialog.js":
+/*!****************************************************!*\
+  !*** ./node_modules/@ebay/skin/lightbox-dialog.js ***!
+  \****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _lightbox_dialog_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lightbox-dialog.css */ \"./node_modules/@ebay/skin/lightbox-dialog.css\");\n/* harmony import */ var _icon_button_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icon-button.css */ \"./node_modules/@ebay/skin/icon-button.css\");\n\n\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/lightbox-dialog.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/listbox-button.js":
+/*!***************************************************!*\
+  !*** ./node_modules/@ebay/skin/listbox-button.js ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _listbox_button_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./listbox-button.css */ \"./node_modules/@ebay/skin/listbox-button.css\");\n/* harmony import */ var _expand_button_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./expand-button.css */ \"./node_modules/@ebay/skin/expand-button.css\");\n\n\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/listbox-button.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/listbox.js":
+/*!********************************************!*\
+  !*** ./node_modules/@ebay/skin/listbox.js ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _listbox_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./listbox.css */ \"./node_modules/@ebay/skin/listbox.css\");\n\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/listbox.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/menu-button.js":
+/*!************************************************!*\
+  !*** ./node_modules/@ebay/skin/menu-button.js ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _menu_button_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./menu-button.css */ \"./node_modules/@ebay/skin/menu-button.css\");\n/* harmony import */ var _expand_button_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./expand-button.css */ \"./node_modules/@ebay/skin/expand-button.css\");\n\n\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/menu-button.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/menu.js":
+/*!*****************************************!*\
+  !*** ./node_modules/@ebay/skin/menu.js ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _menu_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./menu.css */ \"./node_modules/@ebay/skin/menu.css\");\n\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/menu.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/radio.js":
+/*!******************************************!*\
+  !*** ./node_modules/@ebay/skin/radio.js ***!
+  \******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _radio_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./radio.css */ \"./node_modules/@ebay/skin/radio.css\");\n\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/radio.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/switch.js":
+/*!*******************************************!*\
+  !*** ./node_modules/@ebay/skin/switch.js ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _switch_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./switch.css */ \"./node_modules/@ebay/skin/switch.css\");\n\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/switch.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/toast-dialog.js":
+/*!*************************************************!*\
+  !*** ./node_modules/@ebay/skin/toast-dialog.js ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _toast_dialog_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./toast-dialog.css */ \"./node_modules/@ebay/skin/toast-dialog.css\");\n/* harmony import */ var _icon_button_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icon-button.css */ \"./node_modules/@ebay/skin/icon-button.css\");\n\n\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/toast-dialog.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/utility.js":
+/*!********************************************!*\
+  !*** ./node_modules/@ebay/skin/utility.js ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utility_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utility.css */ \"./node_modules/@ebay/skin/utility.css\");\n\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/utility.js?");
 
 /***/ }),
 
@@ -867,6 +1054,204 @@ eval("\n\nfunction _createForOfIteratorHelper(o, allowArrayLike) { var it = type
 
 /***/ }),
 
+/***/ "./node_modules/@ebay/skin/alert-dialog.css":
+/*!**************************************************!*\
+  !*** ./node_modules/@ebay/skin/alert-dialog.css ***!
+  \**************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/alert-dialog.css?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/breadcrumbs.css":
+/*!*************************************************!*\
+  !*** ./node_modules/@ebay/skin/breadcrumbs.css ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/breadcrumbs.css?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/button.css":
+/*!********************************************!*\
+  !*** ./node_modules/@ebay/skin/button.css ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/button.css?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/checkbox.css":
+/*!**********************************************!*\
+  !*** ./node_modules/@ebay/skin/checkbox.css ***!
+  \**********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/checkbox.css?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/combobox.css":
+/*!**********************************************!*\
+  !*** ./node_modules/@ebay/skin/combobox.css ***!
+  \**********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/combobox.css?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/confirm-dialog.css":
+/*!****************************************************!*\
+  !*** ./node_modules/@ebay/skin/confirm-dialog.css ***!
+  \****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/confirm-dialog.css?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/expand-button.css":
+/*!***************************************************!*\
+  !*** ./node_modules/@ebay/skin/expand-button.css ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/expand-button.css?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/icon-button.css":
+/*!*************************************************!*\
+  !*** ./node_modules/@ebay/skin/icon-button.css ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/icon-button.css?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/icon.css":
+/*!******************************************!*\
+  !*** ./node_modules/@ebay/skin/icon.css ***!
+  \******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/icon.css?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/lightbox-dialog.css":
+/*!*****************************************************!*\
+  !*** ./node_modules/@ebay/skin/lightbox-dialog.css ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/lightbox-dialog.css?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/listbox-button.css":
+/*!****************************************************!*\
+  !*** ./node_modules/@ebay/skin/listbox-button.css ***!
+  \****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/listbox-button.css?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/listbox.css":
+/*!*********************************************!*\
+  !*** ./node_modules/@ebay/skin/listbox.css ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/listbox.css?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/menu-button.css":
+/*!*************************************************!*\
+  !*** ./node_modules/@ebay/skin/menu-button.css ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/menu-button.css?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/menu.css":
+/*!******************************************!*\
+  !*** ./node_modules/@ebay/skin/menu.css ***!
+  \******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/menu.css?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/radio.css":
+/*!*******************************************!*\
+  !*** ./node_modules/@ebay/skin/radio.css ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/radio.css?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/switch.css":
+/*!********************************************!*\
+  !*** ./node_modules/@ebay/skin/switch.css ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/switch.css?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/toast-dialog.css":
+/*!**************************************************!*\
+  !*** ./node_modules/@ebay/skin/toast-dialog.css ***!
+  \**************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/toast-dialog.css?");
+
+/***/ }),
+
+/***/ "./node_modules/@ebay/skin/utility.css":
+/*!*********************************************!*\
+  !*** ./node_modules/@ebay/skin/utility.css ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./node_modules/@ebay/skin/utility.css?");
+
+/***/ }),
+
 /***/ "./node_modules/nanoid/non-secure/index.js":
 /*!*************************************************!*\
   !*** ./node_modules/nanoid/non-secure/index.js ***!
@@ -902,6 +1287,18 @@ eval("// This alphabet uses a-z A-Z 0-9 _- symbols.\n// Symbols are generated fo
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	!function() {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = function(exports) {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	}();
 /******/ 	
 /************************************************************************/
 /******/ 	

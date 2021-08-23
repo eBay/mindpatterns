@@ -36,13 +36,7 @@ select {
     font-size: 1em;
 }
 
-input[type=text],
-input[type=password] {
-    font-size: 1em;
-    padding: 4px 8px;
-}
-
-hr {
+main > hr {
     clear: both;
     height: 1px;
     margin: 2rem 0;

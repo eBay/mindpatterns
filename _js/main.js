@@ -6,6 +6,24 @@
 * https://opensource.org/licenses/MIT.
 */
 
+import '@ebay/skin/utility';
+import '@ebay/skin/alert-dialog';
+import '@ebay/skin/breadcrumbs';
+import '@ebay/skin/checkbox';
+import '@ebay/skin/icon';
+import '@ebay/skin/icon-button';
+import '@ebay/skin/button';
+import '@ebay/skin/combobox';
+import '@ebay/skin/confirm-dialog';
+import '@ebay/skin/lightbox-dialog';
+import '@ebay/skin/listbox';
+import '@ebay/skin/listbox-button';
+import '@ebay/skin/menu';
+import '@ebay/skin/menu-button';
+import '@ebay/skin/radio';
+import '@ebay/skin/switch';
+import '@ebay/skin/toast-dialog';
+
 const pageWidgets = [];
 
 const logEvent = (e) => console.log(e); // eslint-disable-line no-console
@@ -65,7 +83,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.querySelectorAll('.dialog-button').forEach(function(widgetEl) {
-        pageWidgets.push(new DialogButton(widgetEl));
+        const widget = new DialogButton(widgetEl);
+
+        pageWidgets.push(widget);
+
+        widget.dialog._el.addEventListener('dialog-open', logEvent);
+        widget.dialog._el.addEventListener('dialog-close', logEvent);
+        widget.dialog._el.addEventListener('dialog-confirm', logEvent);
+        widget.dialog._el.addEventListener('dialog-reject', logEvent);
+        widget.dialog._el.addEventListener('dialog-reset', logEvent);
+        widget.dialog._el.addEventListener('dialog-done', logEvent);
+        widget.dialog._el.addEventListener('dialog-acknowledge', logEvent);
+        widget.dialog._el.addEventListener('dialog-cta', logEvent);
+        widget.dialog._el.addEventListener('dialog-submit', logEvent);
+        widget.dialog._el.addEventListener('dialog-cancel', logEvent);
     });
 
     document.querySelectorAll('.flyout--click').forEach(function(widgetEl) {
@@ -141,14 +172,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelectorAll('.listbox').forEach(function(widgetEl) {
         pageWidgets.push(new Listbox(widgetEl, {
-            autoSelect: (widgetEl.dataset.autoSelect === 'true')
+            autoSelect: (widgetEl.dataset.makeupAutoSelect === 'true')
         }));
         widgetEl.addEventListener('makeup-listbox-change', (e) => console.log(e.type, e.detail));
     });
 
     document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
         pageWidgets.push(new ListboxButton(widgetEl, {
-            autoSelect: (widgetEl.dataset.autoSelect === 'true')
+            autoSelect: (widgetEl.dataset.makeupAutoSelect === 'true')
         }));
 
         widgetEl.addEventListener('makeup-listbox-button-change', (e) => console.log(e.type, e.detail));
