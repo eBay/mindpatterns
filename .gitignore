@@ -2,7 +2,6 @@ _site/
 .sass-cache/
 .jekyll-metadata
 node_modules
-static
 _transpiled
 *.log
 npm-debug.log
