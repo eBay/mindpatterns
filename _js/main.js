@@ -22,6 +22,7 @@ import '@ebay/skin/menu';
 import '@ebay/skin/menu-button';
 import '@ebay/skin/radio';
 import '@ebay/skin/switch';
+import '@ebay/skin/textbox';
 import '@ebay/skin/toast-dialog';
 
 const pageWidgets = [];
@@ -49,6 +50,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const Tabs = require('./tabs.js');
     const Tile = require('./tile.js');
     const Tooltip = require('./tooltip.js');
+    const LightboxDialog = require('makeup-lightbox-dialog');
+    const AlertDialog = require('makeup-alert-dialog');
+    const ConfirmDialog = require('makeup-confirm-dialog');
+    const DrawerDialog = require('makeup-drawer-dialog');
+    const FullscreenDialog = require('makeup-fullscreen-dialog');
+    const InputDialog = require('makeup-input-dialog');
+    const PanelDialog = require('makeup-panel-dialog');
+    const SnackbarDialog = require('makeup-snackbar-dialog');
+    const ToastDialog = require('makeup-toast-dialog');
 
     document.querySelectorAll('.accordion').forEach(function(widgetEl) {
         pageWidgets.push(new Accordion(widgetEl, {
@@ -82,21 +92,42 @@ document.addEventListener('DOMContentLoaded', function() {
         widgetEl.addEventListener('makeup-combobox-change', (e) => console.log(e.type, e.detail));
     });
 
-    document.querySelectorAll('.dialog-button').forEach(function(widgetEl) {
-        const widget = new DialogButton(widgetEl);
+    document.querySelectorAll('.dialog-button').forEach(function(el) {
+        const dialogId = el.dataset.makeupFor;
+        const dialogEl = document.getElementById(dialogId);
+        const dialogClassList = dialogEl.classList;
+        let dialogWidget;
 
-        pageWidgets.push(widget);
+        if (dialogClassList.contains('confirm-dialog')) {
+            dialogWidget = new ConfirmDialog(dialogEl);
+        } else if (dialogClassList.contains('alert-dialog')) {
+            dialogWidget = new AlertDialog(dialogEl);
+        } else if (dialogClassList.contains('lightbox-dialog--input')) {
+            dialogWidget = new InputDialog(dialogEl);
+        } else if (dialogClassList.contains('fullscreen-dialog')) {
+            dialogWidget = new FullscreenDialog(dialogEl);
+        } else if (dialogClassList.contains('snackbar-dialog')) {
+            dialogWidget = new SnackbarDialog(dialogEl);
+        } else if (dialogClassList.contains('toast-dialog')) {
+            dialogWidget = new ToastDialog(dialogEl);
+        } else if (dialogClassList.contains('drawer-dialog')) {
+            dialogWidget = new DrawerDialog(dialogEl);
+        } else if (dialogClassList.contains('panel-dialog')) {
+            dialogWidget = new PanelDialog(dialogEl);
+        } else if (dialogClassList.contains('lightbox-dialog')) {
+            dialogWidget = new LightboxDialog(dialogEl);
+        }
 
-        widget.dialog._el.addEventListener('dialog-open', logEvent);
-        widget.dialog._el.addEventListener('dialog-close', logEvent);
-        widget.dialog._el.addEventListener('dialog-confirm', logEvent);
-        widget.dialog._el.addEventListener('dialog-reject', logEvent);
-        widget.dialog._el.addEventListener('dialog-reset', logEvent);
-        widget.dialog._el.addEventListener('dialog-done', logEvent);
-        widget.dialog._el.addEventListener('dialog-acknowledge', logEvent);
-        widget.dialog._el.addEventListener('dialog-cta', logEvent);
-        widget.dialog._el.addEventListener('dialog-submit', logEvent);
-        widget.dialog._el.addEventListener('dialog-cancel', logEvent);
+        pageWidgets.push(new DialogButton(el, dialogWidget));
+
+        dialogWidget._el.addEventListener('dialog-open', logEvent);
+        dialogWidget._el.addEventListener('dialog-close', logEvent);
+        dialogWidget._el.addEventListener('dialog-acknowledge', logEvent);
+        dialogWidget._el.addEventListener('dialog-confirm', logEvent);
+        dialogWidget._el.addEventListener('dialog-reject', logEvent);
+        dialogWidget._el.addEventListener('dialog-cta', logEvent);
+        dialogWidget._el.addEventListener('dialog-submit', logEvent);
+        dialogWidget._el.addEventListener('dialog-cancel', logEvent);
     });
 
     document.querySelectorAll('.flyout--click').forEach(function(widgetEl) {

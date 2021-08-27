@@ -401,7 +401,7 @@ svg.icon--attention {
 svg.icon--attention-filled {
   height: 24px;
   width: 24px;
-  color: #e0103a;
+  color: var(--color-status-attention, #e0103a);
 }
 svg.icon--back {
   height: 18px;
@@ -474,6 +474,7 @@ svg.icon--confirmation {
 svg.icon--confirmation-filled {
   height: 24px;
   width: 24px;
+  color: var(--color-status-confirmation, #05823f);
 }
 svg.icon--cta {
   height: 21px;
@@ -510,6 +511,7 @@ svg.icon--information {
 svg.icon--information-filled {
   height: 24px;
   width: 24px;
+  color: var(--color-status-information, #382aef);
 }
 svg.icon--menu {
   height: 18px;
@@ -1058,7 +1060,7 @@ svg.icon--attention-small {
 svg.icon--attention-filled-small {
   height: 16px;
   width: 16px;
-  color: #e0103a;
+  color: var(--color-status-attention, #e0103a);
 }
 svg.icon--camera-small {
   height: 14px;
@@ -1103,6 +1105,7 @@ svg.icon--confirmation-small {
 svg.icon--confirmation-filled-small {
   height: 16px;
   width: 16px;
+  color: var(--color-status-confirmation, #05823f);
 }
 svg.icon--delete-small {
   height: 16px;
@@ -1139,6 +1142,7 @@ svg.icon--information-small {
 svg.icon--information-filled-small {
   height: 16px;
   width: 16px;
+  color: var(--color-status-information, #382aef);
 }
 svg.icon--mic-small {
   height: 16px;
@@ -1222,15 +1226,15 @@ svg.icon--truck-small {
 @media (prefers-color-scheme: dark) {
   svg.icon--attention-filled,
   svg.icon--attention-filled-small {
-    color: #e95367;
+    color: var(--color-status-attention-dark-mode, #e95367);
   }
   svg.icon--confirmation-filled,
   svg.icon--confirmation-filled-small {
-    color: #24bc6b;
+    color: var(--color-status-confirmation-dark-mode, #24bc6b);
   }
   svg.icon--information-filled,
   svg.icon--information-filled-small {
-    color: #5192ff;
+    color: var(--color-status-information-dark-mode, #5192ff);
   }
 }
 
@@ -1268,10 +1272,6 @@ a.icon-link > svg {
   max-width: 100%;
   position: relative;
 }
-button.icon-btn:active > svg,
-a.icon-link:active > svg {
-  fill: var(--icon-button-icon-active-foreground-color, #111820);
-}
 button.icon-btn:focus,
 a.icon-link:focus,
 button.icon-btn:hover,
@@ -1284,12 +1284,28 @@ button.icon-btn:hover > svg,
 a.icon-link:hover > svg {
   fill: var(--icon-button-icon-hover-foreground-color, #111820);
 }
+button.icon-btn:active,
+a.icon-link:active {
+  background-color: var(--icon-button-active-background-color, #c7c7c7);
+}
+button.icon-btn:active > svg,
+a.icon-link:active > svg {
+  fill: var(--icon-button-icon-active-foreground-color, #111820);
+}
 button.icon-btn:not(:focus-visible),
 a.icon-link:not(:focus-visible) {
   outline: none;
 }
 button.icon-btn--transparent,
 a.icon-link--transparent {
+  background-color: transparent;
+}
+button.icon-btn--transparent:active,
+a.icon-link--transparent:active,
+button.icon-btn--transparent:focus,
+a.icon-link--transparent:focus,
+button.icon-btn--transparent:hover,
+a.icon-link--transparent:hover {
   background-color: transparent;
 }
 a.icon-link:visited > svg {
@@ -1338,6 +1354,7 @@ a.icon-link--badged .badge {
   button.icon-btn {
     --icon-button-background-color: #212121;
     --icon-button-hover-background-color: #393939;
+    --icon-button-active-background-color: #4d4d4d;
     --icon-button-badge-border-color: #171717;
     --icon-button-icon-foreground-color: #dcdcdc;
     --icon-button-icon-active-foreground-color: #dcdcdc;
@@ -1932,10 +1949,10 @@ span.combobox {
     --combobox-disabled-border-color: #6a6a6a;
     --combobox-disabled-placeholder-color: #6a6a6a;
     --combobox-readonly-foreground-color: #6a6a6a;
-    --combobox-focus-placeholder-color: #ababab;
+    --combobox-focus-placeholder-color: #a8a8a8;
     --combobox-invalid-foreground-color: #e95367;
     --combobox-invalid-background-color: #2a191c;
-    --combobox-icon-color: #ababab;
+    --combobox-icon-color: #a8a8a8;
     --dropdown-background-color: #171717;
     --listbox-option-foreground-color: #dcdcdc;
     --listbox-option-border-color: #171717;
@@ -3269,6 +3286,183 @@ span.switch__control:focus:not(:focus-visible) {
 /*!**************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/switch.css ***!
   \**************************************************************************************/
+
+
+/*!********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/textbox/ds6/textbox.css ***!
+  \********************************************************************************************************/
+/* stylelint-disable no-descending-specificity */
+.textbox {
+  color: var(--textbox-foreground-color, #111820);
+  font-size: 0.875rem;
+  position: relative;
+}
+.textbox button.icon-btn {
+  display: inline-flex;
+  height: 100%;
+  justify-content: center;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+span.textbox {
+  display: inline-block;
+}
+textarea.textbox__control {
+  font-family: inherit;
+  min-height: 200px;
+  overflow: auto;
+  padding: 16px;
+  resize: vertical;
+  vertical-align: middle;
+}
+input.textbox__control {
+  font-family: inherit;
+  padding: 0 16px 0 16px;
+  vertical-align: middle;
+}
+input.textbox__control,
+textarea.textbox__control {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: var(--textbox-background-color, #f7f7f7);
+  border-color: var(--textbox-border-color, #949494);
+  border-radius: var(--textbox-border-radius, 8px);
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  color: var(--textbox-foreground-color, #111820);
+  font-size: 1em;
+  height: 40px;
+  margin: 0;
+}
+input.textbox__control[disabled],
+textarea.textbox__control[disabled] {
+  background-color: var(--textbox-disabled-background-color, #f7f7f7);
+  border-color: var(--textbox-disabled-border-color, #949494);
+  color: var(--textbox-disabled-foreground-color, #a2a2a2);
+}
+input.textbox__control[disabled]::-webkit-input-placeholder,
+textarea.textbox__control[disabled]::-webkit-input-placeholder {
+  color: var(--textbox-disabled-placeholder-color, #a2a2a2);
+}
+input.textbox__control[disabled]::-moz-placeholder,
+textarea.textbox__control[disabled]::-moz-placeholder {
+  color: var(--textbox-disabled-placeholder-color, #a2a2a2);
+}
+input.textbox__control[disabled]:-ms-input-placeholder,
+textarea.textbox__control[disabled]:-ms-input-placeholder {
+  color: var(--textbox-disabled-placeholder-color, #a2a2a2);
+}
+input.textbox__control[readonly],
+textarea.textbox__control[readonly] {
+  color: var(--textbox-readonly-foreground-color, #a2a2a2);
+}
+input.textbox__control[aria-invalid="true"],
+textarea.textbox__control[aria-invalid="true"] {
+  background-color: var(--textbox-invalid-background-color, #fef5f6);
+  border-color: var(--textbox-invalid-foreground-color, #e0103a);
+}
+input.textbox__control:focus,
+textarea.textbox__control:focus {
+  border-color: var(--textbox-focus-border-color, #3665f3);
+  background-color: var(--textbox-focus-background-color, #fff);
+  outline: 0;
+}
+input.textbox__control::-webkit-input-placeholder,
+textarea.textbox__control::-webkit-input-placeholder {
+  color: var(--textbox-placeholder-color, #707070);
+  font-weight: 200;
+}
+input.textbox__control:-ms-input-placeholder,
+textarea.textbox__control:-ms-input-placeholder {
+  color: var(--textbox-placeholder-color, #707070);
+  font-weight: 200;
+}
+input.textbox__control::-ms-input-placeholder,
+textarea.textbox__control::-ms-input-placeholder {
+  color: var(--textbox-placeholder-color, #707070);
+  font-weight: 200;
+}
+input.textbox__control::placeholder,
+textarea.textbox__control::placeholder {
+  color: var(--textbox-placeholder-color, #707070);
+  font-weight: 200;
+}
+input.textbox__control--large {
+  height: 48px;
+}
+.textbox > svg,
+.textbox .icon-btn > svg {
+  color: var(--textbox-icon-color, #707070);
+  display: inline-flex;
+  fill: var(--textbox-icon-color, #707070);
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 14px;
+}
+.textbox > svg:first-child {
+  left: 16px;
+}
+.textbox > svg:first-child + input.textbox__control,
+.textbox > svg:first-child + textarea.textbox__control {
+  padding-left: 40px;
+}
+.textbox--icon-end input.textbox__control,
+.textbox--icon-end textarea.textbox__control {
+  padding-right: 40px;
+}
+.textbox--icon-end > svg:last-child {
+  right: 16px;
+}
+.textbox__control--fluid {
+  width: 100%;
+}
+[dir="rtl"] .textbox > svg:first-child {
+  right: 16px;
+}
+[dir="rtl"] .textbox > svg:first-child + input.textbox__control,
+[dir="rtl"] .textbox > svg:first-child + textarea.textbox__control {
+  padding-right: 40px;
+}
+[dir="rtl"] .textbox--icon-end input.textbox__control,
+[dir="rtl"] .textbox--icon-end textarea.textbox__control {
+  padding-left: 40px;
+}
+[dir="rtl"] .textbox--icon-end button.icon-btn {
+  left: 0;
+  right: auto;
+}
+[dir="rtl"] .textbox--icon-end > svg:last-child {
+  left: 16px;
+  right: auto;
+}
+@media (prefers-color-scheme: dark) {
+  .textbox {
+    --textbox-background-color: #393939;
+    --textbox-foreground-color: #dcdcdc;
+    --textbox-border-color: #6a6a6a;
+    --textbox-focus-border-color: #5192ff;
+    --textbox-focus-background-color: #171717;
+    --textbox-disabled-background-color: #393939;
+    --textbox-disabled-foreground-color: #6a6a6a;
+    --textbox-disabled-border-color: #6a6a6a;
+    --textbox-disabled-placeholder-color: #6a6a6a;
+    --textbox-readonly-foreground-color: #6a6a6a;
+    --textbox-focus-placeholder-color: #a8a8a8;
+    --textbox-invalid-foreground-color: #e95367;
+    --textbox-invalid-background-color: #2a191c;
+    --textbox-icon-color: #a8a8a8;
+  }
+}
+
+/*!***************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/textbox.css ***!
+  \***************************************************************************************/
 
 
 /*!******************************************************************************************************************!*\

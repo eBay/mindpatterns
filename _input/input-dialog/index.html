@@ -3,18 +3,11 @@ layout: page
 title: Input Dialog
 ---
 
-<div hidden>
-    <svg>
-        <symbol id="icon-close" viewBox="0 0 18 18">
-            <path d="M10.41 9l7.294-7.287A1.004 1.004 0 0016.285.294L9 7.59 1.715.294a1.002 1.002 0 10-1.42 1.42l7.296 7.285-7.295 7.286a1 1 0 000 1.42 1 1 0 001.419 0L9 10.407l7.285 7.296a1 1 0 001.42 0 1 1 0 000-1.419l-7.296-7.286z"/>
-        </symbol>
-    </svg>
-</div>
-
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
 <p>Activate button to open the input dialog.</p>
+<p>This example imports <a href="https://ebay.github.io/skin/#lightbox-dialog">skin</a> and <a href="https://github.com/makeup/makeup-js/tree/master/packages/input-dialog">makeup</a> for base styles and behaviour respectively. Please <a href={{ "input/input-dialog" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> for further developer guidance.</p>
 <p>Please <a href={{ "input/input-dialog" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <h2 class="clipped">Examples</h2>
@@ -23,21 +16,23 @@ title: Input Dialog
 
 <button data-makeup-for="input-dialog" class="button dialog-button" type="button">Open Input Dialog</button>
 
-<div class="lightbox-dialog lightbox-dialog--confirm lightbox-dialog--mask-fade" id="input-dialog" role="dialog" aria-labelledby="input-dialog-title" aria-modal="true" hidden>
-    <div class="lightbox-dialog__compact-window lightbox-dialog__compact-window--fade">
+<div class="lightbox-dialog lightbox-dialog--input lightbox-dialog--mask-fade" id="input-dialog" role="dialog" aria-labelledby="input-dialog-title" aria-modal="true" hidden>
+    <div class="lightbox-dialog__window lightbox-dialog__window--fade">
         <div class="lightbox-dialog__header">
             <h2 class="lightbox-dialog__title" id="input-dialog-title">Enter Your Bid</h2>
         </div>
         <form action="index.html" method="get">
             <div class="lightbox-dialog__main">
                 <p>
-                    <label>Bid Amount:<label>
-                    <input autofocus class="lightbox-dialog__input" type="text" name="bid" />
+                    <label for="bid">Bid Amount:<label>
+                    <span class="textbox">
+                        <input autofocus class="textbox__control lightbox-dialog__input" id="bid" type="text" name="bid" />
+                    </span>
                 </p>
             </div>
             <div class="lightbox-dialog__footer">
-                <button class="btn lightbox-dialog__reject" type="button">Cancel</button>
-                <button class="btn lightbox-dialog__confirm" type="submit">Submit</button>
+                <button class="btn lightbox-dialog__cancel" type="button">Cancel</button>
+                <button class="btn btn--primary lightbox-dialog__submit" type="submit">Submit</button>
             </div>
         </form>
     </div>
