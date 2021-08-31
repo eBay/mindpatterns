@@ -14,13 +14,13 @@ title: Toast Dialog
 
 <hr />
 
-<button data-makeup-for="toast-dialog" class="button dialog-button" type="button">Trigger Toast Dialog</button>
+<button class="dialog-button" type="button" data-makeup-for="dialog-toast" aria-haspopup="dialog">Open Toast Dialog</button>
 
-<aside id="toast-dialog" class="toast-dialog toast-dialog--transition" role="dialog" aria-label="Notification" aria-live="polite" aria-modal="false" hidden>
+<aside id="dialog-toast" class="toast-dialog" role="dialog" aria-label="Notification" aria-live="polite" aria-modal="false" hidden>
     <div class="toast-dialog__window">
         <div class="toast-dialog__header">
-            <h2 class="toast__title">User Privacy Preferences</h2>
-            <button class="toast-dialog__close icon-btn icon-btn--transparent" type="button" aria-label="Close notification dialog">
+            <h2 class="toast-dialog__title">User Privacy Preferences</h2>
+            <button class="icon-btn icon-btn--transparent toast-dialog__close" type="button" aria-label="Close notification dialog">
                 <svg class="icon icon--close" focusable="false" height="24" width="24">
                     <use xlink:href="../../svg/icons.svg#icon-close"></use>
                 </svg>
@@ -37,4 +37,4 @@ title: Toast Dialog
 
 <hr />
 
-<p><i>Updated</i>: May 26th, 2021</p>
+<p><i>Updated: Aug 27th, 2021</i></p>
