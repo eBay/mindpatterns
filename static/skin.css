@@ -72,11 +72,6 @@
   white-space: nowrap;
 }
 
-/*!***************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/utility.css ***!
-  \***************************************************************************************/
-
-
 /*!******************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/alert-dialog/ds6/alert-dialog.css ***!
   \******************************************************************************************************************/
@@ -190,11 +185,6 @@
   }
 }
 
-/*!********************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/alert-dialog.css ***!
-  \********************************************************************************************/
-
-
 /*!****************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/breadcrumbs/ds6/breadcrumbs.css ***!
   \****************************************************************************************************************/
@@ -275,11 +265,6 @@ nav.breadcrumbs::-webkit-scrollbar {
     --breadcrumbs-item-hover-foreground-color: #5192ff;
   }
 }
-
-/*!*******************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/breadcrumbs.css ***!
-  \*******************************************************************************************/
-
 
 /*!**********************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/checkbox/ds6/checkbox.css ***!
@@ -369,11 +354,6 @@ input.checkbox__control[type="checkbox"]:focus:not(:focus-visible) + span.checkb
     --checkbox-unchecked-color: #dcdcdc;
   }
 }
-
-/*!****************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/checkbox.css ***!
-  \****************************************************************************************/
-
 
 /*!**************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/icon/ds6/icon.css ***!
@@ -1238,11 +1218,6 @@ svg.icon--truck-small {
   }
 }
 
-/*!************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/icon.css ***!
-  \************************************************************************************/
-
-
 /*!****************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/icon-button/ds6/icon-button.css ***!
   \****************************************************************************************************************/
@@ -1361,11 +1336,6 @@ a.icon-link--badged .badge {
     --icon-button-icon-hover-foreground-color: #dcdcdc;
   }
 }
-
-/*!*******************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/icon-button.css ***!
-  \*******************************************************************************************/
-
 
 /*!******************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/button/ds6/button.css ***!
@@ -1709,11 +1679,6 @@ a.fake-btn--icon-only {
   }
 }
 
-/*!**************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/button.css ***!
-  \**************************************************************************************/
-
-
 /*!**********************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/combobox/ds6/combobox.css ***!
   \**********************************************************************************************************/
@@ -1775,6 +1740,9 @@ span.combobox {
 }
 .combobox__option[role^="option"]:focus {
   outline-offset: -4px;
+}
+.combobox__option[role^="option"][hidden] {
+  display: none;
 }
 .combobox__option[role^="option"]:hover {
   background-color: var(--listbox-option-hover-background-color, #e5e5e5);
@@ -1960,11 +1928,6 @@ span.combobox {
   }
 }
 
-/*!****************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/combobox.css ***!
-  \****************************************************************************************/
-
-
 /*!**********************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/confirm-dialog/ds6/confirm-dialog.css ***!
   \**********************************************************************************************************************/
@@ -2081,11 +2044,6 @@ button.confirm-dialog__confirm {
     --dialog-window-background-color: #212121;
   }
 }
-
-/*!**********************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/confirm-dialog.css ***!
-  \**********************************************************************************************/
-
 
 /*!************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/lightbox-dialog/ds6/lightbox-dialog.css ***!
@@ -2263,11 +2221,6 @@ button.lightbox-dialog__close {
   }
 }
 
-/*!***********************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/lightbox-dialog.css ***!
-  \***********************************************************************************************/
-
-
 /*!********************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/listbox/ds6/listbox.css ***!
   \********************************************************************************************************/
@@ -2309,6 +2262,9 @@ div.listbox__option[role="option"]:not(:last-child) {
 }
 div.listbox__option[role="option"]:focus {
   outline-offset: -4px;
+}
+div.listbox__option[role="option"][hidden] {
+  display: none;
 }
 div.listbox__option[role="option"]:hover {
   background-color: var(--listbox-option-hover-background-color, #e5e5e5);
@@ -2360,11 +2316,6 @@ div.listbox__option[role="option"]:active svg.icon {
     --listbox-option-hover-foreground-color: #111820;
   }
 }
-
-/*!***************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/listbox.css ***!
-  \***************************************************************************************/
-
 
 /*!********************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/expand-button/ds6/expand-button.css ***!
@@ -2527,11 +2478,6 @@ button.expand-btn--icon-only.expand-btn--large {
   }
 }
 
-/*!*********************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/expand-button.css ***!
-  \*********************************************************************************************/
-
-
 /*!**********************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/listbox-button/ds6/listbox-button.css ***!
   \**********************************************************************************************************************/
@@ -2624,6 +2570,9 @@ div.listbox-button__option[role="option"]:not(:last-child) {
 div.listbox-button__option[role="option"]:focus {
   outline-offset: -4px;
 }
+div.listbox-button__option[role="option"][hidden] {
+  display: none;
+}
 div.listbox-button__option[role="option"]:hover {
   background-color: var(--listbox-option-hover-background-color, #e5e5e5);
   color: var(--listbox-option-hover-foreground-color, #111820);
@@ -2665,11 +2614,6 @@ span.listbox-button__value {
     --listbox-option-hover-foreground-color: #111820;
   }
 }
-
-/*!**********************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/listbox-button.css ***!
-  \**********************************************************************************************/
-
 
 /*!**************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/menu/ds6/menu.css ***!
@@ -2835,11 +2779,6 @@ div.menu__item[role^="menuitem"]:focus:not(:focus-visible) {
     --menu-menuitem-hover-foreground-color: #111820;
   }
 }
-
-/*!************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/menu.css ***!
-  \************************************************************************************/
-
 
 /*!****************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/menu-button/ds6/menu-button.css ***!
@@ -3094,11 +3033,6 @@ div.menu-button__item[role^="menuitem"]:focus:not(:focus-visible) {
   }
 }
 
-/*!*******************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/menu-button.css ***!
-  \*******************************************************************************************/
-
-
 /*!****************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/radio/ds6/radio.css ***!
   \****************************************************************************************************/
@@ -3187,11 +3121,6 @@ input.radio__control[type="radio"]:focus:not(:focus-visible) + span.radio__icon 
     --radio-unchecked-color: #dcdcdc;
   }
 }
-
-/*!*************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/radio.css ***!
-  \*************************************************************************************/
-
 
 /*!******************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/switch/ds6/switch.css ***!
@@ -3282,11 +3211,6 @@ span.switch__control:focus:not(:focus-visible) {
     --switch-checked-background-color: #5192ff;
   }
 }
-
-/*!**************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/switch.css ***!
-  \**************************************************************************************/
-
 
 /*!********************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/textbox/ds6/textbox.css ***!
@@ -3460,11 +3384,6 @@ input.textbox__control--large {
   }
 }
 
-/*!***************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/textbox.css ***!
-  \***************************************************************************************/
-
-
 /*!******************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/toast-dialog/ds6/toast-dialog.css ***!
   \******************************************************************************************************************/
@@ -3594,9 +3513,4 @@ button.toast-dialog__close:focus {
     --toast-dialog-foreground-color: #fff;
   }
 }
-
-/*!********************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/toast-dialog.css ***!
-  \********************************************************************************************/
-
 
