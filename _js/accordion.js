@@ -35,7 +35,7 @@ function createDetailsWidget(el, i) {
     this._detailsWidgets.push(el);
 }
 
-module.exports = class {
+export default class {
     constructor(widgetEl, selectedOptions) {
         this._options = Object.assign({}, defaultOptions, selectedOptions);
 
@@ -73,4 +73,4 @@ module.exports = class {
 
         this._onToggleListener = null;
     }
-};
+}

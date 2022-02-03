@@ -17,7 +17,7 @@ function onKeyDown(e) {
     }
 }
 
-module.exports = class {
+export default class {
     constructor(widgetEl) {
         this._el = widgetEl;
 
@@ -54,4 +54,4 @@ module.exports = class {
         this._onKeyDownListener = null;
         this._onClickListener = null;
     }
-};
+}

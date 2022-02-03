@@ -12,7 +12,7 @@ function onClick(e) {
     }
 }
 
-module.exports = class {
+export default class {
     constructor(widgetEl) {
         this._el = widgetEl;
         this._items = widgetEl.querySelectorAll('.radio');
@@ -55,4 +55,4 @@ module.exports = class {
         this.unobserve();
         this._onClickListener = null;
     }
-};
+}

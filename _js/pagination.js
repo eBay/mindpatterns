@@ -20,7 +20,7 @@ function onNextClick() {
     this.index = this.index + 1;
 }
 
-module.exports = class {
+export default class {
     constructor(widgetEl) {
         this._el = widgetEl;
         this._prevButton = widgetEl.querySelector('.pagination__previous');
@@ -90,4 +90,4 @@ module.exports = class {
         this._onPrevClickListener = null;
         this._onNextClickListener = null;
     }
-};
+}

@@ -26,7 +26,7 @@ const RovingTabindex = require('makeup-roving-tabindex');
 const scrollKeyPreventer = require('makeup-prevent-scroll-keys');
 const keyEmitter = require('makeup-key-emitter');
 
-module.exports = class {
+export default class {
     constructor(widgetEl) {
         this._el = widgetEl;
         const tabs = document.querySelectorAll('.accordion-legacy__tab');
@@ -84,4 +84,4 @@ module.exports = class {
         this._el.removeEventListener('spacebarKeyDown', onKeyboardToggle);
         this._el.removeEventListener('enterKeyDown', onKeyboardToggle);
     }
-};
+}

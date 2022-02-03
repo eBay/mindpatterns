@@ -22,7 +22,7 @@ function init(el, elIndex) {
     }
 }
 
-module.exports = class {
+export default class {
     constructor(widgetEl) {
         // get fixed, structural elements first
         this._el = widgetEl;
@@ -140,4 +140,4 @@ module.exports = class {
         this._onPrevClickListener = null;
         this._onNextClickListener = null;
     }
-};
+}

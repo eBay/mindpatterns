@@ -18,7 +18,7 @@ function showElements(els) {
     els.forEach(el => el.removeAttribute('hidden'));
 }
 
-module.exports = class {
+export default class {
     constructor(widgetEl) {
         this._el = widgetEl;
 
@@ -65,4 +65,4 @@ module.exports = class {
         this.sleep();
         this._onClickListener = null;
     }
-};
+}

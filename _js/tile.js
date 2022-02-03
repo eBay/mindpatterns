@@ -10,7 +10,7 @@ function onClick() {
     window.location = this._anchorEl.getAttribute('href');
 }
 
-module.exports = class {
+export default class {
     constructor(widgetEl) {
         this._el = widgetEl;
 
@@ -36,4 +36,4 @@ module.exports = class {
         this.sleep();
         this._onClickListener = null;
     }
-};
+}

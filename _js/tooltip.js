@@ -13,7 +13,7 @@ const defaultOptions = {
     hostSelector: '.tooltip__host, [aria-describedby]'
 };
 
-module.exports = class {
+export default class {
     constructor(widgetEl, selectedOptions) {
         this._options = Object.assign({}, defaultOptions, selectedOptions);
 
@@ -50,4 +50,4 @@ module.exports = class {
         this._destroyed = true;
         this.sleep();
     }
-};
+}

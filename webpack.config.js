@@ -2,7 +2,11 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  mode: 'development',
+  devtool: 'source-map',
+  mode: 'production',
+  optimization: {
+      minimize: true
+  },
   entry: './_transpiled/main.js',
   output: {
     path: path.resolve(__dirname, 'static'),

@@ -29,37 +29,37 @@ const pageWidgets = [];
 
 const logEvent = (e) => console.log(e); // eslint-disable-line no-console
 
-document.addEventListener('DOMContentLoaded', function() {
-    const Accordion = require('./accordion.js');
-    const AriaButton = require('./aria-button.js');
-    const Carousel = require('./carousel.js');
-    const CharacterMeter = require('./character-meter.js');
-    const Combobox = require('makeup-combobox');
-    const DialogButton = require('makeup-dialog-button');
-    const Expander = require('makeup-expander');
-    const HijaxButton = require('./hijax-button.js');
-    const PasswordMeter = require('./password-meter.js');
-    const Listbox = require('makeup-listbox');
-    const ListboxButton = require('makeup-listbox-button');
-    const Menu = require('makeup-menu');
-    const MenuButton = require('makeup-menu-button');
-    const Pagination = require('./pagination.js');
-    const Pulldown = require('./pulldown.js');
-    const StarRating = require('./star-rating.js');
-    const Switch = require('makeup-switch');
-    const Tabs = require('./tabs.js');
-    const Tile = require('./tile.js');
-    const Tooltip = require('./tooltip.js');
-    const LightboxDialog = require('makeup-lightbox-dialog');
-    const AlertDialog = require('makeup-alert-dialog');
-    const ConfirmDialog = require('makeup-confirm-dialog');
-    const DrawerDialog = require('makeup-drawer-dialog');
-    const FullscreenDialog = require('makeup-fullscreen-dialog');
-    const InputDialog = require('makeup-input-dialog');
-    const PanelDialog = require('makeup-panel-dialog');
-    const SnackbarDialog = require('makeup-snackbar-dialog');
-    const ToastDialog = require('makeup-toast-dialog');
+import Accordion from './accordion.js';
+import AriaButton from './aria-button.js';
+import Carousel from './carousel.js';
+import CharacterMeter from './character-meter.js';
+import Combobox from 'makeup-combobox';
+import DialogButton from 'makeup-dialog-button';
+import Expander from 'makeup-expander';
+import HijaxButton from './hijax-button.js';
+import PasswordMeter from './password-meter.js';
+import Listbox from 'makeup-listbox';
+import ListboxButton from 'makeup-listbox-button';
+import Menu from 'makeup-menu';
+import MenuButton from 'makeup-menu-button';
+import Pagination from './pagination.js';
+import Pulldown from './pulldown.js';
+import StarRating from './star-rating.js';
+import Switch from 'makeup-switch';
+import Tabs from './tabs.js';
+import Tile from './tile.js';
+import Tooltip from './tooltip.js';
+import LightboxDialog from 'makeup-lightbox-dialog';
+import AlertDialog from 'makeup-alert-dialog';
+import ConfirmDialog from 'makeup-confirm-dialog';
+import DrawerDialog from 'makeup-drawer-dialog';
+import FullscreenDialog from 'makeup-fullscreen-dialog';
+import InputDialog from 'makeup-input-dialog';
+import PanelDialog from 'makeup-panel-dialog';
+import SnackbarDialog from 'makeup-snackbar-dialog';
+import ToastDialog from 'makeup-toast-dialog';
 
+document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.accordion').forEach(function(widgetEl) {
         pageWidgets.push(new Accordion(widgetEl, {
             autoCollapse: widgetEl.hasAttribute('data-makeup-accordion-auto-collapse')

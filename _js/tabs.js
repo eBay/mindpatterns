@@ -92,7 +92,7 @@ const defaultOptions = {
     initialIndex: 0
 };
 
-module.exports = class {
+export default class {
     constructor(widgetEl, selectedOptions) {
         this._options = Object.assign({}, defaultOptions, selectedOptions);
 
@@ -193,4 +193,4 @@ module.exports = class {
         this._onTabListKeyDownListener = null;
         this._onTabListClickListener = null;
     }
-};
+}

@@ -32,7 +32,7 @@ function showElements(els) {
     els.forEach(el => el.removeAttribute('hidden'));
 }
 
-module.exports = class {
+export default class {
     constructor(widgetEl) {
         this._isPolyfill = !isDetailsTagSupported();
         this._el = widgetEl;
@@ -113,4 +113,4 @@ module.exports = class {
             this._onKeyupListener = null;
         }
     }
-};
+}

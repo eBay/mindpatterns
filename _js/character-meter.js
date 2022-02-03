@@ -32,7 +32,7 @@ function getDisplayValue(count, limit) {
     return `${remainder} / ${limit}`;
 }
 
-module.exports = class {
+export default class {
     constructor(widgetEl) {
         this._el = widgetEl;
         this._meterEl = widgetEl.querySelector('meter');
@@ -65,4 +65,4 @@ module.exports = class {
         this.sleep();
         this._onInputListener = null;
     }
-};
+}

@@ -14,7 +14,7 @@ const defaultOptions = {
     customElementMode: false
 };
 
-module.exports = class {
+export default class {
     constructor(el, selectedOptions) {
         this.options = Object.assign({}, defaultOptions, selectedOptions);
 
@@ -145,4 +145,4 @@ module.exports = class {
             this.expanded = !(this.expanded);
         }
     }
-};
+}
