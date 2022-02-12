@@ -21,10 +21,10 @@ function toggle(clickedTab) {
     clickedTab.setAttribute('aria-expanded', !isSelected);
 }
 
-const nextID = require('makeup-next-id');
-const RovingTabindex = require('makeup-roving-tabindex');
-const scrollKeyPreventer = require('makeup-prevent-scroll-keys');
-const keyEmitter = require('makeup-key-emitter');
+import nextID from 'makeup-next-id';
+import * as RovingTabindex from 'makeup-roving-tabindex';
+import * as scrollKeyPreventer from 'makeup-prevent-scroll-keys';
+import * as keyEmitter from 'makeup-key-emitter';
 
 export default class {
     constructor(widgetEl) {

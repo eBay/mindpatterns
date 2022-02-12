@@ -6,7 +6,7 @@
 * https://opensource.org/licenses/MIT.
 */
 
-const Expander = require('makeup-expander');
+import Expander from 'makeup-expander';
 
 const defaultOptions = {
     contentSelector: '.tooltip__content, [role=tooltip]',

@@ -11,9 +11,9 @@
 * it is NOT yet suitable for production
 */
 
-const nextID = require('makeup-next-id');
-const RovingTabindex = require('makeup-roving-tabindex');
-const ScrollKeyPreventer = require('makeup-prevent-scroll-keys');
+import nextID from 'makeup-next-id';
+import * as RovingTabindex from 'makeup-roving-tabindex';
+import * as ScrollKeyPreventer from 'makeup-prevent-scroll-keys';
 
 function linkTabToPanel(widgetID, el, i) {
     el.setAttribute('id', `${widgetID }-tab-${ i}`);
