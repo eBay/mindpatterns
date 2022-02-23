@@ -1,80 +1,3 @@
-/*!************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/dark-mode/ds6/dark-mode.css ***!
-  \************************************************************************************************************/
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-action-primary: #5192ff;
-    --color-action-secondary: #9c9c9c;
-    --color-action-tertiary: #212121;
-    --color-action-destroy: #e95367;
-    --color-action-hover: #94bcff;
-    --color-action-disabled: #4d4d4d;
-    --color-background-default: #171717;
-    --color-form-control-background: #393939;
-    --color-form-control-disabled-background: #393939;
-    --color-link-default: #5192ff;
-    --color-link-hover: #94bcff;
-    --color-link-visited: #d2a4cf;
-    --color-selection-list-background: #171717;
-    --color-selection-list-item-border: #171717;
-    --color-selection-list-item-foreground: #dcdcdc;
-    --color-selection-list-item-hover-foreground: #171717;
-    --color-text-primary: #dcdcdc;
-    --color-text-default: #dcdcdc;
-    --color-text-secondary: #9c9c9c;
-    --color-text-disabled: #4d4d4d;
-    --color-text-confirmation: #24bc6b;
-    --color-status-attention: #e95367;
-    --color-status-confirmation: #24bc6b;
-    --color-status-information: #5192ff;
-    --color-status-general: #a8a8a8;
-    --color-separator: #393939;
-    --color-social-icons-background: #fff;
-    --color-social-icons-foreground: #000;
-    --color-image-border: #393939;
-    --color-checkbox-mixed-foreground: #000;
-    --url-image-progress-spinner: url("https://ir.ebaystatic.com/cr/v/c1/skin/svg/spinner/v2/spinner-dark-mode.svg");
-    --url-image-progress-spinner-large: url("https://ir.ebaystatic.com/cr/v/c1/skin/svg/spinner/v2/spinner-large-dark-mode.svg");
-    --color-b4: #5192ff;
-    --color-grey1: #212121;
-    --color-grey2: #393939;
-    --color-grey3: #4d4d4d;
-    --color-grey4: #6a6a6a;
-    --color-grey5: #9c9c9c;
-    --color-grey6: #a8a8a8;
-  }
-}
-
-/*!******************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/global/ds6/global.css ***!
-  \******************************************************************************************************/
-body {
-  background-color: var(--color-background-default, #fff);
-  color: var(--color-text-primary, #111820);
-  font-family: "Market Sans", Arial, sans-serif;
-  font-size: 0.875rem;
-  -webkit-text-size-adjust: 100%;
-}
-fieldset {
-  border: 0;
-  padding: 0;
-}
-legend {
-  margin-bottom: 8px;
-}
-a {
-  color: var(--color-link-default, #3665f3);
-}
-a:visited {
-  color: var(--color-link-visited, #82187c);
-}
-a:hover {
-  color: var(--color-link-hover, #2b0eaf);
-}
-
-/*!********************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/utility/ds6/utility.css ***!
-  \********************************************************************************************************/
 .clearfix::before,
 .clearfix::after {
   content: " ";
@@ -172,9 +95,6 @@ a:hover {
   white-space: nowrap;
 }
 
-/*!******************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/alert-dialog/ds6/alert-dialog.css ***!
-  \******************************************************************************************************************/
 /* large screens */
 .alert-dialog[role="alertdialog"] {
   background-color: var(--dialog-mask-background-color, var(--color-mask-faded, rgba(17, 24, 32, 0.7)));
@@ -280,9 +200,6 @@ a:hover {
   }
 }
 
-/*!****************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/breadcrumbs/ds6/breadcrumbs.css ***!
-  \****************************************************************************************************************/
 nav.breadcrumbs {
   color: var(--breadcrumbs-item-foreground-color, var(--color-text-default, #111820));
   font-size: 0.75rem;
@@ -354,9 +271,6 @@ nav.breadcrumbs::-webkit-scrollbar {
   }
 }
 
-/*!**********************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/checkbox/ds6/checkbox.css ***!
-  \**********************************************************************************************************/
 .checkbox {
   display: inline-flex;
   position: relative;
@@ -438,9 +352,6 @@ input.checkbox__control[type="checkbox"]:focus:not(:focus-visible) + span.checkb
   outline: none;
 }
 
-/*!**************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/icon/ds6/icon.css ***!
-  \**************************************************************************************************/
 svg.icon {
   display: inline-block;
   fill: currentColor;
@@ -1363,6 +1274,14 @@ svg.icon--social-linkedin {
   height: 22px;
   width: 22px;
 }
+svg.icon--spinner {
+  height: 30px;
+  width: 30px;
+}
+svg.icon--spinner-large {
+  height: 60px;
+  width: 60px;
+}
 [dir="rtl"] svg.icon--back,
 [dir="rtl"] svg.icon--breadcrumb,
 [dir="rtl"] svg.icon--carousel-next,
@@ -1375,9 +1294,6 @@ svg.icon--social-linkedin {
   transform: rotate(180deg);
 }
 
-/*!****************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/icon-button/ds6/icon-button.css ***!
-  \****************************************************************************************************************/
 a.icon-link {
   align-items: center;
   display: inline-flex;
@@ -1431,6 +1347,7 @@ a.icon-link:not(:focus-visible) {
 button.icon-btn--transparent,
 a.icon-link--transparent {
   background-color: transparent;
+  outline-offset: -10px;
 }
 button.icon-btn--transparent:active,
 a.icon-link--transparent:active,
@@ -1514,9 +1431,6 @@ a.icon-link > svg.icon--information-filled-small:hover {
   fill: var(--color-status-information, #3665f3);
 }
 
-/*!******************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/button/ds6/button.css ***!
-  \******************************************************************************************************/
 button.btn,
 a.fake-btn {
   border: 1px solid;
@@ -1615,6 +1529,10 @@ button.btn svg.icon:last-child,
 a.fake-btn svg.icon:last-child {
   margin-left: 8px;
 }
+button.btn svg.icon:only-child,
+a.fake-btn svg.icon:only-child {
+  margin: 0;
+}
 button.btn__cell--fixed-height svg.icon,
 a.fake-btn__cell--fixed-height svg.icon {
   align-self: center;
@@ -1633,14 +1551,17 @@ a.fake-btn--primary {
   outline-color: #111820;
 }
 /* show hover states only for non-disabled or non-loading state button */
-button.btn--primary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):focus,
+button.btn--primary:not([disabled]):not([aria-disabled="true"]):focus,
 a.fake-btn--primary[href]:focus,
-button.btn--primary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):hover,
-a.fake-btn--primary[href]:hover,
-button.btn--primary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):active,
+button.btn--primary:not([disabled]):not([aria-disabled="true"]):hover,
+a.fake-btn--primary[href]:hover {
+  background-color: var(--btn-primary-hover-background-color, var(--color-action-hover, #382aef));
+  border-color: var(--btn-primary-hover-border-color, var(--color-action-hover, #382aef));
+}
+button.btn--primary:not([disabled]):not([aria-disabled="true"]):active,
 a.fake-btn--primary[href]:active {
-  background-color: var(--btn-primary-hover-background-color, var(--color-action-hover, #2b0eaf));
-  border-color: var(--btn-primary-hover-border-color, var(--color-action-primary, #3665f3));
+  background-color: var(--btn-primary-active-background-color, var(--color-action-active, #2b0eaf));
+  border-color: var(--btn-primary-active-border-color, var(--color-action-active, #2b0eaf));
 }
 a.fake-btn--primary:visited {
   color: var(--btn-primary-foreground-color, var(--color-background-default, #fff));
@@ -1649,6 +1570,15 @@ button.btn .progress-spinner {
   height: 24px;
   margin: -4px 0;
   width: 24px;
+}
+button.btn svg.icon--dropdown,
+a.fake-btn svg.icon--dropdown {
+  height: 5.25px;
+  width: 9px;
+}
+button.btn[aria-expanded="true"] svg.icon--dropdown,
+a.fake-btn[aria-expanded="true"] svg.icon--dropdown {
+  transform: rotate(180deg);
 }
 button.btn--large svg.icon,
 a.fake-btn--large svg.icon {
@@ -1681,15 +1611,19 @@ a.fake-btn--secondary {
   color: var(--btn-secondary-foreground-color, var(--color-b4, #3665f3));
 }
 /* show hover states only for non-disabled or non-loading state button */
-button.btn--secondary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):hover,
+button.btn--secondary:not([disabled]):not([aria-disabled="true"]):hover,
 a.fake-btn--secondary[href]:hover,
-button.btn--secondary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):focus,
-a.fake-btn--secondary[href]:focus,
-button.btn--secondary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):active,
-a.fake-btn--secondary[href]:active {
+button.btn--secondary:not([disabled]):not([aria-disabled="true"]):focus,
+a.fake-btn--secondary[href]:focus {
   background-color: var(--btn-secondary-hover-background-color, var(--color-white, #fff));
-  border-color: var(--btn-secondary-hover-foreground-color, var(--color-b6, #2b0eaf));
-  color: var(--btn-secondary-hover-foreground-color, var(--color-b6, #2b0eaf));
+  border-color: var(--btn-secondary-hover-foreground-color, var(--color-b5, #382aef));
+  color: var(--btn-secondary-hover-foreground-color, var(--color-b5, #382aef));
+}
+button.btn--secondary:not([disabled]):not([aria-disabled="true"]):active,
+a.fake-btn--secondary[href]:active {
+  background-color: var(--btn-secondary-active-background-color, var(--color-white, #fff));
+  border-color: var(--btn-secondary-active-foreground-color, var(--color-b6, #2b0eaf));
+  color: var(--btn-secondary-active-foreground-color, var(--color-b6, #2b0eaf));
 }
 /* stylelint-enable no-descending-specificity */
 button.btn--delete,
@@ -1739,14 +1673,19 @@ a.fake-btn--tertiary {
   color: var(--btn-tertiary-foreground-color, var(--color-b4, #3665f3));
 }
 /* show hover states only for non-disabled or non-loading state button */
-button.btn--tertiary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):focus,
+button.btn--tertiary:not([disabled]):not([aria-disabled="true"]):focus,
 a.fake-btn--tertiary[href]:focus,
-button.btn--tertiary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):hover,
-a.fake-btn--tertiary[href]:hover,
-button.btn--tertiary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):active,
-a.fake-btn--tertiary[href]:active {
+button.btn--tertiary:not([disabled]):not([aria-disabled="true"]):hover,
+a.fake-btn--tertiary[href]:hover {
   background-color: var(--btn-tertiary-hover-background-color, var(--color-grey2, #e5e5e5));
   border-color: var(--btn-tertiary-hover-border-color, var(--color-grey2, #e5e5e5));
+  color: var(--btn-tertiary-hover-color, var(--color-b5, #382aef));
+}
+button.btn--tertiary:not([disabled]):not([aria-disabled="true"]):active,
+a.fake-btn--tertiary[href]:active {
+  background-color: var(--btn-tertiary-active-background-color, var(--color-grey3, #c7c7c7));
+  border-color: var(--btn-tertiary-active-border-color, var(--color-grey3, #c7c7c7));
+  color: var(--btn-tertiary-hover-color, var(--color-b6, #2b0eaf));
 }
 a.fake-btn--tertiary:visited {
   color: var(--btn-tertiary-foreground-color, var(--color-b4, #3665f3));
@@ -1814,10 +1753,17 @@ a.fake-btn--large-truncated span {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+[dir="rtl"] button.btn svg.icon--dropdown:first-child,
+[dir="rtl"] a.fake-btn svg.icon--dropdown:first-child {
+  margin-left: 8px;
+  margin-right: 0;
+}
+[dir="rtl"] button.btn svg.icon--dropdown:last-child,
+[dir="rtl"] a.fake-btn svg.icon--dropdown:last-child {
+  margin-left: 0;
+  margin-right: 8px;
+}
 
-/*!**********************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/combobox/ds6/combobox.css ***!
-  \**********************************************************************************************************/
 .combobox {
   box-sizing: border-box;
   line-height: normal;
@@ -2042,9 +1988,6 @@ span.combobox {
   left: 0;
 }
 
-/*!**********************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/confirm-dialog/ds6/confirm-dialog.css ***!
-  \**********************************************************************************************************************/
 /* large screens */
 .confirm-dialog[role="dialog"] {
   background-color: var(--dialog-mask-background-color, var(--color-mask-faded, rgba(17, 24, 32, 0.7)));
@@ -2154,9 +2097,6 @@ button.confirm-dialog__confirm {
   }
 }
 
-/*!************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/lightbox-dialog/ds6/lightbox-dialog.css ***!
-  \************************************************************************************************************************/
 /* large screens */
 .lightbox-dialog[role="dialog"] {
   background-color: var(--dialog-mask-background-color, var(--color-mask-faded, rgba(17, 24, 32, 0.7)));
@@ -2243,7 +2183,6 @@ button.confirm-dialog__confirm {
 button.lightbox-dialog__close {
   align-self: center;
   border: 0;
-  outline-offset: -8px;
   position: relative;
   z-index: 1;
 }
@@ -2325,9 +2264,6 @@ button.lightbox-dialog__close {
   }
 }
 
-/*!********************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/listbox/ds6/listbox.css ***!
-  \********************************************************************************************************/
 div.listbox {
   margin: 16px 0;
 }
@@ -2412,9 +2348,6 @@ div.listbox__option[role="option"]:active svg.icon {
   outline: none;
 }
 
-/*!********************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/expand-button/ds6/expand-button.css ***!
-  \********************************************************************************************************************/
 button.expand-btn {
   box-sizing: border-box;
   font-family: inherit;
@@ -2462,6 +2395,9 @@ button.expand-btn svg.icon:first-child {
 }
 button.expand-btn svg.icon:last-child {
   margin-left: 8px;
+}
+button.expand-btn svg.icon:only-child {
+  margin: 0;
 }
 button.expand-btn--wide {
   padding-left: 48px;
@@ -2601,9 +2537,6 @@ button.expand-btn--floating-label .expand-btn__floating-label--inline {
   transform: translate(0, -6px);
 }
 
-/*!**********************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/listbox-button/ds6/listbox-button.css ***!
-  \**********************************************************************************************************************/
 .listbox-button {
   line-height: normal;
   position: relative;
@@ -2728,9 +2661,6 @@ span.listbox-button__value {
   margin-right: 8px;
 }
 
-/*!**************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/menu/ds6/menu.css ***!
-  \**************************************************************************************************/
 .menu__items,
 .fake-menu__items {
   background-color: var(--menu-background-color, var(--color-selection-list-background, #fff));
@@ -2884,9 +2814,6 @@ div.menu__item[role^="menuitem"]:focus:not(:focus-visible) {
   outline: none;
 }
 
-/*!****************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/menu-button/ds6/menu-button.css ***!
-  \****************************************************************************************************************/
 .menu-button,
 .fake-menu-button {
   line-height: normal;
@@ -3102,13 +3029,17 @@ div.menu-button__item--badged[role^="menuitem"] .badge {
 .menu-button__button[aria-expanded="true"] ~ .menu-button__menu,
 .fake-menu-button__button[aria-expanded="true"] ~ .fake-menu-button__menu,
 .menu-button .expand-btn[aria-expanded="true"] ~ .menu-button__menu,
-.fake-menu-button .expand-btn[aria-expanded="true"] ~ .fake-menu-button__menu {
+.fake-menu-button .expand-btn[aria-expanded="true"] ~ .fake-menu-button__menu,
+.menu-button .btn[aria-expanded="true"] ~ .menu-button__menu,
+.fake-menu-button .btn[aria-expanded="true"] ~ .fake-menu-button__menu {
   display: block;
 }
 .menu-button__button ~ .menu-button__menu--static,
 .fake-menu-button__button ~ .fake-menu-button__menu--static,
 .expand-btn ~ .menu-button__menu--static,
-.expand_btn ~ .fake-menu-button__menu--static {
+.expand_btn ~ .fake-menu-button__menu--static,
+.btn ~ .menu-button__menu--static,
+.btn ~ .fake-menu-button__menu--static {
   position: static;
 }
 .menu button.expand-btn--borderless[aria-expanded="true"] ~ .menu-button__menu,
@@ -3128,9 +3059,6 @@ div.menu-button__item[role^="menuitem"]:focus:not(:focus-visible) {
   outline: none;
 }
 
-/*!****************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/radio/ds6/radio.css ***!
-  \****************************************************************************************************/
 .radio {
   display: inline-flex;
   position: relative;
@@ -3212,9 +3140,6 @@ input.radio__control[type="radio"]:focus:not(:focus-visible) + span.radio__icon 
   outline: none;
 }
 
-/*!******************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/switch/ds6/switch.css ***!
-  \******************************************************************************************************/
 .switch {
   box-sizing: border-box;
   height: 40px;
@@ -3299,9 +3224,6 @@ span.switch__control:focus:not(:focus-visible) {
   }
 }
 
-/*!********************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/textbox/ds6/textbox.css ***!
-  \********************************************************************************************************/
 /* stylelint-disable no-descending-specificity */
 .textbox {
   color: var(--textbox-foreground-color, var(--color-form-control-foreground, #111820));
@@ -3396,11 +3318,13 @@ input.textbox__control::-ms-input-placeholder,
 textarea.textbox__control::-ms-input-placeholder {
   color: var(--textbox-placeholder-color, var(--color-grey5, #707070));
   font-weight: 200;
+  opacity: 1;
 }
 input.textbox__control::placeholder,
 textarea.textbox__control::placeholder {
   color: var(--textbox-placeholder-color, var(--color-grey5, #707070));
   font-weight: 200;
+  opacity: 1;
 }
 input.textbox__control--large {
   height: 48px;
@@ -3453,9 +3377,6 @@ input.textbox__control--large {
   right: auto;
 }
 
-/*!******************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/@ebay/skin/dist/toast-dialog/ds6/toast-dialog.css ***!
-  \******************************************************************************************************************/
 /* large screens */
 .toast-dialog {
   background-color: var(--toast-dialog-background-color, var(--color-action-primary, #3665f3));
@@ -3583,3 +3504,5 @@ button.toast-dialog__close:focus {
   margin-right: 7px;
 }
 
+
+/*# sourceMappingURL=skin.css.map*/
