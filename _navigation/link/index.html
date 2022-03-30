@@ -20,33 +20,52 @@ title: Link
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
+
 <p>Use TAB key to navigate links. ENTER key to open links.</p>
-<p>Use screen reader virtual cursor to hear clipped text and alt text.</p>
-<p>Please <a href={{ "/navigation/link.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+<p>Please <a href={{ "navigation/link" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+<p><i>Updated</i>: March 30th, 2022</p>
 
 <hr />
 
 <h2 class="clipped">Examples</h2>
 
 <h3>Example 1: Opens in Same Window</h3>
-<p>I have read and accepted the <a href="http://www.ebay.com">User Agreement</a></p>
+<p>I have read and accepted the <a href="http://www.ebay.com">User Agreement</a>.</p>
 
 <hr />
 
-<h3>Example 2: Opens in New Window (clipped text)</h3>
-<p>I have read and accepted the <a href="http://www.ebay.com" target="_blank">User Agreement<span class="clipped"> - opens in new window or tab</span></a></p>
+<h3>Example 2A: Opens in New Window (with icon)</h3>
+<p>I have read and accepted the
+    <a class="new-window-indicator" href="http://www.ebay.com" target="_blank">User Agreement
+        <sup>
+            <svg focusable="false" height="8" width="8" aria-label=" - Opens in new window or tab" role="img">
+                <use xlink:href="../../svg/icons.svg#icon-window"></use>
+            </svg>
+        </sup>
+    </a>.
+</p>
 
 <hr />
 
-<h3>Example 3: Opens in New Window (indicator)</h3>
-<p>I have read and accepted the <a class="new-window-indicator" href="http://www.ebay.com" target="_blank">User Agreement<sup><span aria-label=" - opens in new window or tab" class="new-window" role="img" /></sup></a></p>
+<h3>Example 2B: Opens in New Window (with clipped text)</h3>
+<p>I have read and accepted the <a href="http://www.ebay.com" target="_blank">User Agreement<span class="clipped"> - opens in new window or tab</span></a>.</p>
 
 <hr />
 
-<h3>Example 4: Ambiguous Link (clipped text)</h3>
+<h3>Example 2C: Opens in New Window (with aria-label)</h3>
+<p>I have read and accepted the <a href="http://www.ebay.com" target="_blank" aria-label="User Agreement - opens in new window or tab">User Agreement</a>.</p>
+
+<hr />
+
+<h3>Example 3A: Ambiguous Link (with clipped text)</h3>
 <p><a href="http://www.ebay.com">Add to Cart<span class="clipped"> - iPhone 6 White</span></a></p>
 
 <hr />
 
-<h3>Example 5: Stealth Link (keyboard only)</h3>
+<h3>Example 3B: Ambiguous Link (with aria-label)</h3>
+<p><a href="http://www.ebay.com" aria-label="Add to Cart - iPhone 6 White">Add to Cart</a></p>
+
+<hr />
+
+<h3>Example 4: Stealth Link (keyboard only)</h3>
 <p><a class="stealth" href="http://www.ebay.com">User Agreement</a></p>
