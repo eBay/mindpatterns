@@ -3,25 +3,14 @@ layout: page
 title: Page Notice
 ---
 
-<div hidden>
-    <svg>
-        <symbol viewBox="0 0 24 24" id="icon-attention-filled">
-            <path fill-rule="evenodd" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12C23.994 5.375 18.625.006 12 0zm0 18a1 1 0 110-2 1 1 0 010 2zm1-5V7a1 1 0 00-2 0v6a1 1 0 002 0z" />
-        </symbol>
-        <symbol viewBox="0 0 24 24" id="icon-confirmation-filled">
-            <path d="M0 12C0 5.373 5.373 0 12 0c3.183 0 6.235 1.264 8.485 3.515A11.996 11.996 0 0124 12c0 6.627-5.373 12-12 12S0 18.627 0 12zm10.71 4.71l8-8h-.01a1 1 0 00-1.41-1.41L10 14.59 6.71 11.3a1 1 0 00-1.41 1.41l4 4a1 1 0 001.41 0z"></path>
-        </symbol>
-        <symbol viewBox="0 0 24 24" id="icon-information-filled">
-            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12C23.994 5.375 18.625.006 12 0zm0 10a1 1 0 011 1v6a1 1 0 01-2 0v-6a1 1 0 011-1zm0-4a1 1 0 110 2 1 1 0 010-2z"></path>
-        </symbol>
-    </svg>
-</div>
-
 <style>
     .page-notice {
-        --page-notice-attention-background-color: red;
-        --page-notice-confirmation-background-color: green;
-        --page-notice-information-background-color: blue;
+        --page-notice-attention-background-color: DarkRed;
+        --page-notice-attention-border-color: DarkRed;
+        --page-notice-confirmation-background-color: DarkGreen;
+        --page-notice-confirmation-border-color: DarkGreen;
+        --page-notice-information-background-color: Navy;
+        --page-notice-information-border-color: Navy;
     }
 </style>
 
@@ -29,9 +18,8 @@ title: Page Notice
 
 <h2 class="clipped">Readme</h2>
 <p>A page notice must receive programmatic keyboard focus only if a critical task or operation was unsuccessful.</p>
-<p><a href="#page-alert">Reload page and simulate critical page notice</a></p>
 <p>Please <a href={{ "messaging/page-notice" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
-
+<p><i>Updated</i>: Mar 7th, 2022</p>
 <hr />
 
 <h2 class="clipped">Examples</h2>
@@ -40,7 +28,7 @@ title: Page Notice
 <section class="page-notice page-notice--attention" role="region" aria-label="Attention">
     <div class="page-notice__header">
         <svg class="icon icon--attention-filled" focusable="false" height="24" width="24" role="img" aria-label="Attention">
-            <use xlink:href="#icon-attention-filled"></use>
+            <use xlink:href="../../svg/icons.svg#icon-attention-filled"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -57,7 +45,7 @@ title: Page Notice
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
     <div class="page-notice__header">
         <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
-            <use xlink:href="#icon-confirmation-filled"></use>
+            <use xlink:href="../../svg/icons.svg#icon-confirmation-filled"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -74,7 +62,7 @@ title: Page Notice
 <section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
         <svg class="icon icon--information-filled" focusable="false" height="24" width="24" role="img" aria-label="Information">
-            <use xlink:href="#icon-information-filled"></use>
+            <use xlink:href="../../svg/icons.svg#icon-information-filled"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -84,7 +72,3 @@ title: Page Notice
         <a href="https://www.ebay.com">Opt in</a>
     </div>
 </section>
-
-<hr />
-
-<p><i>Updated</i>: Mar 7th, 2022</p>

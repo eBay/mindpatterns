@@ -12,28 +12,11 @@ title: Form Validation
         display: block;
         margin: 4px 0;
     }
+    #page-notice[hidden] {
+        display: none;
+    }
     .field {
         margin: 8px 0;
-    }
-    .page-notice {
-        border: 2px solid #cc3300;
-        color: #cc3300;
-        margin-bottom: 32px;
-        padding: 32px;
-    }
-    .page-notice h2 {
-        margin-top: 0;
-    }
-    .page-notice ol {
-        margin-bottom: 0;
-    }
-    .page-notice a {
-        color: #cc3300;
-        text-decoration: underline;
-    }
-    .page-notice {
-        color: #cc3300;
-        margin-top: 0;
     }
     input[aria-invalid=true] {
         border: 1px solid #cc3300;
@@ -43,22 +26,27 @@ title: Form Validation
     }
 </style>
 
-<div role="alert">
-    <section aria-label="Attention" class="page-notice page-notice--attention" id="page-notice" role="region" tabindex="-1" hidden>
-        <h2>Error! The form could not be submitted due to invalid entries.</h2>
-        <p>Please correct the following fields:</p>
+<section hidden id="page-notice" class="page-notice page-notice--attention" role="region" aria-label="Attention">
+    <div class="page-notice__header">
+        <svg class="icon icon--attention-filled" focusable="false" height="24" width="24" role="img" aria-label="Attention">
+            <use xlink:href="../../svg/icons.svg#icon-attention-filled"></use>
+        </svg>
+    </div>
+    <div class="page-notice__main">
+        <h2 class="page-notice__title">Please correct the following fields:</h2>
         <ol>
-            <li><a href="#age-2">Age - please enter a valid age (for example, 35)</a></li>
-            <li><a href="#shoesize-2">Shoe-size - please enter a valid shoe size (for example, 8.5)</a></li>
+            <li><a href="#age-2">Age</a> - please enter a valid age (for example, 35)</li>
+            <li><a href="#shoesize-2">Shoe-size</a> - please enter a valid shoe size (for example, 8.5)</li>
         </ol>
-    </section>
-</div>
+    </div>
+</section>
 
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
 <p>Submit each form to display a hard-coded page notice.</p>
 <p>Please <a href={{ "messaging/form-validation" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+<p><i>Updated</i>: March 30th, 2022 (visual updates only)</p>
 
 <hr />
 <h2 class="clipped">Examples</h2>
@@ -106,14 +94,13 @@ title: Form Validation
 
 <hr />
 
-<p><i>Updated</i>: May 26th, 2019</p>
-
 <script>
     document.querySelector('form[novalidate]').addEventListener('submit', function(e) {
         e.preventDefault();
 
         var pageNoticeEl = document.querySelector('#page-notice');
         pageNoticeEl.hidden = false;
+        pageNoticeEl.setAttribute('tabindex', '-1');
         pageNoticeEl.focus();
 
         Array.prototype.slice.call(document.querySelectorAll('input[aria-describedby]')).forEach(function(el) {

@@ -16,26 +16,6 @@ title: Form Validation (Server-Side)
     .field {
         margin: 8px 0;
     }
-    .page-notice {
-        border: 2px solid #cc3300;
-        color: #cc3300;
-        margin-bottom: 32px;
-        padding: 32px;
-    }
-    .page-notice h2 {
-        margin-top: 0;
-    }
-    .page-notice ol {
-        margin-bottom: 0;
-    }
-    .page-notice a {
-        color: #cc3300;
-        text-decoration: underline;
-    }
-    .page-notice {
-        color: #cc3300;
-        margin-top: 0;
-    }
     input[aria-invalid=true] {
         border: 1px solid #cc3300;
     }
@@ -46,17 +26,23 @@ title: Form Validation (Server-Side)
 
 <h1>{{ page.title }}</h1>
 
-<section aria-label="Attention" class="page-notice page-notice--attention" id="page-notice" role="region" tabindex="-1">
-    <h2 >Error! The form could not be submitted due to invalid entries.</h2>
-    <p>Please correct the following fields:</p>
-    <ol>
-        <li><a href="#age-2">Age - please enter a valid age (for example, 35)</a></li>
-        <li><a href="#shoesize-2">Shoe-size - please enter a valid shoe size (for example, 8.5)</a></li>
-    </ol>
+<section id="page-notice" class="page-notice page-notice--attention" tabindex="-1" role="region" aria-label="Attention">
+    <div class="page-notice__header">
+        <svg class="icon icon--attention-filled" focusable="false" height="24" width="24" role="img" aria-label="Attention">
+            <use xlink:href="../../svg/icons.svg#icon-attention-filled"></use>
+        </svg>
+    </div>
+    <div class="page-notice__main">
+        <h2 class="page-notice__title">Please correct the following fields:</h2>
+        <ol>
+            <li><a href="#age-2">Age</a> - please enter a valid age (for example, 35)</li>
+            <li><a href="#shoesize-2">Shoe-size</a> - please enter a valid shoe size (for example, 8.5)</li>
+        </ol>
+    </div>
 </section>
 
 <div>
-    <form action="post.html#pagenotice" class="formvalidation">
+    <form action="post.html">
         <fieldset>
             <legend>Your Details</legend>
             <div class="field">
@@ -74,6 +60,7 @@ title: Form Validation (Server-Side)
                 </div>
             </div>
         </fieldset>
+        <input class="button" type="submit" />
     </form>
 </div>
 
