@@ -28,29 +28,31 @@ title: Input Validation
 
 <label for="age">Age</label>
 <div class="input-validation">
-    <input autocomplete="false" id="age" type="text" name="age" aria-describedby="age-error" />
-    <span class="input-validation__status" role="alert" hidden>
-        <span class="input-validation__description" id="age-error" >Error! Please enter a valid age.</span>
+    <input autocomplete="false" id="age" type="text" name="age" />
+    <span class="input-validation__status" role="status">
+        <span class="input-validation__description" id="age-error" hidden>Error! Please enter a valid age.</span>
     </span>
 </div>
 
 <label for="shoesize">Shoe-Size</label>
 <div class="input-validation">
-    <input autocomplete="false" id="shoesize" type="text" name="shoesize" aria-describedby="shoesize-error" />
-    <span class="input-validation__status" role="alert" hidden>
-        <span class="input-validation__description" id="shoesize-error">Error! Please enter a valid shoe size.</span>
+    <input autocomplete="false" id="shoesize" type="text" name="shoesize" />
+    <span class="input-validation__status" role="status">
+        <span class="input-validation__description" id="shoesize-error" hidden>Error! Please enter a valid shoe size.</span>
     </span>
 </div>
 
 <hr />
 
-<p><i>Updated</i>: May 25th, 2019</p>
+<p><i>Updated</i>: Sep 21st, 2022</p>
 
 <script>
-    Array.prototype.slice.call(document.querySelectorAll('input')).forEach(function(el) {
-        el.addEventListener('blur', function(e) {
-            el.setAttribute('aria-invalid', 'true');
-            el.nextElementSibling.hidden = false;
+    Array.prototype.slice.call(document.querySelectorAll('input')).forEach(function(inputEl) {
+        inputEl.addEventListener('blur', function(e) {
+            const messageEl = inputEl.nextElementSibling.children[0];
+            inputEl.setAttribute('aria-invalid', 'true');
+            inputEl.setAttribute('aria-describedby', messageEl.id);
+            messageEl.hidden = false;
         });
     });
 </script>
