@@ -3,23 +3,6 @@ layout: page
 title: Carousel
 ---
 
-<div hidden>
-    <svg>
-        <symbol id="icon-chevron-left" viewBox="0 0 10 18">
-            <path d="M8.995 18a1.002 1.002 0 01-.709-.29L.296 9.712a1.002 1.002 0 010-1.42L8.286.294a1.002 1.002 0 111.418 1.42l-7.29 7.288 7.29 7.288A1.002 1.002 0 018.995 18z"/>
-        </symbol>
-        <symbol id="icon-chevron-left-small" viewBox="0 0 8 14">
-            <path d="M7.004 14a.999.999 0 01-.71-.291L.29 7.683a1.007 1.007 0 010-1.416L6.293.241a.998.998 0 011.359.053c.37.371.392.965.052 1.364L2.412 6.97l5.292 5.313c.287.286.375.717.221 1.093a1 1 0 01-.921.624z"/>
-        </symbol>
-        <symbol id="icon-chevron-right" viewBox="0 0 10 18">
-            <path d="M1.005 18A.997.997 0 010 17c0-.267.107-.522.296-.71l7.29-7.288-7.29-7.288A1.003 1.003 0 011.714.294l7.99 7.998a1.002 1.002 0 010 1.42l-7.99 7.998a.997.997 0 01-.71.29z"/>
-        </symbol>
-        <symbol id="icon-chevron-right-small" viewBox="0 0 8 14">
-            <path d="M1.005 14a1 1 0 01-.71-1.71l5.296-5.288L.296 1.714A1.004 1.004 0 011.714.294L7.71 6.292a1 1 0 010 1.41L1.714 13.7a.999.999 0 01-.709.3z"/>
-        </symbol>
-    </svg>
-</div>
-
 <style>
     .carousel__list {
         height: 100%;
@@ -55,7 +38,7 @@ title: Carousel
         text-decoration: underline;
     }
 
-    .carousel h4 {
+    .carousel h5 {
         margin-top: 0;
     }
 
@@ -73,23 +56,20 @@ title: Carousel
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
-<p>Use left &amp; right button controls to paginate the carousel slides. Use TAB key to navigate through focusable elements in the slide. Activate screen reader to hear carousel status updates (e.g. 'Video Games Carousel - Slide 2').</p>
-<p>For simplicity sake we have omitted any kind of animation when paginating slides, but most likely a real carousel would utilise some kind of scroll effect. Again, this is a timely reminder that our emphasis with these examples is accessibility concepts only.</p>
+<p>Use left &amp; right button controls to paginate the carousel slides. Use TAB key to navigate through focusable elements in the slide.</p>
 <p>Please <a href={{ "disclosure/carousel" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
 
 <hr />
 
 <h2 class="clipped">Examples</h2>
-<h3>Example 1: Discrete Carousel with One Item</h3>
+<h3>Example 1A: Discrete Carousel with One Item - No Scrolling</h3>
 
 <div aria-labelledby="carousel-1-title" aria-roledescription="carousel" class="carousel carousel--slideshow" data-items-per-slide="1" role="group">
-    <span aria-live="polite" role="status">
-        <h4 class="clipped" id="carousel-1-title">Video Games - Slide <span class="carousel__index">1</span></h4>
-    </span>
+    <h4 id="carousel-1-title">Video Game Nostalgia</h4>
     <span class="carousel__main">
         <button class="carousel__previous" aria-disabled="true" aria-label="Previous Slide">
             <svg aria-hidden="true" focusable="false" height="24" width="24">
-                <use xlink:href="#icon-chevron-left"></use>
+                <use xlink:href="../../svg/icons.svg#icon-chevron-left"></use>
             </svg>
         </button>
         <ul class="carousel__list">
@@ -98,7 +78,7 @@ title: Carousel
                     <img src="{{ '/images/horace.jpg' | relative_url }}" alt="" />
                 </div>
                 <div>
-                    <h4><a href="http://www.ebay.com/sch/i.html?_nkw=Horace+%26+the+Spiders">Horace &amp; the Spiders</a></h4>
+                    <h5><a href="http://www.ebay.com/sch/i.html?_nkw=Horace+%26+the+Spiders">Horace &amp; the Spiders</a></h5>
                     <p>Spectrum 48K</p>
                     <p>$9.99 - Free Shipping</p>
                 </div>
@@ -108,7 +88,7 @@ title: Carousel
                     <img src="{{ '/images/doubledragon.jpg' | relative_url }}" alt="" />
                 </div>
                 <div>
-                    <h4><a href="http://www.ebay.com/sch/i.html?_nkw=Double+Dragon">Double Dragon</a></h4>
+                    <h5><a href="http://www.ebay.com/sch/i.html?_nkw=Double+Dragon">Double Dragon</a></h5>
                     <p>Spectrum 48K</p>
                     <p>$9.99 - Free Shipping</p>
                 </div>
@@ -118,7 +98,7 @@ title: Carousel
                     <img src="{{ '/images/dizzy.jpg' | relative_url }}" alt="" />
                 </div>
                 <div>
-                    <h4><a href="http://www.ebay.com/sch/i.html?_nkw=Treasure+Island+Dizzy">Treasure Island Dizzy</a></h4>
+                    <h5><a href="http://www.ebay.com/sch/i.html?_nkw=Treasure+Island+Dizzy">Treasure Island Dizzy</a></h5>
                     <p>Spectrum 48K</p>
                     <p>$9.99 - Free Shipping</p>
                 </div>
@@ -128,7 +108,7 @@ title: Carousel
                     <img src="{{ '/images/spyhunter.jpg' | relative_url }}" alt="" />
                 </div>
                 <div>
-                    <h4><a href="http://www.ebay.com/sch/i.html?_nkw=Spy+Hunter">Spy Hunter</a></h4>
+                    <h5><a href="http://www.ebay.com/sch/i.html?_nkw=Spy+Hunter">Spy Hunter</a></h5>
                     <p>Spectrum 48K</p>
                     <p>$9.99 - Free Shipping</p>
                 </div>
@@ -138,7 +118,7 @@ title: Carousel
                     <img src="{{ '/images/chequeredflag.jpg' | relative_url }}" alt="" />
                 </div>
                 <div>
-                    <h4><a href="http://www.ebay.com/sch/i.html?_nkw=Chequered+Flag">Chequered Flag</a></h4>
+                    <h5><a href="http://www.ebay.com/sch/i.html?_nkw=Chequered+Flag">Chequered Flag</a></h5>
                     <p>Spectrum 48K</p>
                     <p>$9.99 - Free Shipping</p>
                 </div>
@@ -148,7 +128,7 @@ title: Carousel
                     <img src="{{ '/images/skooldaze.jpg' | relative_url }}" alt="" />
                 </div>
                 <div>
-                    <h4><a href="http://www.ebay.com/sch/i.html?_nkw=Skool+Daze">Skool Daze</a></h4>
+                    <h5><a href="http://www.ebay.com/sch/i.html?_nkw=Skool+Daze">Skool Daze</a></h5>
                     <p>Spectrum 48K</p>
                     <p>$9.99 - Free Shipping</p>
                 </div>
@@ -158,7 +138,7 @@ title: Carousel
                     <img src="{{ '/images/lunarjetman.jpg' | relative_url }}" alt="" />
                 </div>
                 <div>
-                    <h4><a href="http://www.ebay.com/sch/i.html?_nkw=Lunar+Jetman">Lunar Jetman</a></h4>
+                    <h5><a href="http://www.ebay.com/sch/i.html?_nkw=Lunar+Jetman">Lunar Jetman</a></h5>
                     <p>Spectrum 48K</p>
                     <p>$9.99 - Free Shipping</p>
                 </div>
@@ -168,7 +148,7 @@ title: Carousel
                     <img src="{{ '/images/yiearkungfu.jpg' | relative_url }}" alt="" />
                 </div>
                 <div>
-                    <h4><a href="http://www.ebay.com/sch/i.html?_nkw=Yie+Ar+Kung+Fu">Yie Ar Kung Fu</a></h4>
+                    <h5><a href="http://www.ebay.com/sch/i.html?_nkw=Yie+Ar+Kung+Fu">Yie Ar Kung Fu</a></h5>
                     <p>Spectrum 48K</p>
                     <p>$9.99 - Free Shipping</p>
                 </div>
@@ -176,7 +156,7 @@ title: Carousel
         </ul>
         <button class="carousel__next" aria-label="Next Slide">
             <svg aria-hidden="true" focusable="false" height="24" width="24">
-                <use xlink:href="#icon-chevron-right"></use>
+                <use xlink:href="../../svg/icons.svg#icon-chevron-right"></use>
             </svg>
         </button>
     </span>
@@ -184,71 +164,69 @@ title: Carousel
 
 <hr />
 
-<h3>Example 2: Discrete Carousel with Multiple Items</h3>
+<h3>Example 1B: Discrete Carousel with Multiple Items - No Scrolling</h3>
 
 <div aria-labelledby="carousel-2-title" aria-roledescription="carousel" class="carousel carousel--filmstrip " data-items-per-slide="4" role="group">
-    <span aria-live="polite" role="status">
-        <h4 class="clipped" id="carousel-2-title">Video Games - Slide <span class="carousel__index">1</span></h4>
-    </span>
+    <h4 id="carousel-2-title">Video Game Nostalgia</h4>
     <div class="carousel__main">
         <button  class="carousel__previous" aria-disabled="true" aria-label="Previous Slide">
             <svg aria-hidden="true" focusable="false" height="24" width="24">
-                <use xlink:href="#icon-chevron-left"></use>
+                <use xlink:href="../../svg/icons.svg#icon-chevron-left"></use>
             </svg>
         </button>
         <ul class="carousel__list">
             <li>
                 <a href="http://www.ebay.com/sch/i.html?_nkw=Horace+%26+the+Spiders">
                     <img src="{{ '/images/horace.jpg' | relative_url }}" alt="" />
-                    <h4>Horace &amp; the Spiders</h4>
+                    <h5>Horace &amp; the Spiders</h5>
                 </a>
             </li>
             <li>
                 <a href="http://www.ebay.com/sch/i.html?_nkw=Double+Dragon">
                     <img src="{{ '/images/doubledragon.jpg' | relative_url }}" alt="" />
-                    <h4>Double<br/>Dragon</h4>
+                    <h5>Double<br/>Dragon</h5>
                 </a>
             </li>
             <li>
                 <a href="http://www.ebay.com/sch/i.html?_nkw=Treasure+Island+Dizzy">
                     <img src="{{ '/images/dizzy.jpg' | relative_url }}" alt="" />
-                    <h4>Treasure Island Dizzy</h4>
+                    <h5>Treasure Island Dizzy</h5>
                 </a>
             </li>
             <li>
                 <a href="http://www.ebay.com/sch/i.html?_nkw=Spy+Hunter">
                     <img src="{{ '/images/spyhunter.jpg' | relative_url }}" alt="" />
-                    <h4>Spy<br/>Hunter</h4>
+                    <h5>Spy<br/>Hunter</h5>
                 </a>
             </li>
             <li>
                 <a href="http://www.ebay.com/sch/i.html?_nkw=Chequered+Flag">
                     <img src="{{ '/images/chequeredflag.jpg' | relative_url }}" alt="" />
-                    <h4>Chequered<br/>Flag</h4>
+                    <h5>Chequered<br/>Flag</h5>
                 </a>
             </li>
             <li>
                 <a href="http://www.ebay.com/sch/i.html?_nkw=Skool+Daze">
                     <img src="{{ '/images/skooldaze.jpg' | relative_url }}" alt="" />
-                    <h4>Skool<br/>Daze</h4>
+                    <h5>Skool<br/>Daze</h5>
                 </a>
             </li>
             <li>
                 <a href="http://www.ebay.com/sch/i.html?_nkw=Lunar+Jetman">
                     <img src="{{ '/images/lunarjetman.jpg' | relative_url }}" alt="" />
-                    <h4>Lunar<br/>Jetman</h4>
+                    <h5>Lunar<br/>Jetman</h5>
                 </a>
             </li>
             <li>
                 <a href="http://www.ebay.com/sch/i.html?_nkw=Yie+Ar+Kung+Fu">
                     <img src="{{ '/images/yiearkungfu.jpg' | relative_url }}" alt="" />
-                    <h4>Yie Ar<br/>Kung Fu</h4>
+                    <h5>Yie Ar<br/>Kung Fu</h5>
                 </a>
             </li>
         </ul>
         <button class="carousel__next" aria-label="Next Slide" class="carousel__next">
             <svg aria-hidden="true" focusable="false" height="24" width="24">
-                <use xlink:href="#icon-chevron-right"></use>
+                <use xlink:href="../../svg/icons.svg#icon-chevron-right"></use>
             </svg>
         </button>
     </div>
@@ -256,9 +234,9 @@ title: Carousel
 
 <hr />
 
-<h3>Example 3: Continuous Carousel</h3>
+<h3>Example 2: Continuous Carousel - Native Scrolling</h3>
 <p>Under development.</p>
 
 <hr />
 
-<p><i>Updated</i>: April 9th, 2020</p>
+<p><i>Updated</i>: Sep 21st, 2022</p>
