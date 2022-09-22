@@ -221,6 +221,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
         const widget = new MenuButton(widgetEl);
 
+        // tmp fix until makeup-menu-button updated
+        widgetEl.querySelector('button').setAttribute('aria-haspopup', 'true');
+
         pageWidgets.push(widget);
 
         widget.menu.el.addEventListener('makeup-menu-select', (e) => console.log(e.type, e.detail));
