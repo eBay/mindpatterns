@@ -52,7 +52,7 @@ function onRovingTabindexChange(e) {
 function onTabListKeyDown(e) {
     if (e.keyCode === 13 || e.keyCode === 32) {
         const fromIndex = this.index;
-        const toIndex = parseInt(e.target.dataset.makeupIndex);
+        const toIndex = [...this.tabs].indexOf(e.target);
 
         if (fromIndex !== toIndex) {
             this.tabs[fromIndex].setAttribute('aria-selected', 'false');
@@ -67,13 +67,11 @@ function onTabListKeyDown(e) {
 }
 
 function onTabListClick(e) {
-    // brittle hack (depends on DOM structure) to get correct node
-    const tabEl = e.target.getAttribute('role') === 'tab' ? e.target : e.target.parentNode;
+    const tabEl = e.target.closest('[role=tab]');
 
-    // quick sanity check. again, hacky
-    if (tabEl.getAttribute('role') === 'tab') {
+    if (tabEl) {
         const fromIndex = this.index;
-        const toIndex = parseInt(tabEl.dataset.makeupIndex, 10);
+        const toIndex = [...this.tabs].indexOf(tabEl);
 
         if (fromIndex !== toIndex) {
             this.tabs[fromIndex].setAttribute('aria-selected', 'false');
