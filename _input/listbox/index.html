@@ -12,6 +12,9 @@ title: Listbox
         border: 1px solid black;
         width: 200px;
     }
+    .listbox__option[role=option][aria-disabled=true] {
+        color: lightgrey;
+    }
 </style>
 
 <h1>{{ page.title }}</h1>
@@ -41,7 +44,7 @@ title: Listbox
                 <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
             </svg>
         </div>
-        <div class="listbox__option" role="option" aria-selected="false">
+        <div class="listbox__option" role="option" aria-selected="false" aria-disabled="true">
             <span class="listbox__value">Yellow</span>
             <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                 <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
@@ -72,7 +75,7 @@ title: Listbox
                 <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
             </svg>
         </div>
-        <div class="listbox__option" role="option" aria-selected="false">
+        <div class="listbox__option" role="option" aria-selected="false" aria-disabled="true">
             <span class="listbox__value">Yellow</span>
             <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                 <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
@@ -108,7 +111,7 @@ title: Listbox
                 <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
             </svg>
         </div>
-        <div class="listbox__option" role="option" aria-selected="false">
+        <div class="listbox__option" role="option" aria-selected="false" aria-disabled="true">
             <span class="listbox__value">Yellow</span>
             <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                 <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
@@ -139,7 +142,7 @@ title: Listbox
                 <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
             </svg>
         </div>
-        <div class="listbox__option" role="option" aria-selected="false">
+        <div class="listbox__option" role="option" aria-selected="false" aria-disabled="true">
             <span class="listbox__value">Yellow</span>
             <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                 <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
