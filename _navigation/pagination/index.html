@@ -3,40 +3,23 @@ layout: page
 title: Pagination
 ---
 
-<div hidden>
-    <svg>
-        <symbol id="icon-chevron-light-left" viewBox="0 0 24 32">
-            <path d="M28.176 1.327c-0.468-0.468-1.249-0.468-1.717 0l-14.049 14.049c-0.234 0.234-0.39 0.546-0.39 0.859s0.156 0.624 0.39 0.859l13.581 13.581c0.234 0.234 0.546 0.39 0.859 0.39s0.624-0.156 0.859-0.39c0.468-0.468 0.468-1.249 0-1.717l-12.722-12.722 13.19-13.19c0.468-0.468 0.468-1.249 0-1.717z"></path>
-        </symbol>
-        <symbol id="icon-chevron-light-right" viewBox="0 0 24 32">
-            <path d="M12.41 1.327c0.468-0.468 1.249-0.468 1.717 0l14.049 14.049c0.234 0.234 0.39 0.546 0.39 0.859s-0.156 0.624-0.39 0.859l-13.581 13.581c-0.234 0.234-0.546 0.39-0.859 0.39s-0.624-0.156-0.859-0.39c-0.468-0.468-0.468-1.249 0-1.717l12.722-12.722-13.19-13.19c-0.468-0.468-0.468-1.249 0-1.717z"></path>
-        </symbol>
-    </svg>
-</div>
-
 <h1 class="post-title">{{ page.title }}</h1>
-
-<h2 class="clipped">Readme</h2>
-<p>A resultset can be paginated via server side page reloads (i.e. links) or client side page rendering (i.e. buttons).</p>
-<p>Please <a href={{ "navigation/pagination.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
-
+<p>The pagination pattern allows a user to navigate back and forwards through a URL based dataset, or jump directly to any specific URL in that set. <a href={{ "navigation/pagination.html" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>Read more</a>.</p>
 <hr />
-<h2 class="clipped">Examples</h2>
 
-<h3>Example 1: Server-Side Pagination</h3>
-<p><i>Use TAB keys to navigate links; ENTER key to activate.</i></p>
+<h2>Example 1: Server-Side Pagination</h2>
+<p>A resultset that is paginated via server side page reloads (i.e. links).</p>
 
 <nav class="pagination" aria-labelledby="pagination-heading" role="navigation">
-    <span aria-live="off">
-        <h4 id="pagination-heading" class="clipped">Pagination - Page 1</h4>
-    </span>
-    <a aria-disabled="true" class="pagination__previous" href="index.html">
-        <svg aria-labelledby="pagination-previous-title" role="img">
-            <title id="pagination-previous-title">Previous Page</title>
-            <use xlink:href="#icon-chevron-light-left"></use>
+    <div aria-live="off">
+        <h3 id="pagination-heading" class="clipped">Pagination - Page 1</h3>
+    </div>
+    <a aria-disabled="true" class="icon-link pagination__previous" href="index.html" aria-label="Previous">
+        <svg class="icon icon--arrow-left-16" height="24" width="24" aria-labelledby="pagination-previous-title" aria-hidden="true">
+            <use xlink:href="../../static/icons.svg#icon-arrow-left-16"></use>
         </svg>
     </a>
-    <ol class="pagination__list">
+    <ol class="pagination__items">
         <li>
             <a class="pagination__item" href="index.html" aria-current="page">1</a>
         </li>
@@ -47,46 +30,45 @@ title: Pagination
             <a href="3.html" class="pagination__item" >3</a>
         </li>
     </ol>
-    <a class="pagination__next" href="2.html">
-        <svg aria-labelledby="pagination-next-title" role="img">
-            <title id="pagination-next-title">Next Page</title>
-            <use xlink:href="#icon-chevron-light-right"></use>
+    <a class="icon-link pagination__next" href="2.html" aria-label="Next">
+        <svg class="icon icon--arrow-right-16" height="24" width="24" aria-hidden="true">
+            <use xlink:href="../../static/icons.svg#icon-arrow-right-16"></use>
         </svg>
     </a>
 </nav>
 
 <hr />
 
-<h3>Example 2: Client-Side Pagination</h3>
-<p><i>Use TAB keys to navigate buttons; ENTER or SPACEBAR keys to activate. New page will be announced by screen reader.</i></p>
+<h2>Example 2: Client-Side Pagination</h2>
+<p>A resultset that is paginated via client-side rendering (i.e. buttons).</p>
 
-<div class="pagination">
-    <span aria-live="polite" role="status">
-        <h4 id="pagination-heading" class="clipped">Pagination - Page <span class="pagination__index">1</span></h4>
-    </span>
-    <button aria-disabled="true" class="pagination__previous">
-        <svg aria-labelledby="pagination-previous-title" role="img">
-            <title id="pagination-previous-title">Previous Page</title>
-            <use xlink:href="#icon-chevron-light-left"></use>
+<nav class="pagination">
+    <div aria-live="polite" role="status">
+        <h3 id="pagination-heading" class="clipped">Pagination - Page <span class="pagination__index">1</span></h3>
+    </div>
+    <button aria-disabled="true" class="icon-btn pagination__previous" type="button">
+        <svg class="icon icon--arrow-left-16" height="24" width="24" aria-labelledby="pagination-previous-title" aria-hidden="true">
+            <use xlink:href="../../static/icons.svg#icon-arrow-left-16"></use>
         </svg>
     </button>
-    <ol class="pagination__list">
+    <ol class="pagination__items">
         <li>
-            <button class="pagination__item" aria-current="page">1</button>
+            <button class="pagination__item" aria-current="page" type="button">1</button>
         </li>
         <li>
-            <button class="pagination__item">2</button>
+            <button class="pagination__item" type="button">2</button>
         </li>
         <li>
-            <button class="pagination__item">3</button>
+            <button class="pagination__item" type="button">3</button>
         </li>
     </ol>
-    <button class="pagination__next">
-        <svg aria-labelledby="pagination-next-title" role="img">
-            <title id="pagination-next-title">Next Page</title>
-            <use xlink:href="#icon-chevron-light-right"></use>
+    <button class="icon-btn pagination__next" type="button">
+        <svg class="icon icon--arrow-right-16" height="24" width="24" aria-hidden="true">
+            <use xlink:href="../../static/icons.svg#icon-arrow-right-16"></use>
         </svg>
     </button>
-</div>
+</nav>
 
 <hr />
+
+<p><i>Updated: October 14th, 2020</i></p>

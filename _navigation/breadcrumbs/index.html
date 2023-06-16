@@ -4,35 +4,30 @@ title: Breadcrumbs
 ---
 
 <h1 class="post-title">{{ page.title }}</h1>
-
-<h2 class="clipped">Readme</h2>
-<p>Use TAB and ENTER keys to navigate breadcrumb links.</p>
-<p>This example imports <a href="https://ebay.github.io/skin/#breadcrumbs">skin</a> for base styles. Please <a href={{ "navigation/breadcrumbs" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> for further developer guidance.</p>
+<p>A list of links representing current location in site hierarchy. <a href={{ "navigation/breadcrumbs" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>Read more</a>.</p>
 
 <hr />
 
-<h2 class="clipped">Examples</h2>
-
-<h3>Example 1: Site Breadcrumbs</h3>
+<h2>Example 1: Site Breadcrumbs</h2>
 <nav aria-labelledby="breadcrumbs-heading" class="breadcrumbs" role="navigation">
     <h2 id="breadcrumbs-heading" class="clipped">You are here</h2>
     <ul>
         <li>
             <a href="https://www.ebay.com/">ebay</a>
-            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="../../svg/icons.svg#icon-breadcrumb"></use>
+            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="../../static/icons.svg#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <a href="https://www.ebay.com/rpp/cell-phone-pda">Cell Phones, Smart Watches &amp; Accessories</a>
-            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="../../svg/icons.svg#icon-breadcrumb"></use>
+            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="../../static/icons.svg#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <a href="https://www.ebay.com/b/Smart-Watch-Accessories/182064/bn_16565905">Smart Watch Accessories</a>
-            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="../../svg/icons.svg#icon-breadcrumb"></use>
+            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="../../static/icons.svg#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>

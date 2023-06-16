@@ -25,16 +25,10 @@ title: Star Rating
 </style>
 
 <h1>{{ page.title }}</h1>
-
-<h2 class="clipped">Readme</h2>
-<p>Use ARROW keys to change star rating, ENTER key submits form.</p>
-<p>Please <a href={{ "input/star-rating" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
-
-<h2 class="clipped">Examples</h2>
-
+<p>Custom radio buttons that capture a user rating. <a href={{ "input/star-rating" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>Read more</a>.</p>
 <hr />
 
-<h3>Example 1: Interactive With Default Selection</h3>
+<h2>Example 1: Interactive With Default Selection</h2>
 <form>
     <div class="star-rating">
         <fieldset>
@@ -101,12 +95,12 @@ title: Star Rating
             <label for="default_5"><span class="clipped">5 stars</span></label>
         </fieldset>
     </div>
-    <input class="button" type="submit" />
+    <button class="btn btn--primary" type="submit">Submit</button>
 </form>
 
 <hr />
 
-<h3>Example 2: Interactive Without Default Selection</h3>
+<h2>Example 2: Interactive Without Default Selection</h2>
 <form>
     <div class="star-rating">
         <fieldset>
@@ -173,15 +167,16 @@ title: Star Rating
             <label for="nodefault_5"><span class="clipped">5 stars</span></label>
         </fieldset>
     </div>
-    <input class="button" type="submit" />
+    <button class="btn btn--primary" type="submit">Submit</button>
 </form>
 
 <hr />
 
-<h3>Example 3: Non-Interactive (image)</h3>
+<h2>Example 3: Display Only</h2>
+<p>To display a feedback rating (e.g. alongside a product description), simply use a static image.</p>
 <dl>
     <dt>Average Rating:</dt>
-    <dd><img src="3star.png" alt="3 out of 5 - Average Rating" /></dd>
+    <dd><img src="3star.png" alt="Rating: 3 out of 5" /></dd>
 </dl>
 
 <hr />

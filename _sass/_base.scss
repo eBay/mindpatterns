@@ -152,7 +152,7 @@ a.icon-link {
     }
 
     span {
-        background: url('http://ir.ebaystatic.com/rs/v/fxxj3ttftm5ltcqnto1o4baovyl.png?e') 0 117px;
+        background: url('https://ir.ebaystatic.com/rs/v/fxxj3ttftm5ltcqnto1o4baovyl.png?e') 0 117px;
         background-size: 190px;
         display: inline-block;
         height: 37px;
@@ -246,4 +246,9 @@ sup {
 
 body.lights-on {
     background-color: #ffcc00;
+}
+
+.textbox input.textbox__control,
+.textbox textarea.textbox__control {
+    background-color: var(--color-background-primary);
 }

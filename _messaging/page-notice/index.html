@@ -3,33 +3,19 @@ layout: page
 title: Page Notice
 ---
 
-<style>
-    .page-notice {
-        --page-notice-attention-background-color: DarkRed;
-        --page-notice-attention-border-color: DarkRed;
-        --page-notice-confirmation-background-color: DarkGreen;
-        --page-notice-confirmation-border-color: DarkGreen;
-        --page-notice-information-background-color: Navy;
-        --page-notice-information-border-color: Navy;
-    }
-</style>
-
 <h1>{{ page.title }}</h1>
+<p>A custom landmark which appears prominently at the top of the page. <a href={{ "messaging/page-notice" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>Read more</a>.</p>
 
-<h2 class="clipped">Readme</h2>
-<p>A page notice must receive programmatic keyboard focus only if a critical task or operation was unsuccessful.</p>
-<p>Please <a href={{ "messaging/page-notice" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
-<p><i>Updated</i>: Mar 7th, 2022</p>
 <hr />
 
-<h2 class="clipped">Examples</h2>
+<h2>Example 1: Attention</h2>
+<p>A page notice must receive programmatic keyboard focus only if a critical task or operation was unsuccessful.</p>
 
-<h3>Example 1: Attention</h3>
 <section class="page-notice page-notice--attention" role="region" aria-label="Attention">
     <div class="page-notice__header">
-        <svg class="icon icon--attention-filled" focusable="false" height="24" width="24" role="img" aria-label="Attention">
-            <use xlink:href="../../svg/icons.svg#icon-attention-filled"></use>
-        </svg>
+        <svg class="icon icon--attention-filled-16" focusable="false" height="16" width="16" role="img" aria-label="Attention">
+            <use xlink:href="../../static/icons.svg#icon-attention-filled-16"></use>
+        </static>
     </div>
     <div class="page-notice__main">
         <h2 class="page-notice__title">Your selling account has been deactivated.</h2>
@@ -41,12 +27,12 @@ title: Page Notice
 
 <hr />
 
-<h3>Example 2: Confirmation</h3>
+<h2>Example 2: Confirmation</h2>
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
     <div class="page-notice__header">
-        <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
-            <use xlink:href="../../svg/icons.svg#icon-confirmation-filled"></use>
-        </svg>
+        <svg class="icon icon--confirmation-filled-16" focusable="false" height="16" width="16" role="img" aria-label="Confirmation">
+            <use xlink:href="../../static/icons.svg#icon-confirmation-filled-16"></use>
+        </static>
     </div>
     <div class="page-notice__main">
         <h2 class="page-notice__title">You have opted into eBay Pay and will now get paid directly.</h2>
@@ -58,12 +44,12 @@ title: Page Notice
 
 <hr />
 
-<h3>Example 3: Information</h3>
+<h2>Example 3: Information</h2>
 <section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
-        <svg class="icon icon--information-filled" focusable="false" height="24" width="24" role="img" aria-label="Information">
-            <use xlink:href="../../svg/icons.svg#icon-information-filled"></use>
-        </svg>
+        <svg class="icon icon--information-filled-16" focusable="false" height="16" width="16" role="img" aria-label="Information">
+            <use xlink:href="../../static/icons.svg#icon-information-filled-16"></use>
+        </static>
     </div>
     <div class="page-notice__main">
         <h2 class="page-notice__title">Opt into eBay payments before Jan 12th to pay no selling fees.</h2>
@@ -72,3 +58,6 @@ title: Page Notice
         <a href="https://www.ebay.com">Opt in</a>
     </div>
 </section>
+
+<hr/>
+<p><i>Updated</i>: Mar 7th, 2022</p>

@@ -21,25 +21,20 @@ title: Input Meter
 </style>
 
 <h1>{{ page.title }}</h1>
-
-<h2 class="clipped">Readme</h2>
-<p>Start typing in the textbox or textarea and the meter will update. Enable your screen reader to hear live updates at various intervals.</p>
-<p><strong>NOTE</strong>: the meter tag is not supported in Internet Explorer. A simple textual fallback would be required (but is not demonstrated here).</p>
-
-<p>Please <a href={{ "messaging/input-meter" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
-
-<h2 class="clipped">Examples</h2>
+<p>A metering element that monitors and responds to user input. <a href={{ "messaging/input-meter" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>Read more</a>.</p>
 
 <hr />
 
-<h3>Example 1: Password Meter</h3>
+<h2>Example 1: Password Meter</h2>
+<p>Start typing in the textbox and the meter will update. Enable your screen reader to hear live updates at various intervals.</p>
 
 <div>
     <form>
         <div class="field">
-            <label for="password-1">Password</label>
-            <input id="password-1" type="password" name="password" maxlength="16" />
-
+            <label class="field__label field__label--stacked" for="password-1">Password</label>
+            <div class="textbox">
+                <input class="textbox__control" id="password-1" type="password" name="password" maxlength="16" />
+            </div>
             <span class="password-meter" data-for="password-1" role="status">
                 <meter aria-label="Password Strength" class="password-meter__meter" min="0" low="8" high="12" optimum="14" max="16"></meter>
                 <span class="password-meter__value"><span>
@@ -50,14 +45,16 @@ title: Input Meter
 
 <hr />
 
-<h3>Example 2: Character Meter</h3>
+<h2>Example 2: Character Meter</h2>
+<p>Start typing in the textarea and the meter will update. Enable your screen reader to hear live updates at various intervals.</p>
 
 <div>
     <form>
         <div class="field">
-            <label for="description-1">Description</label>
-            <textarea aria-describedby="character-meter-1" id="description-1" name="description" maxlength="50" cols="50" rows="5"></textarea>
-
+            <label class="field__label field__label--stacked" for="description-1">Description</label>
+            <div class="textbox">
+                <textarea class="textbox__control" aria-describedby="character-meter-1" id="description-1" name="description" maxlength="50" cols="50" rows="5"></textarea>
+            </div>
             <span aria-live="off" class="character-meter" data-for="description-1" id="character-meter-1">
                 <meter aria-label="Characters Remaining" class="character-meter__meter" high="40" low="30" min="0" max="50"></meter>
                 <span class="character-meter__value">50 / 50<span>

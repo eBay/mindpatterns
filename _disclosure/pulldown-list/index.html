@@ -3,8 +3,6 @@ layout: page
 title: Pulldown List
 ---
 
-<h1>{{ page.title }}</h1>
-
 <style>
     .pulldown--collapsed .pulldown__item ~ * {
         display: none;
@@ -25,30 +23,27 @@ title: Pulldown List
     }
 </style>
 
-<div>
-    <h2 class="clipped">Readme</h2>
-    <p>The button will be "pulled down" when activated, to reveal more items. The first revealed item receives keyboard focus.</p>
-</div>
-
+<h1>{{ page.title }}</h1>
+<p>aka. "Show More/Show Less". <a href={{ "disclosure/pulldown-list" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>Read more</a>.</p>
 <hr />
 
-<div>
-    <h2>Example 1 - Navigation List</h2>
+<h2>Example 1: Navigation List</h2>
 
-    <h3>Guitars &amp; Basses</h3>
-    <ul class="pulldown pulldown--collapsed" role="list">
-        <li><a href="http://www.ebay.com">Electic Guitar</a></li>
-        <li><a href="http://www.ebay.com">Acoustic Guitars</a></li>
-        <li><a href="http://www.ebay.com">Parts &amp; Accessories</a></li>
-        <li><a href="http://www.ebay.com">Classical Guitars</a></li>
-        <li class="pulldown__item"><button class="button pulldown__button">Show More<span class="clipped"> - Guitars &amp; Basses</span></button></li>
-        <li><a href="http://www.ebay.com">Guitar Amplifiers</a></li>
-        <li><a href="http://www.ebay.com">Guitar Builder/Luthier Supply</a></li>
-        <li><a href="http://www.ebay.com">Electric Guitars</a></li>
-        <li><a href="http://www.ebay.com">Lap & Pedal Steel Guitars</a></li>
-        <li><a href="http://www.ebay.com">Resonator</a></li>
-    </ul>
-</div>
+<p>The button will be "pulled down" when activated, to reveal more items. The first newly revealed item receives keyboard focus.</p>
+
+<h3>Guitars &amp; Basses</h3>
+<ul class="pulldown pulldown--collapsed" role="list">
+    <li><a href="http://www.ebay.com">Electic Guitar</a></li>
+    <li><a href="http://www.ebay.com">Acoustic Guitars</a></li>
+    <li><a href="http://www.ebay.com">Parts &amp; Accessories</a></li>
+    <li><a href="http://www.ebay.com">Classical Guitars</a></li>
+    <li class="pulldown__item"><button class="button pulldown__button">Show More<span class="clipped"> - Guitars &amp; Basses</span></button></li>
+    <li><a href="http://www.ebay.com">Guitar Amplifiers</a></li>
+    <li><a href="http://www.ebay.com">Guitar Builder/Luthier Supply</a></li>
+    <li><a href="http://www.ebay.com">Electric Guitars</a></li>
+    <li><a href="http://www.ebay.com">Lap & Pedal Steel Guitars</a></li>
+    <li><a href="http://www.ebay.com">Resonator</a></li>
+</ul>
 
 <hr />
 

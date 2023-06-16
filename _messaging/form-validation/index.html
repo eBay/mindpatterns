@@ -4,19 +4,11 @@ title: Form Validation
 ---
 
 <style>
-    label {
-        display: inline-block;
-        margin: 4px 0;
-    }
-    input {
-        display: block;
-        margin: 4px 0;
+    fieldset {
+        margin-top: 32px;
     }
     #page-notice[hidden] {
         display: none;
-    }
-    .field {
-        margin: 8px 0;
     }
     input[aria-invalid=true] {
         border: 1px solid #cc3300;
@@ -28,8 +20,8 @@ title: Form Validation
 
 <section hidden id="page-notice" class="page-notice page-notice--attention" role="region" aria-label="Attention">
     <div class="page-notice__header">
-        <svg class="icon icon--attention-filled" focusable="false" height="24" width="24" role="img" aria-label="Attention">
-            <use xlink:href="../../svg/icons.svg#icon-attention-filled"></use>
+        <svg class="icon icon--attention-filled" focusable="false" height="16" width="16" role="img" aria-label="Attention">
+            <use xlink:href="../../static/icons.svg#icon-attention-filled-16"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -42,57 +34,65 @@ title: Form Validation
 </section>
 
 <h1>{{ page.title }}</h1>
-
-<h2 class="clipped">Readme</h2>
-<p>Submit each form to display a hard-coded page notice.</p>
-<p>Please <a href={{ "messaging/form-validation" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
-<p><i>Updated</i>: March 30th, 2022 (visual updates only)</p>
+<p>Notification of invalid input after user has attempted to submit form. <a href={{ "messaging/form-validation" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>Read more</a>.</p>
 
 <hr />
-<h2 class="clipped">Examples</h2>
-<h3>Example 1: Server-Side</h3>
+
+<h2>Example 1: Server-Side</h2>
+<p>Submit the form to receive a page notice in a new page.</p>
 
 <form action="post.html#pagenotice">
     <fieldset>
         <legend>Your Details</legend>
         <div class="field">
-            <label for="age-1">Age</label>
-            <input autocomplete="false" id="age-1" type="text" name="age" />
+            <label class="field__label field__label--stacked" for="age-1">Age</label>
+            <div class="textbox">
+                <input class="textbox__control" autocomplete="false" id="age-1" type="text" name="age" />
+            </div>
         </div>
         <div class="field">
-            <label for="shoesize-1">Shoe-Size</label>
-            <input autocomplete="false" id="shoesize-1" type="text" name="shoesize" />
+            <label class="field__label field__label--stacked" for="shoesize-1">Shoe-Size</label>
+            <div class="textbox">
+                <input class="textbox__control" autocomplete="false" id="shoesize-1" type="text" name="shoesize" />
+            </div>
         </div>
     </fieldset>
-    <input class="button" type="submit" />
+    <button class="btn btn--primary" type="submit">Submit</button>
 </form>
 
 <hr />
 
-<h3>Example 2: Client-Side</h3>
+<h2>Example 2: Client-Side</h2>
+<p>Submit the form to receive a page notice in the same page.</p>
 
 <form action="post.html#pagenotice" novalidate>
     <fieldset>
         <legend>Your Details</legend>
         <div class="field">
-            <label for="age-2">Age</label>
-            <input autocomplete="false" id="age-2" type="text" name="age" aria-describedby="age-1-error" />
+            <label class="field__label field__label--stacked" for="age-2">Age</label>
+            <div class="textbox">
+                <input class="textbox__control" autocomplete="false" id="age-2" type="text" name="age" aria-describedby="age-1-error" />
+            </div>
             <div class="input-validation__status" hidden>
                 <p class="input-validation__description" id="age-2-error">Attention! Please enter a valid age.</p>
             </div>
         </div>
         <div class="field">
-            <label for="shoesize-2">Shoe-Size</label>
-            <input autocomplete="false" id="shoesize-2" type="text" name="shoesize" aria-describedby="shoesize-2-error" />
+            <label class="field__label field__label--stacked" for="shoesize-2">Shoe-Size</label>
+            <div class="textbox">
+                <input class="textbox__control" autocomplete="false" id="shoesize-2" type="text" name="shoesize" aria-describedby="shoesize-2-error" />
+            </div>
             <div class="input-validation__status" hidden>
                 <p class="input-validation__description" id="shoesize-2-error">Attention! Please enter a valid shoe size.</p>
             </div>
         </div>
     </fieldset>
-    <input class="button" type="submit" />
+    <button class="btn btn--primary" type="submit">Submit</button>
 </form>
 
 <hr />
+
+<p><i>Updated: Jun 9th, 2023</i></p>
 
 <script>
     document.querySelector('form[novalidate]').addEventListener('submit', function(e) {

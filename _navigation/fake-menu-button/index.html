@@ -3,82 +3,89 @@ layout: page
 title: Fake Menu Button
 ---
 
-<div hidden>
-    <svg>
-        <symbol id="icon-chevron-down" viewBox="0 0 18 10">
-            <path d="M9 10a.999.999 0 01-.71-.29L.294 1.714a1.003 1.003 0 111.42-1.42L9 7.591 16.287.294a1.004 1.004 0 011.42 1.42L9.71 9.71A.999.999 0 019 10z"/>
-        </symbol>
-    </svg>
-</div>
-
 <style>
-    .fake-menu button {
-        text-align: left;
-    }
+
 </style>
 
 <h1>{{ page.title }}</h1>
+<p>A button which opens a single column of links and/or buttons in a flyout. <a href={{ "navigation/fake-menu-button" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>Read more</a>.</p>
+<hr />
 
-<h2 class="clipped">Readme</h2>
-<p>Use TAB key (not ARROW keys) to navigate links or buttons inside of the fake menu button's flyout.</p>
-<p><strong>NOTE:</strong> The buttons and links are intentionally "unstyled" for the purpose of this example.</p>
-<p>Please <a href={{ "navigation/fake-menu-button" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
-
-<h2 class="clipped">Examples</h2>
+<h2>Example 1: Links</h2>
+<span class="fake-menu-button">
+    <button class="btn btn--primary">
+        <span class="btn__cell">
+            <span class="btn__text">My eBay</span>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+                <use xlink:href="../../static/icons.svg#icon-chevron-down-12"></use>
+            </svg>
+        </span>
+    </button>
+    <ul class="fake-menu-button__menu">
+        <li>
+            <a href="http://www.ebay.com" class="fake-menu-button__item">Visit Seller</a>
+        </li>
+        <li>
+            <a href="http://www.ebay.com" class="fake-menu-button__item">Contact Seller</a>
+        </li>
+        <li>
+            <a href="http://www.ebay.com" class="fake-menu-button__item">View Similar Items</a>
+        </li>
+    </ul>
+</span>
 
 <hr />
 
-<h3>Example 1: Links</h3>
-<div class="fake-menu">
-    <button class="button fake-menu__host">
-        <span>My eBay</span>
-        <svg focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-chevron-down"></use>
-        </svg>
+<h2>Example 2: Buttons</h2>
+<span class="fake-menu-button">
+    <button class="btn btn--primary">
+        <span class="btn__cell">
+            <span class="btn__text">My eBay</span>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+                <use xlink:href="../../static/icons.svg#icon-chevron-down-12"></use>
+            </svg>
+        </span>
     </button>
-    <ul class="fake-menu__content">
-        <li><a href="http://www.ebay.com">Visit Seller</a></li>
-        <li><a href="http://www.ebay.com">Contact Seller</a></li>
-        <li><a href="http://www.ebay.com">View Similar Items</a></li>
+    <ul class="fake-menu-button__menu">
+        <li>
+            <button class="fake-menu-button__item" type="button">Visit Seller</button>
+        </li>
+        <li>
+            <button class="fake-menu-button__item" type="button">Contact Seller</button>
+        </li>
+        <li>
+            <button class="fake-menu-button__item" type="button">View Similar Items</button>
+        </li>
     </ul>
-</div>
+</span>
 
 <hr />
 
-<h3>Example 2: Buttons</h3>
-<div class="fake-menu">
-    <button class="button fake-menu__host">
-        <span>My eBay</span>
-        <svg focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-chevron-down"></use>
-        </svg>
+<h2>Example 3: Links & Buttons</h2>
+<span class="fake-menu-button">
+    <button class="btn btn--primary">
+        <span class="btn__cell">
+            <span class="btn__text">My eBay</span>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+                <use xlink:href="../../static/icons.svg#icon-chevron-down-12"></use>
+            </svg>
+        </span>
     </button>
-    <ul class="fake-menu__content">
-        <li><button class="button" type="button">Visit Seller</button></li>
-        <li><button class="button" type="button">Contact Seller</button></li>
-        <li><button class="button" type="button">View Similar Items</button></li>
+    <ul class="fake-menu-button__menu">
+        <li>
+            <button class="fake-menu-button__item" type="button">Visit Seller</button>
+        </li>
+        <li>
+            <a href="http://www.ebay.com" class="fake-menu-button__item">Contact Seller</a>
+        </li>
+        <li>
+            <button class="fake-menu-button__item" type="button">View Similar Items</button>
+        </li>
     </ul>
-</div>
-
-<hr />
-
-<h3>Example 3: Links & Buttons</h3>
-<div class="fake-menu">
-    <button class="button fake-menu__host">
-        <span>My eBay</span>
-        <svg focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-chevron-down"></use>
-        </svg>
-    </button>
-    <ul class="fake-menu__content">
-        <li><button class="button" type="button">Visit Seller</button></li>
-        <li><a href="http://www.ebay.com">Contact Seller</a></li>
-        <li><button class="button" type="button">View Similar Items</button></li>
-    </ul>
-</div>
+</span>
 
 <!--
-<h3>On Link (with stealth button)</h3>
+<h2>On Link (with stealth button)</h2>
 <span class="fake-menu flyout">
     <a class="flyout__host" href="http://my.ebay.com">My eBay</a>
     <div class="flyout">

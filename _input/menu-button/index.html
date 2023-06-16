@@ -3,33 +3,17 @@ layout: page
 title: Menu Button
 ---
 
-<style>
-    .menu-button {
-        --dropdown-background-color: LightYellow;
-        --menu-menuitem-border-color: LightYellow;
-        --menu-menuitem-hover-background-color: black;
-        --menu-menuitem-hover-foreground-color: white;
-    }
-</style>
-
 <h1>{{ page.title }}</h1>
-
-<h2 class="clipped">Readme</h2>
-<p>Use ENTER or SPACE key on button to open a <a href="../menu/index.html">menu</a> in a flyout.</p>
-<p>This example imports <a href="https://ebay.github.io/skin/#menu">skin</a> and <a href="https://github.com/makeup/makeup-js/tree/master/packages/makeup-menu-button">makeup</a> for base styles and behaviour respectively. Please <a href={{ "input/menu" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> for further developer guidance.</p>
-<p>Please <a href={{ "input/menu-button" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
-
-
-<h2 class="clipped">Examples</h2>
+<p>A button that expands to reveal a menu within a flyout. <a href={{ "input/menu-button" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>Read more</a>.</p>
 
 <hr />
 
-<h3>Example 1: Stateless</h3>
+<h2>Example 1: Stateless</h2>
 <span class="menu-button">
-    <button class="menu-button__button button expand-btn" type="button">
-        <span class="menu-button__text">View Results</span>
-        <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="../../svg/icons.svg#icon-chevron-down"></use>
+    <button class="btn btn--primary" type="button">
+        <span class="btn__text">View Results</span>
+        <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+            <use xlink:href="../../static/icons.svg#icon-chevron-down-12"></use>
         </svg>
     </button>
     <div class="menu-button__menu" hidden>
@@ -46,33 +30,35 @@ title: Menu Button
 
 <hr />
 
-<h3>Example 2A: Single-Select with Fixed Label</h3>
+<h2>Example 2A: Single-Select with Fixed Label</h2>
 
 <span class="menu-button">
-    <button class="menu-button__button button expand-btn" type="button">
-        <span class="menu-button__text">Sort Results</span>
-        <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="../../svg/icons.svg#icon-chevron-down"></use>
-        </svg>
+    <button class="btn btn--primary" type="button">
+        <span class="btn__cell">
+            <span class="btn__text">Sort Results</span>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+                <use xlink:href="../../static/icons.svg#icon-chevron-down-12"></use>
+            </svg>
+        </span>
     </button>
     <div class="menu-button__menu" hidden>
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitemradio" data-makeup-group="sort" aria-checked="true">
                 <span>Name Sort</span>
-                <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="menu-button__item" role="menuitemradio" data-makeup-group="sort" aria-checked="false">
                 <span>Date Sort</span>
-                <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="menu-button__item" role="menuitemradio" data-makeup-group="sort" aria-checked="false">
                 <span>Price Sort</span>
-                <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
                 </svg>
             </div>
         </div>
@@ -81,33 +67,35 @@ title: Menu Button
 
 <hr />
 
-<h3>Example 2B: Single-Select With Compact Label</h3>
+<h2>Example 2B: Single-Select With Compact Label</h2>
 
 <span class="menu-button">
-    <button class="menu-button__button button expand-btn" type="button" data-makeup-menu-button-prefix="Sort:" style="min-width: 150px">
-        <span class="expand-btn__text">Sort: Name</span>
-        <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="../../svg/icons.svg#icon-chevron-down"></use>
-        </svg>
+    <button class="btn btn--primary" type="button" data-makeup-menu-button-prefix="Sort:" style="min-width: 150px">
+        <span class="btn__cell">
+            <span class="btn__text">Sort: Name</span>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+                <use xlink:href="../../static/icons.svg#icon-chevron-down-12"></use>
+            </svg>
+        </span>
     </button>
     <div class="menu-button__menu" hidden>
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitemradio" data-makeup-group="sort" aria-checked="true">
                 <span>Name</span>
-                <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="menu-button__item" role="menuitemradio" data-makeup-group="sort" aria-checked="false">
                 <span>Date</span>
-                <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="menu-button__item" role="menuitemradio" data-makeup-group="sort" aria-checked="false">
                 <span>Price</span>
-                <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
                 </svg>
             </div>
         </div>
@@ -116,27 +104,29 @@ title: Menu Button
 
 <hr />
 
-<h3>Example 3: Multi-Select</h3>
+<h2>Example 3: Multi-Select</h2>
 
 <span class="menu-button">
-    <button class="menu-button__button button expand-btn" type="button">
-        <span class="menu-button__text">Filter Results</span>
-        <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="../../svg/icons.svg#icon-chevron-down"></use>
-        </svg>
+    <button class="btn btn--primary" type="button">
+        <span class="btn__cell">
+            <span class="btn__text">Filter Results</span>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+                <use xlink:href="../../static/icons.svg#icon-chevron-down-12"></use>
+            </svg>
+        </span>
     </button>
     <div class="menu-button__menu" hidden>
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitemcheckbox" data-makeup-group="filter" aria-checked="true">
                 <span>Buy it Now</span>
-                <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="menu-button__item" role="menuitemcheckbox" data-makeup-group="filter" aria-checked="false">
                 <span>Auction</span>
-                <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
                 </svg>
             </div>
         </div>
@@ -145,14 +135,16 @@ title: Menu Button
 
 <hr />
 
-<h3>Example 4: Grouped</h3>
+<h2>Example 4: Grouped</h2>
 
 <span class="menu-button">
-    <button class="menu-button__button button expand-btn" type="button">
-        <span class="menu-button__text">Customise Results</span>
-        <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="../../svg/icons.svg#icon-chevron-down"></use>
-        </svg>
+    <button class="btn btn--primary" type="button">
+        <span class="btn__cell">
+            <span class="btn__text">Customise Results</span>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+                <use xlink:href="../../static/icons.svg#icon-chevron-down-12"></use>
+            </svg>
+        </span>
     </button>
     <div class="menu-button__menu" hidden>
         <div class="menu-button__items" role="menu">
@@ -165,33 +157,33 @@ title: Menu Button
             <hr class="menu-button__separator" role="separator" />
             <div class="menu-button__item" role="menuitemradio" data-makeup-group="sort" aria-checked="true">
                 <span>Name Sort</span>
-                <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="menu-button__item" role="menuitemradio" data-makeup-group="sort" aria-checked="false">
                 <span>Date Sort</span>
-                <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="menu-button__item" role="menuitemradio" data-makeup-group="sort" aria-checked="false">
                 <span>Price Sort</span>
-                <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
                 </svg>
             </div>
             <hr class="menu-button__separator" role="separator" />
             <div class="menu-button__item" role="menuitemcheckbox" data-makeup-group="filter" aria-checked="true">
                 <span>Buy it Now</span>
-                <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="menu-button__item" role="menuitemcheckbox" data-makeup-group="filter" aria-checked="false">
                 <span>Auction</span>
-                <svg class="icon icon-tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="../../svg/icons.svg#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
                 </svg>
             </div>
         </div>

@@ -1,15 +1,15 @@
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  devtool: 'source-map',
-  mode: 'production',
+  devtool: "source-map",
+  mode: "production",
   optimization: {
       minimize: true
   },
-  entry: './_transpiled/main.js',
+  entry: "./_transpiled/main.js",
   output: {
-    path: path.resolve(__dirname, 'static'),
+    path: path.resolve(__dirname, "static"),
     filename: 'browser.js'
   },
   plugins: [new MiniCssExtractPlugin({
@@ -21,6 +21,13 @@ module.exports = {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
+      {
+        test: /\.(svg)$/,
+        use: [{
+          loader: "file-loader",
+          options: { name: "[name].[ext]" }
+        }],
+      }
     ],
   },
 };

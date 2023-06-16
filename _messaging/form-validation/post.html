@@ -1,7 +1,7 @@
 ---
 hidden: true
 layout: page
-title: Form Validation (Server-Side)
+title: Form Validation (Server-Side Post)
 ---
 
 <style>
@@ -26,10 +26,10 @@ title: Form Validation (Server-Side)
 
 <h1>{{ page.title }}</h1>
 
-<section id="page-notice" class="page-notice page-notice--attention" tabindex="-1" role="region" aria-label="Attention">
+<section hidden id="page-notice" class="page-notice page-notice--attention" role="region" aria-label="Attention">
     <div class="page-notice__header">
-        <svg class="icon icon--attention-filled" focusable="false" height="24" width="24" role="img" aria-label="Attention">
-            <use xlink:href="../../svg/icons.svg#icon-attention-filled"></use>
+        <svg class="icon icon--attention-filled" focusable="false" height="16" width="16" role="img" aria-label="Attention">
+            <use xlink:href="../../static/icons.svg#icon-attention-filled-16"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -46,21 +46,25 @@ title: Form Validation (Server-Side)
         <fieldset>
             <legend>Your Details</legend>
             <div class="field">
-                <label for="age-1">Age</label>
-                <input autocomplete="false" id="age-1" type="text" name="age" aria-describedby="age-1-error" aria-invalid="true" />
+                <label class="field__label field__label--stacked" for="age-1">Age</label>
+                <div class="textbox">
+                    <input class="textbox__control" autocomplete="false" id="age-1" type="text" name="age" aria-describedby="age-1-error" aria-invalid="true" />
+                </div>
                 <div class="input-validation__status">
                     <p class="input-validation__description" id="age-1-error">Attention! Please enter a valid age.</p>
                 </div>
             </div>
             <div class="field">
-                <label for="shoesize-1">Shoe-Size</label>
-                <input autocomplete="false" id="shoesize-1" type="text" name="shoesize" aria-describedby="shoesize-1-error" aria-invalid="true" />
+                <label class="field__label field__label--stacked" for="shoesize-1">Shoe-Size</label>
+                <div class="textbox">
+                    <input class="textbox__control" autocomplete="false" id="shoesize-1" type="text" name="shoesize" aria-describedby="shoesize-1-error" aria-invalid="true"/>
+                </div>
                 <div class="input-validation__status">
                     <p class="input-validation__description" id="shoesize-1-error">Attention! Please enter a valid shoe size.</p>
                 </div>
             </div>
         </fieldset>
-        <input class="button" type="submit" />
+        <button class="btn btn--primary" type="submit">Submit</button>
     </form>
 </div>
 

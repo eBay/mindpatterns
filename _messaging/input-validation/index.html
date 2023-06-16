@@ -4,42 +4,54 @@ title: Input Validation
 ---
 
 <style>
-    label {
-        display: block;
-        margin: 8px 0;
-    }
-    input {
-        font-size: 1em;
+    .inline-notice[hidden] {
+        display: none;
     }
 </style>
 
 <h1>{{ page.title }}</h1>
-
-<h2 class="clipped">Readme</h2>
-
-<p>Please <a href={{ "messaging/input-validation" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
-
+<p>Validate user input <em>before</em> the form is submitted. <a href={{ "messaging/input-validation" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>Read more</a>.</p>
 <hr />
 
-<h2 class="clipped">Examples</h2>
+<h2>Example 1</h2>
+<p>Enter any value, then TAB out of field to receive a client-side error notice.</p>
 
-<h3>Example 1: On Blur</h3>
-<p>Enter any value, then TAB out of field to receive a hard-coded client-side error notice.</p>
-
-<label for="age">Age</label>
-<div class="input-validation">
-    <input autocomplete="false" id="age" type="text" name="age" />
-    <span class="input-validation__status" role="status">
-        <span class="input-validation__description" id="age-error" hidden>Error! Please enter a valid age.</span>
-    </span>
+<div class="field">
+    <label class="field__label field__label--stacked" for="age">Age</label>
+    <div class="input-validation">
+        <div class="textbox field__control">
+            <input class="textbox__control" autocomplete="false" id="age" type="text" name="age" />
+        </div>
+        <div class="input-validation__status inline-notice inline-notice--attention" role="status" hidden>
+            <span class="inline-notice__header">
+                <svg focusable="false" class="icon icon--attention-filled-16" height="16" width="16" role="img" aria-label="Attention">
+                    <use href="../../static/icons.svg#icon-attention-filled-16"></use>
+                </svg>
+            </span>
+            <span class="inline-notice__main" id="notice-1">
+                <p>Please enter a valid age.</p>
+            </span>
+        </div>
+    </div>
 </div>
 
-<label for="shoesize">Shoe-Size</label>
-<div class="input-validation">
-    <input autocomplete="false" id="shoesize" type="text" name="shoesize" />
-    <span class="input-validation__status" role="status">
-        <span class="input-validation__description" id="shoesize-error" hidden>Error! Please enter a valid shoe size.</span>
-    </span>
+<div class="field">
+    <label class="field__label field__label--stacked" for="shoesize">Shoe Size</label>
+    <div class="input-validation">
+        <div class="textbox field__control">
+            <input class="textbox__control" autocomplete="false" id="shoesize" type="text" name="shoesize" />
+        </div>
+        <div class="input-validation__status inline-notice inline-notice--attention"  role="status" hidden>
+            <span class="inline-notice__header">
+                <svg focusable="false" class="icon icon--attention-filled-16" height="16" width="16" role="img" aria-label="Attention">
+                    <use href="../../static/icons.svg#icon-attention-filled-16"></use>
+                </svg>
+            </span>
+            <span class="inline-notice__main" id="notice-2">
+                <p>Please enter a valid shoe size.</p>
+            </span>
+        </div>
+    </div>
 </div>
 
 <hr />
@@ -49,7 +61,7 @@ title: Input Validation
 <script>
     Array.prototype.slice.call(document.querySelectorAll('input')).forEach(function(inputEl) {
         inputEl.addEventListener('blur', function(e) {
-            const messageEl = inputEl.nextElementSibling.children[0];
+            const messageEl = inputEl.parentElement.nextElementSibling;
             inputEl.setAttribute('aria-invalid', 'true');
             inputEl.setAttribute('aria-describedby', messageEl.id);
             messageEl.hidden = false;

@@ -14,16 +14,13 @@ title: Details
 </style>
 
 <h1>{{ page.title }}</h1>
-
-<h2 class="clipped">Readme</h2>
-<p>Use TAB key to focus details button.</p>
-<p>Please <a href={{ "disclosure/details" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+<p>A region of content that can be expanded and collapsed, forcing any adjacent content to be pushed down the page. <a href={{ "disclosure/details" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>Read more</a>.</p>
 
 <hr />
 
-<h3>Example 1: Show Product Details</h3>
+<h2>Example 1: Show Product Details</h2>
 
-<h4>Nintendo Entertainment System</h4>
+<h3>Nintendo Entertainment System</h3>
 
 <img alt="Nintendo" src="{{ '/images/nes.jpg' | relative_url }}" />
 <details class="details">
@@ -35,7 +32,7 @@ title: Details
 
 <hr />
 
-<h3>Example 2: Show Navigation</h3>
+<h2>Example 2: Show Navigation</h2>
 
 <details class="details">
     <summary><h4>Buying Activity</h4></summary>

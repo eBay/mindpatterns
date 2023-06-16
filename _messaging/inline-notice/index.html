@@ -4,14 +4,8 @@ title: Inline Notice
 ---
 
 <style>
-    .notice--confirmation {
-        color: green;
-    }
-    .notice--information {
-        color: blue;
-    }
-    .notice--attention {
-        color: #cc3300;
+    .inline-notice[hidden] {
+        display: none;
     }
     .card {
         border: 1px solid #eee;
@@ -24,56 +18,60 @@ title: Inline Notice
         margin-right: 1em;
     }
     .card h3 {
-        color: #333;
         font-size: 18px;
         margin-top: 0;
-    }
-    .card p {
-        color: #767676;
     }
 </style>
 
 <h1>{{ page.title }}</h1>
-
-<h2 class="clipped">Readme</h2>
-<p>All notices should be discoverable via screen reader landmark navigation. Client side notices must be announced when rendered or made visible.</p>
-<p>Please <a href={{ "messaging/inline-notice" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
-
+<p>Context-level notice of confirmation, information or attention. <a href={{ "messaging/inline-notice" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>Read more</a>.</p>
 <hr />
 
-<h2 class="clipped">Examples</h2>
-
-<h3>Example 1: Server Side Confirmation</h3>
-<p><em>This confirmation notice is discoverable via list of landmarks</em>.</p>
+<h2>Example 1: Server Side Confirmation</h2>
+<p>This confirmation notice is discoverable via list of landmarks.</p>
 
 <div class="card">
     <img src="{{ '/images/lumia635.jpg' | relative_url }}" />
     <h3>Nokia Lumia 635</h3>
     <p>$44.99</p>
     <input name="like" type="hidden" value="iphone12345" />
-    <span aria-label="Confirmation" class="notice notice--confirmation" id="notice-1" role="region">
-        <span class="notice__text">Item removed from cart</span>
-    </span>
+    <div class="inline-notice inline-notice--attention" id="notice-1" role="region">
+        <span class="inline-notice__header">
+            <svg focusable="false" class="icon icon--confirmation-filled-16" height="16" width="16" role="img" aria-label="Confirmation">
+                <use href="../../static/icons.svg#icon-confirmation-filled-16"></use>
+            </svg>
+        </span>
+        <span class="inline-notice__main">
+            <p>Item removed from cart</p>
+        </span>
+    </div>
 </div>
 
 <hr />
 
-<h3>Example 2: Server Side Information</h3>
-<p><em>This information notice is discoverable via list of landmarks</em>.</p>
+<h2>Example 2: Server Side Information</h2>
+<p>This information notice is discoverable via list of landmarks.</p>
 
 <div class="card">
     <img src="{{ '/images/lumia635.jpg' | relative_url }}" />
     <h3>Nokia Lumia 635</h3>
     <p>$44.99</p>
     <input name="like" type="hidden" value="iphone12345" />
-    <span aria-label="Information" class="notice notice--information" id="notice-2" role="region">
-        <span class="notice__text">You have been outbid on this item.</span>
-    </span>
+    <div class="inline-notice inline-notice--information" id="notice-2" role="region">
+        <span class="inline-notice__header">
+            <svg focusable="false" class="icon icon--information-filled-16" height="16" width="16" role="img" aria-label="Information">
+                <use href="../../static/icons.svg#icon-information-filled-16"></use>
+            </svg>
+        </span>
+        <span class="inline-notice__main">
+            <p>You have been outbid on this item.</p>
+        </span>
+    </div>
 </div>
 
 <hr />
 
-<h3>Example 3: Client Side Attention</h3>
+<h2>Example 3: Client Side Attention</h2>
 <p><em>Click "Add to Cart" button to display and announce notice.</em></p>
 
 <div class="card">
@@ -82,18 +80,23 @@ title: Inline Notice
     <p>$44.99</p>
     <form action="error.html">
         <input name="item" type="hidden" value="lumia-635" />
-        <input class="button" id="cart-btn" type="submit" value="Add to Cart" />
-        <span aria-label="Attention" class="notice notice--attention" id="notice-3" role="region" hidden>
-            <span role="alert">
-                <span class="notice__text">Unable to add to cart. Please try again later.</span>
+        <button class="btn btn--secondary" id="cart-btn" type="submit">Add to Cart</button>
+        <div class="inline-notice inline-notice--attention" id="notice-3" role="alert" hidden>
+            <span class="inline-notice__header">
+                <svg focusable="false" class="icon icon--attention-filled-16" height="16" width="16" role="img" aria-label="Attention">
+                    <use href="../../static/icons.svg#icon-attention-filled-16"></use>
+                </svg>
             </span>
-        </span>
+            <span class="inline-notice__main">
+                <p>Unable to add to cart. Please try again later.</p>
+            </span>
+        </div>
     </form>
 </div>
 
 <hr />
 
-<p><i>Updated</i>: May 25th, 2019</p>
+<p><i>Updated</i>: Jun 9th, 2023</p>
 
 <script>
     document.querySelector('form').addEventListener('submit', function(e) {

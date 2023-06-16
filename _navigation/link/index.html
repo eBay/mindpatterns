@@ -3,69 +3,46 @@ layout: page
 title: Link
 ---
 
-<style>
-.new-window {
-    display: inline-block;
-    font-family: 'vq-icon-font';
-    margin-left: 0.25em;
-}
-.new-window::after {
-    content: '\e90e';
-}
-.new-window-indicator {
-    display: inline-block;
-}
-</style>
-
 <h1>{{ page.title }}</h1>
-
-<h2 class="clipped">Readme</h2>
-
-<p>Use TAB key to navigate links. ENTER key to open links.</p>
-<p>Please <a href={{ "navigation/link" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
-<p><i>Updated</i>: March 30th, 2022</p>
+<p>A hyperlink (or 'link') points to a resource (URL) or to a specific element within a document (URL fragment). <a href={{ "navigation/link" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>Read more</a>.</p>
 
 <hr />
 
-<h2 class="clipped">Examples</h2>
-
-<h3>Example 1: Opens in Same Window</h3>
+<h2>Example 1: Opens in Same Window</h2>
 <p>I have read and accepted the <a href="http://www.ebay.com">User Agreement</a>.</p>
 
 <hr />
 
-<h3>Example 2A: Opens in New Window (with icon)</h3>
+<h2>Example 2A: Opens in New Window (with icon)</h2>
 <p>I have read and accepted the
-    <a class="new-window-indicator" href="http://www.ebay.com" target="_blank">User Agreement
-        <sup>
-            <svg focusable="false" height="8" width="8" aria-label=" - Opens in new window or tab" role="img">
-                <use xlink:href="../../svg/icons.svg#icon-window"></use>
-            </svg>
-        </sup>
-    </a>.
+    <a class="new-window-indicator" href="http://www.ebay.com" target="_blank" aria-label="User Agreement - Opens in new window or tab">User Agreement<sup style="margin-left: 4px"><svg viewBox="0 0 28 25" focusable="false" height="8" width="8" aria-hidden="true"><path d="M.497 5.701h15.644c.274 0 .497.222.497.497v.718a.497.497 0 01-.497.497H.497A.497.497 0 010 6.916v-.718c0-.274.222-.497.497-.497zm1.215 0V23.94H0V5.701h1.712zm18.515 7.785v9.939a.552.552 0 01-.552.552h-.699a.552.552 0 01-.552-.552v-9.939c0-.305.247-.552.552-.552h.699c.305 0 .552.247.552.552zM0 22.302h20.209v1.712H0v-1.712zM25.767.161h1.914v16.583h-1.914V.161zm1.914-.147v1.914H11.098V.014h16.583zM26.322 0l1.353 1.353L13.398 15.63l-1.353-1.353L26.322 0z"></path></svg></sup></a>.
 </p>
 
 <hr />
 
-<h3>Example 2B: Opens in New Window (with clipped text)</h3>
+<h2>Example 2B: Opens in New Window (with clipped text)</h2>
 <p>I have read and accepted the <a href="http://www.ebay.com" target="_blank">User Agreement<span class="clipped"> - opens in new window or tab</span></a>.</p>
 
 <hr />
 
-<h3>Example 2C: Opens in New Window (with aria-label)</h3>
+<h2>Example 2C: Opens in New Window (with aria-label)</h2>
 <p>I have read and accepted the <a href="http://www.ebay.com" target="_blank" aria-label="User Agreement - opens in new window or tab">User Agreement</a>.</p>
 
 <hr />
 
-<h3>Example 3A: Ambiguous Link (with clipped text)</h3>
+<h2>Example 3A: Ambiguous Link (with clipped text)</h2>
 <p><a href="http://www.ebay.com">Add to Cart<span class="clipped"> - iPhone 6 White</span></a></p>
 
 <hr />
 
-<h3>Example 3B: Ambiguous Link (with aria-label)</h3>
+<h2>Example 3B: Ambiguous Link (with aria-label)</h2>
 <p><a href="http://www.ebay.com" aria-label="Add to Cart - iPhone 6 White">Add to Cart</a></p>
 
 <hr />
 
-<h3>Example 4: Stealth Link (keyboard only)</h3>
+<h2>Example 4: Stealth Link</h2>
+<p>The link after this sentence appears when it gains keyboard focus.</p>
 <p><a class="stealth" href="http://www.ebay.com">User Agreement</a></p>
+
+<hr />
+<p><i>Updated</i>: March 30th, 2022</p>

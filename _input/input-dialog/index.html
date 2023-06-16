@@ -4,17 +4,14 @@ title: Input Dialog
 ---
 
 <h1>{{ page.title }}</h1>
-
-<h2 class="clipped">Readme</h2>
-<p>Activate button to open the input dialog.</p>
-<p>This example imports <a href="https://ebay.github.io/skin/#lightbox-dialog">skin</a> and <a href="https://github.com/makeup/makeup-js/tree/master/packages/input-dialog">makeup</a> for base styles and behaviour respectively. Please <a href={{ "input/input-dialog" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> for further developer guidance.</p>
-<p>Please <a href={{ "input/input-dialog" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
-
-<h2 class="clipped">Examples</h2>
+<p>A lightbox dialog that prompts user for input. <a href={{ "input/input-dialog" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>Read more</a>.</p>
 
 <hr />
 
-<button data-makeup-for="input-dialog" class="button dialog-button" type="button">Open Input Dialog</button>
+<h2>Example 1</h2>
+<p>Activate button to open the input dialog.</p>
+
+<button data-makeup-for="input-dialog" class="btn btn--primary dialog-button" type="button">Open Input Dialog</button>
 
 <div class="lightbox-dialog lightbox-dialog--input lightbox-dialog--mask-fade" id="input-dialog" role="dialog" aria-labelledby="input-dialog-title" aria-modal="true" hidden>
     <div class="lightbox-dialog__window lightbox-dialog__window--fade">

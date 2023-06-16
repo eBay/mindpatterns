@@ -6,6 +6,9 @@
 * https://opensource.org/licenses/MIT.
 */
 
+import '../node_modules/@ebay/skin/dist/svg/icons.svg';
+
+import '@ebay/skin/tokens';
 import '@ebay/skin/utility';
 import '@ebay/skin/alert-dialog';
 import '@ebay/skin/breadcrumbs';
@@ -15,6 +18,9 @@ import '@ebay/skin/icon-button';
 import '@ebay/skin/button';
 import '@ebay/skin/combobox';
 import '@ebay/skin/confirm-dialog';
+import '@ebay/skin/field';
+import '@ebay/skin/icon-button';
+import '@ebay/skin/inline-notice';
 import '@ebay/skin/lightbox-dialog';
 import '@ebay/skin/link';
 import '@ebay/skin/listbox';
@@ -22,7 +28,9 @@ import '@ebay/skin/listbox-button';
 import '@ebay/skin/menu';
 import '@ebay/skin/menu-button';
 import '@ebay/skin/page-notice';
+import '@ebay/skin/pagination';
 import '@ebay/skin/radio';
+import '@ebay/skin/select';
 import '@ebay/skin/switch';
 import '@ebay/skin/textbox';
 import '@ebay/skin/toast-dialog';
@@ -171,14 +179,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }));
     });
 
-    document.querySelectorAll('.fake-menu').forEach(function(widgetEl) {
+    document.querySelectorAll('.fake-menu-button').forEach(function(widgetEl) {
         pageWidgets.push(new Expander(widgetEl, {
             expandOnClick: true,
             collapseOnFocusOut: true,
             collapseOnClickOut: true,
-            contentSelector: '.fake-menu__content',
+            contentSelector: '.fake-menu-button__menu',
             focusManagement: 'focusable',
-            hostSelector: '.fake-menu__host'
+            hostSelector: '.fake-menu-button > button'
         }));
     });
 
@@ -186,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
         pageWidgets.push(new HijaxButton(widgetEl));
 
         widgetEl.addEventListener('hijax-button-click', function() {
-            console.log(this);
+            alert('Link Hijaxed!');
         });
     });
 
@@ -219,7 +227,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
-        const widget = new MenuButton(widgetEl);
+        const widget = new MenuButton(widgetEl, {
+            buttonTextSelector: '.btn__text'
+        });
 
         // tmp fix until makeup-menu-button updated
         widgetEl.querySelector('button').setAttribute('aria-haspopup', 'true');

@@ -14,33 +14,25 @@ title: Button
 </style>
 
 <h1>{{ page.title }}</h1>
+<p>A control for executing JavaScript or submitting/resetting form values. <a href={{ "input/button" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>Read more</a>.</p>
+<hr />
 
-<h2 class="clipped">Readme</h2>
-<p>TAB key enters/exits button. SPACEBAR or ENTER activates button.</p>
-<p>Please <a href={{ "input/button" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
-
-<h2 class="clipped">Examples</h2>
+<h2>Example 1: JavaScript Button</h2>
+<p>A button with a type of "button", intended for execution of JavaScript. TIP: remember the default type for button is "submit".</p>
+<button class="btn btn--primary" type="button" onclick="alert('Enjoy your new phone!')">Buy iPhone</button>
 
 <hr />
 
-<h3>Example 1: Native HTML</h3>
-<button class="button native-button" type="button">Buy iPhone 6</button>
+<h2>Example 2: Hijaxed Link</h2>
+<p>A progressively enhanced link (i.e. button behaviour gracefully degrades without JavaScript).</p>
+<a class="fake-btn fake-btn--primary hijax-button" href="http://www.ebay.com/buy/iphone6">Buy iPhone</a>
 
 <hr />
 
-<h3>Example 2: ARIA Button (not recommended)</h3>
-<span class="button aria-button">Buy iPhone 6</span>
+<h2>Example 3: Stealth Button</h2>
+<p>A stealth button is accessible on keyboard focus only. HINT: use your keyboard to fnd it.</p>
+<button class="button stealth-button stealth" type="button" onclick="alert('Enjoy your new phone!')">Buy iPhone</button>
 
 <hr />
 
-<h3>Example 3: Hijaxed Link</h3>
-<a class="button hijax-button" href="http://www.ebay.com/buy/iphone6">Buy iPhone 6</a>
-
-<hr />
-
-<h3>Example 4: Stealth Button (keyboard only)</h3>
-<button class="button stealth-button stealth" type="button">Buy iPhone 6</button>
-
-<hr />
-
-<p><i>Updated</i>: May 12th, 2019</p>
+<p><i>Updated</i>: Jun 9th, 2023</p>

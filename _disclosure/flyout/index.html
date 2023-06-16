@@ -5,9 +5,9 @@ title: Flyout
 
 <style>
     .flyout__content {
-        background-color: LightYellow;
-        box-shadow: 1px 2px 2.5px #ccc;
-        border: 1px solid #eee;
+        background-color: #eee;
+        border: 1px solid #ccc;
+        color: black;
         padding: 1em;
     }
 </style>
@@ -15,16 +15,14 @@ title: Flyout
 <h1>{{ page.title }}</h1>
 
 <h2 class="clipped">Readme</h2>
-<p>Flyout is a standalone pattern, but also forms the basis of many composite patterns such as infotip, combobox, &amp; menu button.</p>
-<p>Please <a href={{ "disclosure/flyout" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> to understand how these examples were created.</p>
+<p>A non-modal overlay, showing contextually relevant content. <a href={{ "disclosure/flyout" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>Read more</a>.</p>
 
 <hr />
 
-<h2 class="clipped">Examples</h2>
-
-<h3>Example 1: Click Activated</h3>
+<h2>Example 1: Click Activated</h2>
+<p>A click activated flyout (i.e. launched using a button) is the recommended way to open a custom flyout.</p>
 <div class="flyout flyout--click">
-    <button class="button flyout__host">Button</button>
+    <button class="btn btn--secondary flyout__host">Button</button>
     <div class="flyout__live-region" aria-live="off">
         <div class="flyout__content">
             <p>Any kind of HTML control can go inside of a flyout...</p>
@@ -38,7 +36,8 @@ title: Flyout
 
 <hr />
 
-<h3>Example 2: Hover Activated (with Stealth Button)</h3>
+<h2>Example 2: Hover Activated (discouraged)</h2>
+<p>Keyboard users cannot hover; as a workaround, a click-activated stealth button is available immediately after the link (appears on keyboard focus).</p>
 <div>
     <span class="flyout flyout--hover-only">
         <a class="flyout__host" href="http://www.ebay.com">Link</a>
@@ -59,24 +58,26 @@ title: Flyout
 
 <hr />
 
-<h3>Example 3: Focus Activated (discouraged)</h3>
-<p>This pattern is discouraged because it <em>forces</em> a keyboard user to navigate through all interactive items of the flyout.</p>
+<h2>Example 3: Focus Activated (discouraged)</h2>
+<p>This pattern is discouraged because it <em>forces</em> a keyboard user to navigate through all interactive items of the flyout. The exception here would be if there is an aria-activedescendant relationship with the flyout content (e.g. a combobox).</p>
 <div class="flyout flyout--focus">
-    <input type="text" class="flyout__host" aria-label="dummy textbox" placeholder="input" />
-    <div class="flyout__live-region" aria-live="off">
-        <div class="flyout__content">
-            <p>Any kind of HTML control can go inside of a flyout...</p>
-            <p>A link: <a href="http://www.ebay.com">www.ebay.com</a></p>
-            <p>A button: <button>Click Me</button></p>
-            <p>An input: <input type="text" aria-label="Dummy textbox"></p>
-            <p>A checkbox: <input type="checkbox" aria-label="Dummy checkbox"></p>
+    <span class="textbox">
+        <input type="text" class="textbox__control flyout__host" aria-label="dummy textbox" />
+        <div class="flyout__live-region" aria-live="off">
+            <span class="flyout__content">
+                <p>Any kind of HTML control can go inside of a flyout...</p>
+                <p>A link: <a href="http://www.ebay.com">www.ebay.com</a></p>
+                <p>A button: <button>Click Me</button></p>
+                <p>An input: <input type="text" aria-label="Dummy textbox"></p>
+                <p>A checkbox: <input type="checkbox" aria-label="Dummy checkbox"></p>
+            </span>
         </div>
-    </div>
+    </span>
 </div>
 
 <hr />
 
-<h3>Example 4: Hover and Focus Activated (discouraged)</h3>
+<h2>Example 4: Hover and Focus Activated (discouraged)</h2>
 <p>This pattern is discouraged because it <em>forces</em> a keyboard user to navigate through all interactive items of the flyout.</p>
 <div class="flyout flyout--hover">
     <a class="flyout__host" href="http://www.ebay.com">Link</a>

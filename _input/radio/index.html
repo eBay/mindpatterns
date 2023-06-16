@@ -4,23 +4,19 @@ title: Radio
 ---
 
 <style>
+    fieldset {
+        margin-top: 32px;
+    }
     .radio-group > div {
         margin: 8px 0;
     }
 </style>
 
 <h1>{{ page.title }}</h1>
-
-<h2 class="clipped">Readme</h2>
-
-<p>Use ARROW keys to change radio option, ENTER key submits form.</p>
-<p>This example imports <a href="https://ebay.github.io/skin/#radio">skin</a> for base styles. Please <a href={{ "input/radio" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>read the documentation</a> for further developer guidance.</p>
-
+<p>A control for storing single-select form data. <a href={{ "input/radio" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>Read more</a>.</p>
 <hr />
 
-<h2 class="clipped">Examples</h2>
-
-<h3>Example 1: Native HTML Radios</h3>
+<h2>Example 1: Native HTML Radios</h2>
 <div>
     <form>
         <fieldset>
@@ -38,13 +34,13 @@ title: Radio
                 <label for="listingformat1_bin">Buy it Now</label>
             </div>
         </fieldset>
-        <input class="button" type="submit" />
+        <button class="btn btn--primary" type="submit">Submit</button>
     </form>
 </div>
 
 <hr />
 
-<h3>Example 2: Native HTML Radios with SVG</h3>
+<h2>Example 2: Native HTML Radios with SVG</h2>
 <div>
     <form>
         <fieldset class="radio-group">
@@ -54,10 +50,10 @@ title: Radio
                     <input class="radio__control" id="listingformat2_all" name="listingformat2" type="radio" value="all" />
                     <span class="radio__icon" hidden>
                         <svg class="radio__unchecked" focusable="false" height="18" width="18" aria-hidden="true">
-                            <use xlink:href="../../svg/icons.svg#icon-radio-unchecked"></use>
+                            <use xlink:href="../../static/icons.svg#icon-radio-unchecked-18"></use>
                         </svg>
                         <svg class="radio__checked" focusable="false" height="18" width="18" aria-hidden="true">
-                            <use xlink:href="../../svg/icons.svg#icon-radio-checked"></use>
+                            <use xlink:href="../../static/icons.svg#icon-radio-checked-18"></use>
                         </svg>
                     </span>
                 </span>
@@ -68,10 +64,10 @@ title: Radio
                     <input class="radio__control" id="listingformat2_auction" name="listingformat2" type="radio" value="auction" />
                     <span class="radio__icon" hidden>
                         <svg class="radio__unchecked" focusable="false" height="18" width="18" aria-hidden="true">
-                            <use xlink:href="../../svg/icons.svg#icon-radio-unchecked"></use>
+                            <use xlink:href="../../static/icons.svg#icon-radio-unchecked-18"></use>
                         </svg>
                         <svg class="radio__checked" focusable="false" height="18" width="18" aria-hidden="true">
-                            <use xlink:href="../../svg/icons.svg#icon-radio-checked"></use>
+                            <use xlink:href="../../static/icons.svg#icon-radio-checked-18"></use>
                         </svg>
                     </span>
                 </span>
@@ -82,17 +78,17 @@ title: Radio
                     <input class="radio__control" id="listingformat2_bin" name="listingformat2" type="radio" value="bin" />
                     <span class="radio__icon" hidden>
                         <svg class="radio__unchecked" focusable="false" height="18" width="18" aria-hidden="true">
-                            <use xlink:href="../../svg/icons.svg#icon-radio-unchecked"></use>
+                            <use xlink:href="../../static/icons.svg#icon-radio-unchecked-18"></use>
                         </svg>
                         <svg class="radio__checked" focusable="false" height="18" width="18" aria-hidden="true">
-                            <use xlink:href="../../svg/icons.svg#icon-radio-checked"></use>
+                            <use xlink:href="../../static/icons.svg#icon-radio-checked-18"></use>
                         </svg>
                     </span>
                 </span>
                 <label for="listingformat2_bin">Buy it Now</label>
             </div>
         </fieldset>
-        <input class="button" type="submit" />
+        <button class="btn btn--primary" type="submit">Submit</button>
     </form>
 </div>
 
