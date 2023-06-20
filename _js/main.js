@@ -30,6 +30,7 @@ import '@ebay/skin/menu-button';
 import '@ebay/skin/page-notice';
 import '@ebay/skin/pagination';
 import '@ebay/skin/radio';
+import '@ebay/skin/segmented-buttons';
 import '@ebay/skin/select';
 import '@ebay/skin/switch';
 import '@ebay/skin/textbox';
@@ -282,6 +283,23 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 document.body.classList.remove('lights-on');
             }
+        });
+    });
+
+    document.querySelectorAll('.segmented-buttons').forEach(function(widgetEl) {
+        const buttons = widgetEl.querySelectorAll('button');
+        buttons.forEach(function(buttonEl) {
+            buttonEl.addEventListener('click', function() {
+                buttons.forEach(function(el) {
+                    el.removeAttribute('aria-current');
+                });
+                buttonEl.setAttribute('aria-current', 'true');
+                widgetEl.dispatchEvent(new CustomEvent('makeup-segmented-buttons-change', {
+                    detail: {
+                        text: buttonEl.innerText
+                    }
+                }));
+            });
         });
     });
 

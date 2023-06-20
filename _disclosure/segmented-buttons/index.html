@@ -1,0 +1,50 @@
+---
+layout: page
+title: Segmented Buttons
+---
+
+<style>
+    #container {
+        display: flex;
+        flex-direction: column;
+        max-width: 730px;
+    }
+    svg {
+        margin: 16px auto;
+        max-width: 50%;
+    }
+</style>
+
+<h1>{{ page.title }}</h1>
+<p>Control the state of an object or the visibility of section content. <a href={{ "disclosure/segmented-buttons" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>Read more</a>.</p>
+
+<hr />
+
+<h2>Example 1: Change State of Object</h2>
+<p>Use segmented buttons to change the colour of the circle.</p>
+
+<div class="segmented-buttons" id="colour-switcher">
+    <ul>
+        <li><button type="button" class="segmented-buttons__button" aria-current="true">Red</button></li>
+        <li><button type="button" class="segmented-buttons__button">Blue</button></li>
+        <li><button type="button" class="segmented-buttons__button">Green</button></li>
+    </ul>
+</div>
+
+<div id="container">
+    <svg viewBox="0 0 2 2">
+        <title>Circle that changes colour</title>
+        <circle cx="1" cy="1" r="1" fill="red">
+    </svg>
+</div>
+
+<hr />
+
+<p><i>Updated</i>: Jun 20th, 2023</p>
+
+<script>
+    const circleEl = document.querySelector('circle');
+    document.querySelector('#colour-switcher').addEventListener('makeup-segmented-buttons-change', function(e) {
+        circleEl.setAttribute("fill", e.detail.text.toLowerCase());
+    });
+</script>
