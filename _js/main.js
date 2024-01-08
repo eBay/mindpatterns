@@ -7,6 +7,7 @@
 */
 
 import '../node_modules/@ebay/skin/dist/svg/icons.svg';
+import '../node_modules/@ebay/skin/dist/svg/flags.svg';
 
 import '@ebay/skin/tokens';
 import '@ebay/skin/utility';
