@@ -299,6 +299,7 @@
         var(--color-ai-solid-green-subtle) 66%,
         var(--color-ai-solid-green-subtle) 100%
     );
+    --color-icon-disabled-filter: grayscale(1) opacity(0.25);
 }
 
 .clearfix::before,
@@ -3513,8 +3514,7 @@ svg.icon {
   vertical-align: middle;
 }
 svg.icon--disabled {
-  color: var(--color-foreground-disabled);
-  fill: currentColor;
+  filter: var(--color-icon-disabled-filter);
 }
 svg.icon--attention-filled-16,
 svg.icon--attention-filled-24 {
@@ -4637,8 +4637,12 @@ div.field__group {
 .field__control + span.field__description {
   margin-left: 8px;
 }
+.field__description .icon {
+  display: inline-block;
+  margin-right: var(--spacing-50);
+}
 div.field__description {
-  margin: 2px 0 0;
+  margin: var(--spacing-100) 0 0;
 }
 .field__row {
   display: table-row;
@@ -5156,12 +5160,12 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox,
 .listbox-button button[aria-invalid="true"] {
   border-color: var(--listbox-button-invalid-border-color, var(--color-stroke-attention));
 }
-.listbox-button button.btn--form {
+.listbox-button:not(.listbox-button--error) button.btn--form {
   border-color: var(--listbox-button-border-color, var(--color-stroke-default));
 }
-.listbox-button button.btn--form:hover,
-.listbox-button button.btn--form:focus,
-.listbox-button button.btn--form:active {
+.listbox-button:not(.listbox-button--error) button.btn--form:hover,
+.listbox-button:not(.listbox-button--error) button.btn--form:focus,
+.listbox-button:not(.listbox-button--error) button.btn--form:active {
   border-color: inherit;
 }
 .listbox-button button.expand-btn--borderless,
@@ -5183,11 +5187,12 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox,
 .listbox-button.listbox-button--form button {
   background-color: var(--listbox-button-background-color, var(--color-background-secondary));
   border-color: var(--listbox-button-border-color, var(--color-stroke-default));
+  color: var(--listbox-button-foreground-color, var(--color-foreground-primary));
 }
 .listbox-button.listbox-button--form button[disabled],
 .listbox-button.listbox-button--form button[aria-disabled="true"] {
   border-color: var(--listbox-button-disabled-border-color, var(--color-background-disabled));
-  color: var(--listbox-button-disabled-foreground-color, var(--color-foreground-disabled));
+  color: var(--listbox-button-disabled-foreground-color, var(--color-foreground-primary));
 }
 .listbox-button.listbox-button--form button:focus {
   background-color: var(--combobox-textbox-focus-background-color, var(--color-background-primary));
@@ -5195,12 +5200,20 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox,
 .listbox-button.listbox-button--form button[aria-invalid="true"] {
   border-color: var(--listbox-button-invalid-border-color, var(--color-stroke-attention));
 }
+.listbox-button.listbox-button--error button:not(.btn--borderless) {
+  background-color: var(--listbox-button-background-color, var(--color-background-secondary));
+  border-color: var(--listbox-button-border-color, var(--color-stroke-attention));
+}
 .listbox-button .btn__label {
   color: var(--listbox-button-label-color, var(--color-foreground-secondary));
   margin-right: 3px;
 }
 .listbox-button--expanded .btn__label {
   color: var(--listbox-button-label-color, var(--color-foreground-primary));
+}
+.listbox-button.listbox-button--error button .btn__label,
+.listbox-button.listbox-button--error button .btn__floating-label {
+  color: var(--listbox-button-label-color, var(--color-foreground-attention));
 }
 .listbox-button .btn__text {
   font-weight: bold;
