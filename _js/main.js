@@ -58,7 +58,7 @@ import Pagination from './pagination.js';
 import Pulldown from './pulldown.js';
 import StarRating from './star-rating.js';
 import Switch from 'makeup-switch';
-import Tabs from './tabs.js';
+import Tabs from 'makeup-tabs';
 import Tile from './tile.js';
 import Tooltip from './tooltip.js';
 import LightboxDialog from 'makeup-lightbox-dialog';
@@ -305,7 +305,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.querySelectorAll('.tabs').forEach(function(widgetEl) {
-        widgetEl.addEventListener('tabs-change', logEvent);
+        widgetEl.addEventListener('makeup-tabs-change', logEvent);
 
         pageWidgets.push(new Tabs(widgetEl, {
             autoSelect: (widgetEl.dataset.autoSelect === 'true')
