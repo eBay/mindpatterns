@@ -6,19 +6,29 @@
 * https://opensource.org/licenses/MIT.
 */
 
-const dataSetKey = 'data-makeup-accordion-index';
-
 const defaultOptions = {
     autoCollapse: false
 };
 
-function onToggle(e) {
-    const itemIndex = parseInt(e.target.getAttribute(dataSetKey), 10);
-    const isOpen = this._detailsWidgets[itemIndex].open === true;
+function browserSupportsNameAttribute() {
+    return "name" in document.createElement('details');
+}
 
-    if (this._options.autoCollapse === true && isOpen) {
-        const otherWidgets = this._detailsWidgets.filter((item, index) => index !== itemIndex);
-        otherWidgets.forEach(widget => (widget.open = false));
+function onToggle(e) {
+    if (browserSupportsNameAttribute() === false) {
+        const item = e.target;
+        const groupName = item.getAttribute('name');
+  
+        // TODO: use ToggleEvent newState property instead of item.open when supported
+        if (groupName !== null && item.open === true) {
+            this.items
+                .filter(
+                    (groupItem) => groupItem !== item && groupItem.open === true && groupItem.getAttribute('name') === groupName
+                )
+                .forEach(
+                    (groupItem) => groupItem.open = false
+                );
+        }
     }
 }
 
@@ -30,11 +40,6 @@ function removeToggleListener(detailsEl) {
     detailsEl.removeEventListener('toggle', this._onToggleListener);
 }
 
-function createDetailsWidget(el, i) {
-    el.setAttribute(dataSetKey, i);
-    this._detailsWidgets.push(el);
-}
-
 export default class {
     constructor(widgetEl, selectedOptions) {
         this._options = Object.assign({}, defaultOptions, selectedOptions);
@@ -44,25 +49,23 @@ export default class {
 
         this._onToggleListener = onToggle.bind(this);
 
-        this._detailsWidgets = [];
-
-        const detailsEls = this._el.querySelectorAll('.accordion__details');
-
-        detailsEls.forEach(createDetailsWidget.bind(this));
-
         this.enableEvents();
 
         // mark the widget as progressively enhanced
         this._el.classList.add('accordion--js');
     }
 
+    get items() {
+        return [...this._el.querySelectorAll('.accordion__details')];
+    }
+
     disableEvents() {
-        this._el.querySelectorAll('.accordion__details').forEach(removeToggleListener.bind(this));
+        this.items.forEach(removeToggleListener.bind(this));
     }
 
     enableEvents() {
         if (this._destroyed !== true) {
-            this._el.querySelectorAll('.accordion__details').forEach(addToggleListener.bind(this));
+            this.items.forEach(addToggleListener.bind(this));
         }
     }
 
