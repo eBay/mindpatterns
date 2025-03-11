@@ -8,6 +8,8 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
+    base64 (0.2.0)
+    bigdecimal (3.1.9)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -15,6 +17,7 @@ GEM
     colorator (1.1.0)
     commonmarker (0.23.10)
     concurrent-ruby (1.2.2)
+    csv (3.3.2)
     dnsruby (1.70.0)
       simpleidn (~> 0.2.1)
     em-websocket (0.5.3)
@@ -254,7 +257,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  base64
+  bigdecimal
+  csv
   github-pages
 
 BUNDLED WITH
-   2.2.17
+   2.6.5
