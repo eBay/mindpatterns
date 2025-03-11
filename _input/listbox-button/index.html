@@ -186,6 +186,276 @@ title: Listbox Button
     </div>
 </div>
 
-<hr />
+<h2>Example 3: Listbox with group headers</h2>
+<p>ARROW keys move the active descendant <em>and</em> automatically updated the selected state. This behaviour is similar to a radio button group.</p>
 
+<h3>Unselected, Manual Selection</h3>
+<style>
+    [role="group"] div.listbox-button__option[role="option"] {
+        padding: 8px 30px;
+    }
+</style>
+<div class="listbox-button" data-makeup-auto-select="false">
+    <button class="btn btn--primary" style="min-width: 175px" aria-expanded="false" aria-haspopup="listbox" data-listbox-button-prefix="Color: ">
+        <span class="btn__cell">
+            <span class="btn__text">Color: -</span>
+            <svg class="icon icon--12" focusable="false" height="10" width="14" aria-hidden="true">
+                <use xlink:href="../../static/icons.svg#icon-chevron-down-12"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="listbox-button__listbox" hidden>
+        <div class="listbox-button__options" role="listbox">
+            <div id="warm-color-group-title" role="presentation" style="padding: 8px 15px">
+                <span class="listbox-button_header">Warm Colors</span>
+            </div>
+            <div class="listbox-button__option" aria-describedby="warm-color-group-title" role="option">
+                <span class="listbox-button__value">Red</span>
+                <span class="listbox-button__description">
+                    <span class="clipped" aria-hidden="true">Clipped Text</span>
+                    More information about Red
+                </span>
+                <svg class="icon icon--16" focusable="false" height="10" width="14">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" aria-describedby="warm-color-group-title" role="option">
+                <span class="listbox-button__value">Orange</span>
+                <span class="listbox-button__description">
+                    <span class="clipped" aria-hidden="true">.</span>
+                    More information about Orange
+                </span>
+                <svg class="icon icon--16" focusable="false" height="10" width="14">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" aria-disabled="true" aria-describedby="warm-color-group-title" role="option">
+                <span class="listbox-button__value">Yellow</span>
+                <span class="listbox-button__description">
+                    <span class="clipped" aria-hidden="true">Clipped Text</span>
+                    More information about Yellow
+                </span>
+                <svg class="icon icon--16" focusable="false" height="10" width="14">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+                </svg>
+            </div>
+            <div id="cool-color-group-title" role="presentation" style="padding: 8px 15px">
+                <span class="listbox-button_header">Cool Colors</span>
+            </div>
+            <div class="listbox-button__option" aria-describedby="cool-color-group-title" role="option">
+                <span class="listbox-button__value">Violet</span>
+                <span class="listbox-button__description">
+                    <span class="clipped" aria-hidden="true">Clipped Text</span>
+                    More information about Violet
+                </span>
+                <svg class="icon icon--16" focusable="false" height="10" width="14">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" aria-describedby="cool-color-group-title" role="option">
+                <span class="listbox-button__value">Blue</span>
+                <span class="listbox-button__description">
+                    <span class="clipped" aria-hidden="true">.</span>
+                    More information about Blue
+                </span>
+                <svg class="icon icon--16" focusable="false" height="10" width="14">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" aria-describedby="cool-color-group-title" role="option">
+                <span class="listbox-button__value">Green</span>
+                <span class="listbox-button__description">
+                    <span class="clipped" aria-hidden="true">Clipped Text</span>
+                    More information about Green
+                </span>
+                <svg class="icon icon--16" focusable="false" height="10" width="14">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3> Selected, Automatic Selection </h3>
+<div class="listbox-button" data-makeup-auto-select="true">
+    <button class="btn btn--primary" style="min-width: 175px" aria-expanded="false" aria-haspopup="listbox" data-listbox-button-prefix="Color: ">
+        <span class="btn__cell">
+            <span class="btn__text">Color: -</span>
+            <svg class="icon icon--12" focusable="false" height="10" width="14" aria-hidden="true">
+                <use xlink:href="../../static/icons.svg#icon-chevron-down-12"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="listbox-button__listbox" hidden>
+        <div class="listbox-button__options" role="listbox">
+            <div id="warm-color-group-title" role="presentation" style="padding: 8px 15px">
+                <span class="listbox-button_header">Warm Colors</span>
+            </div>
+            <div class="listbox-button__option" aria-describedby="warm-color-group-title" role="option"  aria-selected="true">
+                <span class="listbox-button__value">Red</span>
+                <span class="listbox-button__description">
+                    <span class="clipped" aria-hidden="true">Clipped Text</span>
+                    More information about Red
+                </span>
+                <svg class="icon icon--16" focusable="false" height="10" width="14">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" aria-describedby="warm-color-group-title" role="option">
+                <span class="listbox-button__value">Orange</span>
+                <span class="listbox-button__description">
+                    <span class="clipped" aria-hidden="true">.</span>
+                    More information about Orange
+                </span>
+                <svg class="icon icon--16" focusable="false" height="10" width="14">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" aria-disabled="true" aria-describedby="warm-color-group-title" role="option">
+                <span class="listbox-button__value">Yellow</span>
+                <span class="listbox-button__description">
+                    <span class="clipped" aria-hidden="true">Clipped Text</span>
+                    More information about Yellow
+                </span>
+                <svg class="icon icon--16" focusable="false" height="10" width="14">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+                </svg>
+            </div>
+
+            <div id="cool-color-group-title" role="presentation" style="padding: 8px 15px">
+                <span class="listbox-button_header">Cool Colors</span>
+            </div>
+            <div class="listbox-button__option" aria-describedby="cool-color-group-title" role="option">
+                <span class="listbox-button__value">Violet</span>
+                <span class="listbox-button__description">
+                    <span class="clipped" aria-hidden="true">.</span>
+                    More information about Violet
+                </span>
+                <svg class="icon icon--16" focusable="false" height="10" width="14">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" aria-describedby="cool-color-group-title" role="option" aria-selected="false">
+                <span class="listbox-button__value">Blue</span>
+                <span class="listbox-button__description">
+                    <span class="clipped" aria-hidden="true">Clipped Text</span>
+                    More information about Blue
+                </span>
+                <svg class="icon icon--16" focusable="false" height="10" width="14">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" aria-describedby="cool-color-group-title" role="option">
+                <span class="listbox-button__value">Green</span>
+                <span class="listbox-button__description">
+                    <span class="clipped" aria-hidden="true">.</span>
+                    More information about Green
+                </span>
+                <svg class="icon icon--16" focusable="false" height="10" width="14">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>Example 4: Presented as columns, AutoSelect, Selected</h3>
+<style>
+    .column-container {
+        width: 300px;
+    }
+    .column-container [role="listbox"] {
+        display: flex;
+    }
+
+    .column-container .column {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+<div class="listbox-button" data-makeup-auto-select="true">
+    <button class="btn btn--primary" style="min-width: 175px" aria-expanded="false" aria-haspopup="listbox" data-listbox-button-prefix="Color: ">
+        <span class="btn__cell">
+            <span class="btn__text">Color: -</span>
+            <svg class="icon icon--12" focusable="false" height="10" width="14" aria-hidden="true">
+                <use xlink:href="../../static/icons.svg#icon-chevron-down-12"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="listbox-button__listbox column-container" hidden>
+        <div class="listbox-button__options" role="listbox">
+            <div class="column">
+                <div id="warm-color-group-title" role="presentation" style="padding: 8px 15px">
+                    <span class="listbox-button_header">Warm Colors</span>
+                </div>
+                <div class="listbox-button__option" aria-describedby="warm-color-group-title" role="option"  aria-selected="true">
+                    <span class="listbox-button__value">Red</span>
+                    <span class="listbox-button__description">
+                        <span class="clipped" aria-hidden="true">Clipped Text</span>
+                        More information about Red
+                    </span>
+                    <svg class="icon icon--16" focusable="false" height="10" width="14">
+                        <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+                    </svg>
+                </div>
+                <div class="listbox-button__option" aria-describedby="warm-color-group-title" role="option">
+                    <span class="listbox-button__value">Orange</span>
+                    <span class="listbox-button__description">
+                        <span class="clipped" aria-hidden="true">.</span>
+                        More information about Orange
+                    </span>
+                    <svg class="icon icon--16" focusable="false" height="10" width="14">
+                        <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+                    </svg>
+                </div>
+                <div class="listbox-button__option" aria-disabled="true" aria-describedby="warm-color-group-title" role="option">
+                    <span class="listbox-button__value">Yellow</span>
+                    <span class="listbox-button__description">
+                        <span class="clipped" aria-hidden="true">Clipped Text</span>
+                        More information about Yellow
+                    </span>
+                    <svg class="icon icon--16" focusable="false" height="10" width="14">
+                        <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+                    </svg>
+                </div>
+            </div>
+            <div class="column">
+                <div id="cool-color-group-title" role="presentation" style="padding: 8px 15px">
+                    <span class="listbox-button_header">Cool Colors</span>
+                </div>
+                <div class="listbox-button__option" aria-describedby="cool-color-group-title" role="option">
+                    <span class="listbox-button__value">Violet</span>
+                    <span class="listbox-button__description">
+                        <span class="clipped" aria-hidden="true">.</span>
+                        More information about Violet
+                    </span>
+                    <svg class="icon icon--16" focusable="false" height="10" width="14">
+                        <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+                    </svg>
+                </div>
+                <div class="listbox-button__option" aria-describedby="cool-color-group-title" role="option">
+                    <span class="listbox-button__value">Blue</span>
+                    <span class="listbox-button__description">
+                        <span class="clipped" aria-hidden="true">Clipped Text</span>
+                        More information about Blue
+                    </span>
+                    <svg class="icon icon--16" focusable="false" height="10" width="14">
+                        <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+                    </svg>
+                </div>
+                <div class="listbox-button__option" aria-describedby="cool-color-group-title" role="option">
+                    <span class="listbox-button__value">Green</span>
+                    <span class="listbox-button__description">
+                        <span class="clipped" aria-hidden="true">.</span>
+                        More information about Green
+                    </span>
+                    <svg class="icon icon--16" focusable="false" height="10" width="14">
+                        <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
 <p><i>Updated: Aug 20th, 2021</i></p>
