@@ -150,10 +150,6 @@ title: Listbox
 </div>
 <hr />
 <h2>Example 3: Listbox with group headers</h2>
-<p>
-    ARROW keys move the active descendant <em>and</em> automatically updated the selected state. 
-    The selection moves through groups in the order that the options are rendered in the listbox.
-</p>
 <h3>Unselected, Manual Selection</h3>
 <style>
     div.listbox__option[role="option"], [role="presentation"] {
@@ -212,7 +208,10 @@ title: Listbox
 </div>
 
 <h3> Selected, Automatic Selection </h3>
-
+<p>
+    ARROW keys move the active descendant <em>and</em> automatically updated the selected state. 
+    The selection moves through groups in the order that the options are rendered in the listbox.
+</p>
 <div class="listbox" data-makeup-auto-select="true">
     <div aria-label="Color" class="listbox__options" role="listbox" tabindex="0">
         <div id="warm-color-group-title" class="header-container" role="presentation">

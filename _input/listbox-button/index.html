@@ -187,10 +187,6 @@ title: Listbox Button
 </div>
 <hr />
 <h2>Example 3: Listbox with group headers</h2>
-<p>
-    ARROW keys move the active descendant <em>and</em> automatically updated the selected state. 
-    The selection moves through groups in the order that the options are rendered in the listbox.
-</p>
 <h3>Unselected, Manual Selection</h3>
 <style>
     [role="group"] div.listbox-button__option[role="option"] {
@@ -283,6 +279,10 @@ title: Listbox Button
 </div>
 
 <h3> Selected, Automatic Selection </h3>
+<p>
+    ARROW keys move the active descendant <em>and</em> automatically updated the selected state. 
+    The selection moves through groups in the order that the options are rendered in the listbox.
+</p>
 <div class="listbox-button" data-makeup-auto-select="true">
     <button class="btn btn--primary" style="min-width: 175px" aria-expanded="false" aria-haspopup="listbox" data-listbox-button-prefix="Color: ">
         <span class="btn__cell">
