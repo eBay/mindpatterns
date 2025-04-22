@@ -3,6 +3,12 @@ layout: page
 title: Menu Button
 ---
 
+<style>
+    div.menu-button__menu {
+        top: auto;
+    }
+</style>
+
 <h1>{{ page.title }}</h1>
 <p>A button that expands to reveal a menu within a flyout. <a href={{ "input/menu-button" | prepend: site.patterns_baseurl | prepend: site.patterns_url }}>Read more</a>.</p>
 
@@ -10,7 +16,7 @@ title: Menu Button
 
 <h2>Example 1: Stateless</h2>
 <span class="menu-button">
-    <button class="btn btn--primary" type="button">
+    <button class="btn btn--primary" type="button" aria-haspopup="menu">
         <span class="btn__text">View Results</span>
         <svg class="icon icon--12" focusable="false" height="10" width="14" aria-hidden="true">
             <use xlink:href="../../static/icons.svg#icon-chevron-down-12"></use>
@@ -33,7 +39,7 @@ title: Menu Button
 <h2>Example 2A: Single-Select with Fixed Label</h2>
 
 <span class="menu-button">
-    <button class="btn btn--primary" type="button">
+    <button class="btn btn--primary" type="button" aria-haspopup="menu">
         <span class="btn__cell">
             <span class="btn__text">Sort Results</span>
             <svg class="icon icon--12" focusable="false" height="10" width="14" aria-hidden="true">
@@ -70,7 +76,7 @@ title: Menu Button
 <h2>Example 2B: Single-Select With Compact Label</h2>
 
 <span class="menu-button">
-    <button class="btn btn--primary" type="button" data-makeup-menu-button-prefix="Sort:" style="min-width: 150px">
+    <button class="btn btn--primary" type="button" data-makeup-menu-button-prefix="Sort:" style="min-width: 150px" aria-haspopup="menu">
         <span class="btn__cell">
             <span class="btn__text">Sort: Name</span>
             <svg class="icon icon--12" focusable="false" height="10" width="14" aria-hidden="true">
@@ -107,7 +113,7 @@ title: Menu Button
 <h2>Example 3: Multi-Select</h2>
 
 <span class="menu-button">
-    <button class="btn btn--primary" type="button">
+    <button class="btn btn--primary" type="button" aria-haspopup="menu">
         <span class="btn__cell">
             <span class="btn__text">Filter Results</span>
             <svg class="icon icon--12" focusable="false" height="10" width="14" aria-hidden="true">
@@ -138,7 +144,7 @@ title: Menu Button
 <h2>Example 4: Grouped</h2>
 
 <span class="menu-button">
-    <button class="btn btn--primary" type="button">
+    <button class="btn btn--primary" type="button" aria-haspopup="menu">
         <span class="btn__cell">
             <span class="btn__text">Customise Results</span>
             <svg class="icon icon--12" focusable="false" height="10" width="14" aria-hidden="true">
