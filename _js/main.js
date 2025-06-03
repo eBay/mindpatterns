@@ -215,14 +215,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelectorAll('.listbox').forEach(function(widgetEl) {
         pageWidgets.push(new Listbox(widgetEl, {
-            autoSelect: (widgetEl.dataset.makeupAutoSelect === 'true')
+            autoSelect: widgetEl.dataset.makeupAutoSelect === "false" ? false : true 
         }));
         widgetEl.addEventListener('makeup-listbox-change', (e) => console.log(e.type, e.detail));
     });
 
     document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
         pageWidgets.push(new ListboxButton(widgetEl, {
-            autoSelect: (widgetEl.dataset.makeupAutoSelect === 'true')
+            autoSelect: widgetEl.dataset.makeupAutoSelect === "false" ? false : true
         }));
 
         widgetEl.addEventListener('makeup-listbox-button-change', (e) => console.log(e.type, e.detail));

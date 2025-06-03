@@ -53,7 +53,75 @@ title: Listbox
 
 <hr />
 
-<h2>Example 1: Manual Selection</h2>
+<h2>Example 1: Automatic Selection (default)</h2>
+<p>ARROW keys move the active descendant <em>and</em> automatically updated the selected state. This behaviour is
+    similar to a radio button group.</p>
+
+<h3>Unselected</h3>
+
+<div class="listbox">
+    <div aria-label="Color" class="listbox__options" role="listbox">
+        <div class="listbox__option" role="option" aria-selected="false">
+            <span class="listbox__value">Red</span>
+            <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
+                <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+            </svg>
+        </div>
+        <div class="listbox__option" role="option" aria-selected="false">
+            <span class="listbox__value">Blue</span>
+            <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
+                <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+            </svg>
+        </div>
+        <div class="listbox__option" role="option" aria-selected="false" aria-disabled="true">
+            <span class="listbox__value">Yellow</span>
+            <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
+                <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+            </svg>
+        </div>
+        <div class="listbox__option" role="option" aria-selected="false">
+            <span class="listbox__value">Green</span>
+            <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
+                <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+            </svg>
+        </div>
+    </div>
+</div>
+
+<h3>Selected</h3>
+
+<div class="listbox">
+    <div aria-label="Color" class="listbox__options" role="listbox" tabindex="0">
+        <div class="listbox__option" role="option" aria-selected="false">
+            <span class="listbox__value">Red</span>
+            <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
+                <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+            </svg>
+        </div>
+        <div class="listbox__option" role="option" aria-selected="true">
+            <span class="listbox__value">Blue</span>
+            <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
+                <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+            </svg>
+        </div>
+        <div class="listbox__option" role="option" aria-selected="false" aria-disabled="true">
+            <span class="listbox__value">Yellow</span>
+            <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
+                <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+            </svg>
+        </div>
+        <div class="listbox__option" role="option" aria-selected="false">
+            <span class="listbox__value">Green</span>
+            <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
+                <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+            </svg>
+        </div>
+    </div>
+</div>
+
+<hr/>
+
+<h2>Example 2: Manual Selection</h2>
 <p>ARROW keys move the active descendant. SPACEBAR key is required to manually change the selected state.</p>
 
 <h3>Unselected</h3>
@@ -72,7 +140,7 @@ title: Listbox
                 <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
             </svg>
         </div>
-        <div class="listbox__option" role="option" aria-selected="false">
+        <div class="listbox__option" role="option" aria-selected="false" aria-disabled="true">
             <span class="listbox__value">Yellow</span>
             <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
                 <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
@@ -103,7 +171,7 @@ title: Listbox
                 <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
             </svg>
         </div>
-        <div class="listbox__option" role="option" aria-selected="false">
+        <div class="listbox__option" role="option" aria-selected="false" aria-disabled="true">
             <span class="listbox__value">Yellow</span>
             <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
                 <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
@@ -120,34 +188,48 @@ title: Listbox
 
 <hr />
 
-<h2>Example 2: Automatic Selection</h2>
-<p>ARROW keys move the active descendant <em>and</em> automatically updated the selected state. This behaviour is
-    similar to a radio button group.</p>
+<h2>Variations</h2>
+<p>The following variations demonstrate accessible descriptions, groups and columns.</p>
 
-<h3>Unselected</h3>
-
-<div class="listbox" data-makeup-auto-select="true">
+<h3>Descriptions</h3>
+<div class="listbox">
     <div aria-label="Color" class="listbox__options" role="listbox">
         <div class="listbox__option" role="option" aria-selected="false">
             <span class="listbox__value">Red</span>
+            <span class="listbox__description">
+                <span class="clipped" aria-hidden="true"> - </span>
+                Lorem ipsum dolor sit amet
+            </span>
             <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
                 <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
             </svg>
         </div>
         <div class="listbox__option" role="option" aria-selected="false">
             <span class="listbox__value">Blue</span>
+            <span class="listbox__description">
+                <span class="clipped" aria-hidden="true"> - </span>
+                Lorem ipsum dolor sit amet
+            </span>
             <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
                 <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
             </svg>
         </div>
-        <div class="listbox__option" role="option" aria-selected="false">
+        <div class="listbox__option" role="option" aria-selected="false" aria-disabled="true">
             <span class="listbox__value">Yellow</span>
+            <span class="listbox__description">
+                <span class="clipped" aria-hidden="true"> - </span>
+                Lorem ipsum dolor sit amet
+            </span>
             <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
                 <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
             </svg>
         </div>
         <div class="listbox__option" role="option" aria-selected="false">
             <span class="listbox__value">Green</span>
+            <span class="listbox__description">
+                <span class="clipped" aria-hidden="true"> - </span>
+                Lorem ipsum dolor sit amet
+            </span>
             <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
                 <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
             </svg>
@@ -155,41 +237,8 @@ title: Listbox
     </div>
 </div>
 
-<h3>Selected</h3>
-
-<div class="listbox" data-makeup-auto-select="true">
-    <div aria-label="Color" class="listbox__options" role="listbox" tabindex="0">
-        <div class="listbox__option" role="option" aria-selected="false">
-            <span class="listbox__value">Red</span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
-                <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
-            </svg>
-        </div>
-        <div class="listbox__option" role="option" aria-selected="true">
-            <span class="listbox__value">Blue</span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
-                <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
-            </svg>
-        </div>
-        <div class="listbox__option" role="option" aria-selected="false">
-            <span class="listbox__value">Yellow</span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
-                <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
-            </svg>
-        </div>
-        <div class="listbox__option" role="option" aria-selected="false">
-            <span class="listbox__value">Green</span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
-                <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
-            </svg>
-        </div>
-    </div>
-</div>
-<hr />
-
-<h2>Example 3: Groups</h2>
-
-<div class="listbox" id="groups" data-makeup-auto-select="true">
+<h3>Groups</h3>
+<div class="listbox" id="groups">
     <div class="listbox__options" role="listbox" tabindex="0">
         <div id="warm-color-group-title" class="listbox__group-title" role="presentation">
             <span>Warm Colors</span>
@@ -202,6 +251,12 @@ title: Listbox
         </div>
         <div class="listbox__option" role="option" aria-describedby="warm-color-group-title" aria-selected="false">
             <span class="listbox__value">Orange</span>
+            <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
+                <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+            </svg>
+        </div>
+        <div class="listbox__option" role="option" aria-describedby="warm-color-group-title" aria-selected="false" aria-disabled="true">
+            <span class="listbox__value">Yellow</span>
             <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
                 <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
             </svg>
@@ -235,11 +290,10 @@ title: Listbox
         </div>
     </div>
 </div>
-<h3>Layouts</h2>
 
-<h3>Responsive Columns (flat DOM)</h3>
+<h3>Groups in Responsive Columns (flat DOM)</h3>
 
-<div class="listbox listbox--responsive-columns" data-makeup-auto-select="true">
+<div class="listbox listbox--responsive-columns">
     <div class="listbox__options" role="listbox" tabindex="0">
         <div id="warm-color-group-title" class="listbox__group-title" role="presentation">
             <span>Warm Colors</span>
@@ -256,6 +310,16 @@ title: Listbox
         </div>
         <div class="listbox__option" role="option" aria-describedby="warm-color-group-title" aria-selected="false">
             <span class="listbox__value">Orange</span>
+            <span class="listbox__description">
+                <span class="clipped" aria-hidden="true"> - </span>
+                Lorem ipsum dolor sit amet
+            </span>
+            <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
+                <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+            </svg>
+        </div>
+        <div class="listbox__option" aria-describedby="cool-color-group-title" role="option" aria-selected="false" aria-disabled="true">
+            <span class="listbox__value">Yellow</span>
             <span class="listbox__description">
                 <span class="clipped" aria-hidden="true"> - </span>
                 Lorem ipsum dolor sit amet
@@ -310,9 +374,9 @@ title: Listbox
     </div>
 </div>
 
-<h3>Fixed Columns (nested DOM)</h3>
+<h3>Groups in Fixed Columns (nested DOM)</h3>
 
-<div class="listbox listbox--fixed-columns" id="fixed-columns" data-makeup-auto-select="true">
+<div class="listbox listbox--fixed-columns" id="fixed-columns">
     <div class="listbox__options" role="listbox" tabindex="0">
         <div class="listbox__column">
             <div id="warm-color-group-title" class="listbox__group-title" role="presentation">
@@ -330,6 +394,16 @@ title: Listbox
             </div>
             <div class="listbox__option" role="option" aria-describedby="warm-color-group-title" aria-selected="false">
                 <span class="listbox__value">Orange</span>
+                <span class="listbox__description">
+                    <span class="clipped" aria-hidden="true"> - </span>
+                    Lorem ipsum dolor sit amet
+                </span>
+                <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
+                    <use xlink:href="../../static/icons.svg#icon-tick-16"></use>
+                </svg>
+            </div>
+            <div class="listbox__option" aria-describedby="cool-color-group-title" role="option" aria-selected="false" aria-disabled="true">
+                <span class="listbox__value">Yellow</span>
                 <span class="listbox__description">
                     <span class="clipped" aria-hidden="true"> - </span>
                     Lorem ipsum dolor sit amet
@@ -387,4 +461,4 @@ title: Listbox
     </div>
 </div>
 
-<p><i>Updated: April 18th, 2025</i></p>
+<p><i>Updated: June 3rd, 2025</i></p>
