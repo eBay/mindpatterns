@@ -1,0 +1,37 @@
+.popover {
+    position: relative;
+}
+
+.popover .popover {
+    position: static;
+}
+
+.popover__content,
+.popover__overlay {
+    display: none;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+}
+
+.popover__trigger[aria-expanded=true] ~ .popover__live-region .popover__overlay,
+.popover__trigger[aria-expanded=true] ~ .popover__overlay,
+.popover__trigger[aria-expanded=true] ~ .popover .popover__overlay {
+    display: block;
+}
+
+.popover__host[aria-expanded=true] ~ .popover__live-region .popover__content,
+.popover__host[aria-expanded=true] ~ .popover__overlay,
+.popover__host[aria-expanded=true] ~ .popover__content,
+.popover__host[aria-expanded=true] ~ .popover .popover__content {
+    display: block;
+}
+
+.popover__trigger.clipped--stealth {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    padding: 4px 8px;
+    white-space: nowrap;
+}

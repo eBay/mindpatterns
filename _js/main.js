@@ -142,42 +142,42 @@ document.addEventListener('DOMContentLoaded', function() {
         dialogWidget._el.addEventListener('dialog-cancel', logEvent);
     });
 
-    document.querySelectorAll('.flyout--click').forEach(function(widgetEl) {
+    document.querySelectorAll('.popover--click').forEach(function(widgetEl) {
         pageWidgets.push(new Expander(widgetEl, {
-            contentSelector: '.flyout__content',
+            contentSelector: '.popover__content',
             expandOnClick: true,
             collapseOnClick: true,
             collapseOnClickOut: true,
             collapseOnFocusOut: true,
-            hostSelector: '.flyout__host'
+            hostSelector: '.popover__host'
         }));
     });
 
-    document.querySelectorAll('.flyout--focus').forEach(function(widgetEl) {
+    document.querySelectorAll('.popover--focus').forEach(function(widgetEl) {
         pageWidgets.push(new Expander(widgetEl, {
-            contentSelector: '.flyout__content',
+            contentSelector: '.popover__content',
             expandOnFocus: true,
             autoCollapse: true,
-            hostSelector: '.flyout__host'
+            hostSelector: '.popover__host'
         }));
     });
 
-    document.querySelectorAll('.flyout--hover').forEach(function(widgetEl) {
+    document.querySelectorAll('.popover--hover').forEach(function(widgetEl) {
         pageWidgets.push(new Expander(widgetEl, {
-            contentSelector: '.flyout__content',
+            contentSelector: '.popover__content',
             expandOnFocus: true,
             expandOnHover: true,
             autoCollapse: true,
-            hostSelector: '.flyout__host'
+            hostSelector: '.popover__host'
         }));
     });
 
-    document.querySelectorAll('.flyout--hover-only').forEach(function(widgetEl) {
+    document.querySelectorAll('.popover--hover-only').forEach(function(widgetEl) {
         pageWidgets.push(new Expander(widgetEl, {
-            contentSelector: '.flyout__content',
+            contentSelector: '.popover__content',
             expandOnHover: true,
             autoCollapse: true,
-            hostSelector: '.flyout__host'
+            hostSelector: '.popover__host'
         }));
     });
 
