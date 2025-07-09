@@ -13,11 +13,17 @@ const defaultOptions = {
     hostSelector: '.tooltip__host, [aria-describedby]'
 };
 
+function onDocumentKeyDown() {
+    this.expander.expanded = false;
+}
+
 export default class {
     constructor(widgetEl, selectedOptions) {
         this._options = Object.assign({}, defaultOptions, selectedOptions);
 
         this._el = widgetEl;
+
+        this._onDocumentKeyDownListener = onDocumentKeyDown.bind(this);
 
         this.expander = new Expander(widgetEl, {
             autoCollapse: true,
@@ -35,6 +41,7 @@ export default class {
     }
 
     sleep() {
+        document.removeEventListener('keydown', this._onDocumentKeyDownListener);
         this.expander.expandOnFocus = false;
         this.expander.expandOnHover = false;
     }
@@ -43,11 +50,13 @@ export default class {
         if (this._destroyed !== true) {
             this.expander.expandOnFocus = true;
             this.expander.expandOnHover = true;
+            document.addEventListener('keydown', this._onDocumentKeyDownListener);
         }
     }
 
     destroy() {
         this._destroyed = true;
         this.sleep();
+        this._onDocumentKeyDownListener = null;
     }
 }
