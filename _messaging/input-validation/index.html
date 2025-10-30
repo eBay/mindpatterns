@@ -22,15 +22,17 @@ title: Input Validation
         <div class="textbox field__control">
             <input class="textbox__control" autocomplete="false" id="age" type="text" name="age" />
         </div>
-        <div class="input-validation__status inline-notice inline-notice--attention" role="status" hidden>
-            <span class="inline-notice__header">
-                <svg focusable="false" class="icon icon--attention-filled-16" height="16" width="16" role="img" aria-label="Attention">
-                    <use href="../../static/icons.svg#icon-attention-filled-16"></use>
-                </svg>
-            </span>
-            <span class="inline-notice__main" id="notice-1">
-                <p>Please enter a valid age.</p>
-            </span>
+        <div role="status">
+            <div class="input-validation__status inline-notice inline-notice--attention" hidden>
+                <span class="inline-notice__header">
+                    <svg focusable="false" class="icon icon--attention-filled-16" height="16" width="16" role="img" aria-label="Attention">
+                        <use href="../../static/icons.svg#icon-attention-filled-16"></use>
+                    </svg>
+                </span>
+                <span class="inline-notice__main" id="notice-1">
+                    <p>Please enter a valid age.</p>
+                </span>
+            </div>
         </div>
     </div>
 </div>
@@ -41,29 +43,31 @@ title: Input Validation
         <div class="textbox field__control">
             <input class="textbox__control" autocomplete="false" id="shoesize" type="text" name="shoesize" />
         </div>
-        <div class="input-validation__status inline-notice inline-notice--attention"  role="status" hidden>
-            <span class="inline-notice__header">
-                <svg focusable="false" class="icon icon--attention-filled-16" height="16" width="16" role="img" aria-label="Attention">
-                    <use href="../../static/icons.svg#icon-attention-filled-16"></use>
-                </svg>
-            </span>
-            <span class="inline-notice__main" id="notice-2">
-                <p>Please enter a valid shoe size.</p>
-            </span>
+        <div role="status">
+            <div class="input-validation__status inline-notice inline-notice--attention" hidden>
+                <span class="inline-notice__header">
+                    <svg focusable="false" class="icon icon--attention-filled-16" height="16" width="16" role="img" aria-label="Attention">
+                        <use href="../../static/icons.svg#icon-attention-filled-16"></use>
+                    </svg>
+                </span>
+                <span class="inline-notice__main" id="notice-2">
+                    <p>Please enter a valid shoe size.</p>
+                </span>
+            </div>
         </div>
     </div>
 </div>
 
 <hr />
 
-<p><i>Updated</i>: Sep 21st, 2022</p>
+<p><i>Updated</i>: Oct 30th, 2025</p>
 
 <script>
     Array.prototype.slice.call(document.querySelectorAll('input')).forEach(function(inputEl) {
         inputEl.addEventListener('blur', function(e) {
-            const messageEl = inputEl.parentElement.nextElementSibling;
+            const messageEl = inputEl.parentElement.nextElementSibling.querySelector('.inline-notice');
             inputEl.setAttribute('aria-invalid', 'true');
-            inputEl.setAttribute('aria-describedby', messageEl.id);
+            inputEl.setAttribute('aria-describedby', messageEl.querySelector('.inline-notice__main').id);
             messageEl.hidden = false;
         });
     });
