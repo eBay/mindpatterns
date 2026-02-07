@@ -13,8 +13,10 @@ const defaultOptions = {
     hostSelector: '.tooltip__host, [aria-describedby]'
 };
 
-function onDocumentKeyDown() {
-    this.expander.expanded = false;
+function onDocumentKeyDown(e) {
+    if (e.key === 'Escape') {
+        this.expander.expanded = false;
+    }
 }
 
 export default class {
