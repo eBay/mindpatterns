@@ -1,0 +1,71 @@
+name: Dependabot security auto-merge
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
+
+jobs:
+  automerge:
+    # Only proceed if CI passed and the workflow was triggered by a pull request
+    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request'
+    concurrency:
+      group: dependabot-automerge-${{ github.event.workflow_run.head_sha }}
+      cancel-in-progress: true
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
+
+    steps:
+      - name: Get PR number for this workflow run
+        id: get-pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          # Prefer PR number from the workflow_run payload when available
+          PR_NUMBER="${{ github.event.workflow_run.pull_requests[0].number }}"
+
+          # Fallback: search all open PRs (with pagination) for matching HEAD_SHA
+          if [ -z "$PR_NUMBER" ]; then
+            PR_NUMBER=$(gh api repos/${{ github.repository }}/pulls --paginate \
+              --jq ".[] | select(.head.sha == \"$HEAD_SHA\") | .number" | head -1)
+          fi
+
+          echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
+
+      - name: Get PR author and changed files
+        id: pr-info
+        if: steps.get-pr.outputs.pr_number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.get-pr.outputs.pr_number }}
+        run: |
+          AUTHOR=$(gh api repos/${{ github.repository }}/pulls/$PR_NUMBER \
+            --jq '.user.login')
+          FILES=$(gh api repos/${{ github.repository }}/pulls/$PR_NUMBER/files \
+            --jq '[.[].filename] | join(" ")')
+          BODY=$(gh api repos/${{ github.repository }}/pulls/$PR_NUMBER \
+            --jq '.body')
+          if echo "$BODY" | grep -qE '(GHSA-[A-Za-z0-9-]+|CVE-[0-9]{4}-[0-9]+|dependabot-automerge-start)'; then
+            IS_SECURITY=true
+          else
+            IS_SECURITY=false
+          fi
+          echo "author=$AUTHOR" >> $GITHUB_OUTPUT
+          echo "files=$FILES" >> $GITHUB_OUTPUT
+          echo "is_security=$IS_SECURITY" >> $GITHUB_OUTPUT
+
+      - name: Auto-approve and merge security-only lock file updates
+        if: |
+          steps.pr-info.outputs.author == 'dependabot[bot]' &&
+          (steps.pr-info.outputs.files == 'package-lock.json' || steps.pr-info.outputs.files == 'Gemfile.lock') &&
+          steps.pr-info.outputs.is_security == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.get-pr.outputs.pr_number }}
+        run: |
+          gh pr review $PR_NUMBER --approve --repo ${{ github.repository }} \
+            --body "Auto-approving: security patch, lock file only."
+          gh pr merge $PR_NUMBER --squash --repo ${{ github.repository }}
