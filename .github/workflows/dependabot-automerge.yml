@@ -46,26 +46,51 @@ jobs:
             --jq '.user.login')
           FILES=$(gh api repos/${{ github.repository }}/pulls/$PR_NUMBER/files \
             --jq '[.[].filename] | join(" ")')
-          BODY=$(gh api repos/${{ github.repository }}/pulls/$PR_NUMBER \
-            --jq '.body')
-          if echo "$BODY" | grep -qE '(GHSA-[A-Za-z0-9-]+|CVE-[0-9]{4}-[0-9]+|dependabot-automerge-start)'; then
-            IS_SECURITY=true
-          else
-            IS_SECURITY=false
-          fi
+          TITLE=$(gh api repos/${{ github.repository }}/pulls/$PR_NUMBER \
+            --jq '.title')
           echo "author=$AUTHOR" >> $GITHUB_OUTPUT
           echo "files=$FILES" >> $GITHUB_OUTPUT
+          echo "title=$TITLE" >> $GITHUB_OUTPUT
+
+      - name: Check bumped package against open Dependabot alerts
+        id: security-check
+        if: steps.get-pr.outputs.pr_number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TITLE="${{ steps.pr-info.outputs.title }}"
+          # Dependabot PR titles look like "build(deps): bump <pkg> from X to Y"
+          PKG=$(echo "$TITLE" | sed -n 's/^.*[Bb]ump \([^ ]*\) from.*$/\1/p')
+
+          IS_SECURITY=false
+          if [ -n "$PKG" ]; then
+            MATCH=$(gh api repos/${{ github.repository }}/dependabot/alerts --paginate \
+              --jq --arg pkg "$PKG" '.[] | select(.state == "open" and .dependency.package.name == $pkg) | .number' | head -1)
+            if [ -n "$MATCH" ]; then
+              IS_SECURITY=true
+            fi
+          fi
+          echo "package=$PKG" >> $GITHUB_OUTPUT
           echo "is_security=$IS_SECURITY" >> $GITHUB_OUTPUT
 
       - name: Auto-approve and merge security-only lock file updates
         if: |
           steps.pr-info.outputs.author == 'dependabot[bot]' &&
           (steps.pr-info.outputs.files == 'package-lock.json' || steps.pr-info.outputs.files == 'Gemfile.lock') &&
-          steps.pr-info.outputs.is_security == 'true'
+          steps.security-check.outputs.is_security == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.get-pr.outputs.pr_number }}
         run: |
           gh pr review $PR_NUMBER --approve --repo ${{ github.repository }} \
             --body "Auto-approving: security patch, lock file only."
-          gh pr merge $PR_NUMBER --squash --repo ${{ github.repository }}
+
+          for attempt in 1 2 3 4 5; do
+            if gh pr merge $PR_NUMBER --squash --repo ${{ github.repository }}; then
+              exit 0
+            fi
+            echo "Merge attempt $attempt failed, retrying in 10s..."
+            sleep 10
+          done
+          echo "::error::Failed to merge PR $PR_NUMBER after 5 attempts"
+          exit 1
